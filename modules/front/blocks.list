@@ -1,8 +1,8 @@
 name=front_menu
-layout=frontground
-display=top
+display=frontground
+layout=top
 description=A top menu on the frontground
 
 name=front_center
-layout=frontground
+display=frontground
 description=A frontground of home page

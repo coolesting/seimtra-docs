@@ -1,8 +1,8 @@
 name=admin_menu
-layout=background
-display=top
+display=background
+layout=top
 description=A top menu on the background
 
 name=admin_center
-layout=background
+display=background
 description=A default block on background

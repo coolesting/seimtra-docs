@@ -1,15 +1,19 @@
 table.table
 	thead
-		th menu id
-		th module
+		th bid
 		th type
 		th name
+		th display
+		th layout
+		th order
 		th description
 	tbody
 		- @blocks.each do | row |
 			tr
-				td = row[:id]
-				td = M[row[:mid]][:module_name]
+				td = row[:bid]
 				td = row[:type]
 				td = row[:name]
+				td = row[:display]
+				td = row[:layout]
+				td = row[:order]
 				td = row[:description]
