@@ -11,9 +11,9 @@ table.table
 		- @blocks.each do | row |
 			tr
 				td = row[:bid]
-				td = row[:type]
+				td = Sbase::Block[:type][row[:type]]
 				td = row[:name]
-				td = row[:display]
-				td = row[:layout]
+				td = Sbase::Block[:display][row[:display]]
+				td = Sbase::Block[:layout][row[:layout]]
 				td = row[:order]
 				td = row[:description]

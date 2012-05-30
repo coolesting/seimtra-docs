@@ -17,4 +17,4 @@
 	color: #000;
 	background-color: #fff;
 }
-#opt { padding: 0 10px; }
+#opt, #msg { padding: 0 10px; }

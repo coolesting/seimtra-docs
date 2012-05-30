@@ -10,17 +10,18 @@ html
 			#top_menu.clear
 				- unless @links_admin.empty?
 					- @links_admin.each do | row |
-						span class="#{menu_focus(row[:link])}"
+						span class="#{menu_focus(row[:link], row[:description])}"
 							a href="#{row[:link]}" = row[:name]
 				- else
 					p No menus found
 
-			form method="post" action="#{request.path}"
+			- if settings.msg
+				#msg.clear = settings.msg
+
+			- unless settings.opt_events.empty?
 				#opt.clear
-					- unless settings.opt_events.empty?
-						- settings.opt_events.each do | event |
-							span
-								input type="radio" name="opt" id="lb_#{event}"
-								label for="lb_#{event}" = event
-						input type="submit" value=" Done "
-				#main.clear == yield
+					- if settings.opt_events.include? :add
+						a href="#{request.path}/new"
+							button Create
+
+			#main.clear == yield

@@ -1,6 +1,12 @@
 helpers do
-	def menu_focus path
-		request.path.split("/")[2] == path.split("/")[2] ? "focus" : ""
+
+	def menu_focus path, des = nil
+		reval = ""
+		if request.path.split("/")[2] == path.split("/")[2]
+			reval = "focus"
+# 			set(:msg, des) unless des == nil
+		end
+		reval
 	end
 
 	def opt_events *argv

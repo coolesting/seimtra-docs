@@ -9,4 +9,6 @@ before '/admin/*' do
 
 	#a operation bar
 	set :opt_events, {}
+
+	set :msg, nil
 end
