@@ -5,6 +5,8 @@ Sequel.migration do
 			Integer :mid
 			String :name
 			String :type
+			String :display
+			String :layout
 			String :description
 			DateTime :created
 		end

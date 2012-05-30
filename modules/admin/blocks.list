@@ -1,5 +1,8 @@
-name=default
-description=A default block
-
 name=admin_menu
-description=A frontground home page menu
+layout=background
+display=top
+description=A top menu on the background
+
+name=admin_center
+layout=background
+description=A default block on background

@@ -2,6 +2,7 @@ table.table
 	thead
 		th menu id
 		th module
+		th type
 		th name
 		th description
 	tbody
@@ -9,5 +10,6 @@ table.table
 			tr
 				td = row[:id]
 				td = M[row[:mid]][:module_name]
+				td = row[:type]
 				td = row[:name]
 				td = row[:description]
