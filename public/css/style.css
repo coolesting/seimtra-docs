@@ -1,0 +1,9 @@
+html, head, body, #wrap, form {
+	margin: 0;
+	padding: 0;
+}
+.clear {
+	clear: both;
+	margin-bottom: 10px;
+}
+#main { padding: 0 10px; }
