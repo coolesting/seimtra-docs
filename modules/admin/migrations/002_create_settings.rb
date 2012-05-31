@@ -5,6 +5,7 @@ Sequel.migration do
 			Integer :mid
 			String :skey
 			String :sval
+			DateTime :changed
 		end
 	end
 end

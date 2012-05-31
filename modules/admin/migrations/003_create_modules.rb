@@ -9,7 +9,7 @@ Sequel.migration do
 			String :status
 			String :email
 			String :author
-			String :created
+			DateTime :created
 			String :version
 			String :description
 			String :dependon

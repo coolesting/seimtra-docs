@@ -1,11 +1,13 @@
 table.table
 	thead
-		th module
+		th mid
 		th key
 		th val
+		th changed time
 	tbody
 		- @settings.each do | row |
 			tr
-				td = M[row[:mid]][:module_name]
+				td = row[:mid]
 				td = row[:skey]
 				td = row[:sval]
+				td = row[:changed]
