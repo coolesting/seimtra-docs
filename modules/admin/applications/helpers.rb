@@ -1,5 +1,13 @@
 helpers do
 
+	def iset key, val
+		DB[:settings].insert(:skey => key, :sval => val, :mid => 2)
+	end
+
+	def iget key, mid = 2
+		DB[:settings].select(:skey => key).where(:mid => mid)
+	end
+
 	def menu_focus path, des = nil
 		reval = ""
 		if request.path.split("/")[2] == path.split("/")[2]

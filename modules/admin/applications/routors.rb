@@ -18,3 +18,7 @@ get '/admin/info/t' do
 	@title += ' the back ground page'
 	slim :admin
 end
+
+configure do
+	set :login_time, Time.now
+end

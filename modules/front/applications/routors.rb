@@ -1,3 +1,3 @@
 get '/' do
-	"this is home page"
+	slim :front
 end
