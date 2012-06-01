@@ -5,8 +5,8 @@ table.table
 		th name
 		th display
 		th layout
-		th order
 		th description
+		th order
 	tbody
 		- @blocks.each do | row |
 			tr
@@ -15,5 +15,5 @@ table.table
 				td = row[:name]
 				td = Sbase::Block[:display][row[:display]]
 				td = Sbase::Block[:layout][row[:layout]]
-				td = row[:order]
 				td = row[:description]
+				td = row[:order]

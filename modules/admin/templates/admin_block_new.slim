@@ -1,1 +1,40 @@
-new block
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		li : label name
+		li : input type="text" name="name" required="required"
+
+		li : label description
+		li : textarea name="description" required="required"
+
+		li : label order
+		li : input type="number" name="order" min=0 max=999 value=0
+
+		li : label type
+		li
+			- default_item = Sbase::Block[:type].first
+			- Sbase::Block[:type].each do | item |
+				span
+					- checked = ""
+					- checked = "checked" if default_item == item
+					input type="radio" name="type" checked="#{checked}" id="lb_#{item}" value="#{item}"
+					label for="lb_#{item}" #{item}
+
+		li : label display
+		li
+			- default_item = Sbase::Block[:display].first
+			- Sbase::Block[:display].each do | item |
+				span
+					- checked = ""
+					- checked = "checked" if default_item == item
+					input type="checkbox" name="display" checked="#{checked}" id="lb_#{item}" value="#{item}"
+					label for="lb_#{item}" #{item}
+
+		li : label layout
+		li
+			- default_item = Sbase::Block[:layout].first
+			- Sbase::Block[:layout].each do | item |
+				span
+					- checked = ""
+					- checked = "checked" if default_item == item
+					input type="checkbox" name="layout" checked="#{checked}" id="lb_#{item}" value="#{item}"
+					label for="lb_#{item}" #{item}

@@ -1,8 +1,10 @@
 p this is home page ....
-p
-	a href="/set" set
-	br
-	a href="/get" get
+p = request.path
 
-br
-p = @time_now
+- arr = ["a", "b", "c"]
+form
+	- arr.each do | item |
+		- checked = ""
+		- checked = 'checked="checked"' if item == "a"
+		label #{item}
+		input type="checkbox" "#{checked}" name="#{item}"

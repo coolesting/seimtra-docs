@@ -2,7 +2,7 @@
 	padding: 5px 0;
 	background-color: #000;
 }
-#top_menu a{
+#top_menu a {
 	text-decoration: none;
 	padding: 10px;
 }
@@ -13,8 +13,16 @@
 	background-color: #fff;
 }
 
-#top_menu .focus a{
+#top_menu .focus a {
 	color: #000;
 	background-color: #fff;
 }
 #opt, #msg { padding: 0 10px; }
+
+.ul{
+	padding: 0;
+	margin: 0;
+}
+.ul li{
+	padding-bottom: 5px;
+}

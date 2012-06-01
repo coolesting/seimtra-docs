@@ -20,8 +20,12 @@ html
 
 			- unless settings.opt_events.empty?
 				#opt.clear
-					- if settings.opt_events.include? :add
-						a href="#{request.path}/new"
-							button Create
+					form
+						- if settings.opt_events.include? :new
+							a href="#{request.path}/new"
+								button New
+
+						- if settings.opt_events.include? :save
+							input type="submit" name="form" value="Click to save the info below" form="form"
 
 			#main.clear == yield
