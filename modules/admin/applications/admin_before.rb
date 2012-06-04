@@ -11,4 +11,6 @@ before '/admin/*' do
 	set :opt_events, {}
 
 	set :msg, nil
+
+	@fields	= {}
 end
