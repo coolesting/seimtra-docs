@@ -11,10 +11,24 @@ get '/admin/blocks/new' do
 end
 
 post '/admin/blocks/new' do
-	str = ""
-	params.each do | k, v |
-		str += "#{k} : #{v} <br>"
+
+	# the fields will be inserted to table of db
+	fields				= {}
+	fields[:name] 		= params[:name] ? params[:name] : ""
+	fields[:description] = params[:description] ? params[:description] : ""
+	fields[:order] 		= params[:order] ? params[:order] : 0
+
+	Sbase::Block.keys.each do | key |
+		fields[key] = 0
+		if params[key]
+			unless Sbase::Block[key].index(params[key]) == nil
+				 fields[key] = Sbase::Block[key].index(params[key])
+			end
+		end
 	end
-	str
+
+	DB[:blocks].insert(fields)
+
+	redirect "/admin/blocks"
 end
 

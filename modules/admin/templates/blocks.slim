@@ -7,6 +7,7 @@ table.table
 		th layout
 		th description
 		th order
+		th 
 	tbody
 		- @blocks.each do | row |
 			tr
@@ -17,3 +18,4 @@ table.table
 				td = Sbase::Block[:layout][row[:layout]]
 				td = row[:description]
 				td = row[:order]
+				td : a href="/admin/blocks/edit/#{row[:bid]}" modify
