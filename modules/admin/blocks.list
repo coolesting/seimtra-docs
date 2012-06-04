@@ -3,6 +3,11 @@ display=background
 layout=top
 description=A top menu on the background
 
+name=shortcut
+layout=top
+display=background
+description=A shortcut on top menu of background
+
 name=admin_center
 display=background
 description=A default block on background
