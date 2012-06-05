@@ -1,0 +1,10 @@
+table.table
+	- display_fields = [:name, :link, :status, :description, :order, :level]
+	thead
+		- display_fields.each do | item |
+			th = L[item]
+	tbody
+		- @links.each do | row |
+			tr
+				- display_fields.each do | item |
+					td = row[item]

@@ -1,8 +1,3 @@
-bid=1
-name=users
-link=/admin/users
-order=3
-
-bid=4
-name=users
-link=/users
+menu=users
+name=users list
+link=/seimtra/users

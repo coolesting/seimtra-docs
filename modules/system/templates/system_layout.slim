@@ -3,17 +3,14 @@ html
 	head
 		title = @title
 		link rel='stylesheet' type='text/css' href='/css/style.css'
-		link rel='stylesheet' type='text/css' href='/css/admin.css'
+		link rel='stylesheet' type='text/css' href='/css/system.css'
 		link rel='stylesheet' type='text/css' href='/css/table-1.css'
 	body
 		#wrap
-			#top_menu.clear
-				- unless @links_admin.empty?
-					- @links_admin.each do | row |
-						span class="#{menu_focus(row[:link], row[:description])}"
-							a href="#{row[:link]}" = row[:name]
-				- else
-					p No menus found
+			#status_bar.clear
+				- @status_bar.each do | item |
+					span class=""
+						a href="#{item[:link]}" = item[:name]
 
 			- if settings.msg
 				#msg.clear = settings.msg

@@ -1,5 +1,9 @@
 helpers do
 
+	def set_title str
+		@title = str
+	end
+
 	def iset key, val, mid = 0
 		dataset = DB[:settings].where(:skey => key.to_s, :mid => mid)
 		if dataset[:sval]
