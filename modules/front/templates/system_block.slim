@@ -4,7 +4,6 @@ table.table
 		th type
 		th name
 		th display
-		th layout
 		th description
 		th order
 		th 
@@ -15,7 +14,6 @@ table.table
 				td = Sbase::Block[:type][row[:type]]
 				td = row[:name]
 				td = Sbase::Block[:display][row[:display]]
-				td = Sbase::Block[:layout][row[:layout]]
 				td = row[:description]
 				td = row[:order]
 				td : a href="/admin/blocks/edit/#{row[:bid]}" ->

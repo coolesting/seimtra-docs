@@ -1,5 +1,7 @@
 before '/system/*' do
 
+	set_title "Seimtra system!"
+
 	#set the specifying template for admin view
 	set :slim, :layout => :system_layout
 
@@ -8,12 +10,15 @@ before '/system/*' do
 
 	set :msg, nil
 
-	@fields	= {}
+	@fields		= {}
 
-	@panel 	= DB[:panel]
-	panel 	= @panel[:link => request.path]
+	@panel 		= DB[:panel]
 
-	set_title(panel[:name].capitalize + " - " + panel[:description])
+	panel 		= @panel[:link => request.path]
+
+	if panel
+		set_title(panel[:name].capitalize + " , " + panel[:description])
+	end
 
 	@status_bar = @panel.filter(:status => 1).all
 

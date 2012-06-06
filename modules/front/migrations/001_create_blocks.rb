@@ -6,8 +6,7 @@ Sequel.migration do
 			String :name
 			Integer :type
 			Integer :display
-			Integer :layout
-			Integer :order, :size => 5, :default => 0
+			Integer :order, :size => 5, :default => 1
 			String :description
 			DateTime :created
 		end

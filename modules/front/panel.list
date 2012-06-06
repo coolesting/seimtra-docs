@@ -1,9 +1,9 @@
 menu=front
 name=front page
 link=/
-description=A front page
+description=a front page
 
 menu=front
 name=block list
-link=/system/blocks
-description=Show the block list
+link=/system/block
+description=show the block list

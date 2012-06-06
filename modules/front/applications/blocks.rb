@@ -1,43 +1,42 @@
-get '/admin/blocks' do
+get '/system/block' do
 	opt_events :new
-	@title += ' the system blocks'
 	@blocks = DB[:blocks]
-	slim :blocks
+	slim :system_block
 end
 
-get '/admin/blocks/new' do
+get '/system/block/new' do
 	opt_events :save
 	block_init_fields
-	slim :admin_block_form
+	slim :system_block_form
 end
 
-post '/admin/blocks/new' do
+post '/system/block/new' do
 
 	block_init_fields
 	if @fields[:name] != "" and @fields[:description] != ""
 		@fields.delete :bid
 		DB[:blocks].insert(@fields)
-		redirect "/admin/blocks"
+		redirect "/system/block"
 	else
 		"The required field not be null."
 	end
 
 end
 
-get '/admin/blocks/edit/:bid' do
+get '/system/block/edit/:bid' do
 	opt_events :save
 	@fields = DB[:blocks].select(:bid, :name, :description, :order, :type, :display, :layout).filter(:bid => params[:bid]).all[0]
  	block_init_fields
- 	slim :admin_block_form
+ 	slim :system_block_form
 end
 
-post '/admin/blocks/edit/:bid' do
+post '/system/block/edit/:bid' do
 	block_init_fields
 	if @fields[:name] != "" and @fields[:description] != "" and @fields[:bid].to_i > 0
 		if DB[:blocks][:bid => @fields[:bid]][:bid]
 			bid = @fields.delete :bid
 			DB[:blocks].filter(:bid => bid.to_i).update(@fields)
-			redirect "/admin/blocks"
+			redirect "/system/block"
 		end
 	else
 		"The required field not be null."
@@ -57,7 +56,7 @@ helpers do
 
 		[:bid, :order].each do | item |
 			unless @fields.include? item
-				@fields[item] = params[item] ? params[item] : 0
+				@fields[item] = params[item] ? params[item] : 1
 			end
 		end
 

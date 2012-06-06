@@ -24,14 +24,5 @@ form action="#{request.path}" method="post" id="form"
 				span
 					- checked = ""
 					- checked = "checked" if @fields[:display] == Sbase::Block[:display].index(item)
-					input type="checkbox" name="display" checked="#{checked}" id="lb_#{item}" value="#{item}"
-					label for="lb_#{item}" #{item}
-
-		li : label layout
-		li
-			- Sbase::Block[:layout].each do | item |
-				span
-					- checked = ""
-					- checked = "checked" if @fields[:layout] == Sbase::Block[:layout].index(item)
-					input type="checkbox" name="layout" checked="#{checked}" id="lb_#{item}" value="#{item}"
+					input type="radio" name="display" checked="#{checked}" id="lb_#{item}" value="#{item}"
 					label for="lb_#{item}" #{item}

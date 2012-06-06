@@ -18,7 +18,11 @@
 	background-color: #fff;
 }
 #description, #opt, #msg { padding: 0 10px; }
+
 .white { color: white; }
+.left { float: left; }
+.right { float: right; }
+
 .ul {
 	padding: 0;
 	margin: 0;

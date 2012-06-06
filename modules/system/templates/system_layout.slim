@@ -19,7 +19,7 @@ html
 				#msg.clear = settings.msg
 
 			- unless settings.opt_events.empty?
-				#opt.clear
+				#opt.right
 					form
 						- if settings.opt_events.include? :new
 							a href="#{request.path}/new"
@@ -28,4 +28,4 @@ html
 						- if settings.opt_events.include? :save
 							input type="submit" name="form" value="Click to save the info below" form="form"
 
-			#main.clear == yield
+			#main.left == yield

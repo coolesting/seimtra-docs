@@ -1,8 +1,7 @@
-name=front_menu
-display=frontground
-layout=top
-description=A top menu on the frontground
-
 name=front_center
-display=frontground
-description=A frontground of home page
+display=center
+description=the content of frontpage
+
+name=front_menu
+display=top
+description=a top menu on the frontground
