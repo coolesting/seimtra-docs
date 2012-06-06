@@ -17,7 +17,7 @@ before '/system/*' do
 	panel 		= @panel[:link => request.path]
 
 	if panel
-		set_title(panel[:name].capitalize + " , " + panel[:description])
+		set_title(panel[:name].capitalize + " - " + panel[:description])
 	end
 
 	@status_bar = @panel.filter(:status => 1).all
