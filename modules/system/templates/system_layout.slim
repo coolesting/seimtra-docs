@@ -10,7 +10,10 @@ html
 			#status_bar.clear
 				- @status_bar.each do | item |
 					span class=""
-						a href="#{item[:link]}" = item[:name]
+						a href="#{item[:link]}" = item[:name].capitalize
+
+			#description.clear
+				p = @title
 
 			- if settings.msg
 				#msg.clear = settings.msg

@@ -1,7 +1,7 @@
 Sequel.migration do
 	change do
-		create_table(:links) do
-			primary_key :lid
+		create_table(:panel) do
+			primary_key :pid
 			Integer :mid
 			String :menu
 			String :name

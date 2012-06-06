@@ -1,0 +1,7 @@
+- @menu_names.each do | menu |
+	ul.ul-1
+		li
+			h4 = menu
+			- @menus[menu].each do | row |
+					li
+						a href="#{row[:link]}" = row[:name]

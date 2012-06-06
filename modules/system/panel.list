@@ -1,0 +1,20 @@
+menu=system
+name=seimtra
+link=/system/seimtra
+description=the main menu of administration console.
+status=1
+
+menu=system
+name=panel
+link=/system/panel
+description=administrator the links of this panel.
+
+menu=system
+name=modules
+link=/system/module
+description=display the module you installed.
+
+menu=system
+name=settings
+link=/system/setting
+description=about the system settings.

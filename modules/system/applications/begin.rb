@@ -10,9 +10,11 @@ before '/system/*' do
 
 	@fields	= {}
 
-	@links = DB[:links]
-	set_title @links[:link => request.path][:description]
+	@panel 	= DB[:panel]
+	panel 	= @panel[:link => request.path]
 
-	@status_bar = @links.filter(:status => 1).all
+	set_title(panel[:name].capitalize + " - " + panel[:description])
+
+	@status_bar = @panel.filter(:status => 1).all
 
 end
