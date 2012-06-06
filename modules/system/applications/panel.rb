@@ -10,39 +10,41 @@ get '/system/panel/new' do
 end
 
 get '/system/panel/edit/:pid' do
+
 	opt_events :save
-	@fields = DB[:panel].select(:pid, :menu, :name, :link, :description, :status, :level, :order).filter(:pid => params[:pid]).all[0]
+	@fields = DB[:panel].filter(:pid => params[:pid]).all[0]
+
+# 	@fields = DB[:panel].select(:pid, :menu, :name, :link, :description, :status, :order).filter(:pid => params[:pid]).all[0]
+
  	panel_init_fields
  	slim :system_panel_form
-end
 
-#
-#   here for editing
-#
+end
 
 post '/system/panel/new' do
 
 	panel_init_fields
-	if @fields[:name] != "" and @fields[:description] != ""
-		@fields.delete :bid
-		DB[:panels].insert(@fields)
+	if @fields[:menu] != "" and @fields[:name] != "" and @fields[:link] != ""
+		@fields.delete :pid
+		DB[:panel].insert(@fields)
 		redirect "/system/panel"
 	else
-		"The required field not be null."
+		send_error 0
 	end
 
 end
 
-post '/system/panel/edit/:bid' do
+post '/system/panel/edit/:pid' do
+
 	panel_init_fields
-	if @fields[:name] != "" and @fields[:description] != "" and @fields[:bid].to_i > 0
-		if DB[:panels][:bid => @fields[:bid]][:bid]
-			bid = @fields.delete :bid
-			DB[:panels].filter(:bid => bid.to_i).update(@fields)
+	if @fields[:menu] != "" and @fields[:name] != "" and @fields[:link] != "" and @fields[:pid].to_i > 0
+		if DB[:panel][:pid => @fields[:pid]][:pid]
+			id = @fields.delete :pid
+			DB[:panel].filter(:pid => id.to_i).update(@fields)
 			redirect "/system/panel"
 		end
 	else
-		"The required field not be null."
+		send_error 0
 	end
 
 end
@@ -50,27 +52,21 @@ end
 helpers do
 
 	def panel_init_fields
+		
+		default_values = {
+			:name		=> "",
+			:link		=> "",
+			:menu		=> "",
+			:description=> "",
+			:status		=> 0,
+			:order		=> 1
+		}
 
-		[:name, :description].each do | item |
-			unless @fields.include? item
-				@fields[item] = params[item] ? params[item] : ""
-			end
-		end
+		valid_pattens = {}
 
-		[:bid, :order].each do | item |
-			unless @fields.include? item
-				@fields[item] = params[item] ? params[item] : 1
-			end
-		end
-
-		Sbase::Block.keys.each do | key |
-			unless @fields.include? key
-				@fields[key] = 0 
-				if params[key]
-					if Sbase::Block[key].index(params[key]) != nil
-						@fields[key] = Sbase::Block[key].index(params[key])
-					end
-				end
+		default_values.each do | k, v |
+			unless @fields.include? k
+				@fields[k] = params[k] ? params[k] : v
 			end
 		end
 

@@ -21,11 +21,18 @@ html
 			- unless settings.opt_events.empty?
 				#opt.right
 					form
-						- if settings.opt_events.include? :new
-							a href="#{request.path}/new"
-								button New
+						ul.ul
+							- if settings.opt_events.include? :new
+								li
+									a href="#{request.path}/new"
+										button Create
 
-						- if settings.opt_events.include? :save
-							input type="submit" name="form" value="Click here to save" form="form"
+							- if settings.opt_events.include? :save
+								li
+									input type="submit" name="form" value="Save" form="form"
+
+							li
+								a href="#{request.referer}"
+									button Return
 
 			#main.left == yield

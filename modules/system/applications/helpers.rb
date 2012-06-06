@@ -1,4 +1,13 @@
 helpers do
+	
+	def send_error num
+		case num
+			when 0
+				"The required field not be null."
+			else
+				"Unknown error"
+		end
+	end
 
 	def set_title str
 		@title = str
@@ -51,4 +60,5 @@ helpers do
 			"No file found at module #{module_name}/#{file_type}/#{file_name}"
 		end
 	end
+
 end
