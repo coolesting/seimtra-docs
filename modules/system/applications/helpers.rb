@@ -1,12 +1,7 @@
 helpers do
 	
 	def send_error num
-		case num
-			when 0
-				"The required field not be null."
-			else
-				"Unknown error"
-		end
+		redirect("/system/errors/#{num}") unless num == 0
 	end
 
 	def set_title str

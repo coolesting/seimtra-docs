@@ -23,56 +23,62 @@ end
 
 post '/system/panel/new' do
 
-	panel_process_fields :valid
-	@fields.delete :pid
+	panel_process_fields
+
 	DB[:panel].insert(@fields)
+
 	redirect "/system/panel"
 
 end
 
 post '/system/panel/edit/:pid' do
 
-	panel_process_fields :valid
+	panel_process_fields
 
-	if params[:opt] == "Remove"
-		DB[:panel].delete(:pid => @fields[:pid])
-	elsif params[:opt] == "Save"
-		id = @fields.delete :pid
-		DB[:panel].filter(:pid => id.to_i).update(@fields)
+	dataset = DB[:panel].filter(:pid => params[:pid].to_i)
+
+	if dataset
+		if params[:opt] == "Remove"
+			dataset.delete
+		elsif params[:opt] == "Save"
+			dataset.update(@fields)
+		end
 	end
-	redirect "/system/panel"
 
+	redirect "/system/panel"
 
 end
 
 helpers do
 
-	def panel_process_fields opt = :init, data = {}
-		
-		if opt == :valid
+	def panel_process_fields data = {}
 
-			valid_pattens = {}
+		default_values = {
+			:name			=> "",
+			:link			=> "",
+			:menu			=> "",
+			:description	=> "",
+			:status			=> 0,
+			:order			=> 1
+		}
 
-			if DB[:panel][:pid => @fields[:pid]][:pid]
+		default_values.each do | k, v |
+			unless @fields.include? k
+				@fields[k] = params[k] ? params[k] : v
 			end
-		
-		elsif opt == :init
+		end
 
-			default_values = {
-				:name		=> "",
-				:link		=> "",
-				:menu		=> "",
-				:description=> "",
-				:status		=> 0,
-				:order		=> 1
-			}
+		unless data.empty?
 
+			error_msg = 0
 
-			default_values.each do | k, v |
-				unless @fields.include? k
-					@fields[k] = params[k] ? params[k] : v
+			if data.include? :no_null
+				data[:no_null].each do | field |
+					error_msg = 1 if field == ""
 				end
 			end
+
+			send_error error_msg
 
 		end
 

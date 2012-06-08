@@ -19,3 +19,14 @@ get '/system/setting' do
 	@settings = DB[:settings]
 	slim :system_setting
 end
+
+get '/system/errors/:id' do
+	msg = ""
+	case params[:id]
+		when 1
+			msg = "The required field is not null."
+		when 2
+			msg = "The keyword is not existing."
+	end
+	slim :system_errors
+end
