@@ -1,7 +1,7 @@
 menu=system
 name=seimtra
 link=/system/seimtra
-description=the main panel of administration console.
+description=show all of system menu.
 status=1
 
 menu=system
