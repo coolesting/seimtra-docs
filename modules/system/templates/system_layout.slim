@@ -29,7 +29,11 @@ html
 
 							- if settings.opt_events.include? :save
 								li
-									input type="submit" name="form" value="Save" form="form"
+									input type="submit" name="opt" value="Save" form="form"
+
+							- if settings.opt_events.include? :save
+								li
+									input type="submit" name="opt" value="Remove" form="form"
 
 							li
 								a href="#{request.referer}"
