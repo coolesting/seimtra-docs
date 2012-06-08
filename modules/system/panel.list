@@ -5,7 +5,7 @@ description=show all of system menu.
 status=1
 
 menu=system
-name=panel
+name=panel list
 link=/system/panel
 description=administrator the links of this panel.
 
