@@ -9,7 +9,6 @@ Sequel.migration do
 			String :description
 			Integer :status, :size => 1, :default => 0
 			Integer :order, :size => 5, :default => 1
-			Integer :level, :size => 5, :default => 1
 		end
 	end
 end
