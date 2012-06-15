@@ -13,11 +13,6 @@ def get_file file
 	result
 end
 
-def iset key, val
-	set key, val
-	DB[:settings].insert(:skey => key, :sval => val)
-end
-
 class L
 	@@options = {}
 
