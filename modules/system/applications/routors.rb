@@ -16,7 +16,7 @@ get '/system/module' do
 end
 
 get '/system/setting' do
-	@settings = DB[:settings]
+	@settings = DB[:setting]
 	slim :system_setting
 end
 

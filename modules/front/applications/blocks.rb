@@ -1,6 +1,6 @@
 get '/system/block' do
 	opt_events :new
-	@blocks = DB[:blocks]
+	@blocks = DB[:block]
 	slim :system_block
 end
 
@@ -15,7 +15,7 @@ post '/system/block/new' do
 	block_init_fields
 	if @fields[:name] != "" and @fields[:description] != ""
 		@fields.delete :bid
-		DB[:blocks].insert(@fields)
+		DB[:block].insert(@fields)
 		redirect "/system/block"
 	else
 		"The required field not be null."
@@ -25,7 +25,7 @@ end
 
 get '/system/block/edit/:bid' do
 	opt_events :save
-	@fields = DB[:blocks].select(:bid, :name, :description, :order, :type, :display, :layout).filter(:bid => params[:bid]).all[0]
+	@fields = DB[:block].select(:bid, :name, :description, :order, :type, :display, :layout).filter(:bid => params[:bid]).all[0]
  	block_init_fields
  	slim :system_block_form
 end
@@ -33,9 +33,9 @@ end
 post '/system/block/edit/:bid' do
 	block_init_fields
 	if @fields[:name] != "" and @fields[:description] != "" and @fields[:bid].to_i > 0
-		if DB[:blocks][:bid => @fields[:bid]][:bid]
+		if DB[:block][:bid => @fields[:bid]][:bid]
 			bid = @fields.delete :bid
-			DB[:blocks].filter(:bid => bid.to_i).update(@fields)
+			DB[:block].filter(:bid => bid.to_i).update(@fields)
 			redirect "/system/block"
 		end
 	else

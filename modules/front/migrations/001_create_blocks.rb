@@ -1,6 +1,6 @@
 Sequel.migration do
 	change do
-		create_table(:blocks) do
+		create_table(:block) do
 			primary_key :bid
 			Integer :mid
 			String :name

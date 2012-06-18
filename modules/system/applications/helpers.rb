@@ -9,16 +9,16 @@ helpers do
 	end
 
 	def iset key, val, mid = 0
-		dataset = DB[:settings].where(:skey => key.to_s, :mid => mid)
+		dataset = DB[:setting].where(:skey => key.to_s, :mid => mid)
 		if dataset[:sval]
 			dataset.update(:sval => val, :changed => Time.now)
 		else
-			DB[:settings].insert(:skey => key.to_s, :sval => val.to_s, :mid => mid, :changed => Time.now)
+			DB[:setting].insert(:skey => key.to_s, :sval => val.to_s, :mid => mid, :changed => Time.now)
 		end
 	end
 
 	def iget key, mid = 0
-		sval = DB[:settings].filter(:skey => key.to_s, :mid => mid).get(:sval)
+		sval = DB[:setting].filter(:skey => key.to_s, :mid => mid).get(:sval)
 		sval ? sval.to_s : ""
 	end
 
