@@ -14,10 +14,11 @@ before '/system/*' do
 
 	@panel 		= DB[:panel]
 
-	panel 		= @panel[:link => request.path]
+	panel_name 	= @panel.filter(:link => request.path).get(:name)
+	panel_des 	= @panel.filter(:link => request.path).get(:description)
 
-	if panel
-		set_title(panel[:name].capitalize + " - " + panel[:description])
+	if panel_name and panel_des
+		set_title(panel_name.capitalize + " - " + panel_des)
 	end
 
 	@status_bar = @panel.filter(:status => 1).all
