@@ -1,3 +1,7 @@
+get '/3s' do
+	redirect '/system/seimtra'
+end
+
 get '/system/seimtra' do
 	@menus = {}
 	@menu_names = []
