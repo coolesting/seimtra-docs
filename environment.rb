@@ -59,6 +59,8 @@ configure do
 	set :home_page, '/index.html'
 
 	set :cache_static_file, false
+
+	set :lang, 'en'
 end
 
 # get '/' do

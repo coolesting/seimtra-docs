@@ -45,7 +45,7 @@ M.each do | mid, row |
 		applications += Dir[settings.root + "/modules/#{row[:module_name]}/applications/*.rb"]
 
 		#preprocess the language loaded packets
-		language = row.include?('lang') ? row['lang'] : "en"
+		language = settings.lang ? settings.lang : "en"
 		path = settings.root + "/modules/#{row[:module_name]}/languages/#{language}.lang"
 		languages << File.read(path) if File.exist?(path)
 	end
