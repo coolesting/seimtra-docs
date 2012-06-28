@@ -1,3 +1,6 @@
 *.swp
 *.gem
-db/data.db
+db/*
+modules/*
+!modules/system/*
+!modules/users/*
