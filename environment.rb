@@ -46,13 +46,12 @@ configure do
 	#	gem install sqlite3
 	set :db_sqlite, 'sqlite://db/data.db'
 
-	#change the db_connect that you want
-	#if you not need the database, set the value as 'closed'
+	#set the db_connect here, which you want
 	set :db_connect, settings.db_sqlite
 
 	DB = Sequel.connect(settings.db_connect)
 
-	#set for rackup
+	#set the log for output
 	disable :logging
 
 	#define the home page
@@ -61,6 +60,6 @@ configure do
 	set :cache_static_file, false
 end
 
-# get '/' do
-# 	status, headers, body = call! env.merge("PATH_INFO" => settings.home_page)
-# end
+get '/' do
+	status, headers, body = call! env.merge("path_info" => settings.home_page)
+end
