@@ -55,11 +55,8 @@ configure do
 	disable :logging
 
 	#define the home page
-	set :home_page, '/index.html'
+	set :home_page, '/3s'
 
 	set :cache_static_file, false
-end
 
-get '/' do
-	status, headers, body = call! env.merge("path_info" => settings.home_page)
 end

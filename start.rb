@@ -5,6 +5,11 @@ include Seimtra
 require './environment'
 require './lib'
 
+#set the default page
+get '/' do
+	status, headers, body = call! env.merge("PATH_INFO" => settings.home_page)
+end
+
 templates = []
 languages = ""
 applications = []
