@@ -1,0 +1,17 @@
+table.table
+	thead
+		th = L[:uid]
+		th = L[:name]
+		th = L[:pawd]
+		th = L[:created]
+		th = L[:changed]
+		th
+	tbody
+		- @user.each do | row |
+			tr
+				td = row[:uid]
+				td = row[:name]
+				td = row[:pawd]
+				td = row[:created]
+				td = row[:changed]
+				td : a href="/system/user/edit/#{row[:uid]}" ->

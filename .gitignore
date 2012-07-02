@@ -2,6 +2,6 @@
 *.gem
 db/*
 modules/*
-!modules/system/*
-!modules/front/*
-!modules/user/*
+!modules/system
+!modules/front
+!modules/user

@@ -1,0 +1,4 @@
+menu=user
+name=user
+link=/system/user
+description=a user module

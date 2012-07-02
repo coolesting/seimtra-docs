@@ -1,0 +1,7 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		li : label username
+		li : input type="text" name="name" required="required" value="#{@fields[:name]}"
+
+		li : label password
+		li : input type="text" name="pawd" required="required" value="#{@fields[:pawd]}"
