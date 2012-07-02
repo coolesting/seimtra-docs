@@ -3,8 +3,8 @@ Sequel.migration do
 		create_table(:modules) do
 			primary_key :mid
 			Integer :load_order
-			String :module_name
-			String :group_name
+			String :name
+			String :group
 			String :opened
 			String :status
 			String :email

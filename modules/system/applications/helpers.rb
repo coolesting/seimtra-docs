@@ -1,7 +1,7 @@
 helpers do
 	
-	def send_error num
-		redirect("/system/errors/#{num}") unless num == 0
+	def throw_error str
+		redirect("/system/errors/#{str}") 	
 	end
 
 	def set_title str

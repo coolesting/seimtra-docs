@@ -70,15 +70,11 @@ helpers do
 
 		unless data.empty?
 
-			error_msg = 0
-
 			if data.include? :no_null
 				data[:no_null].each do | field |
-					error_msg = 1 if field == ""
+					throw_error "The #{fields} can not be empty." if field == ""
 				end
 			end
-
-			send_error error_msg
 
 		end
 

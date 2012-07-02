@@ -44,14 +44,14 @@ end
 M.each do | mid, row |
 	if row[:opened] == "on"
 		#preprocess the templates loaded item
-		templates << settings.root + "/modules/#{row[:module_name]}/templates"
+		templates << settings.root + "/modules/#{row[:name]}/templates"
 
 		#preprocess the applications loaded routors
-		applications += Dir[settings.root + "/modules/#{row[:module_name]}/applications/*.rb"]
+		applications += Dir[settings.root + "/modules/#{row[:name]}/applications/*.rb"]
 
 		#preprocess the language loaded packets
 		language = row.include?('lang') ? row['lang'] : "en"
-		path = settings.root + "/modules/#{row[:module_name]}/languages/#{language}.lang"
+		path = settings.root + "/modules/#{row[:name]}/languages/#{language}.lang"
 		languages << File.read(path) if File.exist?(path)
 	end
 end

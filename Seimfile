@@ -1,4 +1,4 @@
-changed=2012-05-24 22:50:00 -0700
+changed=2012-06-29 21:10:12 -0700
 status=production
 email=empty
 author=unknown
@@ -8,5 +8,3 @@ root_privilege=TzQfno320lbw
 log=off
 log_path=/home/zcdny/repo/log/default
 module_focus=front
-local_repos=/home/zcdny/SeimRepos
-remote_repos=

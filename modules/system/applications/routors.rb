@@ -24,13 +24,7 @@ get '/system/setting' do
 	slim :system_setting
 end
 
-get '/system/errors/:id' do
-	msg = ""
-	case params[:id]
-		when 1
-			msg = "The required field is not null."
-		when 2
-			msg = "The keyword is not existing."
-	end
+get '/system/errors/:msg' do
+	@error_msg = params[:msg]
 	slim :system_errors
 end
