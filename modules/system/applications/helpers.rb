@@ -1,5 +1,8 @@
 helpers do
-	
+
+	def to_json_str hash
+	end
+
 	def throw_error str
 		redirect("/system/errors/#{str}") 	
 	end

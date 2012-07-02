@@ -23,4 +23,15 @@ before '/system/*' do
 
 	@status_bar = @panel.filter(:status => 1).all
 
+	@menus = {}
+	@menu_names = []
+	@panel.each do | row |
+		unless @menus.include? row[:menu]
+			@menu_names << row[:menu]
+			@menus[row[:menu]] = [] 
+		end
+		@menus[row[:menu]] << row 
+	end
+	
+	@menus_json = to_json_str @menus
 end

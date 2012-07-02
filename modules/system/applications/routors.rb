@@ -3,15 +3,6 @@ get '/3s' do
 end
 
 get '/system/seimtra' do
-	@menus = {}
-	@menu_names = []
-	@panel.each do | row |
-		unless @menus.include? row[:menu]
-			@menu_names << row[:menu]
-			@menus[row[:menu]] = [] 
-		end
-		@menus[row[:menu]] << row 
-	end
   	slim :system_seimtra
 end
 
