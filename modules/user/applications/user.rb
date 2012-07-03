@@ -23,15 +23,15 @@ end
 
 post '/system/user/new' do
 
-	user_valid(params[:name], params[:pawd])
-	user_add(params[:name], params[:pawd])
+	user_valid params[:name], params[:pawd]
+	user_add params[:name], params[:pawd]
 	redirect "/system/user"
 
 end
 
 post '/system/user/edit/:uid' do
 
-	user_valid(params[:name], params[:pawd])
+	user_valid params[:name], params[:pawd]
 
 	if params[:opt] == "Remove"
 		user_delete params[:uid]
@@ -43,7 +43,29 @@ post '/system/user/edit/:uid' do
 
 end
 
+get '/user/info' do
+	"user info"
+end
+
+get '/user/login' do
+	user_valid params[:name], params[:pawd]
+	user_login params[:name], params[:pawd]
+	redirect "/user/info"
+end
+
 helpers do
+
+	def user_login name, pawd
+		throw_error "The user is not existing." unless user_exist? name
+		ds = DB[:user].filter(:name => name).all[0]
+		require "digest/sha1"
+		if ds[:pawd] == Digest::SHA1.hexdigest(pawd + ds[:salt])
+			#update login time
+			#set the user status to cookie
+		else
+			throw_error "The username and password is not matching, or wrong."
+		end
+	end
 
 	# delete a user
 	# @uid, integer, delete record with the key id
