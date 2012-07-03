@@ -33,5 +33,5 @@ before '/system/*' do
 		@menus[row[:menu]] << row 
 	end
 	
-	@menus_json = to_json_str @menus
+	@menus_json = sys_json @menus
 end

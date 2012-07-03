@@ -1,6 +1,6 @@
 helpers do
 
-	def to_json_str hash
+	def sys_json hash
 	end
 
 	def throw_error str
@@ -11,7 +11,7 @@ helpers do
 		@title = str
 	end
 
-	def iset key, val, mid = 0
+	def sys_set key, val, mid = 0
 		dataset = DB[:setting].where(:skey => key.to_s, :mid => mid)
 		if dataset[:sval]
 			dataset.update(:sval => val, :changed => Time.now)
@@ -20,7 +20,7 @@ helpers do
 		end
 	end
 
-	def iget key, mid = 0
+	def sys_get key, mid = 0
 		sval = DB[:setting].filter(:skey => key.to_s, :mid => mid).get(:sval)
 		sval ? sval.to_s : ""
 	end
