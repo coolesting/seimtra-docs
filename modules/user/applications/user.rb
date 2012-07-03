@@ -36,11 +36,7 @@ post '/system/user/edit/:uid' do
 	if params[:opt] == "Remove"
 		user_delete params[:uid]
 	elsif params[:opt] == "Save"
-		fields = {}
-		params.each do | key, val |
-			fields[key.to_sym] = val
-		end
-		user_update fields
+		user_edit
 	end
 
 	redirect "/system/user"
@@ -55,9 +51,7 @@ helpers do
 		DB[:user].filter(:uid => uid.to_i).delete
 	end
 
-	# update the basic user info
-	# @params, hash, the key-value likes params[:uid], params[:name], params[:pawd]
-	def user_update params
+	def user_edit
 		throw_error "No uid." unless params.include? :uid
 
 		fields			= {}
@@ -73,7 +67,7 @@ helpers do
 		throw_error "Nothing to be update." if fields.empty? 
 		DB[:user].filter(:uid => params[:uid].to_i).update(fields)
 	end
-	
+
 	# add a new user
 	# @name string
 	# @pawd string
@@ -88,18 +82,16 @@ helpers do
 		require "digest/sha1"
 		fields[:pawd] 		= Digest::SHA1.hexdigest(pawd.to_s + fields[:salt])
 
-		uid = 0
-		unless user_exist? name
-			DB[:user].insert(fields)
-			uid = DB[:user].filter(:name => name).get(:uid)
-		end
-		uid
+		throw_error "The user is existing." if user_exist? name
+
+		DB[:user].insert(fields)
+		uid = DB[:user].filter(:name => name).get(:uid)
+		uid ? uid : 0
 	end
 
 	def user_valid name, pawd
-		return false unless name.length > 2	
-		return false unless pawd.length > 2	
-		true
+		throw_error "The username need to bigger than two size." unless name.length > 2	
+		throw_error "The password need to bigger than two size." unless pawd.length > 2	
 	end
 
 	def user_exist? name
