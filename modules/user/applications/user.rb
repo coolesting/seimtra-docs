@@ -44,24 +44,44 @@ post '/system/user/edit/:uid' do
 end
 
 get '/user/info' do
-	"user info"
+	"user info \n uid = #{request.cookies['uid']},  name = #{request.cookies['name']}"
+end
+
+get '/user/logout' do
+	user_logout
+	redirect "/"
 end
 
 get '/user/login' do
+	slim :user_login
+end
+
+post '/user/login' do
+
 	user_valid params[:name], params[:pawd]
 	user_login params[:name], params[:pawd]
 	redirect "/user/info"
+
 end
 
 helpers do
 
+	def user_logout
+		response.set_cookie "uid", 0
+		response.set_cookie "name", ""
+	end
+
 	def user_login name, pawd
 		throw_error "The user is not existing." unless user_exist? name
-		ds = DB[:user].filter(:name => name).all[0]
+		ds = DB[:user].filter(:name => name)
 		require "digest/sha1"
-		if ds[:pawd] == Digest::SHA1.hexdigest(pawd + ds[:salt])
+		if ds.get(:pawd) == Digest::SHA1.hexdigest(pawd + ds.get(:salt))
 			#update login time
+			ds.update(:changed => Time.now)
+
 			#set the user status to cookie
+			response.set_cookie "uid", ds.get(:uid)
+			response.set_cookie "name", ds.get(:name)
 		else
 			throw_error "The username and password is not matching, or wrong."
 		end
