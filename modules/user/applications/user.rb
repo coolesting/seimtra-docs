@@ -44,7 +44,7 @@ post '/system/user/edit/:uid' do
 end
 
 get '/user/info' do
-	"user info \n uid = #{request.cookies['uid']},  name = #{request.cookies['name']}"
+	"user sid = #{request.cookies['sid']}"
 end
 
 get '/user/logout' do
@@ -67,8 +67,7 @@ end
 helpers do
 
 	def user_logout
-		response.set_cookie "uid", 0
-		response.set_cookie "name", ""
+		response.set_cookie "sid", ""
 	end
 
 	def user_login name, pawd
@@ -79,9 +78,12 @@ helpers do
 			#update login time
 			ds.update(:changed => Time.now)
 
-			#set the user status to cookie
-			response.set_cookie "uid", ds.get(:uid)
-			response.set_cookie "name", ds.get(:name)
+			sid = Digest::SHA1.hexdigest(name + Time.now.to_s
+
+			#set sid to client cookie
+			response.set_cookie "sid", sid)
+
+			#sign user in server
 		else
 			throw_error "The username and password is not matching, or wrong."
 		end
