@@ -68,6 +68,7 @@ helpers do
 
 	def user_logout
 		response.set_cookie "sid", ""
+		user_session_remove request.cookies['sid']
 	end
 
 	def user_login name, pawd
@@ -84,6 +85,7 @@ helpers do
 			response.set_cookie "sid", sid
 
 			#sign user in server
+			user_session_update sid, ds.get(:uid)
 		else
 			throw_error "The username and password is not matching, or wrong."
 		end
@@ -143,30 +145,20 @@ helpers do
 		uid ? true : false
 	end
 
-	def user_process_fields data = {}
-		
-		default_values = {
-			:uid		=> '',
-			:name		=> '',
-			:pawd		=> '',
-		}
-
-		default_values.each do | k, v |
-			unless @fields.include? k
-				@fields[k] = params[k] ? params[k] : v
-			end
+	# set a user session in server
+	# @sid, string, the session id
+	# @uid, integer, the user id
+	def user_session_update sid = "", uid = 0
+		ds = DB[:user_session].filter(:sid => sid)
+		if ds
+			ds.update(:changed => Time.now)
+		else
+			DB[:user_session].insert(:sid => sid, :uid => uid.to_i, :changed => Time.now)
 		end
+	end
 
-		unless data.empty?
-
-			if data.include? :no_null
-				data[:no_null].each do | field |
-					throw_error "The #{fields} can not be empty." if field == ""
-				end
-			end
-
-		end
-
+	def user_session_remove sid
+		DB[:user_session].filter(:sid => sid).delete
 	end
 
 end
