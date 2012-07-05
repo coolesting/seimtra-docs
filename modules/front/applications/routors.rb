@@ -1,3 +1,3 @@
 get '/' do
-	"front page"
+	slim :front
 end

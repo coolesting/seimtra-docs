@@ -1,11 +1,11 @@
 get '/system/block' do
-	opt_events :new
+	sys_opt :new
 	@blocks = DB[:block]
 	slim :system_block
 end
 
 get '/system/block/new' do
-	opt_events :save
+	sys_opt :save
 	block_init_fields
 	slim :system_block_form
 end
@@ -24,7 +24,7 @@ post '/system/block/new' do
 end
 
 get '/system/block/edit/:bid' do
-	opt_events :save
+	sys_opt :save
 	@fields = DB[:block].select(:bid, :name, :description, :order, :type, :display, :layout).filter(:bid => params[:bid]).all[0]
  	block_init_fields
  	slim :system_block_form

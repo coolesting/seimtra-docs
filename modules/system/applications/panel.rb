@@ -1,17 +1,17 @@
 get '/system/panel' do
-	opt_events :new
+	sys_opt :new
 	slim :system_panel
 end
 
 get '/system/panel/new' do
-	opt_events :save
+	sys_opt :save
 	panel_process_fields
 	slim :system_panel_form
 end
 
 get '/system/panel/edit/:pid' do
 
-	opt_events :save, :remove
+	sys_opt :save, :remove
 	@fields = DB[:panel].filter(:pid => params[:pid]).all[0]
 
 # 	@fields = DB[:panel].select(:pid, :menu, :name, :link, :description, :status, :order).filter(:pid => params[:pid]).all[0]

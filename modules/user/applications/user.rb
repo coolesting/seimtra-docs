@@ -1,6 +1,6 @@
 get '/system/user' do
 
-	opt_events :new
+	sys_opt :new
 	@user = DB[:user]
 	slim :system_user
 
@@ -8,14 +8,14 @@ end
 
 get '/system/user/new' do
 
-	opt_events :save
+	sys_opt :save
 	slim :system_user_form
 
 end
 
 get '/system/user/edit/:uid' do
 
-	opt_events :save, :remove
+	sys_opt :save, :remove
 	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
  	slim :system_user_form
 
@@ -78,10 +78,10 @@ helpers do
 			#update login time
 			ds.update(:changed => Time.now)
 
-			sid = Digest::SHA1.hexdigest(name + Time.now.to_s
+			sid = Digest::SHA1.hexdigest(name + Time.now.to_s)
 
 			#set sid to client cookie
-			response.set_cookie "sid", sid)
+			response.set_cookie "sid", sid
 
 			#sign user in server
 		else
@@ -96,12 +96,12 @@ helpers do
 	end
 
 	def user_edit
-		throw_error "No uid." unless params.include? :uid
+		throw_error "No uid." unless params[:uid]
 
 		fields			= {}
-		fields[:name]	= params[:name] if params.include? :name
+		fields[:name]	= params[:name] if params[:name]
 		
-		if params.include? :pawd
+		if params[:pawd]
 			ds = DB[:user].filter(:uid => params[:uid].to_i).all[0]
 			unless ds[:pawd] == params[:pawd]
 				fields[:pawd] = Digest::SHA1.hexdigest(params[:pawd] + ds[:salt])

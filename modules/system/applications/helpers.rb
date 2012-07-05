@@ -7,7 +7,7 @@ helpers do
 		redirect("/system/errors/#{str}") 	
 	end
 
-	def set_title str
+	def sys_title str
 		@title = str
 	end
 
@@ -29,17 +29,17 @@ helpers do
 		reval = ""
 		if request.path.split("/")[2] == path.split("/")[2]
 			reval = "focus"
-# 			set(:msg, des) unless des == nil
+# 			set(:sys_msg, des) unless des == nil
 		end
 		reval
 	end
 
-	def opt_events *argv
-		set :opt_events, argv
+	def sys_opt *argv
+		set :sys_opt, argv
 	end
 
 	#provide the static file , like css, images, js.
-	def static_file file_name, folder
+	def sys_file file_name, folder
 
 		module_name = file_name.index('_') ? file_name.split('_').first : file_name.split('.').first
 		file_type = file_name.index('.') ? file_name.split('.').last : ''

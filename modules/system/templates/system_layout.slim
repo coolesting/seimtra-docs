@@ -15,23 +15,23 @@ html
 			#description.clear
 				p = @title
 
-			- if settings.msg
-				#msg.clear = settings.msg
+			- if settings.sys_msg
+				#msg.clear = settings.sys_msg
 
-			- unless settings.opt_events.empty?
+			- unless settings.sys_opt.empty?
 				#opt.right
 					form
 						ul.ul
-							- if settings.opt_events.include? :new
+							- if settings.sys_opt.include? :new
 								li
 									a href="#{request.path}/new"
 										button Create
 
-							- if settings.opt_events.include? :save
+							- if settings.sys_opt.include? :save
 								li
 									input type="submit" name="opt" value="Save" form="form"
 
-							- if settings.opt_events.include? :remove
+							- if settings.sys_opt.include? :remove
 								li
 									input type="submit" name="opt" value="Remove" form="form"
 

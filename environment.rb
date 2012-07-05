@@ -55,7 +55,7 @@ configure do
 	disable :logging
 
 	#define the home page
-	set :home_page, '/3s'
+	set :home_page, '/user/info'
 
 	set :cache_static_file, false
 
