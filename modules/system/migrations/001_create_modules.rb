@@ -1,6 +1,6 @@
 Sequel.migration do
 	change do
-		create_table(:modules) do
+		create_table(:module) do
 			primary_key :mid
 			Integer :load_order
 			String :name

@@ -1,13 +1,11 @@
 Sequel.migration do
 	change do
-		create_table(:panel) do
-			primary_key :pid
-			Integer :mid
-			String :menu
+		create_table(:menu) do
+			primary_key :mid
 			String :name
 			String :link
 			String :description
-			Integer :status, :size => 1, :default => 0
+			Integer :premid, :default => 0
 			Integer :order, :size => 5, :default => 1
 		end
 	end

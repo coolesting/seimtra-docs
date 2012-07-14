@@ -66,6 +66,14 @@ end
 
 helpers do
 
+	def user_login?
+		sid = request.cookies['sid']
+		#valid user sid
+	end
+
+	def user_info args = [], update = false
+	end
+
 	def user_logout
 		response.set_cookie "sid", ""
 		user_session_remove request.cookies['sid']

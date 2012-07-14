@@ -31,7 +31,7 @@ exit
 
 #enable the database
 else
-	modules = DB[:modules]
+	modules = DB[:module]
 	modules.each do | row |
 		M[row[:mid]] = row
 	end
