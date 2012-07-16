@@ -1,20 +1,15 @@
-menu=system
 name=seimtra
 link=/system/seimtra
 description=show all of system menu.
-status=1
 
-menu=system
-name=panel list
-link=/system/panel
+name=menu
+link=/system/menu
 description=administrator the links of this panel.
 
-menu=system
-name=modules
+name=module
 link=/system/module
 description=display the module you installed.
 
-menu=system
-name=settings
+name=setting
 link=/system/setting
 description=about the system settings.

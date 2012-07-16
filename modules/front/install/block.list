@@ -1,7 +1,1 @@
-name=front_center
-display=center
-description=the content of frontpage
 
-name=front_menu
-display=top
-description=a top menu on the frontground
