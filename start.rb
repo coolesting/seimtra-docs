@@ -15,26 +15,12 @@ templates = []
 languages = ""
 applications = []
 
-#module info
-M = {}
-
-#get the info from local file
 if settings.db_connect == "closed"
-# 	Dir[settings.root + "/modules/*/" + Seimtra::Sbase::Files[:info]].each do | file |
-# 		content = get_file file
-# 		unless content.empty? and content.include?('name') and content.include?('open') and content['open'] == "on"
-# 			M[content['name']] = content 
-# 		end
-# 	end
-puts "The dasebase connect is closed."
-exit
-
-#enable the database
+	puts "The dasebase connect is closed."
+	exit
 else
-	modules = DB[:module]
-	modules.each do | row |
-		M[row[:mid]] = row
-	end
+	# load the module info
+	M = DB[:module]
 end
 
 if M.empty?
@@ -42,7 +28,7 @@ if M.empty?
 	exit
 end
 
-M.each do | mid, row |
+M.each do | row |
 	if row[:opened] == "on"
 		#preprocess the templates loaded item
 		templates << settings.root + "/modules/#{row[:name]}/templates"

@@ -7,10 +7,10 @@ html
 		link rel='stylesheet' type='text/css' href='/css/table-1.css'
 	body
 		#wrap
-			#status_bar.clear
-				- @status_bar.each do | item |
+			#menus1.clear
+				- @menus1.each do | name, link |
 					span class=""
-						a href="#{item[:link]}" = item[:name].capitalize
+						a href="#{link}" = name.capitalize
 
 			#description.clear
 				p = @title

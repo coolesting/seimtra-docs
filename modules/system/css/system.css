@@ -1,19 +1,19 @@
-#status_bar {
+#menus1 {
 	padding: 5px 0;
 	background-color: #000;
 }
-#status_bar a {
+#menus1 a {
 	text-decoration: none;
 	padding: 10px;
 }
-#status_bar a:link { color: #fff; }
-#status_bar a:visited { color: #fff; }
-#status_bar a:hover {
+#menus1 a:link { color: #fff; }
+#menus1 a:visited { color: #fff; }
+#menus1 a:hover {
 	color: #000;
 	background-color: #fff;
 }
 
-#status_bar .focus a {
+#menus1 .focus a {
 	color: #000;
 	background-color: #fff;
 }

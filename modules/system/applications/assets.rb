@@ -5,8 +5,8 @@
 # /images/moduleName
 # /images/moduleName_fileName
 #
-# /css/custom.css  			=> read the file /modules/custom/css/custom.css
-# /css/custom_layout.css	=> read the file /modules/custom/css/layout.css
+# the route path /css/custom.css  , the real path, /modules/custom/css/custom.css
+# the route path /css/custom_layout.css	, the real path,  /modules/custom/css/layout.css
 get '/css/:file_name' do
 	sys_file params[:file_name], 'css'
 end

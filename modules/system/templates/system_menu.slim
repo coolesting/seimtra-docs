@@ -1,0 +1,12 @@
+table.table
+	- display_fields = [:mid, :name, :link, :preid, :description, :order]
+	thead
+		- display_fields.each do | item |
+			th = L[item]
+		th
+	tbody
+		- @menus.each do | row |
+			tr
+				- display_fields.each do | item |
+					td = row[item]
+				td : a href="/system/menu/edit/#{row[:mid]}" ->

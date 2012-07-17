@@ -1,13 +1,13 @@
 table.table
 	thead
-		th mid
+		th sid
 		th key
 		th val
 		th changed time
 	tbody
 		- @settings.each do | row |
 			tr
-				td = row[:mid]
+				td = row[:sid]
 				td = row[:skey]
 				td = row[:sval]
 				td = row[:changed]

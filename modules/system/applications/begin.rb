@@ -12,26 +12,23 @@ before '/system/*' do
 
 	@fields		= {}
 
-	@panel 		= DB[:panel]
+	@menus 		= DB[:menu]
 
-	panel_name 	= @panel.filter(:link => request.path).get(:name)
-	panel_des 	= @panel.filter(:link => request.path).get(:description)
+	menu_name 	= @menus.filter(:link => request.path).get(:name)
+	menu_des 	= @menus.filter(:link => request.path).get(:description)
 
-	if panel_name and panel_des
-		sys_title(panel_name.capitalize + " - " + panel_des)
+	if menu_name and menu_des
+		sys_title(menu_name.capitalize + " - " + menu_des)
 	end
 
-	@status_bar = @panel.filter(:status => 1).all
+	#first menu
+	@menus1	= {}
 
-	@menus = {}
-	@menu_names = []
-	@panel.each do | row |
-		unless @menus.include? row[:menu]
-			@menu_names << row[:menu]
-			@menus[row[:menu]] = [] 
-		end
-		@menus[row[:menu]] << row 
+	#second menu
+	@menus2	= {}
+
+	@menus.each do | row |
+		@menus1[row[:name]] = row[:link] if row[:preid] == 0
 	end
 	
-	@menus_json = sys_json @menus
 end
