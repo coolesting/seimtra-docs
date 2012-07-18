@@ -9,13 +9,17 @@ get '/system/menu/new' do
 	slim :system_menu_form
 end
 
+get '/system/menu/rm/:mid' do
+
+	dataset = DB[:menu].filter(:mid => params[:mid].to_i).delete
+	redirect "/system/menu"
+	
+end
+
 get '/system/menu/edit/:mid' do
 
 	sys_opt :save, :remove
 	@fields = DB[:menu].filter(:mid => params[:mid]).all[0]
-
-# 	@fields = DB[:menu].select(:mid, :menu, :name, :link, :description, :status, :order).filter(:mid => params[:mid]).all[0]
-
  	menu_process_fields
  	slim :system_menu_form
 
@@ -24,9 +28,7 @@ end
 post '/system/menu/new' do
 
 	menu_process_fields
-
 	DB[:menu].insert(@fields)
-
 	redirect "/system/menu"
 
 end
@@ -34,17 +36,7 @@ end
 post '/system/menu/edit/:mid' do
 
 	menu_process_fields
-
-	dataset = DB[:menu].filter(:mid => params[:mid].to_i)
-
-	if dataset
-		if params[:opt] == "Remove"
-			dataset.delete
-		elsif params[:opt] == "Save"
-			dataset.update(@fields)
-		end
-	end
-
+	dataset = DB[:menu].filter(:mid => params[:mid].to_i).update(@fields)
 	redirect "/system/menu"
 
 end
