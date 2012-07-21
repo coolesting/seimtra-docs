@@ -14,8 +14,10 @@ before '/system/*' do
 
 	@menus 		= DB[:menu]
 
-	menu_name 	= @menus.filter(:link => request.path).get(:name)
-	menu_des 	= @menus.filter(:link => request.path).get(:description)
+	menu_curr	= @menus.filter(:link => request.path)
+	menu_name 	= menu_curr.get(:name)
+	menu_des 	= menu_curr.get(:description)
+	menu_mid	= menu_curr.get(:mid)
 
 	if menu_name and menu_des
 		sys_title(menu_name.capitalize + " - " + menu_des)
@@ -29,6 +31,7 @@ before '/system/*' do
 
 	@menus.each do | row |
 		@menus1[row[:name]] = row[:link] if row[:preid] == 0
+		@menus2[row[:name]] = row[:link] if row[:preid] == menu_mid
 	end
-	
+
 end

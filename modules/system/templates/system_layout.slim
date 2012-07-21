@@ -12,6 +12,11 @@ html
 					span class=""
 						a href="#{link}" = name.capitalize
 
+			#menus2.clear
+				- @menus2.each do | name, link |
+					span class=""
+						a href="#{link}" = name.capitalize
+
 			#description.clear
 				p = @title
 

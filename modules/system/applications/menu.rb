@@ -11,7 +11,7 @@ end
 
 get '/system/menu/rm/:mid' do
 
-	dataset = DB[:menu].filter(:mid => params[:mid].to_i).delete
+	DB[:menu].filter(:mid => params[:mid].to_i).delete
 	redirect "/system/menu"
 	
 end
