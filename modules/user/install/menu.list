@@ -1,3 +1,4 @@
 name=user
+type=system
 link=/system/user
 description=a user module

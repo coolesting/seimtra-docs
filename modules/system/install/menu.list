@@ -1,19 +1,24 @@
-name=seimtra
-link=/system/seimtra
+name=system
+type=system
+link=/system/info
 description=show all of system menu.
 
 name=menu
+type=system
 link=/system/menu
 description=administrator the links of this panel.
 
 name=module
+type=system
 link=/system/module
 description=display the module you installed.
 
 name=setting
+type=system
 link=/system/setting
 description=about the system settings.
 
 name=tag
+type=system
 link=/system/tag
 description=

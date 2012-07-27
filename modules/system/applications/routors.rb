@@ -1,9 +1,9 @@
 get '/3s' do
-	redirect '/system/seimtra'
+	redirect '/system/info'
 end
 
-get '/system/seimtra' do
-  	slim :system_seimtra
+get '/system/info' do
+  	slim :system_info
 end
 
 get '/system/module' do
