@@ -1,0 +1,12 @@
+table.table
+	thead
+		th = L[:tid]
+		th = L[:name]
+		th
+	tbody
+		- @tag.each do | row |
+			tr
+				td = row[:tid]
+				td = row[:name]
+				td : a href="/system/tag/edit/#{row[:tid]}" fix
+				td : a href="/system/tag/rm/#{row[:tid]}" del

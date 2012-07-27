@@ -1,13 +1,22 @@
 table.table
-	- display_fields = [:mid, :name, :link, :preid, :description, :order]
 	thead
-		- display_fields.each do | item |
-			th = L[item]
+		th = L[:mid]
+		th = L[:name]
+		th = L[:type]
+		th = L[:link]
+		th = L[:description]
+		th = L[:preid]
+		th = L[:order]
 		th
 	tbody
-		- @menus.each do | row |
+		- @menu.each do | row |
 			tr
-				- display_fields.each do | item |
-					td = row[item]
+				td = row[:mid]
+				td = row[:name]
+				td = row[:type]
+				td = row[:link]
+				td = row[:description]
+				td = row[:preid]
+				td = row[:order]
 				td : a href="/system/menu/edit/#{row[:mid]}" fix
 				td : a href="/system/menu/rm/#{row[:mid]}" del

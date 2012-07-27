@@ -3,6 +3,7 @@ Sequel.migration do
 		create_table(:menu) do
 			primary_key :mid
 			String :name
+			String :type, :default => "default"
 			String :link
 			String :description
 			Integer :preid, :default => 0

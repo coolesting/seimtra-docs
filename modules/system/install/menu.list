@@ -13,3 +13,7 @@ description=display the module you installed.
 name=setting
 link=/system/setting
 description=about the system settings.
+
+name=tag
+link=/system/tag
+description=
