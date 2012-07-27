@@ -6,19 +6,23 @@ description=show all of system menu.
 name=menu
 type=system
 link=/system/menu
+preid=1
 description=administrator the links of this panel.
 
 name=module
 type=system
 link=/system/module
+preid=1
 description=display the module you installed.
 
 name=setting
 type=system
 link=/system/setting
+preid=1
 description=about the system settings.
 
 name=tag
 type=system
 link=/system/tag
-description=
+preid=1
+description=the keyword for all applications
