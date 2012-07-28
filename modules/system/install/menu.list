@@ -1,6 +1,6 @@
 name=system
 type=system
-link=/system/info
+link=/system/
 description=show all of system menu.
 
 name=menu

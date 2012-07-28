@@ -2,7 +2,7 @@ get '/3s' do
 	redirect '/system/info'
 end
 
-get '/system/info' do
+get '/system/' do
   	slim :system_info
 end
 
