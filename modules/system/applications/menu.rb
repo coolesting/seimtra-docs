@@ -10,6 +10,7 @@ end
 #new a record
 get '/system/menu/new' do
 
+	@title = 'Create a new menu.'
 	sys_opt :save
 	menu_set_fields
 	slim :system_menu_form
@@ -36,6 +37,7 @@ end
 #edit the record
 get '/system/menu/edit/:mid' do
 
+	@title = 'Edit the menu.'
 	sys_opt :save
 	@fields = DB[:menu].filter(:mid => params[:mid]).all[0]
  	menu_set_fields

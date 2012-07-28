@@ -1,6 +1,6 @@
 before '/system/*' do
 
-	sys_title "Seimtra system!"
+	@title = "Seimtra system!"
 
 	#set the specifying template for admin view
 	set :slim, :layout => :system_layout
@@ -20,7 +20,7 @@ before '/system/*' do
 	menu1_mid 	= menu_curr.get(:preid) == 0 ? menu_curr.get(:mid) : menu_curr.get(:preid)
 
 	if menu_name and menu_des
-		sys_title(menu_name.capitalize + " - " + menu_des)
+		@title = menu_name.capitalize + " - " + menu_des
 	end
 
 	#first menu

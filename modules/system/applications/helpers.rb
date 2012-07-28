@@ -7,10 +7,6 @@ helpers do
 		redirect("/system/errors/#{str}") 	
 	end
 
-	def sys_title str
-		@title = str
-	end
-
 	def sys_set key, val, mid = 0
 		dataset = DB[:setting].where(:skey => key.to_s, :mid => mid)
 		if dataset[:sval]
