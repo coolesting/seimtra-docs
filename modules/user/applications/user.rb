@@ -44,16 +44,23 @@ post '/system/user/edit/:uid' do
 end
 
 get '/user/info' do
-	"user sid = #{request.cookies['sid']}"
+
+	@user_info = user_info
+	slim :user_info
+
 end
 
 get '/user/logout' do
+
 	user_logout
 	redirect "/"
+
 end
 
 get '/user/login' do
+
 	slim :user_login
+
 end
 
 post '/user/login' do
@@ -66,12 +73,46 @@ end
 
 helpers do
 
-	def user_login?
-		sid = request.cookies['sid']
-		#valid user sid
+	# == user_login?
+	# check the current user whether logined
+	#
+	# == Argument
+	# boolean value, the unlogin user will be redirect to login page if the value is true
+	def user_login? redirect = false
+		info = user_info
+		if info[:uid] == 0 and redirect == true
+			redirect '/user/login'
+		else
+			info[:uid]
+		end
 	end
 
-	def user_info args = [], update = false
+	# == user_info
+	# get the current user infomation if no uid be passed as parameter,
+	# this method will check the current session that belongs which user, otherwise is unknown
+	#
+	# == Argument
+	# uid, integer, default value is 0
+	#
+	# == Returned
+	# a hash, the key have :uid, :name
+	def user_info uid = 0
+
+		infos 			= {}
+		infos[:uid] 	= uid
+		infos[:name] 	= 'unknown'
+
+		if uid == 0
+			if sid = request.cookies['sid']
+				uid = DB[:session].filter(:sid => sid).get(:uid)
+			end
+		end
+
+		if uid.to_i > 0
+			infos[:name] = DB[:user].filter(:uid => uid).get(:name)
+		end
+		infos
+
 	end
 
 	def user_logout
@@ -99,8 +140,6 @@ helpers do
 		end
 	end
 
-	# delete a user
-	# @uid, integer, delete record with the key id
 	def user_delete uid
 		DB[:user].filter(:uid => uid.to_i).delete
 	end
@@ -122,10 +161,15 @@ helpers do
 		DB[:user].filter(:uid => params[:uid].to_i).update(fields)
 	end
 
+	# == user_add
 	# add a new user
-	# @name string
-	# @pawd string
-	# @return user id, otherwise is 0
+	#
+	# == Argument
+	# name string
+	# pawd string
+	#
+	# == Returned
+	# return uid, otherwise is 0
 	def user_add name, pawd
 		fields 				= {}
 		fields[:name] 		= name
@@ -153,20 +197,25 @@ helpers do
 		uid ? true : false
 	end
 
-	# set a user session in server
-	# @sid, string, the session id
-	# @uid, integer, the user id
+	# == user_session_update
+	# update the session by sid, if the session is not existing, 
+	# create a new session for current uid
+	#
+	# == Argument
+	# sid, string, the session id
+	# uid, integer, the user id
 	def user_session_update sid = "", uid = 0
-		ds = DB[:user_session].filter(:sid => sid)
-		if ds
+		if ds = DB[:session].filter(:sid => sid)
 			ds.update(:changed => Time.now)
 		else
-			DB[:user_session].insert(:sid => sid, :uid => uid.to_i, :changed => Time.now)
+			DB[:session].insert(:sid => sid, :uid => uid.to_i, :changed => Time.now)
 		end
 	end
 
-	def user_session_remove sid
-		DB[:user_session].filter(:sid => sid).delete
+	def user_session_remove sid = nil
+		if sid
+			DB[:session].filter(:sid => sid).delete
+		end
 	end
 
 end
