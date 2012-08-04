@@ -3,6 +3,7 @@ table.table
 		th = L[:uid]
 		th = L[:name]
 		th = L[:pawd]
+		th = L[:salt]
 		th = L[:created]
 		th = L[:changed]
 		th
@@ -12,6 +13,8 @@ table.table
 				td = row[:uid]
 				td = row[:name]
 				td = row[:pawd]
+				th = row[:salt]
 				td = row[:created]
 				td = row[:changed]
-				td : a href="/system/user/edit/#{row[:uid]}" ->
+				td : a href="/system/user/edit/#{row[:uid]}" fix
+				td : a href="/system/user/rm/#{row[:uid]}" del

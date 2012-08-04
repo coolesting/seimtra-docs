@@ -1,23 +1,18 @@
 get '/system/user' do
 
+	@title = 'user list.'
 	sys_opt :new
 	@user = DB[:user]
 	slim :system_user
 
 end
 
+# new a record
 get '/system/user/new' do
 
+	@title = 'Create a new user.'
 	sys_opt :save
 	slim :system_user_form
-
-end
-
-get '/system/user/edit/:uid' do
-
-	sys_opt :save, :remove
-	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
- 	slim :system_user_form
 
 end
 
@@ -29,22 +24,36 @@ post '/system/user/new' do
 
 end
 
+#delete the record
+get '/system/user/rm/:uid' do
+
+	user_delete params[:uid]
+	redirect "/system/user"
+
+end
+
+# edit the record
+get '/system/user/edit/:uid' do
+
+	@title = 'Edit the user.'
+	sys_opt :save
+	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
+	@fields[:pawd] = ""
+ 	slim :system_user_form
+
+end
+
 post '/system/user/edit/:uid' do
 
 	user_valid params[:name], params[:pawd]
-
-	if params[:opt] == "Remove"
-		user_delete params[:uid]
-	elsif params[:opt] == "Save"
-		user_edit
-	end
-
+	user_edit params
 	redirect "/system/user"
 
 end
 
 get '/user/info' do
 
+	user_login? true
 	@user_info = user_info
 	slim :user_info
 
@@ -59,6 +68,7 @@ end
 
 get '/user/login' do
 
+	redirect '/user/info' if user_info[:uid] != 0
 	slim :user_login
 
 end
@@ -79,12 +89,14 @@ helpers do
 	# == Argument
 	# boolean value, the unlogin user will be redirect to login page if the value is true
 	def user_login? redirect = false
+
 		info = user_info
 		if info[:uid] == 0 and redirect == true
 			redirect '/user/login'
 		else
 			info[:uid]
 		end
+
 	end
 
 	# == user_info
@@ -109,20 +121,25 @@ helpers do
 		end
 
 		if uid.to_i > 0
-			infos[:name] = DB[:user].filter(:uid => uid).get(:name)
+			infos[:uid]		= uid
+			infos[:name] 	= DB[:user].filter(:uid => uid).get(:name)
 		end
 		infos
 
 	end
 
 	def user_logout
+
 		response.set_cookie "sid", ""
 		user_session_remove request.cookies['sid']
+
 	end
 
 	def user_login name, pawd
+
 		throw_error "The user is not existing." unless user_exist? name
 		ds = DB[:user].filter(:name => name)
+
 		require "digest/sha1"
 		if ds.get(:pawd) == Digest::SHA1.hexdigest(pawd + ds.get(:salt))
 			#update login time
@@ -133,32 +150,32 @@ helpers do
 			#set sid to client cookie
 			response.set_cookie "sid", sid
 
-			#sign user in server
+			#set sid at server
 			user_session_update sid, ds.get(:uid)
 		else
 			throw_error "The username and password is not matching, or wrong."
 		end
+
 	end
 
 	def user_delete uid
+
 		DB[:user].filter(:uid => uid.to_i).delete
+
 	end
 
-	def user_edit
-		throw_error "No uid." unless params[:uid]
+	def user_edit fields
 
-		fields			= {}
-		fields[:name]	= params[:name] if params[:name]
-		
-		if params[:pawd]
-			ds = DB[:user].filter(:uid => params[:uid].to_i).all[0]
-			unless ds[:pawd] == params[:pawd]
-				fields[:pawd] = Digest::SHA1.hexdigest(params[:pawd] + ds[:salt])
-			end
+		if fields.include? :uid 
+			throw_error "No uid." 
+		else
+			uid = fields[:uid].to_i
 		end
 
-		throw_error "Nothing to be update." if fields.empty? 
-		DB[:user].filter(:uid => params[:uid].to_i).update(fields)
+		ds = DB[:user].filter(:uid => uid).all[0]
+		pawd = Digest::SHA1.hexdigest(fields[:pawd] + ds[:salt])
+		DB[:user].filter(:uid => uid).update(:pawd => pawd)
+
 	end
 
 	# == user_add
@@ -171,6 +188,7 @@ helpers do
 	# == Returned
 	# return uid, otherwise is 0
 	def user_add name, pawd
+
 		fields 				= {}
 		fields[:name] 		= name
 		fields[:salt] 		= random_string 5
@@ -185,37 +203,47 @@ helpers do
 		DB[:user].insert(fields)
 		uid = DB[:user].filter(:name => name).get(:uid)
 		uid ? uid : 0
+
 	end
 
 	def user_valid name, pawd
+
 		throw_error "The username need to bigger than two size." unless name.length > 2	
 		throw_error "The password need to bigger than two size." unless pawd.length > 2	
+
 	end
 
 	def user_exist? name
+
 		uid = DB[:user].filter(:name => name).get(:uid)
 		uid ? true : false
+
 	end
 
 	# == user_session_update
-	# update the session by sid, if the session is not existing, 
-	# create a new session for current uid
+	# update the session time by sid and uid, 
+	# if the session is not existing, create a new session for current uid
 	#
 	# == Argument
 	# sid, string, the session id
 	# uid, integer, the user id
 	def user_session_update sid = "", uid = 0
-		if ds = DB[:session].filter(:sid => sid)
+
+		ds = DB[:session].filter(:sid => sid, :uid => uid.to_i)
+		if ds.count > 0
 			ds.update(:changed => Time.now)
 		else
 			DB[:session].insert(:sid => sid, :uid => uid.to_i, :changed => Time.now)
 		end
+
 	end
 
 	def user_session_remove sid = nil
+
 		if sid
 			DB[:session].filter(:sid => sid).delete
 		end
+
 	end
 
 end
