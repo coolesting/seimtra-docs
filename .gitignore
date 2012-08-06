@@ -1,6 +1,5 @@
 *.swp
 *.gem
-db/*
 modules/*
 !modules/system
 !modules/front
