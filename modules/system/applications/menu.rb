@@ -2,7 +2,18 @@
 get '/system/menu' do
 
 	sys_opt :new
-	@menu = DB[:menu]
+	@page_size = 5
+	@page_curr = 1 
+
+	ds = DB[:menu]
+	Sequel.extension :pagination
+ 	
+	if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
+		@page_curr = @qs[:page_curr].to_i
+	end
+
+ 	@menu = ds.paginate(@page_curr, @page_size, ds.count)
+ 	@page_count = @menu.page_count
 	slim :system_menu
 
 end

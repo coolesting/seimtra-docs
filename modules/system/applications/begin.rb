@@ -10,6 +10,15 @@ before '/system/*' do
 
 	set :sys_msg, nil
 
+	#request.query_string
+	@qs	= {}
+	if qs = request.query_string
+		qs.split("&").each do | item |
+			key, val = item.split "="
+			@qs[key.to_sym] = val
+		end
+	end
+
 	@fields		= {}
 
 	@menus 		= DB[:menu].filter(:type => 'system')
