@@ -3,6 +3,7 @@
 	background-color: #000;
 }
 #menus1 a {
+	font-weight: 900;
 	text-decoration: none;
 	padding: 10px;
 }
@@ -10,17 +11,25 @@
 #menus1 a:visited { color: #fff; }
 #menus1 a:hover {
 	color: #000;
-	background-color: #fff;
+	background-color: #BABCBF;
 }
 
 #menus1 .focus a {
 	color: #000;
 	background-color: #fff;
 }
-
+#menus2 {
+	padding: 5px 0;
+	background-color: #BABCBF;
+}
 #menus2 a {
+	font-weight: 700;
+	color: #000;
 	text-decoration: none;
 	padding: 3px 10px;
+}
+#menus2 a:hover {
+	text-decoration: underline;
 }
 
 #description, #opt, #msg { padding: 0 10px; }
