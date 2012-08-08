@@ -5,7 +5,7 @@ before '/system/*' do
 	#set the specifying template for admin view
 	set :slim, :layout => :system_layout
 
-	#a operation bar
+	#the operation bar
 	set :sys_opt, {}
 
 	set :sys_msg, nil
@@ -21,6 +21,7 @@ before '/system/*' do
 
 	@fields		= {}
 
+	#the top menu of administration layout
 	@menus 		= DB[:menu].filter(:type => 'system')
 
 	menu_curr	= @menus.filter(:link => request.path)
@@ -46,4 +47,8 @@ before '/system/*' do
 		end
 	end
 
+	#the pagination parameters
+	@page_size = 10
+	@page_curr = 1 
+	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
 end

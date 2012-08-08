@@ -10,3 +10,10 @@ table.table
 				td = row[:name]
 				td : a href="/system/tag/edit/#{row[:tid]}" fix
 				td : a href="/system/tag/rm/#{row[:tid]}" del
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			a class="#{page_focus}" href="/system/tag?page_curr=#{i}" = i
+			label &nbsp;&nbsp;

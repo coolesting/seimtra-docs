@@ -2,7 +2,12 @@
 get '/system/tag' do
 
 	sys_opt :new
-	@tag = DB[:tag]
+	ds = DB[:tag]
+
+	Sequel.extension :pagination
+ 	@tag = ds.paginate(@page_curr, @page_size, ds.count)
+ 	@page_count = @tag.page_count
+
 	slim :system_tag
 
 end

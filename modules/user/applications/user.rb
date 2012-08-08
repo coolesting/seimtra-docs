@@ -2,7 +2,12 @@ get '/system/user' do
 
 	@title = 'user list.'
 	sys_opt :new
-	@user = DB[:user]
+	ds = DB[:user]
+
+	Sequel.extension :pagination
+ 	@user = ds.paginate(@page_curr, @page_size, ds.count)
+ 	@page_count = @user.page_count
+
 	slim :system_user
 
 end
