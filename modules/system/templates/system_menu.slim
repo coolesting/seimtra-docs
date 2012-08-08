@@ -22,7 +22,7 @@ table.table
 				td : a href="/system/menu/rm/#{row[:mid]}" del
 
 - if @page_count > 1
-	p
+	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
 			a class="#{page_focus}" href="/system/menu?page_curr=#{i}" = i
