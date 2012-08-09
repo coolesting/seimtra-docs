@@ -27,7 +27,19 @@ before '/system/*' do
 	menu_curr	= @menus.filter(:link => request.path)
 	menu_name 	= menu_curr.get(:name)
 	menu_des 	= menu_curr.get(:description)
-	menu1_mid 	= menu_curr.get(:preid) == 0 ? menu_curr.get(:mid) : menu_curr.get(:preid)
+
+	@menu1_focus = @menu2_focus = menu_name
+
+	#this is a top menu
+	if menu_curr.get(:preid) == 0
+		menu1_mid = menu_curr.get(:mid) 
+		@menu2_focus = ""
+	#it is second menu
+	else
+		menu1_mid = menu_curr.get(:preid)
+		#need to set the top menu
+		@menu1_focus = @menus.filter(:mid => menu1_mid).get(:name)
+	end
 
 	if menu_name and menu_des
 		@title = menu_name.capitalize + " - " + menu_des

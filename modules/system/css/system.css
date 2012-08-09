@@ -16,7 +16,10 @@
 
 #menus1 .focus a {
 	color: #000;
-	background-color: #fff;
+	background-color: #BABCBF;
+}
+#menus2 .focus a {
+	text-decoration: underline;
 }
 #menus2 {
 	padding: 5px 0;

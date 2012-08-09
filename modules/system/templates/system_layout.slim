@@ -9,12 +9,14 @@ html
 		#wrap
 			#menus1
 				- @menus1.each do | name, link |
-					span class=""
+					- menu1_focus = name == @menu1_focus ? "focus" : ""
+					span class="#{menu1_focus}"
 						a href="#{link}" = name.capitalize
 
 			#menus2.clear
 				- @menus2.each do | name, link |
-					span class=""
+					- menu2_focus = name == @menu2_focus ? "focus" : ""
+					span class="#{menu2_focus}"
 						a href="#{link}" = name.capitalize
 
 			#description.clear
