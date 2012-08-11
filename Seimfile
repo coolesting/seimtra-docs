@@ -7,4 +7,4 @@ version=0.0.1
 root_privilege=TzQfno320lbw
 log=off
 log_path=/home/zcdny/repo/log/default
-module_focus=front
+module_focus=task

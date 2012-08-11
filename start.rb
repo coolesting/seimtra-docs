@@ -1,5 +1,5 @@
 # please don't modify the file unless you know what are you doing.
-require 'seimtra/base'
+require 'seimtra/sbase'
 include Seimtra
 
 require './environment'
