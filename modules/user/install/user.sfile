@@ -1,3 +1,7 @@
 name=admin
 pawd=admin
 salt=ABCde
+
+name=test
+pawd=test
+salt=dsknv

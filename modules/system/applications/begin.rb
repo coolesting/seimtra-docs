@@ -22,7 +22,7 @@ before '/system/*' do
 	@fields		= {}
 
 	#the top menu of administration layout
-	@menus 		= DB[:menu].filter(:type => 'system')
+	@menus 		= DB[:menu].filter(:type => 'system').order(:order)
 
 	menu_curr	= @menus.filter(:link => request.path)
 	menu_name 	= menu_curr.get(:name)
@@ -60,7 +60,7 @@ before '/system/*' do
 	end
 
 	#the pagination parameters
-	@page_size = 10
+	@page_size = 30
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
 end
