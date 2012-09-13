@@ -41,7 +41,7 @@ html
 							- if settings.sys_opt.include? :search
 								li
 									form action="#{request.path}" method="get"
-										input type="text" name="sc" placeholder="content"
+										input type="text" name="sc" placeholder="search content"
 										br
 										br
 										- unless @search.empty?
