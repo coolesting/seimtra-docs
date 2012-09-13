@@ -1,5 +1,19 @@
 helpers do
 
+	def sys_url path, options = {}
+		str = path
+		options.each do | ok, ov |
+			@qs[ok.to_sym] = ov
+		end
+		unless @qs.empty?
+			str += '?'
+			@qs.each do | k, v |
+				str = str + k.to_s + '=' + v.to_s + '&'
+			end
+		end
+		str
+	end
+
 	def sys_json hash
 	end
 
