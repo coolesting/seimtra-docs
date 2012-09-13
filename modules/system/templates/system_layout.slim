@@ -38,4 +38,17 @@ html
 								li
 									input type="submit" name="opt" value="Save" form="form"
 
+							- if settings.sys_opt.include? :search
+								li
+									form action="#{request.path}" method="get"
+										input type="text" name="sc" placeholder="content"
+										br
+										br
+										- unless @search.empty?
+											select name="sw"
+												- @search.each do | sk, sv |
+													option value="#{sk}" = sv
+												end
+										input type="submit" value="Search"
+
 			#main.left == yield

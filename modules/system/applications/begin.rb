@@ -10,7 +10,7 @@ before '/system/*' do
 
 	set :sys_msg, nil
 
-	#request.query_string
+	#request query string
 	@qs	= {}
 	if qs = request.query_string
 		qs.split("&").each do | item |
@@ -18,6 +18,9 @@ before '/system/*' do
 			@qs[key.to_sym] = val
 		end
 	end
+
+	#a variable, search condition options of layout template
+	@search		= {}
 
 	@fields		= {}
 
