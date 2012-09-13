@@ -1,8 +1,16 @@
 #display
 get '/system/menu' do
 
-	sys_opt :new
+	sys_opt :new, :search
 	ds = DB[:menu]
+
+	#search content
+	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
+
+	#search condition
+	if settings.sys_opt.include? :search
+		@search = {:name => 'name', :type => 'type', :preid => 'preid'}
+	end
 
 	Sequel.extension :pagination
  	@menu = ds.paginate(@page_curr, @page_size, ds.count)
