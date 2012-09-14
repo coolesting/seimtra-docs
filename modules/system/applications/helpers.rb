@@ -21,20 +21,6 @@ helpers do
 		redirect("/system/errors/#{str}") 	
 	end
 
-	def sys_set key, val, mid = 0
-		dataset = DB[:setting].where(:skey => key.to_s, :mid => mid)
-		if dataset[:sval]
-			dataset.update(:sval => val, :changed => Time.now)
-		else
-			DB[:setting].insert(:skey => key.to_s, :sval => val.to_s, :mid => mid, :changed => Time.now)
-		end
-	end
-
-	def sys_get key, mid = 0
-		sval = DB[:setting].filter(:skey => key.to_s, :mid => mid).get(:sval)
-		sval ? sval.to_s : ""
-	end
-
 	def menu_focus path, des = nil
 		reval = ""
 		if request.path.split("/")[2] == path.split("/")[2]

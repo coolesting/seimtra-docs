@@ -16,7 +16,7 @@ languages = ""
 applications = []
 
 if settings.db_connect == "closed"
-	puts "The dasebase connect is closed."
+	puts "The datebase connection is closed."
 	exit
 else
 	# load the module info

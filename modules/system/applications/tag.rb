@@ -1,8 +1,16 @@
 #display
 get '/system/tag' do
 
-	sys_opt :new
+	sys_opt :new, :search
 	ds = DB[:tag]
+
+	#search content
+	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
+
+	#search condition
+	if settings.sys_opt.include? :search
+		@search = {:tid => 'tid', :name => 'name', }
+	end
 
 	Sequel.extension :pagination
  	@tag = ds.paginate(@page_curr, @page_size, ds.count)
@@ -15,6 +23,7 @@ end
 #new a record
 get '/system/tag/new' do
 
+	@title = 'Create a new tag'
 	sys_opt :save
 	tag_set_fields
 	slim :system_tag_form
@@ -33,6 +42,7 @@ end
 #delete the record
 get '/system/tag/rm/:tid' do
 
+	@title = 'Delete the tag by id tid, are you sure ?'
 	DB[:tag].filter(:tid => params[:tid].to_i).delete
 	redirect "/system/tag"
 
@@ -41,6 +51,7 @@ end
 #edit the record
 get '/system/tag/edit/:tid' do
 
+	@title = 'Edit the tag'
 	sys_opt :save
 	@fields = DB[:tag].filter(:tid => params[:tid]).all[0]
  	tag_set_fields
@@ -80,5 +91,5 @@ helpers do
 		throw_error "The name field cannot be empty." if @fields[:name] == ""
 		
 	end
-
+	
 end

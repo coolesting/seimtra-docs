@@ -26,3 +26,15 @@ prename=system
 type=system
 link=/system/tag
 description=the keyword for all applications
+
+name=setting
+prename=system
+type=system
+link=/system/setting
+description=No description about the setting
+
+name=tag
+prename=system
+type=system
+link=/system/tag
+description=No description about the tag
