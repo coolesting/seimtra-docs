@@ -15,7 +15,11 @@ before '/system/*' do
 	if qs = request.query_string
 		qs.split("&").each do | item |
 			key, val = item.split "="
-			@qs[key.to_sym] = val
+			if val.index '+'
+				@qs[key.to_sym] = val.gsub(/[+]/, ' ')
+			else
+				@qs[key.to_sym] = val
+			end
 		end
 	end
 
