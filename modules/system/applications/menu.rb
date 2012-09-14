@@ -12,8 +12,6 @@ get '/system/menu' do
 		@search = {:name => 'name', :type => 'type', :preid => 'preid'}
 	end
 
-	@page_size = 2
-
 	Sequel.extension :pagination
  	@menu = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @menu.page_count
