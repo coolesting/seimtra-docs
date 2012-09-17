@@ -12,6 +12,17 @@ get '/system/setting' do
 		@search = {:skey => 'skey', :sval => 'sval', :changed => 'changed', }
 	end
 
+	#order
+	if @qs[:order]
+		if @qs.has_key? :desc
+			ds = ds.reverse_order(@qs[:order].to_sym)
+			@qs.delete :desc
+		else
+			ds = ds.order(@qs[:order].to_sym)
+			@qs[:desc] = 'yes'
+		end
+	end
+
 	Sequel.extension :pagination
  	@setting = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @setting.page_count

@@ -1,7 +1,7 @@
 table.table
 	thead
-		th = L[:tid]
-		th = L[:name]
+		th : a href="#{sys_url('/system/tag', :order => 'tid')}" = L[:tid]
+		th : a href="#{sys_url('/system/tag', :order => 'name')}" = L[:name]
 		th
 	tbody
 		- @tag.each do | row |

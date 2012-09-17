@@ -1,12 +1,12 @@
 table.table
 	thead
-		th = L[:mid]
-		th = L[:name]
-		th = L[:type]
-		th = L[:link]
+		th : a href="#{sys_url('/system/menu', :order => 'mid')}" = L[:mid]
+		th : a href="#{sys_url('/system/menu', :order => 'name')}" = L[:name]
+		th : a href="#{sys_url('/system/menu', :order => 'type')}" = L[:type]
+		th : a href="#{sys_url('/system/menu', :order => 'link')}" = L[:link]
 		th = L[:description]
-		th = L[:preid]
-		th = L[:order]
+		th : a href="#{sys_url('/system/menu', :order => 'preid')}" = L[:preid]
+		th : a href="#{sys_url('/system/menu', :order => 'order')}" = L[:order]
 		th
 	tbody
 		- @menu.each do | row |

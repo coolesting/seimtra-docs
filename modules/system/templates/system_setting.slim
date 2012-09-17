@@ -1,8 +1,8 @@
 table.table
 	thead
-		th = L[:skey]
-		th = L[:sval]
-		th = L[:changed]
+		th : a href="#{sys_url('/system/setting', :order => 'skey')}" = L[:skey]
+		th : a href="#{sys_url('/system/setting', :order => 'sval')}" = L[:sval]
+		th : a href="#{sys_url('/system/setting', :order => 'changed')}" = L[:changed]
 		th
 	tbody
 		- @setting.each do | row |

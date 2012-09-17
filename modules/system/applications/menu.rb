@@ -12,6 +12,17 @@ get '/system/menu' do
 		@search = {:name => 'name', :type => 'type', :preid => 'preid'}
 	end
 
+	#order
+	if @qs[:order]
+		if @qs.has_key? :desc
+			ds = ds.reverse_order(@qs[:order].to_sym)
+			@qs.delete :desc
+		else
+			ds = ds.order(@qs[:order].to_sym)
+			@qs[:desc] = 'yes'
+		end
+	end
+
 	Sequel.extension :pagination
  	@menu = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @menu.page_count
