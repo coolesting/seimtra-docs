@@ -74,7 +74,7 @@ post '/system/setting/edit/:skey' do
 
 	setting_set_fields
 	setting_valid_fields
-	DB[:setting].filter(:skey => params[:skey].to_i).update(@fields)
+	DB[:setting].filter(:skey => params[:skey]).update(@fields)
 	redirect "/system/setting"
 
 end
