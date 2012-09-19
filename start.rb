@@ -11,8 +11,9 @@ get '/' do
 	status, headers, body = call! env.merge("PATH_INFO" => settings.home_page)
 end
 
+language = []
 templates = []
-languages = ""
+languages = []
 applications = []
 
 if settings.db_connect == "closed"
@@ -36,10 +37,7 @@ M.each do | row |
 		#preprocess the applications loaded routors
 		applications += Dir[settings.root + "/modules/#{row[:name]}/applications/*.rb"]
 
-		#preprocess the language loaded packets
-		language = row.include?('lang') ? row['lang'] : "en"
-		path = settings.root + "/modules/#{row[:name]}/languages/#{language}.lang"
-		languages << File.read(path) if File.exist?(path)
+		language << row[:mid] unless language.include? row[:mid]
 	end
 end
 
@@ -50,11 +48,14 @@ helpers do
 	end
 end
 
-languages.split("\n").each do | line |
-	if line.index("=")
-		key, val = line.split("=", 2) 
-		L[key] = val
-	end
+#load the template language
+ds = DB[:language].filter(:lang_type => sys_get(:lang))
+language.each do | mid |
+	languages += ds.filter(:mid => mid).all
+end
+
+languages.each do | row |
+	L[row[:label]] = row[:content]
 end
 
 applications.each do | routor |

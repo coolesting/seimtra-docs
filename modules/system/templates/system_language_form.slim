@@ -1,0 +1,18 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		li : label label
+		li : input type="text" name="label" required="required" value="#{@fields[:label]}"
+		
+		li : label lang_type
+		li : input type="text" name="lang_type" required="required" value="#{@fields[:lang_type]}"
+		
+		li : label content
+		li : input type="text" name="content" required="required" value="#{@fields[:content]}"
+		
+		li : label name
+		- modules = module_record(:mid, :name)
+		li : select name="mid" required="required"
+			- modules.each do | k,v |
+				- selected = @fields[:mid] == k ? "selected" : ""
+				option selected="#{selected}" value="#{k}" = v
+		

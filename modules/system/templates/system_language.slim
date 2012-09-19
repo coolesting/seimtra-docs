@@ -1,0 +1,24 @@
+table.table
+	thead
+		th : a href="#{sys_url('/system/language', :order => 'label')}" = L[:label]
+		th : a href="#{sys_url('/system/language', :order => 'lang_type')}" = L[:lang_type]
+		th : a href="#{sys_url('/system/language', :order => 'content')}" = L[:content]
+		th : a href="#{sys_url('/system/language', :order => 'name')}" = L[:name]
+		th
+	tbody
+		- modules = module_record(:mid, :name)
+		- @language.each do | row |
+			tr
+				td = row[:label]
+				td = row[:lang_type]
+				td = row[:content]
+				td = modules[row[:mid]]
+				td : a href="/system/language/edit/#{row[:label]}" fix
+				td : a href="/system/language/rm/#{row[:label]}" del
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			a class="#{page_focus}" href="#{sys_url('/system/language', :page_curr => i)}" = i
+			label &nbsp;&nbsp;
