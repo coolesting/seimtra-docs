@@ -49,9 +49,8 @@ helpers do
 end
 
 #load the template language
-ds = DB[:language].filter(:lang_type => sys_get(:lang))
 language.each do | mid |
-	languages += ds.filter(:mid => mid).all
+	languages += DB[:language].filter(:mid => mid).all
 end
 
 languages.each do | row |

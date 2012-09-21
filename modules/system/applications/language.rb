@@ -9,7 +9,7 @@ get '/system/language' do
 
 	#search condition
 	if settings.sys_opt.include? :search
-		@search = {:label => 'label', :lang_type => 'lang_type', :content => 'content', :mid => 'name', }
+		@search = {:label => 'label', :content => 'content', :mid => 'name', }
 	end
 
 	#order
@@ -87,9 +87,8 @@ helpers do
 		
 		default_values = {
 			:label		=> '',
-			:lang_type	=> 'en',
-			:content	=> '',
-			:mid		=> 1
+			:content		=> '',
+			:mid		=> ''
 		}
 
 		default_values.each do | k, v |
@@ -103,8 +102,6 @@ helpers do
 	def language_valid_fields
 		
 		throw_error "The label field cannot be empty." if @fields[:label] == ""
-		
-		throw_error "The lang_type field cannot be empty." if @fields[:lang_type] == ""
 		
 		throw_error "The content field cannot be empty." if @fields[:content] == ""
 		
