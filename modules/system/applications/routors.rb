@@ -1,5 +1,5 @@
-get '/3s' do
-	redirect '/system/info'
+get '/a' do
+	redirect '/system/'
 end
 
 get '/system/' do
