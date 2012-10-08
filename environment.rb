@@ -4,6 +4,8 @@ require 'slim'
 
 configure do
 
+	# ================= db config ================= 
+
 	## 
 	# mysql
 	#
@@ -50,6 +52,11 @@ configure do
 	set :db_connect, settings.db_sqlite
 
 	DB = Sequel.connect(settings.db_connect)
+
+
+
+	
+	# ================= setting config ================= 
 
 	#set the log for output
 	disable :logging
