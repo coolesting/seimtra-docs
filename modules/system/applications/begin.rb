@@ -1,3 +1,20 @@
+before do
+
+	#request query string
+	@qs	= {}
+	if qs = request.query_string
+		qs.split("&").each do | item |
+			key, val = item.split "="
+			if val and val.index '+'
+				@qs[key.to_sym] = val.gsub(/[+]/, ' ')
+			else
+				@qs[key.to_sym] = val
+			end
+		end
+	end
+
+end
+
 before '/system/*' do
 
 	@title = "Seimtra system!"
@@ -9,19 +26,6 @@ before '/system/*' do
 	set :sys_opt, {}
 
 	set :sys_msg, nil
-
-	#request query string
-	@qs	= {}
-	if qs = request.query_string
-		qs.split("&").each do | item |
-			key, val = item.split "="
-			if val.index '+'
-				@qs[key.to_sym] = val.gsub(/[+]/, ' ')
-			else
-				@qs[key.to_sym] = val
-			end
-		end
-	end
 
 	#a variable, search condition options of layout template
 	@search		= {}
@@ -71,3 +75,4 @@ before '/system/*' do
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
 end
+
