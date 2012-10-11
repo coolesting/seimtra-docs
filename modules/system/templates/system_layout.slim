@@ -28,27 +28,30 @@ html
 			- unless settings.sys_opt.empty?
 				#opt.right
 					form
-						ul.ul
-							- if settings.sys_opt.include? :new
-								li
+						- if settings.sys_opt.include? :new
+							dl.dl-1
+								dt create
+								dd
 									a href="#{request.path}/new"
 										button Create
 
-							- if settings.sys_opt.include? :save
-								li
+						- if settings.sys_opt.include? :save
+							dl.dl-1
+								dt save
+								dd
 									input type="submit" name="opt" value="Save" form="form"
 
-							- if settings.sys_opt.include? :search
-								li
+						- if settings.sys_opt.include? :search
+							dl.dl-1
+								dt search
+								dd
 									form action="#{request.path}" method="get"
 										input type="text" name="sc" placeholder="search content" value="#{@qs[:sc]}"
-										br
-										br
-										- unless @search.empty?
-											select name="sw"
-												- @search.each do | sk, sv |
-													option value="#{sk}" = sv
-												end
-										input type="submit" value="Search"
+								dd
+									- unless @search.empty?
+										select name="sw"
+											- @search.each do | sk, sv |
+												option value="#{sk}" = sv
+									input type="submit" value="Search"
 
 			#main.left == yield

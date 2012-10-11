@@ -32,3 +32,9 @@ prename=system
 type=system
 link=/system/language
 description=the template language translated content
+
+name=iocsv
+prename=system
+type=system
+link=/system/iocsv
+description=input and output data to database with the csv file

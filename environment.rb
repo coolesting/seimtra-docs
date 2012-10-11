@@ -61,6 +61,9 @@ configure do
 	#set the log for output
 	disable :logging
 
+	#temporary file path
+	set :tmp_path, '/tmp'
+
 	#define the home page
 	set :home_page, '/user/info'
 
