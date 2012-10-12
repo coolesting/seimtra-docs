@@ -27,13 +27,27 @@ end
 
 #upload file
 post '/system/iocsv/inport' do
+
 	if params[:inport] and params[:inport][:tempfile] and params[:inport][:filename]
+		table	= params[:inport][:filename].split('.').first
 		@content = []
 		require 'csv'
 		CSV.parse(params[:inport][:tempfile].read) do | row |
 			@content << row
 		end
+
+		#input the @content to database
+		columns = @content.shift
+		@content.shift
+
+		@content.each do | row |
+			data = {}
+			columns.zip(row) { |a,b| data[a.to_sym] = b }
+			DB[table.to_sym].insert(data)
+		end
+
 		set :sys_msg, 'upload complete'
 	end
 	redirect back
+
 end
