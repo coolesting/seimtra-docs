@@ -1,3 +1,3 @@
-get '/' do
-	slim :front
-end
+# get '/' do
+# 	slim :front
+# end

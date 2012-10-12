@@ -2,16 +2,38 @@ get '/system/iocsv' do
 	slim :system_iocsv
 end
 
-get '/system/iocsv/output/csvfile.csv' do
-	require 'csv'
-	csv_file = CSV.generate do |csv|
-		csv << ["a", "b", "c"]
-		csv << ["aa", "bb"]
+#get db table as csv file output
+get '/system/iocsv/export' do
+
+	if params[:export] and (DB.tables.include?(params[:export].to_sym))
+		require 'csv'
+
+		ds = DB[params[:export].to_sym]
+		csv_file = CSV.generate do | csv |
+			csv << DB[params[:export].to_sym].columns!
+			csv << []
+			ds.each do | row |
+				csv << row.values
+			end
+		end
+
+		attachment "#{params[:export]}.csv"
+		csv_file
+	else
+		redirect back
 	end
 
-	content_type 'application/csv'
-	csv_file
 end
 
-post '/system/iocsv' do
+#upload file
+post '/system/iocsv/inport' do
+	if params[:inport] and params[:inport][:tempfile] and params[:inport][:filename]
+		@content = []
+		require 'csv'
+		CSV.parse(params[:inport][:tempfile].read) do | row |
+			@content << row
+		end
+		set :sys_msg, 'upload complete'
+	end
+	redirect back
 end

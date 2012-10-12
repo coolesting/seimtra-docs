@@ -61,11 +61,15 @@ configure do
 	#set the log for output
 	disable :logging
 
-	#temporary file path
-	set :tmp_path, '/tmp'
+	#file path
+	set :tmp_path, '/var/tmp'
+
+	set :upload_path, '/var/upload'
+
+	set :cache_path, '/var/cache/seimtra'
 
 	#define the home page
-	set :home_page, '/user/info'
+	set :home_page, '/system/'
 
 	set :cache_static_file, false
 

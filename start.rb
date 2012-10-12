@@ -5,11 +5,6 @@ include Seimtra
 require './environment'
 require './lib'
 
-#set the default page
-get '/' do
-	pass if request.path_info == '/'
-	status, headers, body = call! env.merge("PATH_INFO" => settings.home_page)
-end
 
 language = []
 templates = []
@@ -61,3 +56,9 @@ applications.each do | routor |
 	require routor
 end
 
+
+#set the default page
+get '/' do
+#  	pass if request.path_info == '/'
+	status, headers, body = call! env.merge("PATH_INFO" => settings.home_page)
+end
