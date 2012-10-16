@@ -18,7 +18,14 @@
 	color: #000;
 	background-color: #BABCBF;
 }
+.focus1 a {
+	color: #000;
+	background-color: #BABCBF;
+}
 #menus2 .focus a {
+	text-decoration: underline;
+}
+.focus2 a {
 	text-decoration: underline;
 }
 #menus2 {

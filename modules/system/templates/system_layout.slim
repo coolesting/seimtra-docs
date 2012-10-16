@@ -3,6 +3,7 @@ html
 	head
 		title = @title
 		meta http-equiv="content-type" content="text/html; charset=UFT-8"
+		script src="/js/jquery-172.js" type="text/javascript" charset="utf-8"
 		link rel='stylesheet' type='text/css' href='/css/style.css'
 		link rel='stylesheet' type='text/css' href='/css/system.css'
 		link rel='stylesheet' type='text/css' href='/css/table-1.css'
@@ -12,7 +13,7 @@ html
 				- @menu_name.each do | name, coll |
 					- menu1_focus = name == @menu1_focus ? "focus" : ""
 					span class="#{menu1_focus}"
-						a href="#{@menu_link[name]}" = name.capitalize
+						a href="#{@menu_link[name]}" title="#{name}" = name.capitalize
 
 			#menus2.clear
 				- @menu_name[@menu1_focus].each do | name |
@@ -54,5 +55,37 @@ html
 											- @search.each do | sk, sv |
 												option value="#{sk}" = sv
 									input type="submit" value="Search"
+
+			javascript:
+
+				//top menu
+				$(document).ready(function() {
+
+					//1-level menu highlight
+					$("#menus1 span").hover(
+						function(){
+							$(this).addClass("focus1")
+
+							//update the 2-level menu
+						}, function(){
+							$(this).removeClass("focus1")
+						}
+					);
+
+					//2-level menu highlight
+					$("#menus2 span").hover(
+						function(){
+							$(this).addClass("focus2")
+						}, function(){
+							$(this).removeClass("focus2")
+						}
+					);
+					
+				});
+
+				//menu data
+				var json_menu_link = #{{@json_menu_link}};
+				var json_menu_name = #{{@json_menu_name}};
+
 
 			#main.left == yield

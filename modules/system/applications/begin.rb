@@ -102,6 +102,10 @@ before '/system/*' do
 		end
 	end
 
+	require 'json'
+	@json_menu_link = JSON.pretty_generate @menu_link
+	@json_menu_name = JSON.pretty_generate @menu_name
+
 	#the pagination parameters
 	@page_size = 30
 	@page_curr = 1 
