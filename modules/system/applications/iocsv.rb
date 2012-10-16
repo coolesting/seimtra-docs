@@ -17,7 +17,7 @@ get '/system/iocsv/export' do
 			end
 		end
 
-		attachment "#{params[:export]}.csv"
+   		attachment "#{params[:export]}.csv"
 		csv_file
 	else
 		redirect back

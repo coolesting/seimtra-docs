@@ -35,17 +35,28 @@ before '/system/*' do
 	#the top menu of administration layout
 	@menus 		= DB[:menu].filter(:type => 'system').order(:order)
 
+	#fetch the current available menu from request path of url
 	menu_curr	= @menus.filter(:link => request.path)
+	if menu_curr.get(:mid).class.to_s == "NilClass"
+		path_arr = request.path.split "/"
+		while menu_curr.get(:mid).class.to_s == "NilClass"
+			path_str = ""
+			path_arr.pop
+			path_str += path_arr.join("/")
+			menu_curr = @menus.filter(:link => path_str)
+		end
+	end
+	
 	menu_name 	= menu_curr.get(:name)
 	menu_des 	= menu_curr.get(:description)
 
 	@menu1_focus = @menu2_focus = menu_name
 
-	#this is a top menu
+	#get the focus item of the top menu , currentlly
 	if menu_curr.get(:preid) == 0
 		menu1_mid = menu_curr.get(:mid) 
 		@menu2_focus = ""
-	#it is second menu
+	#the second menu on focus
 	else
 		menu1_mid = menu_curr.get(:preid)
 		#need to set the top menu
@@ -55,18 +66,39 @@ before '/system/*' do
 	if menu_name and menu_des
 		@title = menu_name.capitalize + " - " + menu_des
 	end
+ 
+# 	#first menu
+# 	@menus1	= {}
+# 
+# 	#second menu
+# 	@menus2	= {}
+# 
+# 	@menus.each do | row |
+# 		if row[:preid] == 0
+# 			@menus1[row[:name]] = row[:link] 
+# 		elsif row[:preid] == menu1_mid
+# 			@menus2[row[:name]] = row[:link] 
+# 		end
+# 	end
+ 
+	#menu
+	#menu_link => {:name => "link1", :name2 => "link2" ,,,}
+	@menu_link = {}
 
-	#first menu
-	@menus1	= {}
-
-	#second menu
-	@menus2	= {}
+	#menu_name => {:top_menu_name1 => [:sec_menu_name1, :sec_menu_name,], :top_menu_name2 => {:sec_menu_name1 ,,,} ,,,}
+	@menu_name = {}
+	@menu_mid = {}
+	@menus.each do | row |
+		@menu_link[row[:name]] = row[:link]
+		@menu_mid[row[:mid]]	= row[:name]
+		#1 level menu name
+		@menu_name[row[:name]] = [] if row[:preid] == 0
+	end
 
 	@menus.each do | row |
-		if row[:preid] == 0
-			@menus1[row[:name]] = row[:link] 
-		elsif row[:preid] == menu1_mid
-			@menus2[row[:name]] = row[:link] 
+		#2 level menu name
+		if @menu_mid.has_key? row[:preid]
+			@menu_name[@menu_mid[row[:preid]]] << row[:name]
 		end
 	end
 
@@ -74,5 +106,6 @@ before '/system/*' do
 	@page_size = 30
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
+
 end
 
