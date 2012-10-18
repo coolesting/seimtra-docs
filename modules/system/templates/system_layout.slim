@@ -28,9 +28,9 @@ html
 			- if settings.sys_msg
 				#msg.clear = settings.sys_msg
 
-			- unless settings.sys_opt.empty?
-				#opt.right
-					form
+			#main
+				- unless settings.sys_opt.empty?
+					#opt.right
 						- if settings.sys_opt.include? :new
 							dl.dl-1
 								dt create
@@ -46,70 +46,69 @@ html
 
 						- if settings.sys_opt.include? :search
 							dl.dl-1
-								dt search
-								dd
-									form action="#{request.path}" method="get"
-										input type="text" name="sc" placeholder="search content" value="#{@qs[:sc]}"
-								dd
-									- unless @search.empty?
-										select name="sw"
-											- @search.each do | sk, sv |
-												option value="#{sk}" = sv
-									input type="submit" value="Search"
+								form action="#{request.path}" method="get"
+									dt search
+									dd
+										input type="search" name="sc" placeholder="search content" value="#{@qs[:sc]}"
+									dd
+										- unless @search.empty?
+											select name="sw"
+												- @search.each do | sk, sv |
+													option value="#{sk}" = sv
+										input type="submit" value="Search"
 
-			javascript:
+				#content.left == yield
 
-				//menu data
-				var json_menu_link = #{{@json_menu_link}};
-				var json_menu_name = #{{@json_menu_name}};
+		javascript:
 
+			//menu data
+			var json_menu_link = #{{@json_menu_link}};
+			var json_menu_name = #{{@json_menu_name}};
+
+			$(document).ready(function() {
+
+				//1-level menu highlight
+				var menus2_content, menu2_name, menu2_str = "";
+
+				//save the #menus2 content
+				menus2_content = $("#menus2").html();
 
 				//top menu
-				$(document).ready(function() {
+				$("#menu").hover(
+					function(){
 
-					//1-level menu highlight
-					var menus2_content, menu2_name, menu2_str = "";
-
-					//save the #menus2 content
-					menus2_content = $("#menus2").html();
-
-					$("#menu").hover(
-						function(){
-
-							$(this).find("#menus1 span").hover(function(){
-								$("#menus1 span").removeClass("focus1");
-								$(this).addClass("focus1");
-
-								//update the 2-level menu copy
-								menu2_name 	= $(this).find("a").attr("title");
-								menu2_str	= "";
-								$.each(json_menu_name[menu2_name], function(i, name){
-									menu2_str = menu2_str + "<span><a href='" + json_menu_link[name] + "'>" + name + "</a></span>"
-								});
-								$("#menus2").html(menu2_str);
-
-
-							}, function(){
-								//$("#menu2_copy").remove();
-							});
-
-						//recover the #menus2 content
-						}, function(){
-							$("#menus2").html(menus2_content);
+						$(this).find("#menus1 span").hover(function(){
 							$("#menus1 span").removeClass("focus1");
-						}
-					);
+							$(this).addClass("focus1");
 
-					//2-level menu highlight
-					$("#menus2 span").hover(
-						function(){
-							$(this).addClass("focus2");
+							//update the 2-level menu copy
+							menu2_name 	= $(this).find("a").attr("title");
+							menu2_str	= "";
+							$.each(json_menu_name[menu2_name], function(i, name){
+								menu2_str = menu2_str + "<span><a href='" + json_menu_link[name] + "'>" + name + "</a></span>"
+							});
+							$("#menus2").html(menu2_str);
+
 						}, function(){
-							$(this).removeClass("focus2");
-						}
-					);
-					
-				});
+							//$("#menu2_copy").remove();
+						});
+
+					//recover the #menus2 content
+					}, function(){
+						$("#menus2").html(menus2_content);
+						$("#menus1 span").removeClass("focus1");
+					}
+				);
+
+				//2-level menu highlight
+				$("#menus2 span").hover(
+					function(){
+						$(this).addClass("focus2");
+					}, function(){
+						$(this).removeClass("focus2");
+					}
+				);
+			
+			});
 
 
-			#main.left == yield
