@@ -17,9 +17,13 @@ end
 
 before '/system/*' do
 
+	#===========
+	#=== 01, define the setting
+	#===========
+	#set the specifying template for admin view
+
 	@title = "Seimtra system!"
 
-	#set the specifying template for admin view
 	set :slim, :layout => :system_layout
 
 	#the operation bar
@@ -32,10 +36,13 @@ before '/system/*' do
 
 	@fields		= {}
 
-	#the top menu of administration layout
+
+	#===========
+	#=== 02, the top menu of layout template
+	#===========
 	@menus 		= DB[:menu].filter(:type => 'system').order(:order)
 
-	#fetch the current available menu from request path of url
+	#fetch the current available menu item from request path of url
 	menu_curr	= @menus.filter(:link => request.path)
 	if menu_curr.get(:mid).class.to_s == "NilClass"
 		path_arr = request.path.split "/"
@@ -64,24 +71,9 @@ before '/system/*' do
 	end
 
 	if menu_name and menu_des
-		@title = menu_name.capitalize + " - " + menu_des
+		@title = menu_name + " - " + menu_des
 	end
  
-# 	#first menu
-# 	@menus1	= {}
-# 
-# 	#second menu
-# 	@menus2	= {}
-# 
-# 	@menus.each do | row |
-# 		if row[:preid] == 0
-# 			@menus1[row[:name]] = row[:link] 
-# 		elsif row[:preid] == menu1_mid
-# 			@menus2[row[:name]] = row[:link] 
-# 		end
-# 	end
- 
-	#menu
 	#menu_link => {:name => "link1", :name2 => "link2" ,,,}
 	@menu_link = {}
 
@@ -106,7 +98,10 @@ before '/system/*' do
 	@json_menu_link = JSON.pretty_generate @menu_link
 	@json_menu_name = JSON.pretty_generate @menu_name
 
-	#the pagination parameters
+
+	#==========
+	#=== 03, the pagination parameters
+	#==========
 	@page_size = 30
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
