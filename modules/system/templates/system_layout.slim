@@ -77,7 +77,7 @@ html
 				$("#menu").hover(
 					function(){
 
-						$(this).find("#menus1 span").hover(function(){
+						$(this).find("#menus1 span").mouseover(function(){
 							$("#menus1 span").removeClass("focus1");
 							$(this).addClass("focus1");
 
@@ -89,8 +89,6 @@ html
 							});
 							$("#menus2").html(menu2_str);
 
-						}, function(){
-							//$("#menu2_copy").remove();
 						});
 
 					//recover the #menus2 content
