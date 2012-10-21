@@ -5,7 +5,6 @@ include Seimtra
 require './environment'
 require './lib'
 
-
 language = []
 templates = []
 languages = []
@@ -52,10 +51,9 @@ languages.each do | row |
 	L[row[:label]] = row[:content]
 end
 
-applications.each do | routor |
-	require routor
+applications.each do | route |
+	require route
 end
-
 
 #set the default page
 get '/' do

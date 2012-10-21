@@ -1,5 +1,0 @@
-name=front
-opened=on
-description=A frontground system
-load_order=5
-group=core
