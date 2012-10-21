@@ -60,6 +60,9 @@ configure do
 
 	#set the log for output
 	disable :logging
+	set :log, false
+
+	set :cache_static_file, false
 
 	#file path
 	set :tmp_path, '/var/tmp'
@@ -68,9 +71,9 @@ configure do
 
 	set :cache_path, '/var/cache/seimtra'
 
+	set :log_path, '/var/log/seimtra'
+
 	#define the home page
 	set :home_page, '/system/'
-
-	set :cache_static_file, false
 
 end
