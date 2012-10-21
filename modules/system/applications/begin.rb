@@ -1,5 +1,18 @@
 before do
 
+	@title = "Welcome to seimtra!"
+
+	#the operation bar
+	set :sys_opt, {}
+
+	set :sys_msg, nil
+
+	#a variable, search condition options in layout template
+	@search		= {}
+
+	#template @fields of form html
+	@fields		= {}
+
 	#request query string
 	@qs	= {}
 	if qs = request.query_string
@@ -13,33 +26,20 @@ before do
 		end
 	end
 
+	#the pagination parameters
+	@page_size = 30
+	@page_curr = 1 
+	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
+
 end
 
 before '/system/*' do
-
-	#===========
-	#=== 01, define the setting
-	#===========
-	#set the specifying template for admin view
 
 	@title = "Seimtra system!"
 
 	set :slim, :layout => :system_layout
 
-	#the operation bar
-	set :sys_opt, {}
-
-	set :sys_msg, nil
-
-	#a variable, search condition options of layout template
-	@search		= {}
-
-	@fields		= {}
-
-
-	#===========
-	#=== 02, the top menu of layout template
-	#===========
+	#the top menu of layout template
 	@menus 		= DB[:menu].filter(:type => 'system').order(:order)
 
 	#fetch the current available menu item from request path of url
@@ -97,14 +97,6 @@ before '/system/*' do
 	require 'json'
 	@json_menu_link = JSON.pretty_generate @menu_link
 	@json_menu_name = JSON.pretty_generate @menu_name
-
-
-	#==========
-	#=== 03, the pagination parameters
-	#==========
-	@page_size = 30
-	@page_curr = 1 
-	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
 
 end
 
