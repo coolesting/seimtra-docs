@@ -21,12 +21,6 @@ type=system
 link=/system/setting
 description=about the system settings.
 
-name=tag
-prename=system
-type=system
-link=/system/tag
-description=the keyword for all applications
-
 name=language
 prename=system
 type=system
@@ -38,3 +32,9 @@ prename=system
 type=system
 link=/system/iocsv
 description=input and output data to database with the csv file
+
+name=tag
+prename=system
+type=system
+link=/system/tag
+description=No description about the tag

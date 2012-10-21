@@ -74,7 +74,7 @@ post '/system/tag/edit/:tid' do
 
 	tag_set_fields
 	tag_valid_fields
-	DB[:tag].filter(:tid => params[:tid].to_i).update(@fields)
+	DB[:tag].filter(:tid => params[:tid]).update(@fields)
 	redirect "/system/tag"
 
 end
