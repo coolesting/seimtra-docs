@@ -1,5 +1,8 @@
 name=system
 opened=on
+version=0.0.1
+email=coolesting@gmail.com
+author=Bruce dengx coolesting
 description=A background administration system
 load_order=5
 group=core
