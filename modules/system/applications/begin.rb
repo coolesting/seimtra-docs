@@ -90,7 +90,7 @@ before '/system/*' do
 	@menus.each do | row |
 		#2 level menu name
 		if @menu_mid.has_key? row[:preid]
-			@menu_name[@menu_mid[row[:preid]]] << row[:name]
+			@menu_name[@menu_mid[row[:preid]]] << row[:name] if @menu_name.include? @menu_mid[row[:preid]]
 		end
 	end
 
