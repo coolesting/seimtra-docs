@@ -6,3 +6,4 @@ created=2012-05-24 22:49:59 -0700
 version=0.0.1
 root_privilege=TzQfno320lbw
 module_focus=test
+default_scaffold=system

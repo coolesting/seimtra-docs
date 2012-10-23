@@ -5,5 +5,4 @@ modules/*
 !modules/system
 !modules/front
 !modules/user
-Seimfile
 script/*
