@@ -3,7 +3,7 @@ form action="#{request.path}" method="post" id="form"
 	@t[:fields].each do | field | 
 
 		html_type = @t[:htmls][field]
-		html_type = "unknown" if Sbase::Main_key.include? @t[:types][field].to_sym 
+		html_type = "unknown" if Sbase::Main_key.include?(@t[:types][field].to_sym) or field == 'created' or field == 'changed'
 		lname = @t[:assoc].has_key?(field) ? @t[:assoc][field][2] : field
 
 		if html_type == "unknown" %>

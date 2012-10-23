@@ -51,6 +51,8 @@ post '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 
 	<%=@t[:file_name]%>_set_fields
 	<%=@t[:file_name]%>_valid_fields
+	<% if @t[:fields].include?('created') %>@fields[:created] = Time.now<% end %>
+	<% if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end %>
 	DB[:<%=@t[:table_name]%>].insert(@fields)
 	redirect "/<%=@t[:layout]%>/<%=@t[:file_name]%>"
 
@@ -80,6 +82,7 @@ post '/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/:<%=@t[:key_id]%>' do
 
 	<%=@t[:file_name]%>_set_fields
 	<%=@t[:file_name]%>_valid_fields
+	<% if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end %>
 	<% if @t[:types][@t[:key_id]].to_sym == :integer 
 	%>DB[:<%=@t[:table_name]%>].filter(:<%=@t[:key_id]%> => params[:<%=@t[:key_id]%>].to_i).update(@fields)<% 
 	else 
@@ -96,9 +99,15 @@ helpers do
 		<%
 			str = ""
 			@t[:fields].each do | field |
-				str += "\n\t\t\t:#{field}\t\t=> ''" unless Sbase::Main_key.include? @t[:types][field].to_sym
-				str += "," if @t[:fields].last != field and str != ""
+				unless Sbase::Main_key.include?(@t[:types][field].to_sym)
+					if field == 'changed'
+					elsif field == 'created'
+					else
+						str += "\n\t\t\t:#{field}\t\t=> ''," 
+					end
+				end
 			end 
+			str = str.chomp ','
 		%>
 		default_values = {<%=str%>
 		}
@@ -119,6 +128,8 @@ helpers do
 		field = <%=@t[:assoc][field][0]%>_record :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>
 		throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i
 		<%
+				elsif field == 'created'
+				elsif field == 'changed'
 				else
 		%>
 		throw_error "The <%=field%> field cannot be empty." if @fields[:<%=field%>] == ""
