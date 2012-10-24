@@ -1,0 +1,112 @@
+doctype html
+html
+	head
+		title = @title
+		meta http-equiv="content-type" content="text/html; charset=UFT-8"
+		script src="/js/jquery-172.js" type="text/javascript" charset="utf-8"
+		link rel='stylesheet' type='text/css' href='/css/style.css'
+		link rel='stylesheet' type='text/css' href='/css/admin.css'
+		link rel='stylesheet' type='text/css' href='/css/table-1.css'
+	body
+		#wrap
+			#menu
+				#menus1
+					- @menu_name.each do | name, coll |
+						- menu1_focus = name == @menu1_focus ? "focus" : ""
+						span class="#{menu1_focus}"
+							a href="#{@menu_link[name]}" title="#{name}" = name
+
+				#menus2.clear
+					- @menu_name[@menu1_focus].each do | name |
+						- menu2_focus = name == @menu2_focus ? "focus" : ""
+						span class="#{menu2_focus}"
+							a href="#{@menu_link[name]}" = name
+
+			#description.clear
+				p = @title
+
+			- if settings.sys_msg
+				#msg.clear = settings.sys_msg
+
+			#main
+				- unless settings.sys_opt.empty?
+					#opt.right
+						- if settings.sys_opt.include? :new
+							dl.dl-1
+								dt create
+								dd
+									a href="#{request.path}/new"
+										button Create
+
+						- if settings.sys_opt.include? :save
+							dl.dl-1
+								dt save
+								dd
+									input type="submit" name="opt" value="Save" form="form"
+
+						- if settings.sys_opt.include? :search
+							dl.dl-1
+								form action="#{request.path}" method="get"
+									dt search
+									dd
+										input type="search" name="sc" placeholder="search content" value="#{@qs[:sc]}"
+									dd
+										- unless @search.empty?
+											select name="sw"
+												- @search.each do | sk, sv |
+													option value="#{sk}" = sv
+										input type="submit" value="Search"
+
+				#content.left == yield
+
+		javascript:
+
+			//menu data
+			var json_menu_link = #{{@json_menu_link}};
+			var json_menu_name = #{{@json_menu_name}};
+
+			$(document).ready(function() {
+
+				//1-level menu highlight
+				var menus2_content, menu2_name, menu2_str = "";
+
+				//save the #menus2 content
+				menus2_content = $("#menus2").html();
+
+				//top menu
+				$("#menu").hover(
+					function(){
+
+						$(this).find("#menus1 span").mouseover(function(){
+							$("#menus1 span").removeClass("focus1");
+							$(this).addClass("focus1");
+
+							//update the 2-level menu copy
+							menu2_name 	= $(this).find("a").attr("title");
+							menu2_str	= "";
+							$.each(json_menu_name[menu2_name], function(i, name){
+								menu2_str = menu2_str + "<span><a href='" + json_menu_link[name] + "'>" + name + "</a></span>"
+							});
+							$("#menus2").html(menu2_str);
+
+						});
+
+					//recover the #menus2 content
+					}, function(){
+						$("#menus2").html(menus2_content);
+						$("#menus1 span").removeClass("focus1");
+					}
+				);
+
+				//2-level menu highlight
+				$("#menus2 span").hover(
+					function(){
+						$(this).addClass("focus2");
+					}, function(){
+						$(this).removeClass("focus2");
+					}
+				);
+			
+			});
+
+

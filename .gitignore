@@ -5,4 +5,5 @@ modules/*
 !modules/system
 !modules/front
 !modules/user
+!modules/admin
 script/*

@@ -1,0 +1,29 @@
+table.table
+	thead
+		th : a href="#{sys_url('/admin/menu', :order => 'mid')}" = L[:mid]
+		th : a href="#{sys_url('/admin/menu', :order => 'name')}" = L[:name]
+		th : a href="#{sys_url('/admin/menu', :order => 'type')}" = L[:type]
+		th : a href="#{sys_url('/admin/menu', :order => 'link')}" = L[:link]
+		th = L[:description]
+		th : a href="#{sys_url('/admin/menu', :order => 'preid')}" = L[:preid]
+		th : a href="#{sys_url('/admin/menu', :order => 'order')}" = L[:order]
+		th
+	tbody
+		- @menu.each do | row |
+			tr
+				td = row[:mid]
+				td = row[:name]
+				td = row[:type]
+				td = row[:link]
+				td = row[:description]
+				td = row[:preid]
+				td = row[:order]
+				td : a href="/admin/menu/edit/#{row[:mid]}" fix
+				td : a href="/admin/menu/rm/#{row[:mid]}" del
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			a class="#{page_focus}" href="#{sys_url('/admin/menu', :page_curr => i)}" = i
+			label &nbsp;&nbsp;

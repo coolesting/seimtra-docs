@@ -1,0 +1,24 @@
+table.table
+	thead
+		th : a href="#{sys_url('/admin/language', :order => 'label')}" = L[:label]
+		th : a href="#{sys_url('/admin/language', :order => 'content')}" = L[:content]
+		th : a href="#{sys_url('/admin/language', :order => 'mid')}" = L[:name]
+		th
+	tbody
+		- modules = module_record(:mid, :name)
+		- @language.each do | row |
+			tr
+				td = row[:label]
+				td = row[:content]
+				td = modules[row[:mid]]
+				td : a href="/admin/language/edit/#{row[:label]}" fix
+				td : a href="/admin/language/rm/#{row[:label]}" del
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			a class="#{page_focus}" href="#{sys_url('/admin/language', :page_curr => i)}" = i
+			label &nbsp;&nbsp;
+
+p = L[:'Restarting the web server when you finish the modification to the content']

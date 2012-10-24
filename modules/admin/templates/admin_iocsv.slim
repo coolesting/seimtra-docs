@@ -1,0 +1,21 @@
+dl.dl-1
+	dt inport
+	dd
+		form action="/admin/iocsv/inport" method="post" enctype="multipart/form-data"
+			input type="file" name="inport"
+			input type="submit" value="submit"
+
+
+dl.dl-1
+	dt export
+	dd
+		form action="/admin/iocsv/export" method="get"
+			input type="text" name="export" placeholder="table name"
+			input type="submit" value="submit"
+
+
+div
+	p
+		h4 = L[:help]
+	p = L[:'You could export it(*.csv) and change the File-encoding to ANSI format, then edit it with Excel']
+	p = L[:'Note that the upload file encoding must be return to UTF-8']

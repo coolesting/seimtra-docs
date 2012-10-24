@@ -1,0 +1,10 @@
+table.table
+	- display_fields = [:mid, :name, :group, :version, :opened, :author, :description]
+	thead
+		- display_fields.each do | item |
+			th = L[item]
+	tbody
+		- M.each do | row |
+			tr
+				- display_fields.each do | item |
+					td = row[item]

@@ -1,0 +1,40 @@
+name=admin
+type=admin
+link=/admin/
+description=a system administrator page.
+
+name=menu
+prename=admin
+type=admin
+link=/admin/menu
+description=administrator the links of this panel.
+
+name=module
+prename=admin
+type=admin
+link=/admin/module
+description=display the module you installed.
+
+name=setting
+prename=admin
+type=admin
+link=/admin/setting
+description=about the system settings.
+
+name=language
+prename=admin
+type=admin
+link=/admin/language
+description=the template language translated content
+
+name=iocsv
+prename=admin
+type=admin
+link=/admin/iocsv
+description=input and output data to database with the csv file
+
+name=tag
+prename=admin
+type=admin
+link=/admin/tag
+description=No description about the tag
