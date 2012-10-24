@@ -8,8 +8,6 @@ table.table
 			tr<% @t[:fields].each do | field | if @t[:assoc].has_key? field %>
 				td = <%=@t[:assoc][field][0]%>s[row[:<%=field%>]]<% else %>
 				td = row[:<%=field%>]<% end %><% end %>
-				td : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/#{row[:<%=@t[:key_id]%>]}" fix
-				td : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/rm/#{row[:<%=@t[:key_id]%>]}" del
 
 - if @page_count > 1
 	p.page_bar
