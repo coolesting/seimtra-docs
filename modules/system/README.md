@@ -1,3 +1,3 @@
 ## INTRODUCTION
 
-A background administration module.
+A core system module

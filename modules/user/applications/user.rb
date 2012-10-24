@@ -1,4 +1,4 @@
-get '/system/user' do
+get '/admin/user' do
 
 	@title = 'user list.'
 	sys_opt :new
@@ -8,51 +8,51 @@ get '/system/user' do
  	@user = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @user.page_count
 
-	slim :system_user
+	slim :admin_user
 
 end
 
 # new a record
-get '/system/user/new' do
+get '/admin/user/new' do
 
 	@title = 'Create a new user.'
 	sys_opt :save
-	slim :system_user_form
+	slim :admin_user_form
 
 end
 
-post '/system/user/new' do
+post '/admin/user/new' do
 
 	user_valid params[:name], params[:pawd]
 	user_add params[:name], params[:pawd]
-	redirect "/system/user"
+	redirect "/admin/user"
 
 end
 
 #delete the record
-get '/system/user/rm/:uid' do
+get '/admin/user/rm/:uid' do
 
 	user_delete params[:uid]
-	redirect "/system/user"
+	redirect "/admin/user"
 
 end
 
 # edit the record
-get '/system/user/edit/:uid' do
+get '/admin/user/edit/:uid' do
 
 	@title = 'Edit the user.'
 	sys_opt :save
 	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
 	@fields[:pawd] = ""
- 	slim :system_user_form
+ 	slim :admin_user_form
 
 end
 
-post '/system/user/edit/:uid' do
+post '/admin/user/edit/:uid' do
 
 	user_valid params[:name], params[:pawd]
 	user_edit params
-	redirect "/system/user"
+	redirect "/admin/user"
 
 end
 

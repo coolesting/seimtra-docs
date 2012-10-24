@@ -18,7 +18,7 @@ helpers do
 	end
 
 	def throw_error str
-		redirect("/system/errors/#{str}") 	
+		redirect("/admin/errors/#{str}") 	
 	end
 
 	def menu_focus path, des = nil

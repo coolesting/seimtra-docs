@@ -1,8 +1,10 @@
 name=system
+load_order=9
 opened=on
-version=0.0.1
+status=development
 email=coolesting@gmail.com
-author=Bruce dengx coolesting
-description=A background administration system
-load_order=5
+author=Bruce deng coolesting
+created=2012-10-23 19:10:14 -0700
+version=0.0.1
 group=core
+description=A core system module

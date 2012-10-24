@@ -16,12 +16,12 @@ table.table
 				th = row[:salt]
 				td = row[:created]
 				td = row[:changed]
-				td : a href="/system/user/edit/#{row[:uid]}" fix
-				td : a href="/system/user/rm/#{row[:uid]}" del
+				td : a href="/admin/user/edit/#{row[:uid]}" fix
+				td : a href="/admin/user/rm/#{row[:uid]}" del
 
 - if @page_count > 1
 	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
-			a class="#{page_focus}" href="#{sys_url("/system/user", :page_curr => i)}" = i
+			a class="#{page_focus}" href="#{sys_url("/admin/user", :page_curr => i)}" = i
 			label &nbsp;&nbsp;

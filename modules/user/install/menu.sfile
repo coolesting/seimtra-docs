@@ -1,16 +1,16 @@
 name=user
-type=system
-link=/system/user
+type=admin
+link=/admin/user
 description=a user module
 
 name=user list
 prename=user
-type=system
-link=/system/user
+type=admin
+link=/admin/user
 description=display the user
 
 name=add user
 prename=user
-type=system
-link=/system/user/new
+type=admin
+link=/admin/user/new
 description=create a new user

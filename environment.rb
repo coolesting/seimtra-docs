@@ -74,6 +74,6 @@ configure do
 	set :log_path, '/var/log/seimtra'
 
 	#define the home page
-	set :home_page, '/system/'
+	set :home_page, '/admin/'
 
 end
