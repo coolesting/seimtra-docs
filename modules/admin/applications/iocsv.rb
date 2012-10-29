@@ -7,7 +7,6 @@ get '/admin/iocsv/export' do
 
 	if params[:export] and (DB.tables.include?(params[:export].to_sym))
 		require 'csv'
-
 		ds = DB[params[:export].to_sym]
 		csv_file = CSV.generate do | csv |
 			csv << DB[params[:export].to_sym].columns!
@@ -17,6 +16,9 @@ get '/admin/iocsv/export' do
 			end
 		end
 
+		require 'iconv'
+		encoding = params.include?(:encoding) ? params[:encoding] : "gb2312"
+		csv_file = Iconv.iconv(encoding, "UTF-8", csv_file)
    		attachment "#{params[:export]}.csv"
 		csv_file
 	else
@@ -32,7 +34,12 @@ post '/admin/iocsv/inport' do
 		table	= params[:inport][:filename].split('.').first
 		@content = []
 		require 'csv'
-		CSV.parse(params[:inport][:tempfile].read) do | row |
+
+ 		require 'iconv'
+ 		encoding = params.include?(:encoding) ? params[:encoding] : "gb2312"
+  		file_content = Iconv.iconv("UTF-8", encoding, params[:inport][:tempfile].read)
+
+		CSV.parse(file_content.join) do | row |
 			@content << row
 		end
 
