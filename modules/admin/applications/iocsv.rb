@@ -1,9 +1,12 @@
 get '/admin/iocsv' do
+	@encoding = sys_get(:encoding) != "" ? sys_get(:encoding) : settings.default_encoding
 	slim :admin_iocsv
 end
 
 #get db table as csv file output
 get '/admin/iocsv/export' do
+
+	@encoding = sys_get(:encoding) != "" ? sys_get(:encoding) : settings.default_encoding
 
 	if params[:export] and (DB.tables.include?(params[:export].to_sym))
 		require 'csv'
@@ -16,9 +19,11 @@ get '/admin/iocsv/export' do
 			end
 		end
 
-		require 'iconv'
-		encoding = params.include?(:encoding) ? params[:encoding] : "gb2312"
-		csv_file = Iconv.iconv(encoding, "UTF-8", csv_file)
+		if params.include?(:encoding) and params[:encoding] != settings.default_encoding
+			require 'iconv'
+			csv_file = Iconv.iconv(params[:encoding], "UTF-8", csv_file)
+		end
+
    		attachment "#{params[:export]}.csv"
 		csv_file
 	else
@@ -35,9 +40,10 @@ post '/admin/iocsv/inport' do
 		@content = []
 		require 'csv'
 
- 		require 'iconv'
- 		encoding = params.include?(:encoding) ? params[:encoding] : "gb2312"
-  		file_content = Iconv.iconv("UTF-8", encoding, params[:inport][:tempfile].read)
+		if params.include?(:encoding) and params[:encoding] != settings.default_encoding
+ 			require 'iconv'
+  			file_content = Iconv.iconv("UTF-8", params[:encoding], params[:inport][:tempfile].read)
+		end
 
 		CSV.parse(file_content.join) do | row |
 			@content << row
