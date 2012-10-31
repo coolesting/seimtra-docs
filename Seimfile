@@ -8,3 +8,4 @@ module_focus=test
 default_scaffold=admin
 auto_add_admin_menu=true
 layout=test
+lang=cn
