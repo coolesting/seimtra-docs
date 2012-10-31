@@ -3,7 +3,6 @@
 db/*
 modules/*
 !modules/system
-!modules/front
+!modules/custom
 !modules/user
 !modules/admin
-script/*

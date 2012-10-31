@@ -1,0 +1,4 @@
+name=custom
+type=admin
+link=/admin/custom
+description=a customize module page

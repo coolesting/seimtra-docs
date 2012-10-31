@@ -18,3 +18,13 @@ end
 get '/js/:file_name' do
 	sys_file params[:file_name], 'js'
 end
+
+require 'sass'
+
+configure do
+	set :sass, :cache => true, :cahce_location => './tmp/sass-cache', :style => :compressed
+end
+
+get '/css/sass.css' do
+	sass :index
+end

@@ -3,6 +3,12 @@ type=admin
 link=/admin/
 description=a system administrator page.
 
+name=home
+type=admin
+link=/
+order=9
+description=a front page
+
 name=menu
 prename=admin
 type=admin
