@@ -84,11 +84,9 @@ helpers do
 	#fill the @fields with the default value
 	#the @fields will be write into database, or display by template to frontground
 	def setting_set_fields
-		
 		default_values = {
 			:skey		=> '',
-			:sval		=> '',
-			:changed		=> ''
+			:sval		=> ''
 		}
 
 		default_values.each do | k, v |
@@ -97,16 +95,13 @@ helpers do
 			end
 		end
 
+		@fields[:changed] = Time.now
 	end
 
 	def setting_valid_fields
-		
 		throw_error "The skey field cannot be empty." if @fields[:skey] == ""
 		
 		throw_error "The sval field cannot be empty." if @fields[:sval] == ""
-		
-		throw_error "The changed field cannot be empty." if @fields[:changed] == ""
-		
 	end
 	
 end
