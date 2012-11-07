@@ -51,8 +51,13 @@ post '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 
 	<%=@t[:file_name]%>_set_fields
 	<%=@t[:file_name]%>_valid_fields
-	<% if @t[:fields].include?('created') %>@fields[:created] = Time.now<% end %>
-	<% if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end %>
+	<% if @t[:fields].include?('created') %>@fields[:created] = Time.now<% end
+	if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end
+	@t[:htmls].each do | field, html |
+		if html == "checkbox"%>
+	@fields[:<%=@t[:assoc][field][1]%>] = @fields[:<%=@t[:assoc][field][1]%>].join "."<%
+		end
+	end %>
 	DB[:<%=@t[:table_name]%>].insert(@fields)
 	redirect "/<%=@t[:layout]%>/<%=@t[:file_name]%>"
 
@@ -83,6 +88,13 @@ post '/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/:<%=@t[:key_id]%>' do
 	<%=@t[:file_name]%>_set_fields
 	<%=@t[:file_name]%>_valid_fields
 	<% if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end %>
+	<%
+		@t[:htmls].each do | field, html |
+			if html == "checkbox"
+	%>@fields[:<%=@t[:assoc][field][1]%>] = @fields[:<%=@t[:assoc][field][1]%>].join "."<%
+			end
+		end
+	%>
 	<% if @t[:types][@t[:key_id]].to_sym == :integer 
 	%>DB[:<%=@t[:table_name]%>].filter(:<%=@t[:key_id]%> => params[:<%=@t[:key_id]%>].to_i).update(@fields)<% 
 	else 
@@ -102,6 +114,10 @@ helpers do
 				unless Sbase::Main_key.include?(@t[:types][field].to_sym)
 					if field == 'changed'
 					elsif field == 'created'
+					elsif @t[:htmls][field] == "select"
+						str += "\n\t\t\t:#{field}\t\t=> 1," 
+					elsif @t[:htmls][field] == "checkbox"
+						str += "\n\t\t\t:#{field}\t\t=> []," 
 					else
 						str += "\n\t\t\t:#{field}\t\t=> ''," 
 					end
@@ -123,11 +139,15 @@ helpers do
 	def <%=@t[:file_name]%>_valid_fields
 		<% @t[:fields].each do | field | 
 			unless Sbase::Main_key.include? @t[:types][field].to_sym 
-				if @t[:assoc].has_key? field
-		%>
+				if @t[:assoc].has_key? field %>
 		field = <%=@t[:assoc][field][0]%>_record :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>
-		throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i
+					<% if @t[:htmls][field] != "checkbox" %>
+		throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i<% else %>
+		@fields[:<%=@t[:assoc][field][1]%>].each do | item |
+			throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? item.to_i
+		end
 		<%
+					end
 				elsif field == 'created'
 				elsif field == 'changed'
 				else
@@ -148,12 +168,14 @@ helpers do
 
 		unless assoc_record.empty?
 			assoc_record.each do | table | %>
-	def <%=table%>_record key, val
-		res = {}
-		DB[:<%=table%>].all.each do | row |
-			res[row[key]] = row[val]
+	unless respond_to? :<%=table%>_record
+		def <%=table%>_record key, val
+			res = {}
+			DB[:<%=table%>].all.each do | row |
+				res[row[key]] = row[val]
+			end
+			res
 		end
-		res
 	end
 		<%
 			end

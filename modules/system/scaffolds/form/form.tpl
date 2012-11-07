@@ -32,6 +32,22 @@ form action="#{request.path}" method="post" id="form"
 			- <%=@t[:assoc][field][0]%>s.each do | k,v |
 				- selected = @fields[:<%=@t[:assoc][field][1]%>] == k ? "selected" : ""
 				option selected="#{selected}" value="#{k}" = v
+		<% elsif html_type == "checkbox" %>
+		li : label <%=lname%>
+		- <%=@t[:assoc][field][0]%>s = <%=@t[:assoc][field][0]%>_record(:<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
+		- <%=@t[:assoc][field][1]%>s = []
+		- if @fields[:<%=@t[:assoc][field][1]%>] != ""
+			- if @fields[:<%=@t[:assoc][field][1]%>].index(".")
+				- <%=@t[:assoc][field][1]%>s = @fields[:<%=@t[:assoc][field][1]%>].split(".") 
+			- else
+				- <%=@t[:assoc][field][1]%>s << @fields[:<%=@t[:assoc][field][1]%>]
+
+		li
+			- <%=@t[:assoc][field][0]%>s.each do | k,v |
+				- checked = <%=@t[:assoc][field][1]%>s.include?(k.to_s) ? "checked" : ""
+				input id="checkbox_<%=@t[:assoc][field][1]%>_#{k}" type="checkbox" name="<%=@t[:assoc][field][1]%>[]" checked="#{checked}" value="#{k}"
+				label for="checkbox_<%=@t[:assoc][field][1]%>_#{k}" = v
+				label &nbsp;&nbsp;
 		<% else %>
 		li : label <%=lname%>
 		li : input type="<%=html_type%>" name="<%=field%>" required="required" value="#{@fields[:<%=field%>]}"<% 
@@ -39,3 +55,4 @@ form action="#{request.path}" method="post" id="form"
 
 	end %>
 		li : input type="submit" value="submit"
+
