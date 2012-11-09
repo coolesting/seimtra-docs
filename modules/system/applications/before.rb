@@ -2,11 +2,6 @@ before do
 
 	@title = "Welcome to seimtra!"
 
-	#the operation bar
-	set :sys_opt, {}
-
-	set :sys_msg, nil
-
 	#a variable, search condition options in layout template
 	@search		= {}
 

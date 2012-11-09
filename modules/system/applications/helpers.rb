@@ -25,7 +25,6 @@ helpers do
 		reval = ""
 		if request.path.split("/")[2] == path.split("/")[2]
 			reval = "focus"
-# 			set(:sys_msg, des) unless des == nil
 		end
 		reval
 	end

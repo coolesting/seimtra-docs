@@ -40,6 +40,7 @@ post '/admin/iocsv/inport' do
 		@content = []
 		require 'csv'
 
+		#encoding
 		if params.include?(:encoding) and params[:encoding] != settings.default_encoding
  			require 'iconv'
   			file_content = Iconv.iconv("UTF-8", params[:encoding], params[:inport][:tempfile].read)
@@ -49,8 +50,10 @@ post '/admin/iocsv/inport' do
 			@content << row
 		end
 
-		#input the @content to database
+		#csv header
 		columns = @content.shift
+
+		#csv body
 		@content.shift
 
 		@content.each do | row |
@@ -59,7 +62,7 @@ post '/admin/iocsv/inport' do
 			DB[table.to_sym].insert(data)
 		end
 
-		set :sys_msg, 'upload complete'
+		set :admin_msg, 'upload complete'
 	end
 	redirect back
 

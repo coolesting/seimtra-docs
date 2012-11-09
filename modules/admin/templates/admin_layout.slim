@@ -25,8 +25,8 @@ html
 			#description.clear
 				p = @title
 
-			- if settings.sys_msg
-				#msg.clear = settings.sys_msg
+			- if settings.admin_msg
+				#msg.clear = settings.admin_msg
 
 			#main
 				- unless settings.sys_opt.empty?

@@ -1,6 +1,13 @@
+configure do
+	set :admin_msg, nil
+end
+
 before '/admin/*' do
 
 	@title = "Seimtra system!"
+
+	#the operation bar
+	set :sys_opt, {}
 
 	set :slim, :layout => :admin_layout
 
