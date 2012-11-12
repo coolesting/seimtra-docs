@@ -114,6 +114,8 @@ helpers do
 				unless Sbase::Main_key.include?(@t[:types][field].to_sym)
 					if field == 'changed'
 					elsif field == 'created'
+ 					elsif @t[:types][field] == "integer"
+						str += "\n\t\t\t:#{field}\t\t=> 1," 
 					elsif @t[:htmls][field] == "select"
 						str += "\n\t\t\t:#{field}\t\t=> 1," 
 					elsif @t[:htmls][field] == "checkbox"
