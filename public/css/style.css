@@ -1,9 +1,7 @@
-html, head, body, #wrap, form {
-	margin: 0;
-	padding: 0;
-}
-.clear {
-	clear: both;
-	margin-bottom: 10px;
-}
-#main { padding: 0 10px; }
+html, head, body, form, div, p, a, ul, li, p, h1, h2, h3, h4 { margin: 0;padding: 0;}
+ul, li { list-style-type: none; }
+.clear { clear: both; margin-bottom: 10px;}
+.white { color: white; }
+.left { float: left; }
+.right { float: right; }
+.width100 { width: 100% }
