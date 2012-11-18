@@ -53,8 +53,6 @@ configure do
 
 	DB = Sequel.connect(settings.db_connect)
 
-
-
 	
 	# ================= setting config ================= 
 
@@ -64,7 +62,11 @@ configure do
 
 	set :cache_static_file, false
 
-	#file path
+	#define the home page
+	set :home_page, '/admin'
+
+
+	# ================== file path =====================
 	set :tmp_path, '/var/tmp'
 
 	set :upload_path, '/var/upload'
@@ -73,7 +75,5 @@ configure do
 
 	set :log_path, '/var/log/seimtra'
 
-	#define the home page
-	set :home_page, '/admin/'
 
 end
