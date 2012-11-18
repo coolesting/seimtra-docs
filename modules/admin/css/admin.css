@@ -48,9 +48,6 @@
 
 #description, #opt, #msg { padding: 0 10px; }
 
-.page_bar a { padding: 2px; }
-.page_focus { background: #67ABF0; color: white; }
-
 .ul li {
 	padding-bottom: 20px;
 }

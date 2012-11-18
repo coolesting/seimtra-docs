@@ -2,22 +2,13 @@
 #display
 get '/<%=@t[:layout]%>/<%=@t[:file_name]%>' do
 
-	sys_opt :new, :search
 	ds = DB[:<%=@t[:table_name]%>]
 
 	#search content
-	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
+	condition = {}
+	# puts the condition in here, likes, condition[:id] = @qs[:id] if @qs[:id]
 
-	#search condition
-	if settings.sys_opt.include? :search
-		@search = {<% @t[:fields].each do | field | %>:<%=field%> => '<%
-			if @t[:assoc].has_key? field
-				%><%=@t[:assoc][field][2]%>', <%
-			else
-				%><%=field%>', <%
-			end
-		end %>}
-	end
+	ds = ds.filter(condition) unless condition.empty?
 
 	#order
 	if @qs[:order]

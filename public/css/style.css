@@ -5,3 +5,7 @@ ul, li { list-style-type: none; }
 .left { float: left; }
 .right { float: right; }
 .width100 { width: 100% }
+
+.page_bar a { padding: 2px; }
+.page_focus { background: #67ABF0; color: white; }
+

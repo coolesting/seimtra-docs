@@ -19,12 +19,9 @@ table.table
 					else %>
 				td = row[:<%=field%>]<% end %><% end %>
 
-				td : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/#{row[:<%=@t[:key_id]%>]}" = L[:fix]
-				td : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/rm/#{row[:<%=@t[:key_id]%>]}" = L[:del]
-
 - if @page_count > 1
 	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
-			a class="#{page_focus}" href="#{sys_url('/<%=@t[:layout]%>/<%=@t[:file_name]%>', :page_curr => i)}" = i
+			a class="#{page_focus}" href="#{sys_url(request.path, :page_curr => i)}" = i
 			label &nbsp;&nbsp;
