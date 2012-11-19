@@ -3,7 +3,6 @@
 get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 
 	@title = 'Create a new <%=@t[:file_name]%>'
-	sys_opt :save
 	<%=@t[:file_name]%>_set_fields
 	slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
 
@@ -21,6 +20,6 @@ post '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 		end
 	end %>
 	DB[:<%=@t[:table_name]%>].insert(@fields)
-	redirect "/<%=@t[:layout]%>/<%=@t[:file_name]%>"
+	redirect back
 
 end

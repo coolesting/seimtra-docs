@@ -8,6 +8,12 @@ before do
 	#template @fields of form html
 	@fields		= {}
 
+	#set the layout automatically
+	module_name = request.path.split("/")[1]
+	if Slayout.include? module_name
+		set :slim, :layout => "#{module_name}_layout".to_sym
+	end
+
 	#request query string
 	@qs	= {}
 	if qs = request.query_string

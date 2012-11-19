@@ -9,10 +9,8 @@ before '/admin/*' do
 	#the operation bar
 	set :sys_opt, {}
 
-	set :slim, :layout => :admin_layout
-
 	#the top menu of layout template
-	@menus 		= DB[:menu].filter(:type => 'admin').order(:order)
+	@menus = DB[:menu].filter(:type => 'admin').order(:order)
 
 	#fetch the current available menu item from request path of url
 	menu_curr	= @menus.filter(:link => request.path)

@@ -7,5 +7,5 @@ ul, li { list-style-type: none; }
 .width100 { width: 100% }
 
 .page_bar a { padding: 2px; }
-.page_focus { background: #67ABF0; color: white; }
+.page_focus { background: #000; color: white; }
 

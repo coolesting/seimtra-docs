@@ -23,6 +23,7 @@ if M.empty?
 	exit
 end
 
+Slayout = []
 M.each do | row |
 	if row[:opened] == "on"
 		#preprocess the templates loaded item
@@ -32,6 +33,9 @@ M.each do | row |
 		applications += Dir[settings.root + "/modules/#{row[:name]}/applications/*.rb"]
 
 		language << row[:mid] unless language.include? row[:mid]
+
+		Slayout << row[:name] if File.exist? "#{settings.root}/modules/#{row[:name]}/templates/#{row[:name]}_layout.slim"
+
 	end
 end
 
