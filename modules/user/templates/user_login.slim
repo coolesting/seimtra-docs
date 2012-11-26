@@ -1,9 +1,21 @@
-form action="/user/login" method="post"
-	ul.ul
-		li : label username
-		li : input type="text" name="name" required="required" placeholder="user name"
+#user_login
+	form action="/user/login" method="post"
+		ul
+			li : label = L[:username]
+			li : input type="text" name="name" required="required" placeholder="user name"
 
-		li : label password
-		li : input type="password" name="pawd" required="required" placeholder="password"
+			li : label = L[:password]
+			li : input type="password" name="pawd" required="required" placeholder="password"
 
-		li : input type="submit" value="login"
+			li : input.done type="submit" value="#{L[:login]}"
+
+css:
+
+	#user_login {
+		margin: 0 2px;
+	}
+	#user_login li {
+		margin-bottom: 2px;
+	}
+	.done {
+	}
