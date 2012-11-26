@@ -77,7 +77,7 @@ helpers do
 
 	def user_logout
 
-		response.set_cookie "sid", ""
+		response.set_cookie "sid", :value => "", :path => "/"
 		user_session_remove request.cookies['sid']
 
 	end
