@@ -1,4 +1,4 @@
-html, head, body, form, div, p, a, ul, li, p, h1, h2, h3, h4 { margin: 0;padding: 0;}
+html, head, body, form, table, thead, tbody, th, tr, td, div, p, a, ul, li, p, h1, h2, h3, h4 { margin: 0;padding: 0;}
 ul, li { list-style-type: none; }
 .clear { clear: both; margin-bottom: 10px;}
 .white { color: white; }

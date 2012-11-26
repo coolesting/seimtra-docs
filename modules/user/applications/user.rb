@@ -1,61 +1,3 @@
-get '/admin/user' do
-
-	@title = 'user list.'
-	sys_opt :new
-	ds = DB[:user]
-
-	Sequel.extension :pagination
- 	@user = ds.paginate(@page_curr, @page_size, ds.count)
- 	@page_count = @user.page_count
-
-	slim :admin_user
-
-end
-
-# new a record
-get '/admin/user/new' do
-
-	@title = 'Create a new user.'
-	sys_opt :save
-	slim :admin_user_form
-
-end
-
-post '/admin/user/new' do
-
-	user_valid params[:name], params[:pawd]
-	user_add params[:name], params[:pawd]
-	redirect "/admin/user"
-
-end
-
-#delete the record
-get '/admin/user/rm/:uid' do
-
-	user_delete params[:uid]
-	redirect "/admin/user"
-
-end
-
-# edit the record
-get '/admin/user/edit/:uid' do
-
-	@title = 'Edit the user.'
-	sys_opt :save
-	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
-	@fields[:pawd] = ""
- 	slim :admin_user_form
-
-end
-
-post '/admin/user/edit/:uid' do
-
-	user_valid params[:name], params[:pawd]
-	user_edit params
-	redirect "/admin/user"
-
-end
-
 get '/user/info' do
 
 	user_login? true
@@ -82,7 +24,7 @@ post '/user/login' do
 
 	user_valid params[:name], params[:pawd]
 	user_login params[:name], params[:pawd]
-	redirect "/user/info"
+	redirect back
 
 end
 
@@ -153,7 +95,7 @@ helpers do
 			sid = Digest::SHA1.hexdigest(name + Time.now.to_s)
 
 			#set sid to client cookie
-			response.set_cookie "sid", sid
+			response.set_cookie "sid", :value => sid, :path => "/"
 
 			#set sid at server
 			user_session_update sid, ds.get(:uid)

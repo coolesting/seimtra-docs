@@ -28,6 +28,7 @@ before do
 	end
 
 	#the pagination parameters
+	@page_count = 0
 	@page_size = 30
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0

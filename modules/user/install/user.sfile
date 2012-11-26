@@ -1,7 +1,7 @@
+name=guest
+pawd=guest
+salt=xcvxc
+
 name=admin
 pawd=admin
 salt=ABCde
-
-name=test
-pawd=test
-salt=dsknv

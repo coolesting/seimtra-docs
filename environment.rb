@@ -63,7 +63,11 @@ configure do
 	set :cache_static_file, false
 
 	#define the home page
-	set :home_page, '/admin'
+	set :home_page, '/admin/'
+
+	set :mydomain, ''
+
+	set :mypath, '/'
 
 
 	# ================== file path =====================
