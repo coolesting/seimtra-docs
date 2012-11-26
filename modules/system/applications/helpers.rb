@@ -54,4 +54,8 @@ helpers do
 		end
 	end
 
+	def slim_part filename
+		slim filename.to_sym, :layout => false
+	end
+
 end
