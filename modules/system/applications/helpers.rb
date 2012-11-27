@@ -54,6 +54,21 @@ helpers do
 		end
 	end
 
+	#auto match the path 
+	def sys_match_path path, data
+
+		path_arr = []
+		path_str = path
+		path_arr = path.split "/" if path.index("/")
+
+		until data.include?(path_str) or path_arr.empty?
+			path_arr.pop
+			path_str = "/" + path_arr.join("/")
+		end
+
+		path_str
+	end
+
 	def slim_part filename
 		slim filename.to_sym, :layout => false
 	end
