@@ -24,7 +24,7 @@ post '/user/login' do
 
 	user_valid params[:name], params[:pawd]
 	user_login params[:name], params[:pawd]
-	redirect back
+	redirect settings.home_page
 
 end
 
