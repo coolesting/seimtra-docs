@@ -34,12 +34,13 @@ helpers do
 	# check the current user whether logined
 	#
 	# == Argument
-	# boolean value, the unlogin user will be redirect to login page if the value is true
-	def user_login? redirect = false
+	# string, the unknown user will be redirect to default page
+	def user_login? redirect_path = settings.home_page
 
 		info = user_info
-		if info[:uid] == 0 and redirect == true
-			redirect '/user/login'
+		
+		if info[:uid] < 1 and request.path != redirect_path
+			redirect redirect_path
 		else
 			info[:uid]
 		end
