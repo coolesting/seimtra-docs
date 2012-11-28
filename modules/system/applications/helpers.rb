@@ -64,7 +64,6 @@ helpers do
 		until data.include?(path_str) or path_arr.empty?
 			path_arr.pop
 			path_str = path_arr.join("/")
-			puts path_str
 		end
 
 		path_str
