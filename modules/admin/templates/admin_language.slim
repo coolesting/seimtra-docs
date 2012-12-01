@@ -5,7 +5,7 @@ table.table
 		th : a href="#{sys_url('/admin/language', :order => 'mid')}" = L[:name]
 		th
 	tbody
-		- modules = module_record(:mid, :name)
+		- modules = sys_kv(:module, :mid, :name)
 		- @language.each do | row |
 			tr
 				td = row[:label]

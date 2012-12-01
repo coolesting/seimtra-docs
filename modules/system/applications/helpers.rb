@@ -79,4 +79,13 @@ helpers do
 		slim filename.to_sym, :layout => false
 	end
 
+	#get two columns of database table as a key-value hash
+	def sys_kv table, key, value
+		res = {}
+		DB[table].select(key, value).all.each do | row |
+			res[row[key]] = row[value]
+		end
+		res
+	end
+
 end

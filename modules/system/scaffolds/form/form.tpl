@@ -18,7 +18,7 @@ form action="#{request.path}" method="post" id="form"
 		li : textarea name="<%=field%>" required="required" = @fields[:<%=field%>]
 		<% elsif html_type == "radio" %>
 		li : label <%=lname%>
-		- <%=@t[:assoc][field][0]%>s = <%=@t[:assoc][field][0]%>_record(:<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
+		- <%=@t[:assoc][field][0]%>s = sys_kv(:<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
 		li
 			- <%=@t[:assoc][field][0]%>s.each do | k,v |
 				- checked = @fields[:<%=@t[:assoc][field][1]%>] == k ? "checked" : ""
@@ -27,14 +27,14 @@ form action="#{request.path}" method="post" id="form"
 				br
 		<% elsif html_type == "select" %>
 		li : label <%=lname%>
-		- <%=@t[:assoc][field][0]%>s = <%=@t[:assoc][field][0]%>_record(:<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
+		- <%=@t[:assoc][field][0]%>s = sys_kv(:<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
 		li : select name="<%=@t[:assoc][field][1]%>" required="required"
 			- <%=@t[:assoc][field][0]%>s.each do | k,v |
 				- selected = @fields[:<%=@t[:assoc][field][1]%>] == k ? "selected" : ""
 				option selected="#{selected}" value="#{k}" = v
 		<% elsif html_type == "checkbox" %>
 		li : label <%=lname%>
-		- <%=@t[:assoc][field][0]%>s = <%=@t[:assoc][field][0]%>_record(:<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
+		- <%=@t[:assoc][field][0]%>s = sys_kv(:<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
 		- <%=@t[:assoc][field][1]%>s = []
 		- if @fields[:<%=@t[:assoc][field][1]%>] != ""
 			- if @fields[:<%=@t[:assoc][field][1]%>].index(".")

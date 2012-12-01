@@ -142,7 +142,7 @@ helpers do
 		<% @t[:fields].each do | field | 
 			unless Sbase::Main_key.include? @t[:types][field].to_sym 
 				if @t[:assoc].has_key? field %>
-		field = <%=@t[:assoc][field][0]%>_record :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>
+		field = sys_kv <%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>
 					<% if @t[:htmls][field] != "checkbox" %>
 		throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i<% else %>
 		@fields[:<%=@t[:assoc][field][1]%>].each do | item |
@@ -160,27 +160,5 @@ helpers do
 			end 
 		end %>
 	end
-	<%
-		assoc_record = []
-		unless @t[:assoc].empty?
-			@t[:assoc].each do | field, data |
-				assoc_record << data[0] unless assoc_record.include? data[0]
-			end
-		end 
 
-		unless assoc_record.empty?
-			assoc_record.each do | table | %>
-	unless respond_to? :<%=table%>_record
-		def <%=table%>_record key, val
-			res = {}
-			DB[:<%=table%>].all.each do | row |
-				res[row[key]] = row[val]
-			end
-			res
-		end
-	end
-		<%
-			end
-		end
-	%>
 end

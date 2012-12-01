@@ -105,17 +105,9 @@ helpers do
 		
 		throw_error "The content field cannot be empty." if @fields[:content] == ""
 		
-		field = module_record :mid, :name
+		field = sys_kv :module, :mid, :name
 		throw_error "The mid field isn't existing." unless field.include? @fields[:mid].to_i
 		
 	end
-	
-	def module_record key, val
-		res = {}
-		DB[:module].all.each do | row |
-			res[row[key]] = row[val]
-		end
-		res
-	end
-		
+
 end

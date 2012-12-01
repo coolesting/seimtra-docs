@@ -7,7 +7,7 @@ form action="#{request.path}" method="post" id="form"
 		li : input type="text" name="content" required="required" value="#{@fields[:content]}"
 		
 		li : label name
-		- modules = module_record(:mid, :name)
+		- modules = sys_kv(:module, :mid, :name)
 		li : select name="mid" required="required"
 			- modules.each do | k,v |
 				- selected = @fields[:mid] == k ? "selected" : ""
