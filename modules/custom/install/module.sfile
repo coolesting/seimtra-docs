@@ -1,6 +1,6 @@
 name=custom
 opened=on
-description=A customize system
+description=A default module
 load_order=5
 group=core
 version=0.0.1

@@ -55,6 +55,12 @@ helpers do
 	end
 
 	#auto match the path 
+	#== Arguments
+	#@path, string, the url path
+	#@data, array, the data collection includes the path, maybe
+	#
+	#== Returned
+	# a matching path that is included in data, otherwise return origin path
 	def sys_match_path path, data
 
 		path_arr = []
@@ -69,7 +75,7 @@ helpers do
 		path_str
 	end
 
-	def slim_part filename
+	def slim_inc filename
 		slim filename.to_sym, :layout => false
 	end
 
