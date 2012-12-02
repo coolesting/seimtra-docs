@@ -27,7 +27,7 @@ get '/admin/language' do
  	@language = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @language.page_count
 
-	slim :admin_language
+	sys_slim :admin_language
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/language/new' do
 	@title = 'Create a new language'
 	sys_opt :save
 	language_set_fields
-	slim :admin_language_form
+	sys_slim :admin_language_form
 
 end
 
@@ -66,7 +66,7 @@ get '/admin/language/edit/:label' do
 	sys_opt :save
 	@fields = DB[:language].filter(:label => params[:label]).all[0]
  	language_set_fields
- 	slim :admin_language_form
+ 	sys_slim :admin_language_form
 
 end
 

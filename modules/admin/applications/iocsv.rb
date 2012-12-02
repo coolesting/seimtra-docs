@@ -1,6 +1,6 @@
 get '/admin/iocsv' do
 	@encoding = sys_get(:encoding) != "" ? sys_get(:encoding) : settings.default_encoding
-	slim :admin_iocsv
+	sys_slim :admin_iocsv
 end
 
 #get db table as csv file output

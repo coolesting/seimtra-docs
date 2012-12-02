@@ -27,7 +27,7 @@ get '/admin/menu' do
  	@menu = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @menu.page_count
 
-	slim :admin_menu
+	sys_slim :admin_menu
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/menu/new' do
 	@title = 'Create a new menu.'
 	sys_opt :save
 	menu_set_fields
-	slim :admin_menu_form
+	sys_slim :admin_menu_form
 
 end
 
@@ -65,7 +65,7 @@ get '/admin/menu/edit/:mid' do
 	sys_opt :save
 	@fields = DB[:menu].filter(:mid => params[:mid]).all[0]
  	menu_set_fields
- 	slim :admin_menu_form
+ 	sys_slim :admin_menu_form
 
 end
 

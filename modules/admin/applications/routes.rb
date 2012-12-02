@@ -3,10 +3,10 @@ get '/a' do
 end
 
 get '/admin/' do
-  	slim :admin_info
+  	sys_slim :admin_info
 end
 
 get '/admin/module' do
-	slim :admin_module
+	sys_slim :admin_module
 end
 

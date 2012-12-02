@@ -2,7 +2,7 @@ get '/user/info' do
 
 	user_login? true
 	@user_info = user_info
-	slim :user_info
+	sys_slim :user_info
 
 end
 
@@ -16,7 +16,7 @@ end
 get '/user/login' do
 
 	redirect '/user/info' if user_info[:uid] != 0
-	slim :user_login
+	sys_slim :user_login
 
 end
 

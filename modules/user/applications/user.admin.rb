@@ -8,7 +8,7 @@ get '/admin/user' do
  	@user = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @user.page_count
 
-	slim :admin_user
+	sys_slim :admin_user
 
 end
 
@@ -17,7 +17,7 @@ get '/admin/user/new' do
 
 	@title = 'Create a new user.'
 	sys_opt :save
-	slim :admin_user_form
+	sys_slim :admin_user_form
 
 end
 
@@ -44,7 +44,7 @@ get '/admin/user/edit/:uid' do
 	sys_opt :save
 	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
 	@fields[:pawd] = ""
- 	slim :admin_user_form
+ 	sys_slim :admin_user_form
 
 end
 

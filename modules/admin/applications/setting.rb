@@ -27,7 +27,7 @@ get '/admin/setting' do
  	@setting = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @setting.page_count
 
-	slim :admin_setting
+	sys_slim :admin_setting
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/setting/new' do
 	@title = 'Create a new setting'
 	sys_opt :save
 	setting_set_fields
-	slim :admin_setting_form
+	sys_slim :admin_setting_form
 
 end
 
@@ -66,7 +66,7 @@ get '/admin/setting/edit/:skey' do
 	sys_opt :save
 	@fields = DB[:setting].filter(:skey => params[:skey]).all[0]
  	setting_set_fields
- 	slim :admin_setting_form
+ 	sys_slim :admin_setting_form
 
 end
 

@@ -33,7 +33,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>' do
  	@<%=@t[:table_name]%> = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @<%=@t[:table_name]%>.page_count
 
-	slim :<%=@t[:layout]%>_<%=@t[:file_name]%>
+	sys_slim :<%=@t[:layout]%>_<%=@t[:file_name]%>
 
 end
 
@@ -43,7 +43,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 	@title = 'Create a new <%=@t[:file_name]%>'
 	sys_opt :save
 	<%=@t[:file_name]%>_set_fields
-	slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
+	sys_slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
 
 end
 
@@ -79,7 +79,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/:<%=@t[:key_id]%>' do
 	sys_opt :save
 	@fields = DB[:<%=@t[:table_name]%>].filter(:<%=@t[:key_id]%> => params[:<%=@t[:key_id]%>]).all[0]
  	<%=@t[:file_name]%>_set_fields
- 	slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
+ 	sys_slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
 
 end
 

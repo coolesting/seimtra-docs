@@ -18,7 +18,7 @@ helpers do
 	end
 
 	def throw_error str
-		redirect("/errors/#{str}") 	
+		halt str
 	end
 
 	def menu_focus path, des = nil
@@ -75,8 +75,9 @@ helpers do
 		path_str
 	end
 
-	def slim_inc filename
-		slim filename.to_sym, :layout => false
+	#include the sub-template
+	def sys_tpl tpl_name
+		slim tpl_name, :layout => false
 	end
 
 	#get two columns of database table as a key-value hash
@@ -86,6 +87,20 @@ helpers do
 			res[row[key]] = row[value]
 		end
 		res
+	end
+
+	def sys_slim tpl_name, sub_tpl = nil
+		
+		@sub_tpl = sub_tpl unless sub_tpl == nil
+
+		#set the layout automatically
+		module_name = request.path.split("/")[1]
+		if Slayout.include? module_name
+			slim tpl_name, :layout => "#{module_name}_layout".to_sym
+		else
+			slim tpl_name
+		end
+
 	end
 
 end

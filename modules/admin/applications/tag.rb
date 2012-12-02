@@ -27,7 +27,7 @@ get '/admin/tag' do
  	@tag = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @tag.page_count
 
-	slim :admin_tag
+	sys_slim :admin_tag
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/tag/new' do
 	@title = 'Create a new tag'
 	sys_opt :save
 	tag_set_fields
-	slim :admin_tag_form
+	sys_slim :admin_tag_form
 
 end
 
@@ -66,7 +66,7 @@ get '/admin/tag/edit/:tid' do
 	sys_opt :save
 	@fields = DB[:tag].filter(:tid => params[:tid]).all[0]
  	tag_set_fields
- 	slim :admin_tag_form
+ 	sys_slim :admin_tag_form
 
 end
 
