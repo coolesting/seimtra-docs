@@ -2,10 +2,10 @@
 	form action="/user/login" method="post"
 		ul
 			li : label = L[:username]
-			li : input type="text" name="name" required="required" placeholder="user name"
+			li : input type="text" name="name" required="required" placeholder="#{L[:username]}"
 
 			li : label = L[:password]
-			li : input type="password" name="pawd" required="required" placeholder="password"
+			li : input type="password" name="pawd" required="required" placeholder="#{L[:password]}"
 
 			li : input.done type="submit" value="#{L[:login]}"
 
