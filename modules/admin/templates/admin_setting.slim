@@ -10,8 +10,8 @@ table.table
 				td = row[:skey]
 				td = row[:sval]
 				td = row[:changed]
-				td : a href="/admin/setting/edit/#{row[:skey]}" fix
-				td : a href="/admin/setting/rm/#{row[:skey]}" del
+				td : a href="/admin/setting/edit/#{row[:skey]}" L[:fix]
+				td : a href="/admin/setting/rm/#{row[:skey]}" L[:del]
 
 - if @page_count > 1
 	p.page_bar

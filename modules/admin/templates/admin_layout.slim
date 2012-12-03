@@ -26,7 +26,7 @@ html
 				p = @title
 
 			- unless @msg == ''
-				#msg = @msg
+				#msg.clear = @msg
 
 			#main
 				- unless settings.sys_opt.empty?

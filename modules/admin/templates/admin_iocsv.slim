@@ -1,6 +1,6 @@
 form
 	dl.dl-1
-		dt inport
+		dt = L[:inport]
 		dd
 			input type="file" name="inport"
 			input type="submit" value="submit" formaction="/admin/iocsv/inport" formmethod="post" formenctype="multipart/form-data"
@@ -8,12 +8,12 @@ form
 
 
 	dl.dl-1
-		dt export
+		dt = L[:export]
 		dd
-			input type="text" name="export" placeholder="table name"
+			input type="text" name="export" placeholder="#{L[:'table name']}"
 			input type="submit" value="submit" formaction="/admin/iocsv/export" formmethod="get"
 
 	dl.dl-1
-		dt encoding
+		dt = L[:encoding]
 		dd
 			input type="text" name="encoding" value="#{@encoding}"

@@ -18,8 +18,8 @@ table.table
 				td = row[:description]
 				td = row[:preid]
 				td = row[:order]
-				td : a href="/admin/menu/edit/#{row[:mid]}" fix
-				td : a href="/admin/menu/rm/#{row[:mid]}" del
+				td : a href="/admin/menu/edit/#{row[:mid]}" L[:fix]
+				td : a href="/admin/menu/rm/#{row[:mid]}" L[:del]
 
 - if @page_count > 1
 	p.page_bar

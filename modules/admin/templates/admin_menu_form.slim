@@ -1,20 +1,20 @@
 form action="#{request.path}" method="post" id="form"
 	ul.ul
-		li : label name
+		li : label = L[:name]
 		li : input type="text" name="name" required="required" value="#{@fields[:name]}"
 		
-		li : label type
+		li : label = L[:type]
 		li : input type="text" name="type" required="required" value="#{@fields[:type]}"
 		
-		li : label link
+		li : label = L[:link]
 		li : input type="text" name="link" required="required" value="#{@fields[:link]}"
 		
-		li : label description
+		li : label = L[:description]
 		li : input type="text" name="description" required="required" value="#{@fields[:description]}"
 		
-		li : label preid
+		li : label = L[:preid]
 		li : input type="number" name="preid" required="required" value="#{@fields[:preid]}" min="0" max="99999"
 		
-		li : label order
+		li : label = L[:order]
 		li : input type="number" name="order" required="required" value="#{@fields[:order]}" min="0" max="99999"
 		

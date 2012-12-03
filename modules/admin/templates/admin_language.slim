@@ -11,8 +11,8 @@ table.table
 				td = row[:label]
 				td = row[:content]
 				td = modules[row[:mid]]
-				td : a href="/admin/language/edit/#{row[:label]}" fix
-				td : a href="/admin/language/rm/#{row[:label]}" del
+				td : a href="/admin/language/edit/#{row[:label]}" L[:fix]
+				td : a href="/admin/language/rm/#{row[:label]}" L[:del]
 
 - if @page_count > 1
 	p.page_bar
