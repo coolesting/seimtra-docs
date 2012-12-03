@@ -51,6 +51,7 @@
 }
 
 #description, #opt, #msg { padding: 0 10px; }
+#content { width: 800px; }
 
 .ul li {
 	padding-bottom: 20px;
@@ -95,3 +96,4 @@
 .hl_row {
 	background-color: #cccccc;
 }
+#footer { height: 100px; }

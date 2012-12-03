@@ -16,8 +16,8 @@ table.table
 				th = row[:salt]
 				td = row[:created]
 				td = row[:changed]
-				td : a href="/admin/user/edit/#{row[:uid]}" L[:fix]
-				td : a href="/admin/user/rm/#{row[:uid]}" L[:del]
+				td : a href="/admin/user/edit/#{row[:uid]}" = L[:fix]
+				td : a href="/admin/user/rm/#{row[:uid]}" = L[:del]
 
 - if @page_count > 1
 	p.page_bar

@@ -33,31 +33,32 @@ html
 					#opt.right
 						- if settings.sys_opt.include? :new
 							dl.dl-1
-								dt create
+								dt = L[:create]
 								dd
 									a href="#{request.path}/new"
-										button Create
+										button = L[:create]
 
 						- if settings.sys_opt.include? :save
 							dl.dl-1
-								dt save
+								dt = L[:save]
 								dd
-									input type="submit" name="opt" value="Save" form="form"
+									input type="submit" name="opt" value="#{L[:save]}" form="form"
 
 						- if settings.sys_opt.include? :search
 							dl.dl-1
 								form action="#{request.path}" method="get"
-									dt search
+									dt = L[:search]
 									dd
-										input type="search" name="sc" placeholder="search content" value="#{@qs[:sc]}"
+										input type="search" name="sc" placeholder="#{L[:'search content']}" value="#{@qs[:sc]}"
 									dd
 										- unless @search.empty?
 											select name="sw"
 												- @search.each do | sk, sv |
 													option value="#{sk}" = sv
-										input type="submit" value="Search"
+										input type="submit" value="#{L[:search]}"
 
 				#content.left == yield
+				#footer.clear
 
 		javascript:
 
