@@ -27,4 +27,10 @@ before do
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
 
+	@msg = ''
+	unless request.cookies['msg'] == ''
+		@msg = request.cookies['msg']
+		response.set_cookie 'msg', :value => '', :path => '/'
+	end
+
 end

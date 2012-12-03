@@ -25,8 +25,8 @@ html
 			#description.clear
 				p = @title
 
-			- if settings.admin_msg
-				#msg.clear = settings.admin_msg
+			- unless @msg == ''
+				#msg = @msg
 
 			#main
 				- unless settings.sys_opt.empty?
@@ -106,6 +106,17 @@ html
 						$(this).removeClass("focus2");
 					}
 				);
+
+				//highlight row
+				$(".table tr").hover(
+					function(){
+						$(this).addClass("hl_row");
+					}, function(){
+						$(this).removeClass("hl_row");
+					}
+				);
+
+				//the end of script
 			
 			});
 

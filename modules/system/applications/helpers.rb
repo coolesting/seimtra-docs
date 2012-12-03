@@ -18,19 +18,13 @@ helpers do
 	end
 
 	def throw_error str
-		halt str
+		response.set_cookie 'msg', :value => str, :path => '/'
+		redirect back
 	end
 
-	def menu_focus path, des = nil
-		reval = ""
-		if request.path.split("/")[2] == path.split("/")[2]
-			reval = "focus"
-		end
-		reval
-	end
-
-	def sys_opt *argv
-		set :sys_opt, argv
+	def sys_msg str
+		@msg = str
+		response.set_cookie 'msg', :value => str, :path => '/'
 	end
 
 	#provide the static file , like css, images, js.
@@ -91,7 +85,7 @@ helpers do
 
 	def sys_slim tpl_name, sub_tpl = nil
 		
-		@sub_tpl = sub_tpl unless sub_tpl == nil
+		@sub_tpl = sub_tpl
 
 		#set the layout automatically
 		module_name = request.path.split("/")[1]
