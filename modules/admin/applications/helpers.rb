@@ -8,8 +8,4 @@ helpers do
 		reval
 	end
 
-	def sys_opt *argv
-		set :sys_opt, argv
-	end
-
 end

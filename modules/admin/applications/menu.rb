@@ -1,14 +1,14 @@
 #display
 get '/admin/menu' do
 
-	sys_opt :new, :search
+	@sys_opt += [:new, :search]
 	ds = DB[:menu]
 
 	#search content
 	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
 
 	#search condition
-	if settings.sys_opt.include? :search
+	if @sys_opt.include? :search
 		@search = {:name => 'name', :type => 'type', :preid => 'preid'}
 	end
 
@@ -35,7 +35,7 @@ end
 get '/admin/menu/new' do
 
 	@title = 'Create a new menu.'
-	sys_opt :save
+	@sys_opt += :save
 	menu_set_fields
 	sys_slim :admin_menu_form
 
@@ -62,7 +62,7 @@ end
 get '/admin/menu/edit/:mid' do
 
 	@title = 'Edit the menu.'
-	sys_opt :save
+	@sys_opt += :save
 	@fields = DB[:menu].filter(:mid => params[:mid]).all[0]
  	menu_set_fields
  	sys_slim :admin_menu_form

@@ -1,14 +1,14 @@
 #display
 get '/admin/setting' do
 
-	sys_opt :new, :search
+	@sys_opt += [:new, :search]
 	ds = DB[:setting]
 
 	#search content
 	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
 
 	#search condition
-	if settings.sys_opt.include? :search
+	if @sys_opt.include? :search
 		@search = {:skey => 'skey', :sval => 'sval', :changed => 'changed', }
 	end
 
@@ -35,7 +35,7 @@ end
 get '/admin/setting/new' do
 
 	@title = 'Create a new setting'
-	sys_opt :save
+	@sys_opt += :save
 	setting_set_fields
 	sys_slim :admin_setting_form
 
@@ -63,7 +63,7 @@ end
 get '/admin/setting/edit/:skey' do
 
 	@title = 'Edit the setting'
-	sys_opt :save
+	@sys_opt += :save
 	@fields = DB[:setting].filter(:skey => params[:skey]).all[0]
  	setting_set_fields
  	sys_slim :admin_setting_form

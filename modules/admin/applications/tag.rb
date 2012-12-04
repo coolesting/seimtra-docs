@@ -1,14 +1,14 @@
 #display
 get '/admin/tag' do
 
-	sys_opt :new, :search
+	@sys_opt += [:new, :search]
 	ds = DB[:tag]
 
 	#search content
 	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
 
 	#search condition
-	if settings.sys_opt.include? :search
+	if @sys_opt.include? :search
 		@search = {:tid => 'tid', :name => 'name', }
 	end
 
@@ -35,7 +35,7 @@ end
 get '/admin/tag/new' do
 
 	@title = 'Create a new tag'
-	sys_opt :save
+	@sys_opt += :save
 	tag_set_fields
 	sys_slim :admin_tag_form
 
@@ -63,7 +63,7 @@ end
 get '/admin/tag/edit/:tid' do
 
 	@title = 'Edit the tag'
-	sys_opt :save
+	@sys_opt += :save
 	@fields = DB[:tag].filter(:tid => params[:tid]).all[0]
  	tag_set_fields
  	sys_slim :admin_tag_form

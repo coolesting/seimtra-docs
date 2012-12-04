@@ -1,13 +1,8 @@
-configure do
-	set :admin_msg, nil
-end
-
 before '/admin/*' do
 
-	@title = "Seimtra system!"
+	@title = "Administrator system!"
 
-	#the operation bar
-	set :sys_opt, {}
+	@sys_opt = []
 
 	#the top menu of layout template
 	@menus = DB[:menu].filter(:type => 'admin').order(:order)

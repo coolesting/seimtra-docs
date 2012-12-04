@@ -8,16 +8,16 @@ form action="#{request.path}" method="post" id="form"
 
 		if html_type == "unknown" %>
 		<% elsif html_type == "string" %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		li : input type="text" name="<%=field%>" required="required" value="#{@fields[:<%=field%>]}"
 		<% elsif html_type == "integer" %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		li : input type="number" name="<%=field%>" required="required" value="#{@fields[:<%=field%>]}" min="1" max="99999"
 		<% elsif html_type == "text" %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		li : textarea name="<%=field%>" required="required" = @fields[:<%=field%>]
 		<% elsif html_type == "radio" %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		- <%=@t[:assoc][field][0]%>s = sys_kv(:<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
 		li
 			- <%=@t[:assoc][field][0]%>s.each do | k,v |
@@ -26,14 +26,14 @@ form action="#{request.path}" method="post" id="form"
 				label for="radio_<%=@t[:assoc][field][1]%>_#{k}" = v
 				br
 		<% elsif html_type == "select" %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		- <%=@t[:assoc][field][0]%>s = sys_kv(:<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
 		li : select name="<%=@t[:assoc][field][1]%>" required="required"
 			- <%=@t[:assoc][field][0]%>s.each do | k,v |
 				- selected = @fields[:<%=@t[:assoc][field][1]%>] == k ? "selected" : ""
 				option selected="#{selected}" value="#{k}" = v
 		<% elsif html_type == "checkbox" %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		- <%=@t[:assoc][field][0]%>s = sys_kv(:<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>)
 		- <%=@t[:assoc][field][1]%>s = []
 		- if @fields[:<%=@t[:assoc][field][1]%>] != ""
@@ -49,7 +49,7 @@ form action="#{request.path}" method="post" id="form"
 				label for="checkbox_<%=@t[:assoc][field][1]%>_#{k}" = v
 				label &nbsp;&nbsp;
 		<% else %>
-		li : label <%=lname%>
+		li : label = L[:<%=lname%>]
 		li : input type="<%=html_type%>" name="<%=field%>" required="required" value="#{@fields[:<%=field%>]}"<% 
 		end
 
