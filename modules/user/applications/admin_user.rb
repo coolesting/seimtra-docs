@@ -1,7 +1,7 @@
 get '/admin/user' do
 
 	@title = 'user list.'
-	@sys_opt << :new
+	@rightbar << :new
 	ds = DB[:user]
 
 	Sequel.extension :pagination
@@ -16,7 +16,7 @@ end
 get '/admin/user/new' do
 
 	@title = 'Create a new user.'
-	@sys_opt << :save
+	@rightbar << :save
 	sys_slim :admin_user_form
 
 end
@@ -41,7 +41,7 @@ end
 get '/admin/user/edit/:uid' do
 
 	@title = 'Edit the user.'
-	@sys_opt << :save
+	@rightbar << :save
 	@fields = DB[:user].filter(:uid => params[:uid]).all[0]
 	@fields[:pawd] = ""
  	sys_slim :admin_user_form

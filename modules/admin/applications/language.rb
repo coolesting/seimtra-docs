@@ -1,14 +1,14 @@
 #display
 get '/admin/language' do
 
-	@sys_opt += [:new, :search]
+	@rightbar += [:new, :search]
 	ds = DB[:language]
 
 	#search content
 	ds = ds.filter(@qs[:sw].to_sym => @qs[:sc]) if @qs[:sw] and @qs[:sc]
 
 	#search condition
-	if @sys_opt.include? :search
+	if @rightbar.include? :search
 		@search = {:label => 'label', :content => 'content', :mid => 'name', }
 	end
 
@@ -35,7 +35,7 @@ end
 get '/admin/language/new' do
 
 	@title = 'Create a new language'
-	@sys_opt += :save
+	@rightbar << :save
 	language_set_fields
 	sys_slim :admin_language_form
 
@@ -63,7 +63,7 @@ end
 get '/admin/language/edit/:label' do
 
 	@title = 'Edit the language'
-	@sys_opt += :save
+	@rightbar << :save
 	@fields = DB[:language].filter(:label => params[:label]).all[0]
  	language_set_fields
  	sys_slim :admin_language_form

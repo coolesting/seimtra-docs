@@ -2,7 +2,7 @@ before '/admin/*' do
 
 	@title = "Administrator system!"
 
-	@sys_opt = []
+	@rightbar = []
 
 	#the top menu of layout template
 	@menus = DB[:menu].filter(:type => 'admin').order(:order)

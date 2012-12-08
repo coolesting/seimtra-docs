@@ -29,7 +29,6 @@ helpers do
 
 	#provide the static file , like css, images, js.
 	def sys_file file_name, folder
-
 		module_name = file_name.index('_') ? file_name.split('_').first : file_name.split('.').first
 		file_type = file_name.index('.') ? file_name.split('.').last : ''
 		path = settings.root + "/modules/#{module_name}/#{folder}/#{file_name}"
@@ -56,7 +55,6 @@ helpers do
 	#== Returned
 	# a matching path that is included in data, otherwise return origin path
 	def sys_match_path path, data
-
 		path_arr = []
 		path_str = path
 		path_arr = path.split "/" if path.index("/")
@@ -83,18 +81,14 @@ helpers do
 		res
 	end
 
-	def sys_slim tpl_name, sub_tpl = nil
-		
-		@sub_tpl = sub_tpl
-
-		#set the layout automatically
+	#set the layout automatically
+	def sys_slim tpl_name
 		module_name = request.path.split("/")[1]
 		if Slayout.include? module_name
 			slim tpl_name, :layout => "#{module_name}_layout".to_sym
 		else
 			slim tpl_name
 		end
-
 	end
 
 end
