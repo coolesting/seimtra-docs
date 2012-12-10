@@ -27,7 +27,7 @@ get '/admin/language' do
  	@language = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @language.page_count
 
-	sys_slim :admin_language
+	sys_tpl :admin_language
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/language/new' do
 	@title = 'Create a new language'
 	@rightbar << :save
 	language_set_fields
-	sys_slim :admin_language_form
+	sys_tpl :admin_language_form
 
 end
 
@@ -66,7 +66,7 @@ get '/admin/language/edit/:label' do
 	@rightbar << :save
 	@fields = DB[:language].filter(:label => params[:label]).all[0]
  	language_set_fields
- 	sys_slim :admin_language_form
+ 	sys_tpl :admin_language_form
 
 end
 
@@ -101,12 +101,12 @@ helpers do
 
 	def language_valid_fields
 		
-		throw_error "The label field cannot be empty." if @fields[:label] == ""
+		sys_throw "The label field cannot be empty." if @fields[:label] == ""
 		
-		throw_error "The content field cannot be empty." if @fields[:content] == ""
+		sys_throw "The content field cannot be empty." if @fields[:content] == ""
 		
 		field = sys_kv :module, :mid, :name
-		throw_error "The mid field isn't existing." unless field.include? @fields[:mid].to_i
+		sys_throw "The mid field isn't existing." unless field.include? @fields[:mid].to_i
 		
 	end
 

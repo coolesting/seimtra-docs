@@ -2,7 +2,7 @@ get '/user/info' do
 
 	user_login? true
 	@user_info = user_info
-	sys_slim :user_info
+	sys_tpl :user_info
 
 end
 
@@ -16,7 +16,7 @@ end
 get '/user/login' do
 
 	redirect '/user/info' if user_info[:uid] != 0
-	sys_slim :user_login
+	sys_tpl :user_login
 
 end
 
@@ -85,7 +85,7 @@ helpers do
 
 	def user_login name, pawd
 
-		throw_error "The user is not existing." unless user_exist? name
+		sys_throw "The user is not existing." unless user_exist? name
 		ds = DB[:user].filter(:name => name)
 
 		require "digest/sha1"
@@ -101,7 +101,7 @@ helpers do
 			#set sid at server
 			user_session_update sid, ds.get(:uid)
 		else
-			throw_error "The username and password is not matching, or wrong."
+			sys_throw "The username and password is not matching, or wrong."
 		end
 
 	end
@@ -115,7 +115,7 @@ helpers do
 	def user_edit fields
 
 		if fields.include? :uid 
-			throw_error "No uid." 
+			sys_throw "No uid." 
 		else
 			uid = fields[:uid].to_i
 		end
@@ -146,7 +146,7 @@ helpers do
 		require "digest/sha1"
 		fields[:pawd] 		= Digest::SHA1.hexdigest(pawd.to_s + fields[:salt])
 
-		throw_error "The user is existing." if user_exist? name
+		sys_throw "The user is existing." if user_exist? name
 
 		DB[:user].insert(fields)
 		uid = DB[:user].filter(:name => name).get(:uid)
@@ -156,8 +156,8 @@ helpers do
 
 	def user_valid name, pawd
 
-		throw_error "The username need to bigger than two size." unless name.length > 2	
-		throw_error "The password need to bigger than two size." unless pawd.length > 2	
+		sys_throw "The username need to bigger than two size." unless name.length > 2	
+		sys_throw "The password need to bigger than two size." unless pawd.length > 2	
 
 	end
 

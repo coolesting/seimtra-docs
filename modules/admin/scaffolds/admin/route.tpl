@@ -33,7 +33,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>' do
  	@<%=@t[:table_name]%> = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @<%=@t[:table_name]%>.page_count
 
-	sys_slim :<%=@t[:layout]%>_<%=@t[:file_name]%>
+	sys_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>
 
 end
 
@@ -43,7 +43,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 	@title = 'Create a new <%=@t[:file_name]%>'
 	@rightbar << :save
 	<%=@t[:file_name]%>_set_fields
-	sys_slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
+	sys_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
 
 end
 
@@ -79,7 +79,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/:<%=@t[:key_id]%>' do
 	@rightbar << :save
 	@fields = DB[:<%=@t[:table_name]%>].filter(:<%=@t[:key_id]%> => params[:<%=@t[:key_id]%>]).all[0]
  	<%=@t[:file_name]%>_set_fields
- 	sys_slim :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
+ 	sys_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
 
 end
 
@@ -144,9 +144,9 @@ helpers do
 				if @t[:assoc].has_key? field %>
 		field = sys_kv <%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>
 					<% if @t[:htmls][field] != "checkbox" %>
-		throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i<% else %>
+		sys_throw "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i<% else %>
 		@fields[:<%=@t[:assoc][field][1]%>].each do | item |
-			throw_error "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? item.to_i
+			sys_throw "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? item.to_i
 		end
 		<%
 					end
@@ -154,7 +154,7 @@ helpers do
 				elsif field == 'changed'
 				else
 		%>
-		throw_error "The <%=field%> field cannot be empty." if @fields[:<%=field%>] == ""
+		sys_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>] == ""
 		<%
 				end
 			end 

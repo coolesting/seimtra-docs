@@ -27,7 +27,7 @@ get '/admin/menu' do
  	@menu = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @menu.page_count
 
-	sys_slim :admin_menu
+	sys_tpl :admin_menu
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/menu/new' do
 	@title = 'Create a new menu.'
 	@rightbar << :save
 	menu_set_fields
-	sys_slim :admin_menu_form
+	sys_tpl :admin_menu_form
 
 end
 
@@ -65,7 +65,7 @@ get '/admin/menu/edit/:mid' do
 	@rightbar << :save
 	@fields = DB[:menu].filter(:mid => params[:mid]).all[0]
  	menu_set_fields
- 	sys_slim :admin_menu_form
+ 	sys_tpl :admin_menu_form
 
 end
 
@@ -103,17 +103,17 @@ helpers do
 
 	def menu_valid_fields
 		
-		throw_error "The name field cannot be empty." if @fields[:name] == ""
+		sys_throw "The name field cannot be empty." if @fields[:name] == ""
 		
-		throw_error "The type field cannot be empty." if @fields[:type] == ""
+		sys_throw "The type field cannot be empty." if @fields[:type] == ""
 		
-		throw_error "The link field cannot be empty." if @fields[:link] == ""
+		sys_throw "The link field cannot be empty." if @fields[:link] == ""
 		
-		throw_error "The description field cannot be empty." if @fields[:description] == ""
+		sys_throw "The description field cannot be empty." if @fields[:description] == ""
 		
-		throw_error "The preid field cannot be empty." if @fields[:preid] == ""
+		sys_throw "The preid field cannot be empty." if @fields[:preid] == ""
 		
-		throw_error "The order field cannot be empty." if @fields[:order] == ""
+		sys_throw "The order field cannot be empty." if @fields[:order] == ""
 		
 	end
 

@@ -27,7 +27,7 @@ get '/admin/tag' do
  	@tag = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @tag.page_count
 
-	sys_slim :admin_tag
+	sys_tpl :admin_tag
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/tag/new' do
 	@title = 'Create a new tag'
 	@rightbar << :save
 	tag_set_fields
-	sys_slim :admin_tag_form
+	sys_tpl :admin_tag_form
 
 end
 
@@ -66,7 +66,7 @@ get '/admin/tag/edit/:tid' do
 	@rightbar << :save
 	@fields = DB[:tag].filter(:tid => params[:tid]).all[0]
  	tag_set_fields
- 	sys_slim :admin_tag_form
+ 	sys_tpl :admin_tag_form
 
 end
 
@@ -99,7 +99,7 @@ helpers do
 
 	def tag_valid_fields
 		
-		throw_error "The name field cannot be empty." if @fields[:name] == ""
+		sys_throw "The name field cannot be empty." if @fields[:name] == ""
 		
 	end
 	

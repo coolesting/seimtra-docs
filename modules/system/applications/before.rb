@@ -1,14 +1,12 @@
 before do
 
+	#the title of head of html markup
 	@title = "Welcome to seimtra!"
 
-	#a variable, search condition options in layout template
-	@search		= {}
+	#the fields for inserting to db
+	@fields	= {}
 
-	#template @fields of form html
-	@fields		= {}
-
-	#request query string
+	#request query_string
 	@qs	= {}
 	if qs = request.query_string
 		qs.split("&").each do | item |
@@ -27,6 +25,7 @@ before do
 	@page_curr = 1 
 	@page_curr = @qs[:page_curr].to_i if @qs.include? :page_curr and @qs[:page_curr].to_i > 0
 
+	#the system message
 	@msg = ''
 	unless request.cookies['msg'] == ''
 		@msg = request.cookies['msg']

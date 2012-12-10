@@ -2,6 +2,9 @@ before '/admin/*' do
 
 	@title = "Administrator system!"
 
+	#a variable, search condition options in layout template
+	@search	= {}
+
 	@rightbar = []
 
 	#the top menu of layout template

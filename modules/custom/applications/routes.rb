@@ -1,3 +1,3 @@
 get '/admin/custom' do
-	sys_slim :index
+	sys_tpl :index
 end

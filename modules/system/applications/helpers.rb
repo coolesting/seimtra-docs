@@ -1,5 +1,6 @@
 helpers do
 
+	#return path + query_string
 	def sys_url path, options = {}
 		str = path
 		options.each do | ok, ov |
@@ -17,11 +18,13 @@ helpers do
 	def sys_json hash
 	end
 
-	def throw_error str
+	#throw out the message, and redirect back
+	def sys_throw str
 		response.set_cookie 'msg', :value => str, :path => '/'
 		redirect back
 	end
 
+	#just display the message
 	def sys_msg str
 		@msg = str
 		response.set_cookie 'msg', :value => str, :path => '/'
@@ -68,7 +71,7 @@ helpers do
 	end
 
 	#include the sub-template
-	def sys_tpl tpl_name
+	def sys_inc tpl_name
 		slim tpl_name, :layout => false
 	end
 
@@ -81,8 +84,8 @@ helpers do
 		res
 	end
 
-	#set the layout automatically
-	def sys_slim tpl_name
+	#load the template, and set the layout automatically
+	def sys_tpl tpl_name
 		module_name = request.path.split("/")[1]
 		if Slayout.include? module_name
 			slim tpl_name, :layout => "#{module_name}_layout".to_sym

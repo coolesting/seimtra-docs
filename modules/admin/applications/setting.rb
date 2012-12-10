@@ -27,7 +27,7 @@ get '/admin/setting' do
  	@setting = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @setting.page_count
 
-	sys_slim :admin_setting
+	sys_tpl :admin_setting
 
 end
 
@@ -37,7 +37,7 @@ get '/admin/setting/new' do
 	@title = 'Create a new setting'
 	@rightbar << :save
 	setting_set_fields
-	sys_slim :admin_setting_form
+	sys_tpl :admin_setting_form
 
 end
 
@@ -66,7 +66,7 @@ get '/admin/setting/edit/:skey' do
 	@rightbar << :save
 	@fields = DB[:setting].filter(:skey => params[:skey]).all[0]
  	setting_set_fields
- 	sys_slim :admin_setting_form
+ 	sys_tpl :admin_setting_form
 
 end
 
@@ -99,9 +99,9 @@ helpers do
 	end
 
 	def setting_valid_fields
-		throw_error "The skey field cannot be empty." if @fields[:skey] == ""
+		sys_throw "The skey field cannot be empty." if @fields[:skey] == ""
 		
-		throw_error "The sval field cannot be empty." if @fields[:sval] == ""
+		sys_throw "The sval field cannot be empty." if @fields[:sval] == ""
 	end
 	
 end
