@@ -97,3 +97,5 @@
 	background-color: #cccccc;
 }
 #footer { height: 100px; }
+
+.page_bar span { margin: 0 3px; }
