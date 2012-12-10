@@ -1,4 +1,5 @@
 name=custom
+prename=admin
 type=admin
 link=/admin/custom
 description=a customize module page
