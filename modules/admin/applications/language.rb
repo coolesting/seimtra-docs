@@ -101,9 +101,9 @@ helpers do
 
 	def language_valid_fields
 		
-		sys_throw "The label field cannot be empty." if @fields[:label] == ""
+		sys_throw "The label field cannot be empty." if @fields[:label].strip.size < 1
 		
-		sys_throw "The content field cannot be empty." if @fields[:content] == ""
+		sys_throw "The content field cannot be empty." if @fields[:content].strip.size < 1
 		
 		field = sys_kv :module, :mid, :name
 		sys_throw "The mid field isn't existing." unless field.include? @fields[:mid].to_i

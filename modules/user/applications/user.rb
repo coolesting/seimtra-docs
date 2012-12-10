@@ -156,8 +156,8 @@ helpers do
 
 	def user_valid name, pawd
 
-		sys_throw "The username need to bigger than two size." unless name.length > 2	
-		sys_throw "The password need to bigger than two size." unless pawd.length > 2	
+		sys_throw "The username need to bigger than two size." if name.strip.size < 2
+		sys_throw "The password need to bigger than two size." if pawd.strip.size < 2
 
 	end
 

@@ -99,9 +99,9 @@ helpers do
 	end
 
 	def setting_valid_fields
-		sys_throw "The skey field cannot be empty." if @fields[:skey] == ""
+		sys_throw "The skey field cannot be empty." if @fields[:skey].strip.size < 1
 		
-		sys_throw "The sval field cannot be empty." if @fields[:sval] == ""
+		sys_throw "The sval field cannot be empty." if @fields[:sval].strip.size < 1
 	end
 	
 end

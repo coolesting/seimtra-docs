@@ -154,7 +154,7 @@ helpers do
 				elsif field == 'changed'
 				else
 		%>
-		sys_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>] == ""
+		sys_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>].strip.size < 1
 		<%
 				end
 			end 

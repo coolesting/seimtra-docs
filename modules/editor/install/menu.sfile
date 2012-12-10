@@ -2,4 +2,4 @@ name=editor
 type=admin
 prename=admin
 link=/admin/editor
-description=No description about the editor
+description=a markitup editor

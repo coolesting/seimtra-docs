@@ -99,7 +99,7 @@ helpers do
 
 	def tag_valid_fields
 		
-		sys_throw "The name field cannot be empty." if @fields[:name] == ""
+		sys_throw "The name field cannot be empty." if @fields[:name].strip.size < 1
 		
 	end
 	

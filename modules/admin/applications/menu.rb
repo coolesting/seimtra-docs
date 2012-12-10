@@ -103,17 +103,17 @@ helpers do
 
 	def menu_valid_fields
 		
-		sys_throw "The name field cannot be empty." if @fields[:name] == ""
+		sys_throw "The name field cannot be empty." if @fields[:name].strip.size < 1
 		
-		sys_throw "The type field cannot be empty." if @fields[:type] == ""
+		sys_throw "The type field cannot be empty." if @fields[:type].strip.size < 1
 		
-		sys_throw "The link field cannot be empty." if @fields[:link] == ""
+		sys_throw "The link field cannot be empty." if @fields[:link].strip.size < 1
 		
-		sys_throw "The description field cannot be empty." if @fields[:description] == ""
+		sys_throw "The description field cannot be empty." if @fields[:description].strip.size < 1
 		
-		sys_throw "The preid field cannot be empty." if @fields[:preid] == ""
+		sys_throw "The preid field cannot be empty." if @fields[:preid].strip.size < 1
 		
-		sys_throw "The order field cannot be empty." if @fields[:order] == ""
+		sys_throw "The order field cannot be empty." if @fields[:order].strip.size < 1
 		
 	end
 
