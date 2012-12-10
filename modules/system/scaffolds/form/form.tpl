@@ -45,9 +45,9 @@ form action="#{request.path}" method="post" id="form"
 		li
 			- <%=@t[:assoc][field][0]%>s.each do | k,v |
 				- checked = <%=@t[:assoc][field][1]%>s.include?(k.to_s) ? "checked" : ""
-				input id="checkbox_<%=@t[:assoc][field][1]%>_#{k}" type="checkbox" name="<%=@t[:assoc][field][1]%>[]" checked="#{checked}" value="#{k}"
-				label for="checkbox_<%=@t[:assoc][field][1]%>_#{k}" = v
-				label &nbsp;&nbsp;
+				span.checkbox
+					input id="checkbox_<%=@t[:assoc][field][1]%>_#{k}" type="checkbox" name="<%=@t[:assoc][field][1]%>[]" checked="#{checked}" value="#{k}"
+					label for="checkbox_<%=@t[:assoc][field][1]%>_#{k}" = v
 		<% else %>
 		li : label = L[:<%=lname%>]
 		li : input type="<%=html_type%>" name="<%=field%>" required="required" value="#{@fields[:<%=field%>]}"<% 
