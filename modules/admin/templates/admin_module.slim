@@ -7,7 +7,6 @@ table.table
 		th = L[:author]
 		th = L[:state]
 		th = L[:description]
-		th
 
 	tbody
 		- M.each do | row |
@@ -17,8 +16,9 @@ table.table
 				td = row[:group]
 				td = row[:version]
 				td = row[:author]
-				td = row[:opened]
-				td = row[:description]
 				td
 					- if row[:opened] == 'on'
-						a href="/admin/module/off/#{row[:mid]}" = L[:off]
+						a href="/admin/module/opened/off/#{row[:mid]}" = L[:on]
+					- else
+						a href="/admin/module/opened/on/#{row[:mid]}" = L[:off]
+				td = row[:description]
