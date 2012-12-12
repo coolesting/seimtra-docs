@@ -1,5 +1,5 @@
-html, head, body, form, table, thead, tbody, th, tr, td, div, p, a, ul, li, p, h1, h2, h3, h4 { margin: 0;padding: 0;}
-ul, li { list-style-type: none; }
+html, head, body, form, table, thead, tbody, th, tr, td, div, p, a, ul, ol, li, p, h1, h2, h3, h4 { margin: 0;padding: 0;}
+ul li { list-style-type: none; }
 .clear { clear: both; margin-bottom: 10px;}
 .white { color: white; }
 .left { float: left; }
@@ -8,3 +8,4 @@ ul, li { list-style-type: none; }
 
 .page_bar a { padding: 2px; }
 .page_focus { background: #000; color: white; }
+#footer { height: 100px; }

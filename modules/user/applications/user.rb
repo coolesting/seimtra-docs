@@ -31,10 +31,10 @@ end
 helpers do
 
 	# == user_login?
-	# check the current user whether logined
+	# check the current user whether or not login
 	#
 	# == Argument
-	# string, the unknown user will be redirect to default page
+	# string, the unknown user will be redirect to the path
 	def user_login? redirect_path = settings.home_page
 
 		info = user_info
@@ -42,6 +42,8 @@ helpers do
 		if info[:uid] < 1 and request.path != redirect_path
 			redirect redirect_path
 		else
+			#update the session time
+			user_session_update info[:sid], info[:uid]
 			info[:uid]
 		end
 
@@ -61,6 +63,7 @@ helpers do
 		infos 			= {}
 		infos[:uid] 	= uid
 		infos[:name] 	= 'unknown'
+		infos[:sid] 	= ''
 
 		if uid == 0
 			if sid = request.cookies['sid']
@@ -71,6 +74,7 @@ helpers do
 		if uid.to_i > 0
 			infos[:uid]		= uid
 			infos[:name] 	= DB[:user].filter(:uid => uid).get(:name)
+			infos[:sid] 	= sid
 		end
 		infos
 
@@ -99,7 +103,7 @@ helpers do
 			response.set_cookie "sid", :value => sid, :path => "/"
 
 			#set sid at server
-			user_session_update sid, ds.get(:uid)
+			DB[:session].insert(:sid => sid, :uid => ds.get(:uid), :changed => Time.now)
 		else
 			sys_throw "The username and password is not matching, or wrong."
 		end
@@ -170,7 +174,6 @@ helpers do
 
 	# == user_session_update
 	# update the session time by sid and uid, 
-	# if the session is not existing, create a new session for current uid
 	#
 	# == Argument
 	# sid, string, the session id
@@ -180,8 +183,6 @@ helpers do
 		ds = DB[:session].filter(:sid => sid, :uid => uid.to_i)
 		if ds.count > 0
 			ds.update(:changed => Time.now)
-		else
-			DB[:session].insert(:sid => sid, :uid => uid.to_i, :changed => Time.now)
 		end
 
 	end
