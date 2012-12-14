@@ -152,6 +152,10 @@ helpers do
 					end
 				elsif field == 'created'
 				elsif field == 'changed'
+ 				elsif @t[:types][field] == "integer"
+		%>
+		sys_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>] != 0
+		<%
 				else
 		%>
 		sys_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>].strip.size < 1

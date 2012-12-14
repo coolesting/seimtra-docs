@@ -67,7 +67,7 @@ helpers do
 
 		if uid == 0
 			if sid = request.cookies['sid']
-				uid = DB[:session].filter(:sid => sid).get(:uid)
+				uid = DB[:user_session].filter(:sid => sid).get(:uid)
 			end
 		end
 
@@ -103,7 +103,7 @@ helpers do
 			response.set_cookie "sid", :value => sid, :path => "/"
 
 			#set sid at server
-			DB[:session].insert(:sid => sid, :uid => ds.get(:uid), :changed => Time.now)
+			DB[:user_session].insert(:sid => sid, :uid => ds.get(:uid), :changed => Time.now)
 		else
 			sys_throw "The username and password is not matching, or wrong."
 		end
@@ -145,7 +145,6 @@ helpers do
 		fields[:name] 		= name
 		fields[:salt] 		= random_string 5
 		fields[:created] 	= Time.now
-		fields[:changed] 	= Time.now
 
 		require "digest/sha1"
 		fields[:pawd] 		= Digest::SHA1.hexdigest(pawd.to_s + fields[:salt])
@@ -180,7 +179,7 @@ helpers do
 	# uid, integer, the user id
 	def user_session_update sid = "", uid = 0
 
-		ds = DB[:session].filter(:sid => sid, :uid => uid.to_i)
+		ds = DB[:user_session].filter(:sid => sid, :uid => uid.to_i)
 		if ds.count > 0
 			ds.update(:changed => Time.now)
 		end
@@ -190,8 +189,25 @@ helpers do
 	def user_session_remove sid = nil
 
 		if sid
-			DB[:session].filter(:sid => sid).delete
+			DB[:user_session].filter(:sid => sid).delete
 		end
+
+	end
+
+	def user_session_remove_by_timeout timeout = 30
+
+		curtime = Time.now.strftime("%Y%m%d%H%M").to_i
+		DB[:user_session].all.each do | row |
+			if (curtime - row[:changed].strftime("%Y%m%d%H%M").to_i) > timeout
+				DB[:user_session].filter(:sid => row[:sid], :uid => row[:uid]).delete
+			end
+		end
+
+	end
+
+	def user_session_remove_by_self
+
+		DB[:user_session].where(:uid => uid).exclude(sid => request.cookies['sid']).delete
 
 	end
 

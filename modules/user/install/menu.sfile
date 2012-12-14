@@ -14,3 +14,9 @@ prename=user
 type=admin
 link=/admin/user/new
 description=create a new user
+
+name=user_info
+prename=user
+type=admin
+link=/admin/user_info
+description=No description about the user_info

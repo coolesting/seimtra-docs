@@ -6,7 +6,7 @@ Sequel.migration do
 			String :pawd, :size => 50
 			String :salt, :size => 5
 			Datetime :created
-			Datetime :changed		
+			indix :name
 		end
 	end
 end
