@@ -12,8 +12,7 @@ post '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 
 	<%=@t[:file_name]%>_set_fields
 	<%=@t[:file_name]%>_valid_fields
-	<% if @t[:fields].include?('created') %>@fields[:created] = Time.now<% end
-	if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end
+	<% if @t[:fields].include?('changed') %>@fields[:changed] = Time.now<% end
 	@t[:htmls].each do | field, html |
 		if html == "checkbox"%>
 	@fields[:<%=@t[:assoc][field][1]%>] = @fields[:<%=@t[:assoc][field][1]%>].join "."<%

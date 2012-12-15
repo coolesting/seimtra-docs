@@ -20,3 +20,15 @@ prename=user
 type=admin
 link=/admin/user_info
 description=No description about the user_info
+
+name=user_setting
+prename=user
+type=admin
+link=/admin/user_setting
+description=No description about the user_setting
+
+name=user_base
+prename=user
+type=admin
+link=/admin/user_base
+description=No description about the user_base

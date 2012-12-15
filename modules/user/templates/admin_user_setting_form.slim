@@ -12,16 +12,7 @@ form action="#{request.path}" method="post" id="form"
 		li : label = L[:timeout]
 		li : input type="number" name="timeout" required="required" value="#{@fields[:timeout]}" min="1" max="99999"
 		
-		li : label = L[:nickname]
-		li : input type="text" name="nickname" required="required" value="#{@fields[:nickname]}"
+		li : label = L[:layout]
+		li : input type="text" name="layout" required="required" value="#{@fields[:layout]}"
 		
-		li : label = L[:email]
-		li : input type="text" name="email" required="required" value="#{@fields[:email]}"
-		
-		li : label = L[:picture]
-		li : input type="text" name="picture" required="required" value="#{@fields[:picture]}"
-		
-		
-		li : label = L[:resume]
-		li : textarea name="resume" required="required" = @fields[:resume]
 		

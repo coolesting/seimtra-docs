@@ -1,15 +1,13 @@
 Sequel.migration do
 	change do
-		create_table(:user_info) do
+		create_table(:user_setting) do
 			Integer :uid
 			Integer :level
 			Integer :integral
 			Integer :timeout
-			String :nickname
-			String :email
-			String :picture
+			String :layout
 			Datetime :changed
-			Text :resume
+			index :uid
 		end
 	end
 end

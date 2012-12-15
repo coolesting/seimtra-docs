@@ -1,0 +1,27 @@
+table.table
+	thead
+		th : a href="#{sys_url('/admin/user_setting', :order => 'uid')}" = L[:uid]
+		th : a href="#{sys_url('/admin/user_setting', :order => 'level')}" = L[:level]
+		th : a href="#{sys_url('/admin/user_setting', :order => 'integral')}" = L[:integral]
+		th : a href="#{sys_url('/admin/user_setting', :order => 'timeout')}" = L[:timeout]
+		th : a href="#{sys_url('/admin/user_setting', :order => 'layout')}" = L[:layout]
+		th : a href="#{sys_url('/admin/user_setting', :order => 'changed')}" = L[:changed]
+		th
+	tbody
+		- @user_setting.each do | row |
+			tr
+				td = row[:uid]
+				td = row[:level]
+				td = row[:integral]
+				td = row[:timeout]
+				td = row[:layout]
+				td = row[:changed]
+
+				td : a href="/admin/user_setting/edit/#{row[:uid]}" = L[:fix]
+				td : a href="/admin/user_setting/rm/#{row[:uid]}" = L[:del]
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{sys_url('/admin/user_setting', :page_curr => i)}" = i
