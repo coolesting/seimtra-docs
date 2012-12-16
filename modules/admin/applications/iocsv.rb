@@ -44,9 +44,11 @@ post '/admin/iocsv/inport' do
 		if params.include?(:encoding) and params[:encoding] != settings.default_encoding
  			require 'iconv'
   			file_content = Iconv.iconv("UTF-8", params[:encoding], params[:inport][:tempfile].read)
+		else
+			file_content = params[:inport][:tempfile].read
 		end
 
-		CSV.parse(file_content.join) do | row |
+		CSV.parse(file_content) do | row |
 			@content << row
 		end
 
