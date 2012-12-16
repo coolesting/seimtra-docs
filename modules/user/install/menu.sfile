@@ -31,4 +31,4 @@ name=user_ticket
 prename=user
 type=admin
 link=/admin/user_ticket
-description=No description about the user_ticket
+description=user ticket
