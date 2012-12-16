@@ -1,0 +1,25 @@
+table.table
+	thead
+		th : a href="#{sys_url('/admin/user_ticket', :order => 'name')}" = L[:name]
+		th : a href="#{sys_url('/admin/user_ticket', :order => 'uid')}" = L[:uid]
+		th : a href="#{sys_url('/admin/user_ticket', :order => 'location')}" = L[:location]
+		th : a href="#{sys_url('/admin/user_ticket', :order => 'ip')}" = L[:ip]
+		th : a href="#{sys_url('/admin/user_ticket', :order => 'created')}" = L[:created]
+		th
+	tbody
+		- @user_ticket.each do | row |
+			tr
+				td = row[:name]
+				td = row[:uid]
+				td = row[:location]
+				td = row[:ip]
+				td = row[:created]
+
+				td : a href="/admin/user_ticket/edit/#{row[:name]}" = L[:fix]
+				td : a href="/admin/user_ticket/rm/#{row[:name]}" = L[:del]
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{sys_url('/admin/user_ticket', :page_curr => i)}" = i

@@ -15,20 +15,20 @@ type=admin
 link=/admin/user/new
 description=create a new user
 
-name=user_info
-prename=user
-type=admin
-link=/admin/user_info
-description=No description about the user_info
-
 name=user_setting
 prename=user
 type=admin
 link=/admin/user_setting
-description=No description about the user_setting
+description=user settings
 
 name=user_base
 prename=user
 type=admin
 link=/admin/user_base
-description=No description about the user_base
+description=user base information
+
+name=user_ticket
+prename=user
+type=admin
+link=/admin/user_ticket
+description=No description about the user_ticket
