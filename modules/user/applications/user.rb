@@ -43,7 +43,7 @@ helpers do
 			redirect redirect_path
 		else
 			#update the session time
-			user_session_update info[:sid], info[:uid]
+			user_session_update info[:ticket], info[:uid]
 			info[:uid]
 		end
 
@@ -63,18 +63,18 @@ helpers do
 		infos 			= {}
 		infos[:uid] 	= uid
 		infos[:name] 	= 'unknown'
-		infos[:sid] 	= ''
+		infos[:ticket] 	= ''
 
 		if uid == 0
-			if sid = request.cookies['sid']
-				uid = DB[:user_session].filter(:sid => sid).get(:uid)
+			if ticket = request.cookies['ticket']
+				uid = user_session_has ticket
 			end
 		end
 
 		if uid.to_i > 0
 			infos[:uid]		= uid
 			infos[:name] 	= DB[:user].filter(:uid => uid).get(:name)
-			infos[:sid] 	= sid
+			infos[:ticket] 	= ticket
 		end
 		infos
 
@@ -82,9 +82,20 @@ helpers do
 
 	def user_logout
 
-		response.set_cookie "sid", :value => "", :path => "/"
-		user_session_remove request.cookies['sid']
+		ticket = request.cookies['ticket']
 
+		#remove from client
+		response.set_cookie "ticket", :value => "", :path => "/"
+		user_ticket_remove ticket
+
+	end
+
+	def user_ticket_remove ticket
+		#remove from database
+		DB[:user_ticket].fitler(:name => ticket).delete
+
+		#remvoe from session
+		user_session_remove ticket
 	end
 
 	def user_login name, pawd
@@ -92,18 +103,21 @@ helpers do
 		sys_throw "The user is not existing." unless user_exist? name
 		ds = DB[:user].filter(:name => name)
 
+		#verity user
 		require "digest/sha1"
 		if ds.get(:pawd) == Digest::SHA1.hexdigest(pawd + ds.get(:salt))
-			#update login time
-			ds.update(:changed => Time.now)
+			#validation user success
+			#create a ticket for current user login
+			ticket = Digest::SHA1.hexdigest(name + Time.now.to_s)
 
-			sid = Digest::SHA1.hexdigest(name + Time.now.to_s)
+			#set ticket to client cookie
+			response.set_cookie "ticket", :value => ticket, :path => "/"
 
-			#set sid to client cookie
-			response.set_cookie "sid", :value => sid, :path => "/"
+			#set ticket at database
+			DB[:user_ticket].insert(:name => ticket, :uid => ds.get(:uid), :created => Time.now, :location => request.user_agent, :ip => request.ip)
 
-			#set sid at server
-			DB[:user_session].insert(:sid => sid, :uid => ds.get(:uid), :changed => Time.now)
+			#set ticket to session
+			user_session_create ticket, ds.get(:uid)
 		else
 			sys_throw "The username and password is not matching, or wrong."
 		end
@@ -111,9 +125,7 @@ helpers do
 	end
 
 	def user_delete uid
-
 		DB[:user].filter(:uid => uid.to_i).delete
-
 	end
 
 	def user_edit fields
@@ -133,7 +145,7 @@ helpers do
 	# == user_add
 	# add a new user
 	#
-	# == Argument
+	# == Arguments
 	# name string
 	# pawd string
 	#
@@ -158,40 +170,28 @@ helpers do
 	end
 
 	def user_valid name, pawd
-
 		sys_throw "The username need to bigger than two size." if name.strip.size < 2
 		sys_throw "The password need to bigger than two size." if pawd.strip.size < 2
-
 	end
 
 	def user_exist? name
-
 		uid = DB[:user].filter(:name => name).get(:uid)
 		uid ? true : false
-
 	end
 
 	# == user_session_update
-	# update the session time by sid and uid, 
+	# update the session time by ticket and uid, 
 	#
 	# == Argument
-	# sid, string, the session id
+	# ticket, string, the ticket name
 	# uid, integer, the user id
-	def user_session_update sid = "", uid = 0
-
-		ds = DB[:user_session].filter(:sid => sid, :uid => uid.to_i)
-		if ds.count > 0
-			ds.update(:changed => Time.now)
-		end
-
+	def user_session_update ticket = "", uid = 0
+		ds = DB[:user_session].filter(:ticket => ticket, :uid => uid.to_i)
+		ds.update(:changed => Time.now) if ds.count > 0
 	end
 
-	def user_session_remove sid = nil
-
-		if sid
-			DB[:user_session].filter(:sid => sid).delete
-		end
-
+	def user_session_remove ticket = nil
+		DB[:user_session].filter(:ticket => ticket).delete if ticket
 	end
 
 	def user_session_remove_by_timeout timeout = 30
@@ -199,16 +199,22 @@ helpers do
 		curtime = Time.now.strftime("%Y%m%d%H%M").to_i
 		DB[:user_session].all.each do | row |
 			if (curtime - row[:changed].strftime("%Y%m%d%H%M").to_i) > timeout
-				DB[:user_session].filter(:sid => row[:sid], :uid => row[:uid]).delete
+				DB[:user_session].filter(:ticket => row[:ticket], :uid => row[:uid]).delete
 			end
 		end
 
 	end
 
 	def user_session_remove_by_self
+		DB[:user_session].where(:uid => uid).exclude(ticket => request.cookies['ticket']).delete
+	end
 
-		DB[:user_session].where(:uid => uid).exclude(sid => request.cookies['sid']).delete
+	def user_session_create ticket, uid
+		DB[:user_session].insert(:ticket => ticket, :uid => uid, :changed => Time.now)
+	end
 
+	def user_session_has ticket
+		DB[:user_session].filter(:ticket => ticket).get(:uid)
 	end
 
 end
