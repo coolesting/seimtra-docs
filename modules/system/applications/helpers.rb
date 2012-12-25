@@ -30,7 +30,7 @@ helpers do
 		response.set_cookie 'msg', :value => str, :path => '/'
 	end
 
-	#provide the static file , like css, images, js.
+	#provide the static file under module folder, like css, images, js.
 	def sys_file file_name, folder
 		module_name = file_name.index('_') ? file_name.split('_').first : file_name.split('.').first
 		file_type = file_name.index('.') ? file_name.split('.').last : ''

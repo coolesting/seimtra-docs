@@ -44,3 +44,9 @@ prename=admin
 type=admin
 link=/admin/tag
 description=No description about the tag
+
+name=message
+prename=admin
+type=admin
+link=/admin/message
+description=No description about the message

@@ -36,13 +36,13 @@ html
 							dt = L[:create]
 							dd
 								a href="#{request.path}/new"
-									button = L[:create]
+									button.button = L[:create]
 
 					- if @rightbar.include? :save
 						dl.dl-1
 							dt = L[:save]
 							dd
-								input type="submit" name="opt" value="#{L[:save]}" form="form"
+								input.button type="submit" name="opt" value="#{L[:save]}" form="form"
 
 					- if @rightbar.include? :search
 						dl.dl-1
@@ -55,7 +55,7 @@ html
 										select name="sw"
 											- @search.each do | sk, sv |
 												option value="#{sk}" = sv
-									input type="submit" value="#{L[:search]}"
+									input.button type="submit" value="#{L[:search]}"
 
 				#footer.clear
 

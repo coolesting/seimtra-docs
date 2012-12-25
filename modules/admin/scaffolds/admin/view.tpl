@@ -19,8 +19,9 @@ table.table
 					else %>
 				td = row[:<%=field%>]<% end %><% end %>
 
-				td : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/#{row[:<%=@t[:key_id]%>]}" = L[:fix]
-				td : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/rm/#{row[:<%=@t[:key_id]%>]}" = L[:del]
+				td
+					span.edit : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/#{row[:<%=@t[:key_id]%>]}" = L[:fix]
+					span.delete : a href="/<%=@t[:layout]%>/<%=@t[:file_name]%>/rm/#{row[:<%=@t[:key_id]%>]}" = L[:del]
 
 - if @page_count > 1
 	p.page_bar

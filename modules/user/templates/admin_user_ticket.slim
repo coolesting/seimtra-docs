@@ -14,9 +14,9 @@ table.table
 				td = row[:location]
 				td = row[:ip]
 				td = row[:created]
-
-				td : a href="/admin/user_ticket/edit/#{row[:name]}" = L[:fix]
-				td : a href="/admin/user_ticket/rm/#{row[:name]}" = L[:del]
+				td
+					span.edit : a href="/admin/user_ticket/edit/#{row[:name]}" = L[:fix]
+					span.delete : a href="/admin/user_ticket/rm/#{row[:name]}" = L[:del]
 
 - if @page_count > 1
 	p.page_bar

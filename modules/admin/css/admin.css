@@ -98,3 +98,17 @@
 }
 
 .page_bar span { margin: 0 3px; }
+.table span { margin: 0 4px; }
+
+.edit a { 
+	background-image:url(/images/edit.png);
+	color: white;
+}
+
+.delete a { 
+	background-image:url(/images/delete.png);
+	color: white;
+}
+.button {
+	width: 70px;
+}

@@ -7,15 +7,19 @@
 			li : label = L[:password]
 			li : input type="password" name="pawd" required="required" placeholder="#{L[:password]}"
 
-			li : input.done type="submit" value="#{L[:login]}"
+			li.timeout
+				input.done type="submit" value="#{L[:login]}"
+				label 1
+				select name="timeout"
+					option value="0" = L[:hour]
+					option value="1" = L[:day]
+					option value="2" = L[:week]
+					option value="3" = L[:month]
+					option value="4" = L[:year]
 
 css:
 
-	#user_login {
-		margin: 0 2px;
-	}
-	#user_login li {
-		margin-bottom: 2px;
-	}
-	.done {
-	}
+	#user_login { margin: 0 2px; }
+	#user_login li { margin-bottom: 2px; }
+	.done { width: 60px; }
+	.timeout label { margin: 0 2px 0 7px; }

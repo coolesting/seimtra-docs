@@ -57,8 +57,8 @@ configure do
 	# ================= setting config ================= 
 
 	#set the log for output
-	disable :logging
-	set :log, false
+ 	disable :logging
+ 	set :log, false
 
 	set :cache_static_file, false
 
@@ -73,7 +73,8 @@ configure do
 	# ================== file path =====================
 	set :tmp_path, '/var/tmp'
 
-	set :upload_path, '/var/upload'
+	#set :upload_path, '/var/upload'
+	set :upload_path, Dir.pwd + '/tmp'
 
 	set :cache_path, '/var/cache/seimtra'
 

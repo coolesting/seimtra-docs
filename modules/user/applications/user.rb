@@ -92,7 +92,7 @@ helpers do
 
 	def user_ticket_remove ticket
 		#remove from database
-		DB[:user_ticket].fitler(:name => ticket).delete
+		DB[:user_ticket].filter(:name => ticket).delete
 
 		#remvoe from session
 		user_session_remove ticket

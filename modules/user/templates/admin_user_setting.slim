@@ -17,8 +17,9 @@ table.table
 				td = row[:layout]
 				td = row[:changed]
 
-				td : a href="/admin/user_setting/edit/#{row[:uid]}" = L[:fix]
-				td : a href="/admin/user_setting/rm/#{row[:uid]}" = L[:del]
+				td
+					span.edit : a href="/admin/user_setting/edit/#{row[:uid]}" = L[:fix]
+					span.delete : a href="/admin/user_setting/rm/#{row[:uid]}" = L[:del]
 
 - if @page_count > 1
 	p.page_bar

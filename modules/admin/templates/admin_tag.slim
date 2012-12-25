@@ -8,8 +8,9 @@ table.table
 			tr
 				td = row[:tid]
 				td = row[:name]
-				td : a href="/admin/tag/edit/#{row[:tid]}" = L[:fix]
-				td : a href="/admin/tag/rm/#{row[:tid]}" = L[:del]
+				td
+					span.edit : a href="/admin/tag/edit/#{row[:tid]}" = L[:fix]
+					span.delete : a href="/admin/tag/rm/#{row[:tid]}" = L[:del]
 
 - if @page_count > 1
 	p.page_bar
