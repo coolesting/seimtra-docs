@@ -1,0 +1,29 @@
+script src="/editor/markitup/jquery.markitup.js" type="text/javascript"
+link href='/editor/markitup/skins/simple/style.css' rel='stylesheet' type='text/css'
+
+script src="/editor/markitup/sets/markdown/set.js" type="text/javascript"
+link href='/editor/markitup/sets/markdown/style.css' rel='stylesheet' type='text/css'
+
+javascript:
+
+	$(document).ready(function() {
+		$('textarea').markItUp(mySettings);
+
+		//upload file
+		var e_upload_pad = '<div id="e-upload-pad"><form><a href="/">aaaaa</a><a href="/">aaaaa</a></form></div>';
+		$('.e-upload').hover(
+			function(){
+				$(this).append(e_upload_pad);
+			}, function(){
+				$('#e-upload-pad').remove();
+		});
+	});
+
+css:
+	#e-upload-pad {
+		position: absolute;
+		background-color: white;
+		width: 200px;
+		height: 200px;
+		border: 1px solid black;
+	}

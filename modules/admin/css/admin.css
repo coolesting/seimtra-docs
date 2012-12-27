@@ -100,14 +100,23 @@
 .page_bar span { margin: 0 3px; }
 .table span { margin: 0 4px; }
 
-.edit a { 
-	background-image:url(/images/edit.png);
-	color: white;
+.edit a, .delete a { 
+		display: block;
+		width: 16px;
+		height: 16px;
+		background-repeat: no-repeat;
+		text-indent: -10000px;
+		text-decoration: none;
+		padding: 4px;
+		margin: 0;
+		float: left;
 }
 
+.edit a {
+	background-image:url(/icons/edit.png);
+}
 .delete a { 
-	background-image:url(/images/delete.png);
-	color: white;
+	background-image:url(/icons/delete.png);
 }
 .button {
 	width: 70px;

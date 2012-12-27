@@ -36,7 +36,7 @@ mySettings = {
 		{separator:'---------------'},
 		{name:'Quotes', className:'e-quotes', openWith:'-------\n', closeWith:'\n-------\n'},
 		{name:'Code Block / Code', className:'e-code', openWith:'```\n', closeWith:'\n```'},
-		{name:"Upload", className:'e-upload', openWith:"u", closeWith:"u"},
+		{name:"Upload", className:'e-upload'},
 	]
 }
 
