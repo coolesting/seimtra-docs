@@ -1,7 +1,7 @@
 ## INTRODUCTION
 
-A rich text editor. [markitup](http://markitup.jaysalvat.com/documentation/)
-And a markdown parser, [redcarpet](http://www.github.com/vmg/redcarpet)
+A rich text editor,
+and markdown parser, [redcarpet](http://www.github.com/vmg/redcarpet)
 
 ## USAGE
 

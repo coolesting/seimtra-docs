@@ -3,7 +3,7 @@ get '/admin/editor' do
 	sys_tpl :default
 end
 
-post '/upload' do
+post '/editor/upload' do
 	
 	if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
 		file_content = params[:upload][:tempfile].read
@@ -15,10 +15,6 @@ post '/upload' do
 		'receive failure'
 	end
 
-end
-
-get '/upload' do
-	slim :editor_upload
 end
 
 helpers do

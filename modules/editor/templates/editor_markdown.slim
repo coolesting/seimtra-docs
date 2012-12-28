@@ -7,9 +7,9 @@ javascript:
 
 	var config = {
 		parser_path : '',
-		upload_path : '/upload',
-		bg_path : '/icons/',
-		settings : [
+		upload_path : '/editor/upload',
+		icon_path : '/icons/',
+		toolbar : [
 			{name : 'h1', key : '1', before : '# ', title :'Header 1'},
 			{name : 'h2', key : '2', before : '## ', title :'Header 2'},
 			{name : 'h3', key : '3', before : '### ', title :'Header 3', separator : '|'},
@@ -42,18 +42,21 @@ javascript:
 
 	//initialize the toolbar
 	var toolbar = "";
-	$.each(config.settings, function(index, item){
+	$.each(config.toolbar, function(index, item){
 
-		//set the toolbar index-id, attr, class, title, key ...
-		//event listener need to get the value from json with this index-id
-		toolbar += '<a index-id="' + index + '" index-name="' + item.name + '"';
+		//set the toolbar index, attr, class, title, key ...
+		//event listener need to get the value from json with this index
+		toolbar += '<a index="' + index + '"';
 
 		if (item.key != undefined) {
 			toolbar += ' accessKey="' + item.key + '"';
 		}
 		if (item.title != undefined) {
 			toolbar += ' title="' + item.title + '"';
+		} else {
+			toolbar += ' title="' + item.name + '"';
 		}
+
 		toolbar += ' class="' + item.name;
 		if (item.class != undefined) {
 			toolbar += ' ' + item.class;
@@ -61,7 +64,7 @@ javascript:
 		toolbar += '">' + item.name + '</a>';
 
 		if (item.separator != undefined) {
-			toolbar += '<a index-name="separator" >' + item.separator + '</a>';
+			toolbar += '<a style="background-image:url(' + config.icon_path + 'separator.png)">' + item.separator + '</a>';
 		}
 
 	});
@@ -69,23 +72,26 @@ javascript:
 	//setup the toolbar
 	$('.toolbar').append(toolbar);
 	$('.toolbar a').each(function(index){
-		$(this).css('background-image', 'url("' + config.bg_path + $(this).attr('index-name') + '.png")');
+		var index = $(this).attr('index');
+		if (index) {
+			$(this).css('background-image', 'url("' + config.icon_path + config.toolbar[index].name + '.png")');
+		}
 	});
 
 
 
-	//Setp 03, add the event to each toolbar item
+	//Setp 03, add the event to each item of toolbar
 
 	//normal item of toolbar
 	$('.toolbar a').click(function(){
-		var index_id = $(this).attr('index-id');
+		var index_id = $(this).attr('index');
 		var before = after = '';
 
-		if (config.settings[index_id].before != undefined) {
-			before = config.settings[index_id].before;
+		if (config.toolbar[index_id].before != undefined) {
+			before = config.toolbar[index_id].before;
 		}
-		if (config.settings[index_id].after != undefined) {
-			after = config.settings[index_id].after;
+		if (config.toolbar[index_id].after != undefined) {
+			after = config.toolbar[index_id].after;
 		}
 
 		if (before != '' || after != '') {
@@ -102,9 +108,11 @@ javascript:
 	var folder = '<div class="folder_menu"><form class="folder_upload clear"><input type="file" name="upload" /></form><span class="folder_close" /><span class="folder_submit" /><div class="folder_progressbar"><div class="folder_subprogressbar">0 %</div></div></div>';
 
 	$('.folder').click(function(){
+
 		if ($(this).hasClass('.folder_menu')) {
 			$('.folder_menu').show();
 		} else {
+
 			//initialize folder dropmenu
 			$(this).after(folder);
 			var folder_menu = $('.folder_menu');
@@ -147,6 +155,8 @@ javascript:
 					success : function(data) {
 						$('.folder_subprogressbar').text('100 %');
 						$('.folder_subprogressbar').css('background-color', 'yellow');
+						$('#msg').text(data);
+						setTimeout(function(){ $('#msg').text(''); }, 3000);
 					},
 
 					error : function(xhr, status, err) {
@@ -165,8 +175,7 @@ javascript:
 				return false;
 
 			});
-
-
+			//initialize folder dropmenu ---- end
 		}
 
 	});

@@ -24,10 +24,14 @@ helpers do
 		redirect back
 	end
 
-	#just display the message
-	def sys_msg str
-		@msg = str
-		response.set_cookie 'msg', :value => str, :path => '/'
+	#set the message if get a parameter, otherwise returns the @str value
+	def sys_msg str = ''
+		unless str == ''
+			@msg = str
+			response.set_cookie 'msg', :value => str, :path => '/'
+		else
+			@str
+		end
 	end
 
 	#provide the static file under module folder, like css, images, js.

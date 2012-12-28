@@ -25,8 +25,7 @@ html
 			#description.clear
 				p = @title
 
-			- unless @msg == ''
-				#msg.clear = @msg
+			== sys_inc(:system_message)
 
 			#main
 				#content.left == yield
