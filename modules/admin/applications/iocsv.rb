@@ -1,12 +1,12 @@
 get '/admin/iocsv' do
-	@encoding = sys_get(:encoding) != "" ? sys_get(:encoding) : settings.default_encoding
-	sys_tpl :admin_iocsv
+	@encoding = _vars(:encoding) != "" ? _vars(:encoding) : settings.default_encoding
+	_tpl :admin_iocsv
 end
 
 #get db table as csv file output
 get '/admin/iocsv/export' do
 
-	@encoding = sys_get(:encoding) != "" ? sys_get(:encoding) : settings.default_encoding
+	@encoding = _vars(:encoding) != "" ? _vars(:encoding) : settings.default_encoding
 
 	if params[:export] and (DB.tables.include?(params[:export].to_sym))
 		require 'csv'
@@ -64,8 +64,9 @@ post '/admin/iocsv/inport' do
 			DB[table.to_sym].insert(data)
 		end
 
-		set :admin_msg, 'upload complete'
+		_msg L[:'upload complete']
 	end
+
 	redirect back
 
 end

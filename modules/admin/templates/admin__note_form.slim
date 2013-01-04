@@ -1,0 +1,19 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		
+		li : label = L[:from_uid]
+		li : input type="text" name="from_uid" required="required" value="#{@fields[:from_uid]}"
+		
+		li : label = L[:to_uid]
+		li : input type="text" name="to_uid" required="required" value="#{@fields[:to_uid]}"
+		
+		li : label = L[:mark]
+		li : input type="number" name="mark" required="required" value="#{@fields[:mark]}" min="1" max="99999"
+		
+		li : label = L[:type]
+		li : input type="text" name="type" required="required" value="#{@fields[:type]}"
+		
+		li : label = L[:content]
+		li : input type="text" name="content" required="required" value="#{@fields[:content]}"
+		
+		

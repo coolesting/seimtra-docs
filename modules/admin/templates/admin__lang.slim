@@ -1,0 +1,26 @@
+table.table
+	thead
+		th : a href="#{_url('/admin/_lang', :order => 'lid')}" = L[:lid]
+		th : a href="#{_url('/admin/_lang', :order => 'label')}" = L[:label]
+		th : a href="#{_url('/admin/_lang', :order => 'content')}" = L[:content]
+		th : a href="#{_url('/admin/_lang', :order => 'uid')}" = L[:uid]
+		th
+	tbody
+		- @_lang.each do | row |
+			tr
+				td = row[:lid]
+				td = row[:label]
+				td = row[:content]
+				td = row[:uid]
+
+				td
+					span.edit : a href="/admin/_lang/edit/#{row[:lid]}" = L[:fix]
+					span.delete : a href="/admin/_lang/rm/#{row[:lid]}" = L[:del]
+
+p = L[:'Restart the web server when you have modified']
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url('/admin/_lang', :page_curr => i)}" = i

@@ -1,0 +1,14 @@
+skey=level
+sval=10
+
+skey=lang
+sval=en
+
+skey=encoding
+sval=gb2312
+
+skey=filetype
+sval=png,jpg,gif
+
+skey=module_status
+sval=on,off

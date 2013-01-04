@@ -1,0 +1,75 @@
+name=admin
+type=admin
+link=/admin/
+description=a system administrator page.
+
+name=home
+type=admin
+link=/
+order=9
+description=a home page
+
+name=module
+menu_name=admin
+type=admin
+link=/admin/_mods
+description=about the installed modules
+
+name=menu
+menu_name=admin
+type=admin
+link=/admin/_menu
+description=menu list
+
+name=variable
+type=admin
+menu_name=admin
+link=/admin/_vars
+description=the system variable settings
+
+name=iocsv
+type=admin
+menu_name=admin
+link=/admin/iocsv
+description=input and output data of csv file to database 
+
+name=language
+type=admin
+menu_name=admin
+link=/admin/_lang
+description=the label language
+
+name=task
+type=admin
+menu_name=admin
+link=/admin/_task
+description=background task
+
+name=user
+type=admin
+link=/admin/_user
+description=user list
+
+name=session
+type=admin
+menu_name=user
+link=/admin/_sess
+description=user session list
+
+name=ticket
+type=admin
+menu_name=user
+link=/admin/_tick
+description=user ticket list
+
+name=note
+menu_name=admin
+type=admin
+link=/admin/_note
+description=note from user to user
+
+name=file
+menu_name=admin
+type=admin
+link=/admin/_file
+description=the uploading file

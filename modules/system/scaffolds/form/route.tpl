@@ -4,7 +4,7 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 
 	@title = 'Create a new <%=@t[:file_name]%>'
 	<%=@t[:file_name]%>_set_fields
-	sys_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
+	_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
 
 end
 

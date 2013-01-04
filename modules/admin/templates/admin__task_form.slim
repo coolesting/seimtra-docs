@@ -1,0 +1,16 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		
+		li : label = L[:type]
+		li : input type="text" name="type" required="required" value="#{@fields[:type]}"
+		
+		li : label = L[:uid]
+		li : input type="text" name="uid" required="required" value="#{@fields[:uid]}"
+		
+		li : label = L[:method_name]
+		li : input type="text" name="method_name" required="required" value="#{@fields[:method_name]}"
+		
+		li : label = L[:timeout]
+		li : input type="number" name="timeout" required="required" value="#{@fields[:timeout]}" min="1" max="99999"
+		
+		

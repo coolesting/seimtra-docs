@@ -1,8 +1,0 @@
-name=custom
-opened=on
-description=A default module
-load_order=5
-group=core
-version=0.0.1
-email=coolesting@gmail.com
-author=linyu den coolesting

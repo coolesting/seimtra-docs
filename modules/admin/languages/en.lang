@@ -24,3 +24,6 @@ user=user
 system=system
 general=general
 help=help
+upload complete=upload complete
+table name=table name
+Restart the web server when you have modified=Restart the web server when you have modified

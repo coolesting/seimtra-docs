@@ -1,0 +1,13 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		
+		li : label = L[:skey]
+		li : input type="text" name="skey" required="required" value="#{@fields[:skey]}"
+		
+		li : label = L[:sval]
+		li : input type="text" name="sval" required="required" value="#{@fields[:sval]}"
+		
+		li : label = L[:uid]
+		li : input type="text" name="uid" required="required" value="#{@fields[:uid]}"
+		
+		

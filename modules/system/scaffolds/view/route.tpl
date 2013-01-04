@@ -25,6 +25,6 @@ get '/<%=@t[:layout]%>/<%=@t[:file_name]%>' do
  	@<%=@t[:table_name]%> = ds.paginate(@page_curr, @page_size, ds.count)
  	@page_count = @<%=@t[:table_name]%>.page_count
 
-	sys_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>
+	_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>
 
 end

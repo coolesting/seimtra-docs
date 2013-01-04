@@ -57,8 +57,8 @@ configure do
 	# ================= setting config ================= 
 
 	#set the log for output
- 	disable :logging
- 	set :log, false
+#  	disable :logging
+#  	set :log, false
 
 	set :cache_static_file, false
 

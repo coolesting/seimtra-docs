@@ -5,7 +5,7 @@ form.tpl
 route.tpl
 config.sfile
 menu.install
-setting.install
+vars.install
 
 
 

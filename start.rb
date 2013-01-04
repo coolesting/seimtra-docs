@@ -3,11 +3,8 @@ require 'seimtra/sbase'
 include Seimtra
 
 require './environment'
-require './lib'
 
-language = []
 templates = []
-languages = []
 applications = []
 
 if settings.db_connect == "closed"
@@ -15,7 +12,7 @@ if settings.db_connect == "closed"
 	exit
 else
 	# load the module info
-	M = DB[:module]
+	M = DB[:_mods].all
 end
 
 if M.empty?
@@ -25,17 +22,14 @@ end
 
 Slayout = []
 M.each do | row |
-	if row[:opened] == "on"
+	if row[:status] == 1
 		#preprocess the templates loaded item
-		templates << settings.root + "/modules/#{row[:name]}/templates"
+		templates << settings.root + "/modules/#{row[:name]}/#{Sbase::Folders[:tpl]}"
 
 		#preprocess the applications loaded routors
-		applications += Dir[settings.root + "/modules/#{row[:name]}/applications/*.rb"]
+		applications += Dir[settings.root + "/modules/#{row[:name]}/#{Sbase::Folders[:app]}/*.rb"]
 
-		language << row[:mid] unless language.include? row[:mid]
-
-		Slayout << row[:name] if File.exist? "#{settings.root}/modules/#{row[:name]}/templates/#{row[:name]}_layout.slim"
-
+		Slayout << row[:name] if File.exist? "#{settings.root}/modules/#{row[:name]}/#{Sbase::Folders[:tpl]}/#{row[:name]}_layout.slim"
 	end
 end
 
@@ -47,11 +41,19 @@ helpers do
 end
 
 #load the template language
-language.each do | mid |
-	languages += DB[:language].filter(:mid => mid).all
-end
+class L
+	@@options = {}
+	class << self
+		def [] key
+			@@options.include?(key) ? @@options[key] : key.to_s
+		end
 
-languages.each do | row |
+		def []= key, val
+			@@options[key.to_sym] = val
+		end
+	end
+end
+DB[:_lang].all.each do | row |
 	L[row[:label]] = row[:content]
 end
 

@@ -1,0 +1,12 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		
+		li : label = L[:name]
+		li : input type="text" name="name" required="required" value="#{@fields[:name]}"
+		
+		li : label = L[:pawd]
+		li : input type="text" name="pawd" required="required" value="#{@fields[:pawd]}"
+		
+		li : label = L[:level]
+		li : input type="number" name="level" required="required" value="#{@fields[:level]}" min="1" max="99999"
+

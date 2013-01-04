@@ -1,4 +1,4 @@
-status=production
+status=development
 email=coolesting@gmail.com
 author=linyu den coolesting
 created=2012-05-24 22:49:59 -0700
@@ -6,6 +6,6 @@ version=0.0.1
 root_privilege=TzQfno320lbw
 default_scaffold=admin
 auto_add_admin_menu=true
-module_focus=work
-layout=work
+module_focus=admin
+layout=admin
 lang=en

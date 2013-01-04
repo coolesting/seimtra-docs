@@ -1,7 +1,0 @@
-name=guest
-pawd=guest
-salt=xcvxc
-
-name=admin
-pawd=admin
-salt=ABCde

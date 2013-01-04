@@ -1,0 +1,233 @@
+javascript:
+
+	// this is a editor of seimtra
+	// power of Linyu den coolesting
+
+	//Setp 01, customize the user configure
+
+	var config = {
+		parser_path : '/_preview',
+		upload_path : '/_upload',
+		icon_path : '/icons/',
+		toolbar : [
+			{name : 'h1', key : '1', before : '# ', title :'Header 1'},
+			{name : 'h2', key : '2', before : '## ', title :'Header 2'},
+			{name : 'h3', key : '3', before : '### ', title :'Header 3', separator : '|'},
+
+			{name : 'bold', key : 'B', before : '**', after : '**'},
+			{name : 'italic', key : 'I', before : "_", after : "_", separator : '|'},
+
+			{name : 'ol', before : '+ '},
+			{name : 'ul', before : '- ', separator : '|'},
+
+			{name : 'picture', key : 'P', before : '[name](link)'},
+			{name : 'link', key : 'L', before : '[name]', after : '(link)', separator : '|'},
+
+			{name : 'quotes', before : '-------\n', after : '\n-------\n'},
+			{name : 'code', before : '```\n', after : '\n```'},
+			{name : 'folder', class : 'dropmenu'},
+		]
+	}
+
+
+
+	//Setp 02, initialize editor
+	
+	//select the textarea to update rich text editor
+	var textarea = $('textarea');
+	textarea.wrap('<div class="editor" />');
+
+	//add a toolbar to editor
+	$('.editor').before('<div class="toolbar" />');
+
+	//initialize the toolbar
+	var toolbar = "";
+	$.each(config.toolbar, function(index, item){
+
+		//set the toolbar index, attr, class, title, key ...
+		//event listener need to get the value from json with this index
+		toolbar += '<a index="' + index + '"';
+
+		if (item.key != undefined) {
+			toolbar += ' accessKey="' + item.key + '"';
+		}
+		if (item.title != undefined) {
+			toolbar += ' title="' + item.title + '"';
+		} else {
+			toolbar += ' title="' + item.name + '"';
+		}
+
+		toolbar += ' class="' + item.name;
+		if (item.class != undefined) {
+			toolbar += ' ' + item.class;
+		}
+		toolbar += '">' + item.name + '</a>';
+
+		if (item.separator != undefined) {
+			toolbar += '<a style="background-image:url(' + config.icon_path + 'separator.png)">' + item.separator + '</a>';
+		}
+
+	});
+
+	//setup the toolbar
+	$('.toolbar').append(toolbar);
+	$('.toolbar a').each(function(index){
+		var index = $(this).attr('index');
+		if (index) {
+			$(this).css('background-image', 'url("' + config.icon_path + config.toolbar[index].name + '.png")');
+		}
+	});
+
+
+
+	//Setp 03, add the event to each item of toolbar
+
+	//normal item of toolbar
+	$('.toolbar a').click(function(){
+		var index_id = $(this).attr('index');
+		var before = after = '';
+
+		if (config.toolbar[index_id].before != undefined) {
+			before = config.toolbar[index_id].before;
+		}
+		if (config.toolbar[index_id].after != undefined) {
+			after = config.toolbar[index_id].after;
+		}
+
+		if (before != '' || after != '') {
+			var len = textarea.val().length;
+			var start = textarea[0].selectionStart;
+			var end = textarea[0].selectionEnd;
+			var select_text = textarea.val().substring(start, end);
+			var replace_text = before + select_text + after;
+			textarea.val(textarea.val().substring(0, start) + replace_text + textarea.val().substring(end, len));
+		}
+	});
+
+	//folder
+	var folder = '<div class="folder_menu"><form class="folder_upload clear"><input type="file" name="upload" /></form><span class="folder_close" /><span class="folder_submit" /><div class="folder_progressbar"><div class="folder_subprogressbar">0 %</div></div></div>';
+
+	$('.folder').click(function(){
+
+		if ($(this).hasClass('.folder_menu')) {
+			$('.folder_menu').show();
+		} else {
+
+			//initialize folder dropmenu
+			$(this).after(folder);
+			var folder_menu = $('.folder_menu');
+			folder_menu.css('top', $(this).offset().top + 10);
+			folder_menu.css('left', $(this).offset().left + 10);
+
+			//add closed event
+			$('.folder_close').click(function(){
+				$('.folder_menu').hide();
+			});
+
+			//add changed event
+			$('.folder_upload').change(function(){
+				$('.folder_subprogressbar').text('0 %');
+				$('.folder_subprogressbar').css('background-color', '');
+			});
+
+			//add uploading event
+			$('.folder_submit').click(function(){
+
+				var formData = new FormData($('.folder_upload')[0]);
+
+				$.ajax({
+
+					url : config.upload_path,
+					type : 'post',
+
+					xhr : function() {
+						myxhr = $.ajaxSettings.xhr();
+						if (myxhr.upload) {
+							myxhr.upload.addEventListener('progress', function(e){
+								var done = e.position || e.loaded, total = e.totalSize || e.total;
+           						var progressbar = 'uploading ... ' + (Math.floor(done/total*1000)/10) + ' %';
+								$('.folder_subprogressbar').text(progressbar);
+							}, false);
+						}
+						return myxhr;
+					},
+
+					success : function(data) {
+						$('.folder_subprogressbar').text('100 %');
+						$('.folder_subprogressbar').css('background-color', 'yellow');
+						$('#msg').text(data);
+						setTimeout(function(){ $('#msg').text(''); }, 3000);
+					},
+
+					error : function(xhr, status, err) {
+						alert(xhr.responseText);
+						alert(status);
+						alert(err);
+					},
+
+					data : formData,
+					cache : false,
+					contentType : false,
+					processData : false
+
+				}, 'join');
+
+				return false;
+
+			});
+			//initialize folder dropmenu ---- end
+		}
+
+	});
+
+
+
+css:
+
+	.toolbar {
+		margin: 10px 0;
+	}
+
+	.toolbar a {
+		display: block;
+		width: 16px;
+		height: 16px;
+		background-repeat: no-repeat;
+		text-indent: -10000px;
+		text-decoration: none;
+		padding: 3px;
+		margin: 0;
+		float: left;
+		cursor: pointer;
+	}
+
+	.folder_menu {
+		padding: 5px;
+		position: absolute;
+		background-color: white;
+		width: 200px;
+		border: 1px solid black;
+	}
+	.folder_progressbar {
+		border: 1px solid black;
+		width: 130px;
+		height: 19px;
+		margin: 3px;
+		text-align: right;
+	}
+	.folder_close, .folder_submit {
+		padding: 0 3px;
+		float: right;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		background-repeat: no-repeat;
+	}
+	.folder_close {
+		background-image:url('/icons/close.png');
+	}
+	.folder_submit {
+		background-image:url('/icons/submit.png');
+	}
+
+

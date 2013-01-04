@@ -1,14 +1,16 @@
 before '/admin/*' do
+	#_login? '/_login'
 
-	@title = "Administrator system!"
+	@title = "Welcome to administrator page!"
 
 	#a variable, search condition options in layout template
 	@search	= {}
 
 	@rightbar = []
 
-	#the top menu of layout template
-	@menus = DB[:menu].filter(:type => 'admin').order(:order)
+	#the top menu of admin_layout.slim
+	@menus = DB[:_menu].filter(:type => 'admin').order(:order)
+	halt 'No admin menu' if @menus.empty?
 
 	#fetch the current available menu item from request path of url
 	menu_curr	= @menus.filter(:link => request.path)

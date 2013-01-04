@@ -1,8 +1,0 @@
-name=admin
-opened=on
-version=0.0.1
-email=coolesting@gmail.com
-author=linyu den coolesting
-description=A background administration module
-load_order=5
-group=core

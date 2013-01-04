@@ -25,7 +25,7 @@ html
 			#description.clear
 				p = @title
 
-			== sys_inc(:system_message)
+			== _inc(:_message)
 
 			#main
 				#content.left == yield
@@ -58,7 +58,7 @@ html
 
 				#footer.clear
 
-		== sys_inc(:editor_markdown)
+		== _inc(:_editor)
 
 		javascript:
 

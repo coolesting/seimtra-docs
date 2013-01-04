@@ -8,15 +8,15 @@
 # the route path /css/custom.css  , the real path, /modules/custom/css/custom.css
 # the route path /css/custom_layout.css	, the real path,  /modules/custom/css/layout.css
 get '/css/:file_name' do
-	sys_file params[:file_name], 'css'
+	_assets params[:file_name], 'css'
 end
 
 get '/images/:file_name' do
-	sys_file params[:file_name], 'images'
+	_assets params[:file_name], 'images'
 end
 
 get '/js/:file_name' do
-	sys_file params[:file_name], 'js'
+	_assets params[:file_name], 'js'
 end
 
 require 'sass'

@@ -1,0 +1,21 @@
+table.table
+	thead
+		th : a href="#{_url('/admin/_sess', :order => 'ticket')}" = L[:ticket]
+		th : a href="#{_url('/admin/_sess', :order => 'uid')}" = L[:uid]
+		th : a href="#{_url('/admin/_sess', :order => 'changed')}" = L[:changed]
+		th
+	tbody
+		- @_sess.each do | row |
+			tr
+				td = row[:ticket]
+				td = row[:uid]
+				td = row[:changed]
+
+				td
+					span.delete : a href="/admin/_sess/rm/#{row[:ticket]}" = L[:del]
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url('/admin/_sess', :page_curr => i)}" = i
