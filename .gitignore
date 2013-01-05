@@ -1,6 +1,7 @@
 *.swp
 *.gem
 db/*
+tmp/*
 modules/*
 !modules/system
 !modules/admin
