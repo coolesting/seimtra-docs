@@ -3,8 +3,5 @@
 db/*
 modules/*
 !modules/system
-!modules/user
 !modules/admin
-!modules/editor
-!modules/custom
 

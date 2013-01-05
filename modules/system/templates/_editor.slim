@@ -3,12 +3,18 @@ javascript:
 	// this is a editor of seimtra
 	// power of Linyu den coolesting
 
-	//Setp 01, customize the user configure
+	//put this var my_config to your js script before this js file
+	//var my_config = 'customize your config with this variable,  the format likes the var config';
 
+	//NOTE : Don't modify the following code if you don't know what are you doing.
+
+	//Setp 01, customize the user configure
 	var config = {
 		parser_path : '/_preview',
+		folder_path : '/_folder',
 		upload_path : '/_upload',
 		icon_path : '/icons/',
+		file_path : '/_file/',
 		toolbar : [
 			{name : 'h1', key : '1', before : '# ', title :'Header 1'},
 			{name : 'h2', key : '2', before : '## ', title :'Header 2'},
@@ -28,7 +34,9 @@ javascript:
 			{name : 'folder', class : 'dropmenu'},
 		]
 	}
-
+	if (typeof(my_config) != 'undefined') {
+		config = my_config;
+	}
 
 
 	//Setp 02, initialize editor
@@ -104,12 +112,21 @@ javascript:
 		}
 	});
 
-	//folder
-	var folder = '<div class="folder_menu"><form class="folder_upload clear"><input type="file" name="upload" /></form><span class="folder_close" /><span class="folder_submit" /><div class="folder_progressbar"><div class="folder_subprogressbar">0 %</div></div></div>';
+	//initialize the folder item
+	var folder = '<div class="folder_menu">'
+	//form
+	folder += '<form class="folder_upload clear"><input type="file" name="upload" /></form><span class="folder_close" /><span class="folder_submit" />';
+	//progressbar
+	folder += '<div class="folder_progressbar"><div class="folder_subprogressbar">0 %</div></div>';
+	//view
+	folder += '<div class="folder_view"></div>';
+	folder += '</div>';
 
+	//folder item event
+	var create_folder_menu = false;
 	$('.folder').click(function(){
 
-		if ($(this).hasClass('.folder_menu')) {
+		if (create_folder_menu === true) {
 			$('.folder_menu').show();
 		} else {
 
@@ -129,6 +146,23 @@ javascript:
 				$('.folder_subprogressbar').text('0 %');
 				$('.folder_subprogressbar').css('background-color', '');
 			});
+
+			//add view event
+			seimtra_flash_folder();
+			function seimtra_flash_folder() {
+				var folder_view = '';
+				$.getJSON(config.folder_path, function(data){
+					if (data != undefined) {
+						var datas = [];
+						$.each(data, function(index, item){
+							datas.push('<li><img src="' + config.file_path + item.fid + '.' + item.filetype + '" alt="' + item.name + '" title="' + item.name + '"  /></li>');
+						});
+						$('.folder_view').html('<ul>' + datas.join('') + '</ul>');
+					} else {
+						$('.folder_view').html('<p>No data found.</p>');
+					}
+				});
+			}
 
 			//add uploading event
 			$('.folder_submit').click(function(){
@@ -153,10 +187,16 @@ javascript:
 					},
 
 					success : function(data) {
+						//update progressbar
 						$('.folder_subprogressbar').text('100 %');
 						$('.folder_subprogressbar').css('background-color', 'yellow');
+
+						//show message
 						$('#msg').text(data);
 						setTimeout(function(){ $('#msg').text(''); }, 3000);
+
+						//update folder view
+						seimtra_flash_folder();
 					},
 
 					error : function(xhr, status, err) {
@@ -175,6 +215,7 @@ javascript:
 				return false;
 
 			});
+			create_folder_menu = true;
 			//initialize folder dropmenu ---- end
 		}
 
@@ -228,6 +269,16 @@ css:
 	}
 	.folder_submit {
 		background-image:url('/icons/submit.png');
+	}
+	.folder_view {
+		padding-top: 5px;
+	}
+	.folder_view img {
+		width: 50px;
+		height: 50px;
+		float: left;
+		padding: 8px;
+		cursor: pointer;
 	}
 
 
