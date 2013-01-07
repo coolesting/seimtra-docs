@@ -15,6 +15,8 @@ javascript:
 		upload_path : '/_upload',
 		icon_path : '/icons/',
 		file_path : '/_file/',
+		file_type : ['image/jpeg', 'image/gif', 'image/png'],
+		file_size : 300000,
 		toolbar : [
 			{name : 'h1', key : '1', before : '# ', title :'Header 1'},
 			{name : 'h2', key : '2', before : '## ', title :'Header 2'},
@@ -26,15 +28,15 @@ javascript:
 			{name : 'ol', before : '+ '},
 			{name : 'ul', before : '- ', separator : '|'},
 
-			{name : 'picture', key : 'P', before : '[name](link)'},
+			{name : 'picture', key : 'P', before : '![picture name](link)'},
 			{name : 'link', key : 'L', before : '[name]', after : '(link)', separator : '|'},
 
 			{name : 'quotes', before : '-------\n', after : '\n-------\n'},
 			{name : 'code', before : '```\n', after : '\n```'},
-			{name : 'folder', class : 'dropmenu'},
+			{name : 'folder', class : 'dropmenu', type : 'custom'},
 		]
 	}
-	if (typeof(my_config) != 'undefined') {
+	if (typeof(my_config) !== 'undefined') {
 		config = my_config;
 	}
 
@@ -93,24 +95,34 @@ javascript:
 	//normal item of toolbar
 	$('.toolbar a').click(function(){
 		var index_id = $(this).attr('index');
-		var before = after = '';
-
-		if (config.toolbar[index_id].before != undefined) {
-			before = config.toolbar[index_id].before;
+		if (config.toolbar[index_id].type == undefined) {
+			seimtra_insert_to_textarea(config.toolbar[index_id]);
 		}
-		if (config.toolbar[index_id].after != undefined) {
-			after = config.toolbar[index_id].after;
+	});
+	function seimtra_insert_to_textarea(opt) {
+		
+		var before = opt.before != undefined ? opt.before : '';
+		var after = opt.after != undefined ? opt.after : '';
+		var replace = opt.replace != undefined ? opt.replace : '';
+
+		if (opt.html_type == 'img') {
+			replace = '![' + opt.img_name + '](' + opt.img_link + ')';
 		}
 
-		if (before != '' || after != '') {
+		if (before != '' || after != '' || replace != '') {
 			var len = textarea.val().length;
 			var start = textarea[0].selectionStart;
 			var end = textarea[0].selectionEnd;
-			var select_text = textarea.val().substring(start, end);
+			var select_text = replace != '' ? replace : textarea.val().substring(start, end);
 			var replace_text = before + select_text + after;
 			textarea.val(textarea.val().substring(0, start) + replace_text + textarea.val().substring(end, len));
 		}
-	});
+
+	}
+	function seimtra_show_msg(data) {
+		$('#msg').text(data);
+		setTimeout(function(){ $('#msg').text(''); }, 3000);
+	}
 
 	//initialize the folder item
 	var folder = '<div class="folder_menu">'
@@ -158,14 +170,33 @@ javascript:
 							datas.push('<li><img src="' + config.file_path + item.fid + '.' + item.filetype + '" alt="' + item.name + '" title="' + item.name + '"  /></li>');
 						});
 						$('.folder_view').html('<ul>' + datas.join('') + '</ul>');
+						$('.folder_view li img').click(function(){
+							seimtra_insert_to_textarea({html_type : 'img', img_link : $(this).attr('src'), img_name : $(this).attr('alt')});
+						});
 					} else {
 						$('.folder_view').html('<p>No data found.</p>');
 					}
 				});
 			}
 
+			//add validation function to form
+			var seimtra_upload_validation_error = '';
+			$('.folder_upload :file').change(function(){
+				var file = this.files[0];
+				if ($.inArray(file.type, config.file_type) == -1) {
+					seimtra_upload_validation_error = 'the file must be (' + config.file_type.join(',') + '), but rather is ' + file.type;
+				}
+				if (file.size > config.file_size) {
+					seimtra_upload_validation_error = 'The file size ' + file.size + ' is not better than ' + config.file_size;
+				}
+			});
+
 			//add uploading event
 			$('.folder_submit').click(function(){
+				if (seimtra_upload_validation_error != '') {
+					alert(seimtra_upload_validation_error);
+					return false;
+				}
 
 				var formData = new FormData($('.folder_upload')[0]);
 
@@ -192,8 +223,7 @@ javascript:
 						$('.folder_subprogressbar').css('background-color', 'yellow');
 
 						//show message
-						$('#msg').text(data);
-						setTimeout(function(){ $('#msg').text(''); }, 3000);
+						seimtra_show_msg(data);
 
 						//update folder view
 						seimtra_flash_folder();

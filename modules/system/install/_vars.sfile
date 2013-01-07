@@ -8,7 +8,10 @@ skey=encoding
 sval=gb2312
 
 skey=filetype
-sval=png,jpg,gif
+sval=image/png,image/jpeg,image/gif
+
+skey=filesize
+sval=300000
 
 skey=module_status
 sval=on,off
