@@ -79,10 +79,7 @@ helpers do
 	#get two columns of database table as a key-value hash
 	def _kv table, key, value
 		res = {}
-		DB[table].select(key, value).all.each do | row |
-			res[row[key]] = row[value]
-		end
-		res
+		res = DB[table].to_hash(key, value)
 	end
 
 	#load the template, and set the layout automatically

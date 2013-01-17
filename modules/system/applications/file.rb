@@ -1,30 +1,36 @@
 post '/_upload' do
-	
 	if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
 		_file_save params[:upload]
 		'upload complete.'
 	else
 		'the file is null'
 	end
-
 end
 
-get '/_folder' do
-
+get '/_folder/:picture' do
 	ds = DB[:_file].filter(:uid => _user[:uid])
-
 	unless ds.empty?
 		require 'json'
-		JSON.pretty_generate ds.select(:fid, :name, :filetype).reverse_order(:fid).limit(9).all
+		#add filter of picture type
+		JSON.pretty_generate ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
 	else
 		nil
 	end
+end
 
+get '/_folder' do
+	ds = DB[:_file].filter(:uid => _user[:uid])
+	unless ds.empty?
+		require 'json'
+		JSON.pretty_generate ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
+	else
+		nil
+	end
 end
 
 get '/_file/:fid' do
 	ds = DB[:_file].filter(:fid => params[:fid].split('.').first)
-	send_file settings.upload_path + ds.get(:path), :type => ds.get(:filetype).to_sym
+	send_file settings.upload_path + ds.get(:path), :type => ds.get(:type).split('/').last.to_sym
 end
 
 helpers do
@@ -40,14 +46,14 @@ helpers do
 		fields[:name] 		= file[:filename].split('.').first
 		fields[:created]	= Time.now
 		fields[:path] 		= "/#{_user[:uid]}-" + fields[:created].strftime("%s") + "-#{file[:filename]}"
-		fields[:filetype]	= file[:type].split('/').last
+		fields[:type]		= file[:type]
 
 		unless _vars(:filetype).include? file[:type]
 			_throw 'the file type is wrong.'
 		end
 
 		file_content = file[:tempfile].read
-		if file_content.size > _vars(:filesize).to_i
+		if (fields[:size] = file_content.size) > _vars(:filesize).to_i
 			_throw 'the file size is too big.'
 		end
 

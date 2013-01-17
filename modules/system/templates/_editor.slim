@@ -3,104 +3,14 @@ javascript:
 	// this is a editor of seimtra
 	// power of Linyu den coolesting
 
-	//put this var my_config to your js script before this js file
-	//var my_config = 'customize your config with this variable,  the format likes the var config';
-
-	//NOTE : Don't modify the following code if you don't know what are you doing.
-
-	//Setp 01, customize the user configure
-	var config = {
-		parser_path : '/_preview',
-		folder_path : '/_folder',
-		upload_path : '/_upload',
-		icon_path : '/icons/',
-		file_path : '/_file/',
-		file_type : ['image/jpeg', 'image/gif', 'image/png'],
-		file_size : 300000,
-		toolbar : [
-			{name : 'h1', key : '1', before : '# ', title :'Header 1'},
-			{name : 'h2', key : '2', before : '## ', title :'Header 2'},
-			{name : 'h3', key : '3', before : '### ', title :'Header 3', separator : '|'},
-
-			{name : 'bold', key : 'B', before : '**', after : '**'},
-			{name : 'italic', key : 'I', before : "_", after : "_", separator : '|'},
-
-			{name : 'ol', before : '+ '},
-			{name : 'ul', before : '- ', separator : '|'},
-
-			{name : 'picture', key : 'P', before : '![picture name](link)'},
-			{name : 'link', key : 'L', before : '[name]', after : '(link)', separator : '|'},
-
-			{name : 'quotes', before : '-------\n', after : '\n-------\n'},
-			{name : 'code', before : '```\n', after : '\n```'},
-			{name : 'folder', class : 'dropmenu', type : 'custom'},
-		]
-	}
-	if (typeof(my_config) !== 'undefined') {
-		config = my_config;
+	function seimtra_show_msg(data) {
+		$('#msg').text(data);
+		setTimeout(function(){ $('#msg').text(''); }, 3000);
 	}
 
-
-	//Setp 02, initialize editor
-	
-	//select the textarea to update rich text editor
-	var textarea = $('textarea');
-	textarea.wrap('<div class="editor" />');
-
-	//add a toolbar to editor
-	$('.editor').before('<div class="toolbar" />');
-
-	//initialize the toolbar
-	var toolbar = "";
-	$.each(config.toolbar, function(index, item){
-
-		//set the toolbar index, attr, class, title, key ...
-		//event listener need to get the value from json with this index
-		toolbar += '<a index="' + index + '"';
-
-		if (item.key != undefined) {
-			toolbar += ' accessKey="' + item.key + '"';
-		}
-		if (item.title != undefined) {
-			toolbar += ' title="' + item.title + '"';
-		} else {
-			toolbar += ' title="' + item.name + '"';
-		}
-
-		toolbar += ' class="' + item.name;
-		if (item.class != undefined) {
-			toolbar += ' ' + item.class;
-		}
-		toolbar += '">' + item.name + '</a>';
-
-		if (item.separator != undefined) {
-			toolbar += '<a style="background-image:url(' + config.icon_path + 'separator.png)">' + item.separator + '</a>';
-		}
-
-	});
-
-	//setup the toolbar
-	$('.toolbar').append(toolbar);
-	$('.toolbar a').each(function(index){
-		var index = $(this).attr('index');
-		if (index) {
-			$(this).css('background-image', 'url("' + config.icon_path + config.toolbar[index].name + '.png")');
-		}
-	});
-
-
-
-	//Setp 03, add the event to each item of toolbar
-
-	//normal item of toolbar
-	$('.toolbar a').click(function(){
-		var index_id = $(this).attr('index');
-		if (config.toolbar[index_id].type == undefined) {
-			seimtra_insert_to_textarea(config.toolbar[index_id]);
-		}
-	});
 	function seimtra_insert_to_textarea(opt) {
-		
+
+		var textarea = $('.editor').data('textarea');
 		var before = opt.before != undefined ? opt.before : '';
 		var after = opt.after != undefined ? opt.after : '';
 		var replace = opt.replace != undefined ? opt.replace : '';
@@ -119,139 +29,336 @@ javascript:
 		}
 
 	}
-	function seimtra_show_msg(data) {
-		$('#msg').text(data);
-		setTimeout(function(){ $('#msg').text(''); }, 3000);
-	}
 
-	//initialize the folder item
-	var folder = '<div class="folder_menu">'
-	//form
-	folder += '<form class="folder_upload clear"><input type="file" name="upload" /></form><span class="folder_close" /><span class="folder_submit" />';
-	//progressbar
-	folder += '<div class="folder_progressbar"><div class="folder_subprogressbar">0 %</div></div>';
-	//view
-	folder += '<div class="folder_view"></div>';
-	folder += '</div>';
+	(function($){
 
-	//folder item event
-	var create_folder_menu = false;
-	$('.folder').click(function(){
+		var methods = {
+			init : function(options) {
+				return this.each(function(){
+					var config = $.extend({
+						parser_path : '/_preview',
+						folder_path : '/_folder',
+						picture_path : '/_folder/picture',
+						upload_path : '/_upload',
+						icon_path : '/icons/',
+						file_path : '/_file/',
+						file_type : ['image/jpeg', 'image/gif', 'image/png'],
+						file_size : 300000,
+						toolbar : [
+							{name : 'h1', key : '1', before : '# ', title :'Header 1'},
+							{name : 'h2', key : '2', before : '## ', title :'Header 2'},
+							{name : 'h3', key : '3', before : '### ', title :'Header 3', separator : '|'},
 
-		if (create_folder_menu === true) {
-			$('.folder_menu').show();
-		} else {
+							{name : 'bold', key : 'B', before : '**', after : '**'},
+							{name : 'italic', key : 'I', before : "_", after : "_", separator : '|'},
 
-			//initialize folder dropmenu
-			$(this).after(folder);
-			var folder_menu = $('.folder_menu');
-			folder_menu.css('top', $(this).offset().top + 10);
-			folder_menu.css('left', $(this).offset().left + 10);
+							{name : 'ol', before : '+ '},
+							{name : 'ul', before : '- ', separator : '|'},
 
-			//add closed event
-			$('.folder_close').click(function(){
-				$('.folder_menu').hide();
-			});
+							{name : 'quotes', before : '-------\n', after : '\n-------\n'},
+							{name : 'code', before : '```\n', after : '\n```', separator : '|'},
 
-			//add changed event
-			$('.folder_upload').change(function(){
-				$('.folder_subprogressbar').text('0 %');
-				$('.folder_subprogressbar').css('background-color', '');
-			});
+							{name : 'picture', class : 'dropmenu', event : 'create_event_picture'},
+							{name : 'link', key : 'L', before : '[name]', after : '(link)'},
+							{name : 'folder', class : 'dropmenu', event : 'create_event_folder'},
+						]
+					}, options);
 
-			//add view event
-			seimtra_flash_folder();
-			function seimtra_flash_folder() {
-				var folder_view = '';
-				$.getJSON(config.folder_path, function(data){
-					if (data != undefined) {
-						var datas = [];
-						$.each(data, function(index, item){
-							datas.push('<li><img src="' + config.file_path + item.fid + '.' + item.filetype + '" alt="' + item.name + '" title="' + item.name + '"  /></li>');
-						});
-						$('.folder_view').html('<ul>' + datas.join('') + '</ul>');
-						$('.folder_view li img').click(function(){
-							seimtra_insert_to_textarea({html_type : 'img', img_link : $(this).attr('src'), img_name : $(this).attr('alt')});
-						});
-					} else {
-						$('.folder_view').html('<p>No data found.</p>');
-					}
+					$(this).linyu_editor('setup', config);
 				});
-			}
+			},
 
-			//add validation function to form
-			var seimtra_upload_validation_error = '';
-			$('.folder_upload :file').change(function(){
-				var file = this.files[0];
-				if ($.inArray(file.type, config.file_type) == -1) {
-					seimtra_upload_validation_error = 'the file must be (' + config.file_type.join(',') + '), but rather is ' + file.type;
-				}
-				if (file.size > config.file_size) {
-					seimtra_upload_validation_error = 'The file size ' + file.size + ' is not better than ' + config.file_size;
-				}
-			});
+			setup : function(config) {
+				return this.each(function(){
 
-			//add uploading event
-			$('.folder_submit').click(function(){
-				if (seimtra_upload_validation_error != '') {
-					alert(seimtra_upload_validation_error);
-					return false;
-				}
+					//select the textarea to update rich text editor
+					var textarea = $(this);
+					textarea.wrap('<div class="editor" />');
 
-				var formData = new FormData($('.folder_upload')[0]);
+					//add a toolbar to editor
+					$('.editor').before('<div class="toolbar" />');
 
-				$.ajax({
+					//initialize the toolbar
+					var toolbar = "";
+					$.each(config.toolbar, function(index, item){
 
-					url : config.upload_path,
-					type : 'post',
+						//set the toolbar index, attr, class, title, key ...
+						//event listener need to get the value from json with this index
+						toolbar += '<a index="' + index + '"';
 
-					xhr : function() {
-						myxhr = $.ajaxSettings.xhr();
-						if (myxhr.upload) {
-							myxhr.upload.addEventListener('progress', function(e){
-								var done = e.position || e.loaded, total = e.totalSize || e.total;
-           						var progressbar = 'uploading ... ' + (Math.floor(done/total*1000)/10) + ' %';
-								$('.folder_subprogressbar').text(progressbar);
-							}, false);
+						if (item.key != undefined) {
+							toolbar += ' accessKey="' + item.key + '"';
 						}
-						return myxhr;
-					},
+						if (item.title != undefined) {
+							toolbar += ' title="' + item.title + '"';
+						} else {
+							toolbar += ' title="' + item.name + '"';
+						}
 
-					success : function(data) {
-						//update progressbar
-						$('.folder_subprogressbar').text('100 %');
-						$('.folder_subprogressbar').css('background-color', 'yellow');
+						toolbar += ' class="' + item.name;
+						if (item.class != undefined) {
+							toolbar += ' ' + item.class;
+						}
+						toolbar += '">' + item.name + '</a>';
 
-						//show message
-						seimtra_show_msg(data);
-
-						//update folder view
-						seimtra_flash_folder();
-					},
-
-					error : function(xhr, status, err) {
-						alert(xhr.responseText);
-						alert(status);
-						alert(err);
-					},
-
-					data : formData,
-					cache : false,
-					contentType : false,
-					processData : false
-
-				}, 'join');
-
-				return false;
-
-			});
-			create_folder_menu = true;
-			//initialize folder dropmenu ---- end
-		}
-
-	});
+						if (item.separator != undefined) {
+							toolbar += '<a style="background-image:url(' + config.icon_path + 'separator.png)">' + item.separator + '</a>';
+						}
 
 
+					});
+
+					//setup the toolbar
+					$('.toolbar').append(toolbar);
+					$('.toolbar a').each(function(index){
+						var index = $(this).attr('index');
+						if (index) {
+							$(this).css('background-image', 'url("' + config.icon_path + config.toolbar[index].name + '.png")');
+						}
+					});
+
+					$('.editor').data('textarea', textarea);
+					$('.editor').data('config', config);
+					$(this).linyu_editor('create_event', config);
+
+				});
+			},
+
+			//add the event to each item of toolbar
+			create_event : function(config) {
+				return $(this).each(function(){
+
+					$.each(config.toolbar, function(index, item){
+						if (item.event == undefined) {
+							$('.toolbar .' + item.name).click(function(){
+								seimtra_insert_to_textarea(item);
+							});
+						} else if (item.event == 'create_event_folder') {
+							$('.toolbar .' + item.name).linyu_editor('create_event_folder', config);
+						} else if (item.event == 'create_event_picture') {
+							$('.toolbar .' + item.name).linyu_editor('create_event_picture', config);
+						}
+					});
+
+				});
+			},
+
+			create_event_folder : function(config) {
+				return $(this).each(function(){
+
+					//initialize the folder item
+					var folder = '<div class="folder_menu">'
+					//form
+					folder += '<form class="folder_upload clear"><input type="file" name="upload" /></form><span class="folder_close" /><span class="folder_submit" />';
+					//progressbar
+					folder += '<div class="folder_progressbar"><div class="folder_subprogressbar">0 %</div></div>';
+					//view
+					folder += '<div class="folder_view"></div>';
+					folder += '</div>';
+
+					//folder item event
+					var create_folder_menu = false;
+					$('.folder').click(function(){
+
+						if (create_folder_menu === true) {
+							$('.folder_menu').show();
+						} else {
+
+							//initialize folder dropmenu
+							$(this).after(folder);
+							var folder_menu = $('.folder_menu');
+							folder_menu.css('top', $(this).offset().top + 10);
+							folder_menu.css('left', $(this).offset().left + 10);
+
+							//add closed event
+							$('.folder_close').click(function(){
+								$('.folder_menu').hide();
+							});
+
+							//add changed event
+							$('.folder_upload').change(function(){
+								$('.folder_subprogressbar').text('0 %');
+								$('.folder_subprogressbar').css('background-color', '');
+							});
+
+							//add view event
+							$(this).linyu_editor('folder_view', config);
+
+							//add validation function to form
+							var seimtra_upload_validation_error = '';
+							$('.folder_upload :file').change(function(){
+								var file = this.files[0];
+								if ($.inArray(file.type, config.file_type) == -1) {
+									seimtra_upload_validation_error = 'the file must be (' + config.file_type.join(',') + '), but rather is ' + file.type;
+								}
+								if (file.size > config.file_size) {
+									seimtra_upload_validation_error = 'The file size ' + file.size + ' is not better than ' + config.file_size;
+								}
+							});
+
+							//add uploading event
+							$('.folder_submit').click(function(){
+								if (seimtra_upload_validation_error != '') {
+									seimtra_show_msg(seimtra_upload_validation_error);
+									return false;
+								}
+
+								var formData = new FormData($('.folder_upload')[0]);
+
+								$.ajax({
+
+									url : config.upload_path,
+									type : 'post',
+
+									xhr : function() {
+										myxhr = $.ajaxSettings.xhr();
+										if (myxhr.upload) {
+											myxhr.upload.addEventListener('progress', function(e){
+												var done = e.position || e.loaded, total = e.totalSize || e.total;
+												var progressbar = 'uploading ... ' + (Math.floor(done/total*1000)/10) + ' %';
+												$('.folder_subprogressbar').text(progressbar);
+											}, false);
+										}
+										return myxhr;
+									},
+
+									success : function(data) {
+										//update progressbar
+										$('.folder_subprogressbar').text('100 %');
+										$('.folder_subprogressbar').css('background-color', 'yellow');
+
+										//show message
+										seimtra_show_msg(data);
+
+										//update folder view
+										$(this).linyu_editor('folder_view', config);
+									},
+
+									error : function(xhr, status, err) {
+										alert(xhr.responseText);
+										alert(status);
+										alert(err);
+									},
+
+									data : formData,
+									cache : false,
+									contentType : false,
+									processData : false
+
+								}, 'join');
+
+								return false;
+
+							});
+							create_folder_menu = true;
+							//initialize folder dropmenu ---- end
+						}
+
+					});
+
+				///-- setup complete
+
+
+				});
+			},
+
+
+			folder_view : function(config) {
+				return $(this).each(function(){
+
+					var folder_view = '';
+					$.getJSON(config.folder_path, function(data){
+						if (data != undefined) {
+							var datas = [];
+							datas.push('<tr><td>name</td><td>type</td></tr>');
+							$.each(data, function(index, item){
+								var type = item.type.split('/')
+								datas.push('<tr><td class="name" href="' + config.file_path + item.fid + '.' + type[1] + '">' + item.name + '</td><td class="type">' + item.type + '</td></tr>');
+							});
+							$('.folder_view').html('<table>' + datas.join('') + '</table>');
+
+							//add event
+							$('.folder_view .name').click(function(){
+								seimtra_insert_to_textarea({replace : '[' + $(this).text() + '](' + $(this).attr('href') + ')'});
+							});
+						} else {
+							$('.folder_view').html('<p>No data found.</p>');
+						}
+					});
+
+				});
+			},
+
+			create_event_picture : function(config) {
+				return $(this).each(function(){
+					
+						var pictures = '<div class="picture_view" />';
+						$('.picture').after(pictures);
+						$('.picture_view').css('top', $('.picture').offset().top + 70);
+						$('.picture_view').css('left', $('.picture').offset().left + 100);
+
+						//add view
+						$(this).linyu_editor('picture_view', config);
+
+						//add event
+						$('.picture').mouseenter(function(){
+							$('.picture_view').show();
+						});
+						$('.picture_view').mouseleave(function(){
+							$('.picture_view').hide();
+						});
+
+						$('.picture').click(function(){
+							$(this).linyu_editor('picture_view', config);
+							$('.picture_view').show();
+						});
+
+				});
+			},
+
+			picture_view : function(config) {
+				return $(this).each(function(){
+
+					var picture_view = '';
+					$.getJSON(config.picture_path, function(data){
+						if (data != undefined) {
+							var datas = [];
+							$.each(data, function(index, item){
+								var type = item.type.split('/')
+								datas.push('<li><img src="' + config.file_path + item.fid + '.' + type[1] + '" alt="' + item.name + '" title="' + item.name + '"  /></li>');
+							});
+							$('.picture_view').html('<ul>' + datas.join('') + '</ul>');
+							$('.picture_view li img').click(function(){
+								seimtra_insert_to_textarea({html_type : 'img', img_link : $(this).attr('src'), img_name : $(this).attr('alt')});
+							});
+						} else {
+							$('.picture_view').html('<p>No data found.</p>');
+						}
+					});
+
+				});
+			},
+
+		
+		};
+
+
+
+
+
+
+		$.fn.linyu_editor = function(method) {
+			if (methods[method]) {
+				return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+			} else if (typeof method === 'object' || ! method) {
+				return methods.init.apply(this, arguments);
+			} else {
+				$.error('Method ' + method + ' does not exist on plugins of jQeury');
+			}
+		};
+	})(jQuery);
+
+	$('textarea').linyu_editor();
 
 css:
 
@@ -300,10 +407,22 @@ css:
 	.folder_submit {
 		background-image:url('/icons/submit.png');
 	}
-	.folder_view {
-		padding-top: 5px;
+	.folder_view td {
+		padding: 2px;
 	}
-	.folder_view img {
+	.folder_view .name {
+		cursor: pointer;
+	}
+
+	.picture_view {
+		padding: 5px;
+		position: absolute;
+		background-color: white;
+		width: 200px;
+		border: 1px solid black;
+		display: none;
+	}
+	.picture_view img {
 		width: 50px;
 		height: 50px;
 		float: left;

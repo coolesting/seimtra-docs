@@ -9,7 +9,7 @@ get '/admin/_file' do
 
 	#search condition
 	if @rightbar.include? :search
-		@search = {:fid => 'fid', :uid => 'uid', :filetype => 'filetype', :name => 'name', :path => 'path', :created => 'created', }
+		@search = {:fid => 'fid', :uid => 'uid', :size => 'size', :type => 'type', :name => 'name', :path => 'path', :created => 'created', }
 	end
 
 	#order
@@ -91,11 +91,12 @@ helpers do
 	def _file_set_fields
 		
 		default_values = {
-			:uid		=> 1,
-			:filetype		=> '',
+			:uid		=> _user[:uid],
+			:type		=> '',
+			:size		=> '',
 			:name		=> '',
 			:path		=> '',
-			:created		=> ''
+			:created	=> Time.now
 		}
 
 		default_values.each do | k, v |
@@ -110,7 +111,7 @@ helpers do
 		
 		#_throw "The uid field cannot be empty." if @fields[:uid] != 0
 		
-		_throw "The filetype field cannot be empty." if @fields[:filetype].strip.size < 1
+		_throw "The filetype field cannot be empty." if @fields[:type].strip.size < 1
 		
 		_throw "The name field cannot be empty." if @fields[:name].strip.size < 1
 		

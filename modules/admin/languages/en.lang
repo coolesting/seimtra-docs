@@ -1,5 +1,7 @@
 admin_title=A background administration
 name=name
+path=path
+size=size
 group=group
 type=type
 fix=fix
