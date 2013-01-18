@@ -1,4 +1,4 @@
-post '/_upload' do
+post '/_file/upload' do
 	if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
 		_file_save params[:upload]
 		'upload complete.'
@@ -7,28 +7,22 @@ post '/_upload' do
 	end
 end
 
-get '/_folder/:picture' do
+get '/_file/type/:type' do
 	ds = DB[:_file].filter(:uid => _user[:uid])
 	unless ds.empty?
 		require 'json'
-		#add filter of picture type
-		JSON.pretty_generate ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
+		if params[:type] == 'all'
+			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
+		elsif params[:type] == 'picture'
+			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
+		end
+		JSON.pretty_generate result
 	else
 		nil
 	end
 end
 
-get '/_folder' do
-	ds = DB[:_file].filter(:uid => _user[:uid])
-	unless ds.empty?
-		require 'json'
-		JSON.pretty_generate ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
-	else
-		nil
-	end
-end
-
-get '/_file/:fid' do
+get '/_file/get/:fid' do
 	ds = DB[:_file].filter(:fid => params[:fid].split('.').first)
 	send_file settings.upload_path + ds.get(:path), :type => ds.get(:type).split('/').last.to_sym
 end

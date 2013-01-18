@@ -1,26 +1,10 @@
-# the format of url as the following
-#
-# /css/moduleName
-# /ccs/moduleName_fileName
-# /images/moduleName
-# /images/moduleName_fileName
-#
-# the route path /css/custom.css  , the real path, /modules/custom/css/custom.css
-# the route path /css/custom_layout.css	, the real path,  /modules/custom/css/layout.css
-get '/css/:file_name' do
-	_assets params[:file_name], 'css'
-end
-
-get '/images/:file_name' do
-	_assets params[:file_name], 'images'
-end
-
-get '/js/:file_name' do
-	_assets params[:file_name], 'js'
+#/css/modulename/filename => the real path as 'modules/modulename/css/filename'
+get '/_assets/:module/:assets/:filename' do
+	path = settings.root + "/modules/#{params[:module]}/#{params[:assets]}/#{params[:filename]}"
+	send_file path, :type => params[:assets].to_sym
 end
 
 require 'sass'
-
 configure do
 	set :sass, :cache => true, :cahce_location => './tmp/sass-cache', :style => :compressed
 end
