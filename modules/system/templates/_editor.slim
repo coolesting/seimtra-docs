@@ -294,8 +294,7 @@ javascript:
 					
 						var pictures = '<div class="picture_view" />';
 						$('.picture').after(pictures);
-						$('.picture_view').css('top', $('.picture').offset().top + 70);
-						$('.picture_view').css('left', $('.picture').offset().left + 100);
+						var picture_offset = false;
 
 						//add view
 						$(this).linyu_editor('picture_view', config);
@@ -303,6 +302,11 @@ javascript:
 						//add event
 						$('.picture').mouseenter(function(){
 							$('.picture_view').show();
+							if (picture_offset == false) {
+								$('.picture_view').css('top', $(this).offset().top + 10);
+								$('.picture_view').css('left', $(this).offset().left + 10);
+								picture_offset = true;
+							}
 						});
 						$('.picture_view').mouseleave(function(){
 							$('.picture_view').hide();
@@ -310,7 +314,7 @@ javascript:
 
 						$('.picture').click(function(){
 							$(this).linyu_editor('picture_view', config);
-							$('.picture_view').show();
+							//$('.picture_view').show();
 						});
 
 				});
