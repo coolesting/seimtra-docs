@@ -10,6 +10,7 @@ end
 
 post '/_login' do
 	_user_valid params[:name], params[:pawd]
+	_user_add params[:name], params[:pawd] if params[:register] == "yes"
 	_login params[:name], params[:pawd]
 	redirect settings.home_page
 end

@@ -7,15 +7,11 @@
 			li : label = L[:password]
 			li : input type="password" name="pawd" required="required" placeholder="#{L[:password]}"
 
-			li.timeout
-				input.done type="submit" value="#{L[:login]}"
-				label 1
-				select name="timeout"
-					option value="0" = L[:hour]
-					option value="1" = L[:day]
-					option value="2" = L[:week]
-					option value="3" = L[:month]
-					option value="4" = L[:year]
+			li
+				input type="submit" value="#{L[:login]}"
+			li
+				input id="register-id" type="checkbox" name="register" value="yes"
+				label for="register-id" = L[:'register a new account and login']
 
 css:
 

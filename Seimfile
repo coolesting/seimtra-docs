@@ -8,4 +8,4 @@ default_scaffold=admin
 auto_add_admin_menu=true
 module_focus=admin
 layout=admin
-lang=en
+lang=cn
