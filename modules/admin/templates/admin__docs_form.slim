@@ -1,0 +1,16 @@
+form action="#{request.path}" method="post" id="form"
+	ul.ul
+		
+		li : label = L[:tid]
+		li : input type="text" name="tid" required="required" value="#{@fields[:tid]}"
+		
+		li : label = L[:uid]
+		li : input type="text" name="uid" required="required" value="#{@fields[:uid]}"
+		
+		li : label = L[:name]
+		li : input type="text" name="name" required="required" value="#{@fields[:name]}"
+		
+		li : label = L[:body]
+		li : textarea name="body" required="required" = @fields[:body]
+		
+		

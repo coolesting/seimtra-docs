@@ -8,12 +8,12 @@ helpers do
 	# from_uid, integer, _user[:uid]
 	# to_uid, integer, user id
 	# tid, integer, tag id
-	def _note_send content, from_uid, to_uid, type = 'general', mark = 0
+	def _note_send content, from_uid, to_uid, type = 'default', mark = 0
 		fields = {}
 		fields[:content] = content
 		fields[:from_uid] = from_uid
 		fields[:to_uid] = to_uid
-		fields[:type] = type
+		fields[:tid] = _tags(type)
 		fields[:created] = Time.now
 		fields[:mark] = mark
 		DB[:_note].insert(fields)
@@ -33,7 +33,7 @@ helpers do
 	#get note by type, uid
 	def _note type, uid = 0
 		uid = _user[:uid] if uid == 0
-		DB[:_note].filter(:to_uid => uid, :type => type).all
+		DB[:_note].filter(:to_uid => uid, :tid => _tags(type)).all
 	end
 
 end

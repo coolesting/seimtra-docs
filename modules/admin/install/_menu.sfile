@@ -72,4 +72,16 @@ name=file
 menu_name=admin
 type=admin
 link=/admin/_file
-description=the uploading file
+description=the uploading files
+
+name=docs
+menu_name=admin
+type=admin
+link=/admin/_docs
+description=the common documents
+
+name=tags
+menu_name=admin
+type=admin
+link=/admin/_tags
+description=the common tags

@@ -1,13 +1,12 @@
 Sequel.migration do
 	change do
 		create_table(:_docs) do
-			primary_key :did
-			Integer :tid
+			primary_key :doid
+			Integer :tid, :default => 1
 			Integer :uid, :default => 1
-			String	:title
+			String :name
 			Text :body
-			DateTime :created
-			DateTime :changed
+			String :created
 		end
 	end
 end

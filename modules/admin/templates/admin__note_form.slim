@@ -10,8 +10,8 @@ form action="#{request.path}" method="post" id="form"
 		li : label = L[:mark]
 		li : input type="number" name="mark" required="required" value="#{@fields[:mark]}" min="1" max="99999"
 		
-		li : label = L[:type]
-		li : input type="text" name="type" required="required" value="#{@fields[:type]}"
+		li : label = L[:tid]
+		li : input type="number" name="tid" required="required" value="#{@fields[:tid]}" min="1" max="99999"
 		
 		li : label = L[:content]
 		li : input type="text" name="content" required="required" value="#{@fields[:content]}"

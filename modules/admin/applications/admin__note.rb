@@ -9,7 +9,7 @@ get '/admin/_note' do
 
 	#search condition
 	if @rightbar.include? :search
-		@search = {:nid => 'nid', :from_uid => 'from_uid', :to_uid => 'to_uid', :mark => 'mark', :type => 'type', :content => 'content', :created => 'created', }
+		@search = {:nid => 'nid', :from_uid => 'from_uid', :to_uid => 'to_uid', :mark => 'mark', :tid => 'tid', :content => 'content', :created => 'created', }
 	end
 
 	#order
@@ -90,9 +90,9 @@ helpers do
 			:from_uid		=> 1,
 			:to_uid		=> 1,
 			:mark		=> 1,
-			:type		=> '',
-			:content		=> '',
-			:created		=> ''
+			:tid		=> 1,
+			:content	=> '',
+			:created	=> ''
 		}
 
 		default_values.each do | k, v |
@@ -111,7 +111,7 @@ helpers do
 		
 		#_throw "The mark field cannot be empty." if @fields[:mark] != 0
 		
-		_throw "The type field cannot be empty." if @fields[:type].strip.size < 1
+		#_throw "The tid field cannot be empty." if @fields[:tid] != 0
 		
 		_throw "The content field cannot be empty." if @fields[:content].strip.size < 1
 		

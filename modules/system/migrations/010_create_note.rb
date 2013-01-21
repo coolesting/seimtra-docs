@@ -5,7 +5,7 @@ Sequel.migration do
 			Integer :from_uid
 			Integer :to_uid
 			Integer :mark
-			String :type
+			Integer :tid
 			String :content
 			DateTime :created
 		end

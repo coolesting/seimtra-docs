@@ -4,18 +4,19 @@ table.table
 		th : a href="#{_url('/admin/_note', :order => 'from_uid')}" = L[:from_uid]
 		th : a href="#{_url('/admin/_note', :order => 'to_uid')}" = L[:to_uid]
 		th : a href="#{_url('/admin/_note', :order => 'mark')}" = L[:mark]
-		th : a href="#{_url('/admin/_note', :order => 'type')}" = L[:type]
+		th : a href="#{_url('/admin/_note', :order => 'tid')}" = L[:type]
 		th : a href="#{_url('/admin/_note', :order => 'content')}" = L[:content]
 		th : a href="#{_url('/admin/_note', :order => 'created')}" = L[:created]
 		th
 	tbody
+		- tags = _kv(:_tags, :tid, :name)
 		- @_note.each do | row |
 			tr
 				td = row[:nid]
 				td = row[:from_uid]
 				td = row[:to_uid]
 				td = row[:mark]
-				td = row[:type]
+				td = tags[row[:tid]]
 				td = row[:content]
 				td = row[:created]
 
