@@ -113,6 +113,9 @@ helpers do
 			@t[:fields].each do | field |
 				unless Sbase::Main_key.include?(@t[:types][field].to_sym)
 					if field == 'changed'
+					elsif field == 'created'
+					elsif field == 'uid'
+						str += "\n\t\t\t:#{field}\t\t=> _user[:uid]," 
  					elsif @t[:types][field] == "integer"
 						str += "\n\t\t\t:#{field}\t\t=> 1," 
 					elsif @t[:htmls][field] == "select"

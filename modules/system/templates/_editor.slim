@@ -167,8 +167,8 @@ javascript:
 							//initialize folder dropmenu
 							$(this).after(folder);
 							var folder_menu = $('.folder_menu');
-							folder_menu.css('top', $(this).offset().top + 10);
-							folder_menu.css('left', $(this).offset().left + 10);
+							folder_menu.css('top', $(this).offset().top + 15);
+							folder_menu.css('left', $(this).offset().left);
 
 							//add closed event
 							$('.folder_close').click(function(){
@@ -303,8 +303,8 @@ javascript:
 						$('.picture').mouseenter(function(){
 							$('.picture_view').show();
 							if (picture_offset == false) {
-								$('.picture_view').css('top', $(this).offset().top + 10);
-								$('.picture_view').css('left', $(this).offset().left + 10);
+								$('.picture_view').css('top', $(this).offset().top + 15);
+								$('.picture_view').css('left', $(this).offset().left);
 								picture_offset = true;
 							}
 						});

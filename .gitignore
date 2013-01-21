@@ -5,4 +5,5 @@ tmp/*
 modules/*
 !modules/system
 !modules/admin
+Seimfile
 
