@@ -40,7 +40,7 @@ end
 #new a record
 get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/new' do
 
-	@title = 'Create a new <%=@t[:file_name]%>'
+	@title = L[:'create a new one '] + L[:'<%=@t[:file_name]%>']
 	@rightbar << :save
 	<%=@t[:file_name]%>_set_fields
 	_tpl :<%=@t[:layout]%>_<%=@t[:file_name]%>_form
@@ -66,7 +66,7 @@ end
 #delete the record
 get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/rm/:<%=@t[:key_id]%>' do
 
-	_msg 'Delete the <%=@t[:file_name]%> by id <%=@t[:key_id]%>.'
+	_msg L[:'delete the record by id '] + params[:'<%=@t[:key_id]%>']
 	DB[:<%=@t[:table_name]%>].filter(:<%=@t[:key_id]%> => params[:<%=@t[:key_id]%>].to_i).delete
 	redirect "/<%=@t[:layout]%>/<%=@t[:file_name]%>"
 
@@ -75,7 +75,7 @@ end
 #edit the record
 get '/<%=@t[:layout]%>/<%=@t[:file_name]%>/edit/:<%=@t[:key_id]%>' do
 
-	@title = 'Edit the <%=@t[:file_name]%>'
+	@title = L[:'edit the '] + L[:'<%=@t[:file_name]%>']
 	@rightbar << :save
 	@fields = DB[:<%=@t[:table_name]%>].filter(:<%=@t[:key_id]%> => params[:<%=@t[:key_id]%>]).all[0]
  	<%=@t[:file_name]%>_set_fields
@@ -146,20 +146,20 @@ helpers do
 				if @t[:assoc].has_key? field %>
 		field = _kv :<%=@t[:assoc][field][0]%>, :<%=@t[:assoc][field][1]%>, :<%=@t[:assoc][field][2]%>
 					<% if @t[:htmls][field] != "checkbox" %>
-		_throw "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i<% else %>
+		_throw(L[:'the field does not exist '] + L[:'<%=@t[:assoc][field][1]%>']) unless field.include? @fields[:<%=@t[:assoc][field][1]%>].to_i<% else %>
 		@fields[:<%=@t[:assoc][field][1]%>].each do | item |
-			_throw "The <%=@t[:assoc][field][1]%> field isn't existing." unless field.include? item.to_i
+			_throw(L[:'the field does not exist '] + L[:'<%=@t[:assoc][field][1]%>']) unless field.include? item.to_i
 		end
 		<%
 					end
 				elsif field == 'changed'
  				elsif @t[:types][field] == "integer"
 		%>
-		#_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>] != 0
+		#_throw(L[:'the field cannot be empty '] + L[:'<%=field%>']) if @fields[:<%=field%>] != 0
 		<%
 				else
 		%>
-		_throw "The <%=field%> field cannot be empty." if @fields[:<%=field%>].strip.size < 1
+		_throw(L[:'the field cannot be empty '] + L[:'<%=field%>']) if @fields[:<%=field%>].strip.size < 1
 		<%
 				end
 			end 

@@ -34,7 +34,7 @@ end
 #new a record
 get '/admin/_lang/new' do
 
-	@title = 'Create a new language'
+	@title = L[:'create a new one '] + L['language']
 	@rightbar << :save
 	_lang_set_fields
 	_tpl :admin__lang_form
@@ -55,7 +55,7 @@ end
 #delete the record
 get '/admin/_lang/rm/:lid' do
 
-	@title = 'Delete the _lang by id lid, are you sure ?'
+	_msg L[:'delete the record by id '] + params[:lid]
 	DB[:_lang].filter(:lid => params[:lid].to_i).delete
 	redirect "/admin/_lang"
 
@@ -64,7 +64,7 @@ end
 #edit the record
 get '/admin/_lang/edit/:lid' do
 
-	@title = 'Edit the language'
+	@title = L[:'edit the '] + L[:'language']
 	@rightbar << :save
 	@fields = DB[:_lang].filter(:lid => params[:lid]).all[0]
  	_lang_set_fields
@@ -91,8 +91,8 @@ helpers do
 		
 		default_values = {
 			:label		=> '',
-			:content		=> '',
-			:uid		=> 1
+			:content	=> '',
+			:uid		=> _user[:uid]
 		}
 
 		default_values.each do | k, v |

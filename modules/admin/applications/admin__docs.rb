@@ -34,7 +34,7 @@ end
 #new a record
 get '/admin/_docs/new' do
 
-	@title = 'Create a new _docs'
+	@title = L[:'create a new one '] + L['document']
 	@rightbar << :save
 	_docs_set_fields
 	_tpl :admin__docs_form
@@ -54,7 +54,7 @@ end
 #delete the record
 get '/admin/_docs/rm/:doid' do
 
-	_msg 'Delete the _docs by id doid.'
+	_msg L[:'delete the record by id '] + params[:doid]
 	DB[:_docs].filter(:doid => params[:doid].to_i).delete
 	redirect "/admin/_docs"
 
@@ -63,7 +63,7 @@ end
 #edit the record
 get '/admin/_docs/edit/:doid' do
 
-	@title = 'Edit the _docs'
+	@title = L[:'edit the '] + L[:'document']
 	@rightbar << :save
 	@fields = DB[:_docs].filter(:doid => params[:doid]).all[0]
  	_docs_set_fields
@@ -107,12 +107,10 @@ helpers do
 		
 		#_throw "The uid field cannot be empty." if @fields[:uid] != 0
 		
-		_throw "The name field cannot be empty." if @fields[:name].strip.size < 1
+		_throw(L[:'The field cannot be empty.'] + L[:'name']) if @fields[:name].strip.size < 1
 		
-		_throw "The body field cannot be empty." if @fields[:body].strip.size < 1
-		
-		_throw "The created field cannot be empty." if @fields[:created].strip.size < 1
-		
+		_throw(L[:'The field cannot be empty.'] + L[:'body']) if @fields[:body].strip.size < 1
+		 
 	end
 
 end

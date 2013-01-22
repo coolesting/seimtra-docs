@@ -34,7 +34,7 @@ end
 #new a record
 get '/admin/_file/new' do
 
-	@title = 'Create a new file'
+	@title = L[:'create a new one '] + L['file']
 	@rightbar << :save
 	_file_set_fields
 	_tpl :admin__file_form
@@ -56,7 +56,7 @@ end
 #delete the record
 get '/admin/_file/rm/:fid' do
 
-	_msg 'Delete the _file by id fid.'
+	_msg L[:'delete the record by id '] + params[:fid]
 	DB[:_file].filter(:fid => params[:fid].to_i).delete
 	redirect "/admin/_file"
 
@@ -65,7 +65,7 @@ end
 #edit the record
 get '/admin/_file/edit/:fid' do
 
-	@title = 'Edit the file'
+	@title = L[:'edit the '] + L[:'file']
 	@rightbar << :save
 	@fields = DB[:_file].filter(:fid => params[:fid]).all[0]
  	_file_set_fields
@@ -77,8 +77,6 @@ post '/admin/_file/edit/:fid' do
 
 	_file_set_fields
 	_file_valid_fields
-	
-	
 	DB[:_file].filter(:fid => params[:fid]).update(@fields)
 	redirect "/admin/_file"
 
@@ -96,7 +94,6 @@ helpers do
 			:size		=> '',
 			:name		=> '',
 			:path		=> '',
-			:created	=> Time.now
 		}
 
 		default_values.each do | k, v |
@@ -111,13 +108,11 @@ helpers do
 		
 		#_throw "The uid field cannot be empty." if @fields[:uid] != 0
 		
-		_throw "The filetype field cannot be empty." if @fields[:type].strip.size < 1
+		_throw(L[:'The field cannot be empty.'] + L[:'filetype']) if @fields[:type].strip.size < 1
 		
-		_throw "The name field cannot be empty." if @fields[:name].strip.size < 1
+		_throw(L[:'The field cannot be empty.'] + L[:'filename']) if @fields[:name].strip.size < 1
 		
-		_throw "The path field cannot be empty." if @fields[:path].strip.size < 1
-		
-		_throw "The created field cannot be empty." if @fields[:created].strip.size < 1
+		_throw(L[:'The field cannot be empty.'] + L[:'path']) if @fields[:path].strip.size < 1
 		
 	end
 
