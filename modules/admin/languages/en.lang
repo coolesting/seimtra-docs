@@ -34,3 +34,5 @@ delete the record by id =delete the record by id
 edit the =edit the 
 the field cannot be empty =the field cannot be empty 
 the field does not exist =the field does not exist 
+welcome to administrator page=welcome to administrator page
+no admin menu=no admin menu

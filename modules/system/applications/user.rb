@@ -36,6 +36,12 @@ helpers do
 
 	end
 
+	# == _level
+	# user level, if the user level less than the level given, it will be throw
+	def _level level
+		error L[:'your level is too low'] if _user[:level] < level
+	end
+
 	# == _user
 	# get the current user infomation if no uid be passed as parameter,
 	# this method will check the current session that belongs which user, otherwise is unknown
@@ -50,6 +56,7 @@ helpers do
 		infos 			= {}
 		infos[:uid] 	= uid
 		infos[:name] 	= 'unknown'
+		infos[:level] 	= 0
 		infos[:ticket] 	= ''
 
 		if uid == 0
@@ -59,8 +66,10 @@ helpers do
 		end
 
 		if uid.to_i > 0
+			ds = DB[:_user].filter(:uid => uid)
 			infos[:uid]		= uid
-			infos[:name] 	= DB[:_user].filter(:uid => uid).get(:name)
+			infos[:name] 	= ds.get(:name)
+			infos[:level] 	= ds.get(:level)
 			infos[:ticket] 	= ticket
 		end
 		infos
@@ -87,7 +96,7 @@ helpers do
 
 	def _login name, pawd
 
-		_throw "The user is not existing." unless _user_exist? name
+		_throw L[:'the user is not existing'] unless _user_exist? name
 		ds = DB[:_user].filter(:name => name)
 
 		#verity user
@@ -106,7 +115,7 @@ helpers do
 			#set ticket to session
 			_session_create ticket, ds.get(:uid)
 		else
-			_throw "The username and password is not matching, or wrong."
+			_throw L[:'the password is wrong']
 		end
 
 	end
@@ -119,7 +128,7 @@ helpers do
 	def _user_edit fields
 
 		if fields.include? :uid 
-			_throw "No uid." 
+			_throw L[:'no user id'] 
 		else
 			uid = fields[:uid].to_i
 		end
@@ -158,7 +167,7 @@ helpers do
 		require "digest/sha1"
 		fields[:pawd] 		= Digest::SHA1.hexdigest(pawd.to_s + fields[:salt])
 
-		_throw "The user is existing." if _user_exist? name
+		_throw L[:'the user is existing'] if _user_exist? name
 
 		DB[:_user].insert(fields)
 		uid = DB[:_user].filter(:name => name).get(:uid)
@@ -167,8 +176,8 @@ helpers do
 	end
 
 	def _user_valid name, pawd
-		_throw "The username need to bigger than two size." if name.strip.size < 2
-		_throw "The password need to bigger than two size." if pawd.strip.size < 2
+		_throw L[:'the username need to bigger than two size'] if name.strip.size < 2
+		_throw L[:'the password need to bigger than two size'] if pawd.strip.size < 2
 	end
 
 	def _user_exist? name

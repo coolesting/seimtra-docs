@@ -5,7 +5,7 @@ Sequel.migration do
 			String :name, :size => 20
 			String :pawd, :size => 50
 			String :salt, :size => 5
-			Integer :level, :size => 100, :default => 1
+			Integer :level, :default => 1
 			Datetime :created
 		end
 	end

@@ -33,3 +33,5 @@ delete the record by id =删除记录，通过id
 edit the =编辑 
 the field cannot be empty =不能为空, 这个字段 
 the field does not exist =不存在, 这个字段 
+welcome to administrator page=欢迎来到管理页面
+no admin menu=没有管理菜单

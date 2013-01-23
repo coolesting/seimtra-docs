@@ -1,7 +1,9 @@
 name=system
 pawd=system
 salt=xcvxc
+level=99
 
 name=admin
 pawd=admin
 salt=ABCde
+level=99
