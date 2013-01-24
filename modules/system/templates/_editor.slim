@@ -3,12 +3,12 @@ javascript:
 	// this is a editor of seimtra
 	// power of Linyu den coolesting
 
-	function seimtra_show_msg(data) {
+	function linyu_show_msg(data) {
 		$('#msg').text(data);
 		setTimeout(function(){ $('#msg').text(''); }, 3000);
 	}
 
-	function seimtra_insert_to_textarea(opt) {
+	function linyu_insert_to_textarea(opt) {
 
 		var textarea = $('.editor').data('textarea');
 		var before = opt.before != undefined ? opt.before : '';
@@ -131,7 +131,7 @@ javascript:
 					$.each(config.toolbar, function(index, item){
 						if (item.event == undefined) {
 							$('.toolbar .' + item.name).click(function(){
-								seimtra_insert_to_textarea(item);
+								linyu_insert_to_textarea(item);
 							});
 						} else if (item.event == 'create_event_folder') {
 							$('.toolbar .' + item.name).linyu_editor('create_event_folder', config);
@@ -185,21 +185,21 @@ javascript:
 							$(this).linyu_editor('folder_view', config);
 
 							//add validation function to form
-							var seimtra_upload_validation_error = '';
+							var linyu_upload_validation_error = '';
 							$('.folder_upload :file').change(function(){
 								var file = this.files[0];
 								if ($.inArray(file.type, config.file_type) == -1) {
-									seimtra_upload_validation_error = 'the file must be (' + config.file_type.join(',') + '), but rather is ' + file.type;
+									linyu_upload_validation_error = 'the file must be (' + config.file_type.join(',') + '), but rather is ' + file.type;
 								}
 								if (file.size > config.file_size) {
-									seimtra_upload_validation_error = 'The file size ' + file.size + ' is not better than ' + config.file_size;
+									linyu_upload_validation_error = 'The file size ' + file.size + ' is not better than ' + config.file_size;
 								}
 							});
 
 							//add uploading event
 							$('.folder_submit').click(function(){
-								if (seimtra_upload_validation_error != '') {
-									seimtra_show_msg(seimtra_upload_validation_error);
+								if (linyu_upload_validation_error != '') {
+									linyu_show_msg(linyu_upload_validation_error);
 									return false;
 								}
 
@@ -228,16 +228,16 @@ javascript:
 										$('.folder_subprogressbar').css('background-color', 'yellow');
 
 										//show message
-										seimtra_show_msg(data);
+										linyu_show_msg(data);
 
 										//update folder view
 										$(this).linyu_editor('folder_view', config);
 									},
 
 									error : function(xhr, status, err) {
-										alert(xhr.responseText);
-										alert(status);
-										alert(err);
+										console.log(xhr.responseText);
+										console.log(status);
+										console.log(err);
 									},
 
 									data : formData,
@@ -279,7 +279,7 @@ javascript:
 
 							//add event
 							$('.folder_view .name').click(function(){
-								seimtra_insert_to_textarea({replace : '[' + $(this).text() + '](' + $(this).attr('href') + ')'});
+								linyu_insert_to_textarea({replace : '[' + $(this).text() + '](' + $(this).attr('href') + ')'});
 							});
 						} else {
 							$('.folder_view').html('<p>No data found.</p>');
@@ -333,7 +333,7 @@ javascript:
 							});
 							$('.picture_view').html('<ul>' + datas.join('') + '</ul>');
 							$('.picture_view li img').click(function(){
-								seimtra_insert_to_textarea({html_type : 'img', img_link : $(this).attr('src'), img_name : $(this).attr('alt')});
+								linyu_insert_to_textarea({html_type : 'img', img_link : $(this).attr('src'), img_name : $(this).attr('alt')});
 							});
 						} else {
 							$('.picture_view').html('<p>No data found.</p>');
