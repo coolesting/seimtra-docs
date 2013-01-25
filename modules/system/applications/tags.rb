@@ -4,12 +4,10 @@ helpers do
 	#if the name is not existing, create it.
 	def _tags name
 		name = name.to_s
-		tid = DB[:_tags].filter(:name => name).get(:tid)
-		unless tid
+		if DB[:_tags].filter(:name => name).empty?
 			DB[:_tags].insert(:name => name) 
-			tid = DB[:_tags].filter(:name => name).get(:tid)
 		end
-		tid
+		tid = DB[:_tags].filter(:name => name).get(:tid)
 	end
 
 end
