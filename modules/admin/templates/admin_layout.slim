@@ -59,9 +59,11 @@ html
 				#footer.clear
 
 		== _inc(:_editor)
-		== _inc(:_js_select)
+		== _inc(:_select)
 
 		javascript:
+			$('textarea').linyu_editor();
+			$('select').linyu_select();
 
 			//menu data
 			var json_menu_link = #{{@json_menu_link}};

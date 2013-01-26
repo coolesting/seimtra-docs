@@ -5,7 +5,7 @@ Sequel.migration do
 			String :name
 			String :link
 			String :description
-			String :type
+			Integer :tid, :default => 1
 			Integer :uid, :default => 1
 			Integer :preid, :default => 0
 			Integer :order, :size => 5, :default => 1

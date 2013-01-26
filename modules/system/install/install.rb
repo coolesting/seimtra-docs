@@ -1,7 +1,7 @@
 class Seimtra_system
 	
 	def preprocess__menu data
-		#prevoiuc name
+		#prevoicu name
 		if data.include? :menu_name
 			ds = DB[:_menu].filter(:name => data[:menu_name].to_s)
 			data[:preid] = ds.get(:mid) unless ds.empty?

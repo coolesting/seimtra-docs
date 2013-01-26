@@ -45,8 +45,6 @@ post '/admin/_menu/new' do
 
 	_menu_set_fields
 	_menu_valid_fields
-	
-	
 	DB[:_menu].insert(@fields)
 	redirect "/admin/_menu"
 
@@ -90,7 +88,7 @@ helpers do
 		default_values = {
 			:name		=> '',
 			:link		=> '',
-			:description		=> '',
+			:description=> '',
 			:tid		=> 1,
 			:uid		=> 1,
 			:preid		=> 1,
