@@ -9,7 +9,7 @@ get '/admin/_task' do
 
 	#search condition
 	if @rightbar.include? :search
-		@search = {:taid => 'taid', :tid => 'name', :uid => 'uid', :method_name => 'method_name', :timeout => 'timeout', :changed => 'changed', }
+		@search = {:taid => 'taid', :tid => 'tag', :uid => 'uid', :method_name => 'method_name', :timeout => 'timeout', :changed => 'changed', }
 	end
 
 	#order
@@ -92,7 +92,7 @@ helpers do
 		default_values = {
 			:uid			=> 1,
 			:method_name	=> '',
-			:type			=> 'general',
+			:tid			=> 1,
 			:timeout		=> 1
 		}
 
@@ -106,11 +106,9 @@ helpers do
 
 	def _task_valid_fields
 		
-
 		#_throw "The uid field cannot be empty." if @fields[:uid] != 0
-		
-		_throw "The type field cannot be empty." if @fields[:type].strip.size < 1
-		_throw "The method_name field cannot be empty." if @fields[:method_name].strip.size < 1
+
+		_throw "The method name field cannot be empty." if @fields[:method_name].strip.size < 1
 		
 		#_throw "The timeout field cannot be empty." if @fields[:timeout] != 0
 		

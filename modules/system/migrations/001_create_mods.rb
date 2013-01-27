@@ -4,8 +4,8 @@ Sequel.migration do
 			primary_key :mid
 			Integer :order, :default => 99
 			Integer :status
+			Integer :tid
 			String :name
-			String :type
 			String :email
 			String :author
 			String :version

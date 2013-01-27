@@ -4,8 +4,8 @@ form action="#{request.path}" method="post" id="form"
 		li : label = L[:order]
 		li : input type="text" name="order" required="required" value="#{@fields[:order]}"
 		
-		li : label = L[:type]
-		li : input type="text" name="type" required="required" value="#{@fields[:type]}"
+		li : label = L[:tag]
+		li : input type="text" name="tid" required="required" value="#{@fields[:tid]}"
 		
 		li : label = L[:status]
 		li : input type="number" name="status" required="required" value="#{@fields[:status]}" min="0" max="99999"

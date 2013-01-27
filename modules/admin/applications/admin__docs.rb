@@ -9,7 +9,7 @@ get '/admin/_docs' do
 
 	#search condition
 	if @rightbar.include? :search
-		@search = {:doid => 'doid', :tid => 'tid', :uid => 'uid', :name => 'name', :body => 'body', :created => 'created', }
+		@search = {:doid => 'doid', :tid => 'tag', :uid => 'uid', :name => 'name', :body => 'body', :created => 'created', }
 	end
 
 	#order

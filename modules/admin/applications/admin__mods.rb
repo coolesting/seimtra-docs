@@ -9,7 +9,7 @@ get '/admin/_mods' do
 
 	#search condition
 	if @rightbar.include? :search
-		@search = {:mid => 'mid', :order => 'order', :tid => 'name', :status => 'status', :name => 'name', :email => 'email', :author => 'author', :version => 'version', :description => 'description', :dependon => 'dependon', :created => 'created', }
+		@search = {:mid => 'mid', :order => 'order', :tid => 'tid', :status => 'status', :name => 'name', :email => 'email', :author => 'author', :version => 'version', :description => 'description', :dependon => 'dependon', :created => 'created', }
 	end
 
 	#order
@@ -91,7 +91,7 @@ helpers do
 			:order		=> 1,
 			:status		=> 1,
 			:name		=> '',
-			:type		=> 'general',
+			:tid		=> 1,
 			:email		=> '',
 			:author		=> '',
 			:version		=> '',

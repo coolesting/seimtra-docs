@@ -14,4 +14,4 @@ skey=filesize
 sval=300000
 
 skey=module_status
-sval=on,off
+sval=off,on

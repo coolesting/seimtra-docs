@@ -2,7 +2,7 @@ table.table
 	thead
 		th : a href="#{_url('/admin/_mods', :order => 'mid')}" = L[:mid]
 		th : a href="#{_url('/admin/_mods', :order => 'order')}" = L[:order]
-		th : a href="#{_url('/admin/_mods', :order => 'type')}" = L[:type]
+		th : a href="#{_url('/admin/_mods', :order => 'tid')}" = L[:type]
 		th : a href="#{_url('/admin/_mods', :order => 'status')}" = L[:status]
 		th : a href="#{_url('/admin/_mods', :order => 'name')}" = L[:name]
 		th : a href="#{_url('/admin/_mods', :order => 'email')}" = L[:email]
@@ -13,11 +13,13 @@ table.table
 		th : a href="#{_url('/admin/_mods', :order => 'created')}" = L[:created]
 	tbody
 		- status = _vars(:module_status)
+		- tags = _kv(:_tags, :tid, :name)
 		- @_mods.each do | row |
 			tr
 				td = row[:mid]
 				td = row[:order]
-				td = L[row[:type]]
+				td = L[tags[row[:tid]]]
+				td = status[row[:status]]
 				td = row[:name]
 				td = row[:email]
 				td = row[:author]

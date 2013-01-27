@@ -11,7 +11,7 @@ before '/admin/*' do
 	@rightbar = []
 
 	#the top menu of admin_layout.slim
-	@menus = DB[:_menu].filter(:type => 'admin').order(:order)
+	@menus = DB[:_menu].filter(:tid => _tags('admin')).order(:order)
 	halt L[:'no admin menu'] if @menus.empty?
 
 	#fetch the current available menu item from request path of url
