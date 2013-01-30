@@ -1,54 +1,54 @@
-#menu {
-	padding: 0;
-	margin: 0;
-}
-#menus1 {
-	padding: 5px 0;
+/* top menu */
+#top_menu {
+	padding: 5px;
+	height: 21px;
 	background-color: #000;
 }
-#menus1 a {
+#top_menu li {
+	float: left;
+	list-style-type: none;
+}
+#top_menu a {
 	font-weight: 900;
 	text-decoration: none;
-	padding: 10px;
+	padding: 8px;
 }
-#menus1 a:link { color: #fff; }
-#menus1 a:visited { color: #fff; }
-#menus1 a:hover {
+#top_menu a { color: #fff; }
+#top_menu a:hover {
 	color: #000;
 	background-color: #BABCBF;
+}
+#top_menu .focus1 a {
+	color: #000;
+	background-color: #CCCDCE;
 }
 
-#main {
-	padding: 0 10px;
+/* sub menu */
+#top_menu .sub_menu {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 30px;
+	height: 20px;
+	padding: 3px;
+	background-color: #CCCDCE;
 }
-
-#menus1 .focus a {
-	color: #000;
-	background-color: #BABCBF;
-}
-.focus1 a {
-	color: #000;
-	background-color: #BABCBF;
-}
-#menus2 .focus a {
-	text-decoration: underline;
-}
-.focus2 a {
-	text-decoration: underline;
-}
-#menus2 {
-	padding: 5px 0;
-	background-color: #BABCBF;
-}
-#menus2 a {
+#top_menu .sub_menu a {
 	font-weight: 700;
 	color: #000;
 	text-decoration: none;
-	padding: 3px 10px;
+	padding: 3px 5px;
 }
-#menus2 a:hover {
+#top_menu .sub_menu a:hover {
 	text-decoration: underline;
 }
+#top_menu .sub_menu .focus2 a {
+	text-decoration: underline;
+	background-color: #BABCBF;
+}
+
+#menu { height: 55px; }
+#main { padding: 0 10px; }
 
 #description, #opt, #msg { padding: 0 10px; }
 #content { width: 800px; }
@@ -94,7 +94,7 @@
 
 
 .hl_row {
-	background-color: #cccccc;
+	background-color: #E3E7EB;
 }
 
 .page_bar span { margin: 0 3px; }

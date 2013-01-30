@@ -9,18 +9,20 @@ html
 		link rel='stylesheet' type='text/css' href='/css/table-1.css'
 	body
 		#wrap
-			#menu
-				#menus1
-					- @menu_name.each do | name, coll |
-						- menu1_focus = name == @menu1_focus ? "focus" : ""
-						span class="#{menu1_focus}"
-							a href="#{@menu_link[name]}" title="#{name}" = name
-
-				#menus2.clear
-					- @menu_name[@menu1_focus].each do | name |
-						- menu2_focus = name == @menu2_focus ? "focus" : ""
-						span class="#{menu2_focus}"
-							a href="#{@menu_link[name]}" = name
+			#menu.clear : ul#top_menu
+				- @menus.each do | item |
+					- menu_focus = item.include?(:focus) ? "focus1" : ""
+					li
+						span class="#{menu_focus}"
+							a href="#{item[:link]}" title="#{item[:name]}" = item[:name]
+						- if item.include?(:sub_menu)
+							- menu_hide = menu_focus == "focus1" ? '' : 'hide'
+							ul.sub_menu class="#{menu_hide}"
+								- item[:sub_menu].each do | item |
+									- menu_focus = item.include?(:focus) ? "focus2" : ""
+									li
+										span class="#{menu_focus}"
+											a href="#{item[:link]}" title="#{item[:name]}" = item[:name]
 
 			#description.clear
 				p = @title
@@ -62,64 +64,29 @@ html
 		== _inc(:_select)
 
 		javascript:
+
 			$('textarea').linyu_editor();
 			$('select').linyu_select();
 
-			//menu data
-			var json_menu_link = #{{@json_menu_link}};
-			var json_menu_name = #{{@json_menu_name}};
+			$("#top_menu li").mouseover(function(){
+				$(".sub_menu").hide()
+				$(this).find(".sub_menu").show();
 
+			});
+			$("#top_menu li").mouseleave(function(){
+				$(".focus1").next(".sub_menu").show();
+			});
 
-				//1-level menu highlight
-				var menus2_content, menu2_name, menu2_str = "";
+			//highlight row
+			$("tbody tr").hover(
+				function(){
+					$(this).addClass("hl_row");
+				}, function(){
+					$(this).removeClass("hl_row");
+				}
+			);
 
-				//save the #menus2 content
-				menus2_content = $("#menus2").html();
-
-				//top menu
-				$("#menu").hover(
-					function(){
-
-						$(this).find("#menus1 span").mouseover(function(){
-							$("#menus1 span").removeClass("focus1");
-							$(this).addClass("focus1");
-
-							//update the 2-level menu copy
-							menu2_name 	= $(this).find("a").attr("title");
-							menu2_str	= "";
-							$.each(json_menu_name[menu2_name], function(i, name){
-								menu2_str = menu2_str + "<span><a href='" + json_menu_link[name] + "'>" + name + "</a></span>"
-							});
-							$("#menus2").html(menu2_str);
-
-						});
-
-					//recover the #menus2 content
-					}, function(){
-						$("#menus2").html(menus2_content);
-						$("#menus1 span").removeClass("focus1");
-					}
-				);
-
-				//2-level menu highlight
-				$("#menus2 span").hover(
-					function(){
-						$(this).addClass("focus2");
-					}, function(){
-						$(this).removeClass("focus2");
-					}
-				);
-
-				//highlight row
-				$("tbody tr").hover(
-					function(){
-						$(this).addClass("hl_row");
-					}, function(){
-						$(this).removeClass("hl_row");
-					}
-				);
-
-				//the end of script
+			//the end of script
 			
 
 

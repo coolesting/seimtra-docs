@@ -6,7 +6,8 @@ Sequel.migration do
 			Integer :uid, :default => 1
 			String :name
 			Text :body
-			String :created
+			DateTime :created
+			DateTime :changed
 		end
 	end
 end

@@ -8,7 +8,7 @@ table.table
 		th : a href="#{_url('/admin/_task', :order => 'changed')}" = L[:changed]
 		th
 	tbody
-		- tags = _tags(:_tags, :tid, :name)
+		- tags = _kv(:_tags, :tid, :name)
 		- @_task.each do | row |
 			tr
 				td = row[:taid]

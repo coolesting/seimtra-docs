@@ -75,6 +75,7 @@ post '/admin/_docs/edit/:doid' do
 
 	_docs_set_fields
 	_docs_valid_fields
+	@fields[:changed] = Time.now
 	DB[:_docs].filter(:doid => params[:doid]).update(@fields)
 	redirect "/admin/_docs"
 
