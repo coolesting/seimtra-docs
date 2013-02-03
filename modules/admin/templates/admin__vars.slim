@@ -3,7 +3,7 @@ table.table
 		th : a href="#{_url('/admin/_vars', :order => 'vid')}" = L[:vid]
 		th : a href="#{_url('/admin/_vars', :order => 'skey')}" = L[:skey]
 		th : a href="#{_url('/admin/_vars', :order => 'sval')}" = L[:sval]
-		th : a href="#{_url('/admin/_vars', :order => 'uid')}" = L[:uid]
+		th : a href="#{_url('/admin/_vars', :order => 'tid')}" = L[:tid]
 		th : a href="#{_url('/admin/_vars', :order => 'changed')}" = L[:changed]
 		th
 	tbody
@@ -12,7 +12,7 @@ table.table
 				td = row[:vid]
 				td = row[:skey]
 				td = row[:sval]
-				td = row[:uid]
+				td = row[:tid]
 				td = row[:changed]
 
 				td

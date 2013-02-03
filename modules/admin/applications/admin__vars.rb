@@ -9,7 +9,7 @@ get '/admin/_vars' do
 
 	#search condition
 	if @rightbar.include? :search
-		@search = {:vid => 'vid', :skey => 'skey', :sval => 'sval', :uid => 'uid', :changed => 'changed', }
+		@search = {:vid => 'vid', :skey => 'skey', :sval => 'sval', :tid => 'tid', :changed => 'changed', }
 	end
 
 	#order
@@ -93,7 +93,7 @@ helpers do
 		default_values = {
 			:skey		=> '',
 			:sval		=> '',
-			:uid		=> 1
+			:tid		=> 1
 		}
 
 		default_values.each do | k, v |

@@ -4,7 +4,7 @@ Sequel.migration do
 			primary_key :vid
 			String :skey
 			String :sval
-			Integer :uid, :default => 1
+			Integer :tid, :default => 1
 			DateTime :changed
 		end
 	end

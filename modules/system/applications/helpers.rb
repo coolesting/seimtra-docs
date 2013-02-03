@@ -98,14 +98,14 @@ helpers do
 		(0...size).map{ charset.to_a[rand(charset.size)]}.join
 	end
 
-	def _vars key = '', val = ''
+	def _vars key = '', val = '', tid = 1
 		#set var
 		if key != '' and val != ''
 			ds = DB[:_vars].filter(:skey => key.to_s)
 			if ds.count == 0
-				DB[:_vars].insert(:skey => key.to_s, :sval => val.to_s, :changed => Time.now, :uid => _user[:uid])
+				DB[:_vars].insert(:skey => key.to_s, :sval => val.to_s, :changed => Time.now, :tid => tid)
 			else
-				ds.update(:sval => val, :changed => Time.now, :uid => _user[:uid])
+				ds.update(:sval => val, :changed => Time.now, :tid => tid)
 			end
 
 		#get var

@@ -1,5 +1,11 @@
 class Seimtra_system
 	
+	def preprocess__user data
+		require "digest/sha1"
+		data[:pawd] = Digest::SHA1.hexdigest(data[:pawd] + data[:salt])
+		data
+	end
+
 	def preprocess__menu data
 		#prevoicu name
 		if data.include? :menu_name
@@ -10,24 +16,6 @@ class Seimtra_system
 
 		#tag id
 		data = preprocess___tags(data)
-	end
-
-	def preprocess__mods data
-		data = preprocess___tags(data)
-	end
-
-	def preprocess__docs data
-		data = preprocess___tags(data)
-	end
-
-	def preprocess__task data
-		data = preprocess___tags(data)
-	end
-
-	def preprocess__user data
-		require "digest/sha1"
-		data[:pawd] = Digest::SHA1.hexdigest(data[:pawd] + data[:salt])
-		data
 	end
 
 	#change the type or tag field to tag id
@@ -43,6 +31,22 @@ class Seimtra_system
 		end
 		data[:tid] = DB[:_tags].filter(:name => name).get(:tid)
 		data
+	end
+
+	def preprocess__mods data
+		data = preprocess___tags(data)
+	end
+
+	def preprocess__docs data
+		data = preprocess___tags(data)
+	end
+
+	def preprocess__vars data
+		data = preprocess___tags(data)
+	end
+
+	def preprocess__task data
+		data = preprocess___tags(data)
 	end
 
 end
