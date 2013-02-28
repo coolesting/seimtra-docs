@@ -39,7 +39,7 @@ helpers do
 	# == _level
 	# user level, if the user level less than the level given, it will be throw
 	def _level level
-		error L[:'your level is too low'] if _user[:level] < level
+		error L[:'your level is too low'] if _user[:level].to_i < level.to_i
 	end
 
 	# == _user

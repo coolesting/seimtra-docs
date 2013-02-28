@@ -1,3 +1,11 @@
+before '/_file/*' do
+	#set the level
+	if reqest.path == '/_file/upload'
+		_level _vars(:uploadfile)
+	end
+end
+
+#upload file
 post '/_file/upload' do
 	if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
 		_file_save params[:upload]
@@ -7,6 +15,7 @@ post '/_file/upload' do
 	end
 end
 
+#get the specify file
 get '/_file/type/:type' do
 	ds = DB[:_file].filter(:uid => _user[:uid])
 	unless ds.empty?
@@ -22,6 +31,7 @@ get '/_file/type/:type' do
 	end
 end
 
+#get the file by file id
 get '/_file/get/:fid' do
 	ds = DB[:_file].filter(:fid => params[:fid].split('.').first)
 	send_file settings.upload_path + ds.get(:path), :type => ds.get(:type).split('/').last.to_sym

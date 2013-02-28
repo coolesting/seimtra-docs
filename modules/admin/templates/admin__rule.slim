@@ -1,0 +1,20 @@
+table.table
+	thead
+		th : a href="#{_url('/admin/_rule', :order => 'rid')}" = L[:rid]
+		th : a href="#{_url('/admin/_rule', :order => 'name')}" = L[:name]
+		th
+	tbody
+		- @_rule.each do | row |
+			tr
+				td = row[:rid]
+				td = row[:name]
+
+				td
+					span.edit : a href="/admin/_rule/edit/#{row[:rid]}" = L[:fix]
+					span.delete : a href="/admin/_rule/rm/#{row[:rid]}" = L[:del]
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url('/admin/_rule', :page_curr => i)}" = i

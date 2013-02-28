@@ -3,16 +3,17 @@ table.table
 		th : a href="#{_url('/admin/_vars', :order => 'vid')}" = L[:vid]
 		th : a href="#{_url('/admin/_vars', :order => 'skey')}" = L[:skey]
 		th : a href="#{_url('/admin/_vars', :order => 'sval')}" = L[:sval]
-		th : a href="#{_url('/admin/_vars', :order => 'tid')}" = L[:tid]
+		th : a href="#{_url('/admin/_vars', :order => 'tid')}" = L[:tag]
 		th : a href="#{_url('/admin/_vars', :order => 'changed')}" = L[:changed]
 		th
 	tbody
+		- tags = _kv(:_tags, :tid, :name)
 		- @_vars.each do | row |
 			tr
 				td = row[:vid]
 				td = row[:skey]
 				td = row[:sval]
-				td = row[:tid]
+				td = tags[row[:tid]]
 				td = row[:changed]
 
 				td

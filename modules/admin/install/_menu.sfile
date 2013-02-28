@@ -85,3 +85,15 @@ menu_name=admin
 type=admin
 link=/admin/_tags
 description=the common tags
+
+name=rule
+menu_name=user
+type=admin
+link=/admin/_rule
+description=rule name
+
+name=user rule
+menu_name=admin
+type=admin
+link=/admin/_urul
+description=user rule

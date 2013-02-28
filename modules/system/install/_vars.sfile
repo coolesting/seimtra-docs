@@ -15,3 +15,11 @@ sval=300000
 
 skey=module_status
 sval=off,on
+
+skey=uploadfile
+sval=1
+tag=level
+
+skey=administratorlevel
+sval=99
+tag=level

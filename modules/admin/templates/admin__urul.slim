@@ -1,0 +1,23 @@
+table.table
+	thead
+		th : a href="#{_url('/admin/_urul', :order => 'urid')}" = L[:urid]
+		th : a href="#{_url('/admin/_urul', :order => 'uid')}" = L[:uid]
+		th : a href="#{_url('/admin/_urul', :order => 'rid')}" = L[:name]
+		th
+	tbody
+		- _rules = _kv(:_rule, :rid, :name)
+		- @_urul.each do | row |
+			tr
+				td = row[:urid]
+				td = row[:uid]
+				td = _rules[row[:rid]]
+
+				td
+					span.edit : a href="/admin/_urul/edit/#{row[:urid]}" = L[:fix]
+					span.delete : a href="/admin/_urul/rm/#{row[:urid]}" = L[:del]
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url('/admin/_urul', :page_curr => i)}" = i

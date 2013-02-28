@@ -1,4 +1,7 @@
 class Seimtra_system
+
+# 	def preprocess__rule data
+# 	end
 	
 	def preprocess__user data
 		require "digest/sha1"
