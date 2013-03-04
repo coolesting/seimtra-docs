@@ -1,6 +1,6 @@
 before '/_file/*' do
 	#set the level
-	if reqest.path == '/_file/upload'
+	if request.path == '/_file/upload'
 		_level _vars(:uploadfile)
 	end
 end
