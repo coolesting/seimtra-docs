@@ -1,8 +1,9 @@
 Sequel.migration do
 	change do
 		create_table(:_sess) do
-			String :ticket, :default => 50
+			String :sid, :default => 50
 			Integer :uid
+			Integer :timeout
 			Datetime :changed
 		end
 	end

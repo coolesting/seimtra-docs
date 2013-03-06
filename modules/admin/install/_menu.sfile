@@ -56,12 +56,6 @@ menu_name=user
 link=/admin/_sess
 description=user session list
 
-name=ticket
-type=admin
-menu_name=user
-link=/admin/_tick
-description=user ticket list
-
 name=note
 menu_name=admin
 type=admin

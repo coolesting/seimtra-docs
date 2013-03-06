@@ -1,7 +1,6 @@
 #display
 get '/admin/_sess' do
 
-	@rightbar += [:new, :search]
 	ds = DB[:_sess]
 
 	#search content
