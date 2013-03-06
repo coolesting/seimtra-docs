@@ -190,19 +190,21 @@ helpers do
 	end
 
 	#the user do nothing in the timeout time, the session will be remove, automatically
+	#return the uid
 	def _session_has sid
 		uid = 0
 		ds = DB[:_sess].filter(:sid => sid)
-		timeout = ds.get(:timeout).to_i > 0 ? ds.get(:timeout).to_i : 30
+		if ds.get(:sid)
+			timeout = ds.get(:timeout).to_i > 0 ? ds.get(:timeout).to_i : 30
 
-		#remove the session, if timeout
-		curtime = Time.now.strftime("%y%m%d%h%m").to_i
-		if (curtime - ds.get(:changed).strftime("%y%m%d%h%m").to_i) > timeout
-			ds.delete
-		else
-			uid = ds.get(:uid)
+			#remove the session, if timeout
+			curtime = Time.now.strftime("%y%m%d%h%m").to_i
+			if (curtime - ds.get(:changed).strftime("%y%m%d%h%m").to_i) > timeout
+				ds.delete
+			else
+				uid = ds.get(:uid)
+			end
 		end
-
 		uid
 	end
 
