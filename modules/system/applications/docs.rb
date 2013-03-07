@@ -1,8 +1,8 @@
 helpers do
 
-	#get the body by name, otherwise is null string
-	def _docs name
-		result = DB[:_docs].filter(:name => name.to_s).get(:body)
+	#get the body by id, otherwise is blank string
+	def _docs id
+		result = DB[:_docs].filter(:doid => id).get(:body)
 		result = '' unless result
 		result
 	end
@@ -11,4 +11,13 @@ helpers do
 		DB[:_docs].insert(:name => name, :body => content, :tid => _tags(type), :uid => _user[:uid], :created => Time.now)
 	end
 
+end
+
+get '/_doc/:id' do
+	doid = params[:id].to_i
+	if doid > 0
+		res = DB[:_docs].filter(:doid => doid).get(:body)
+	else
+		'No document found'
+	end
 end
