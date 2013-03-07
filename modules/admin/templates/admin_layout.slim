@@ -31,22 +31,22 @@ html
 
 			#main
 				#content.left == yield
-				#opt.left
+				#opt.right
 					- if @rightbar.include? :new
-						dl.dl-1
+						dl.dl-2
 							dt = L[:create]
 							dd
 								a href="#{request.path}/new"
 									button.button = L[:create]
 
 					- if @rightbar.include? :save
-						dl.dl-1
+						dl.dl-2
 							dt = L[:save]
 							dd
 								input.button type="submit" name="opt" value="#{L[:save]}" form="form"
 
 					- if @rightbar.include? :search
-						dl.dl-1
+						dl.dl-2
 							form action="#{request.path}" method="get"
 								dt = L[:search]
 								dd

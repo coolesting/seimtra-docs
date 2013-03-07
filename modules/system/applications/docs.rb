@@ -14,9 +14,8 @@ helpers do
 end
 
 get '/_doc/:id' do
-	doid = params[:id].to_i
-	if doid > 0
-		res = DB[:_docs].filter(:doid => doid).get(:body)
+	if res = DB[:_docs].filter(:doid => params[:id].to_i).get(:body)
+		res
 	else
 		'No document found'
 	end

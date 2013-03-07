@@ -78,17 +78,30 @@
 
 
 .dl-1 {
+	width: 400px;
 	border: 1px solid #cccccc;
 	padding: 0;
 	margin: 0 0 10px 0;
 }
 .dl-1 dt {
+	padding:5px;
 	background-color: #f5f5f5;
 }
-.dl-1 dt {
-	padding:5px;
-}
 .dl-1 dd {
+	margin:5px;
+}
+
+.dl-2 {
+	width: 200px;
+	border: 1px solid #cccccc;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+.dl-2 dt {
+	padding:5px;
+	background-color: #f5f5f5;
+}
+.dl-2 dd {
 	margin:5px;
 }
 
@@ -120,4 +133,9 @@
 }
 .button {
 	width: 70px;
+}
+textarea {
+	float: left;
+	width: 500px;
+	height: 200px;
 }
