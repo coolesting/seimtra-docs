@@ -12,3 +12,15 @@ end
 get '/css/sass.css' do
 	sass :index
 end
+
+helpers do
+
+	def _asset path
+		path
+	end
+
+	def _img path
+		path
+	end
+
+end
