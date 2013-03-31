@@ -31,7 +31,7 @@ name=iocsv
 type=admin
 menu_name=admin
 link=/admin/iocsv
-description=input and output data of csv file to database 
+description=input and output db table with csv file type 
 
 name=language
 type=admin
@@ -87,7 +87,7 @@ link=/admin/_rule
 description=rule name
 
 name=user rule
-menu_name=admin
+menu_name=user
 type=admin
 link=/admin/_urul
 description=user rule

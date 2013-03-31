@@ -45,3 +45,5 @@ dependon=dependon
 mark=mark
 body=body
 agent=agent
+select=select
+execute=execute

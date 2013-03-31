@@ -1,19 +1,21 @@
 form
-	dl.dl-1
-		dt = L[:inport]
-		dd
+	div.box-1
+		p.title = L[:select]
+		p.body
+			table 
+				- DB.tables.each do | t |
+					tr
+						td : input id="radio_#{t}" type="radio" name="export" value="#{t}"
+						td : label for="radio_#{t}" = t
+
+	div.box-1
+		p.title = L[:execute]
+		p.body
 			input type="file" name="inport"
-			input.button type="submit" value="submit" formaction="/admin/iocsv/inport" formmethod="post" formenctype="multipart/form-data"
-
-
-
-	dl.dl-1
-		dt = L[:export]
-		dd
-			input type="text" name="export" placeholder="#{L[:'table name']}"
-			input.button type="submit" value="submit" formaction="/admin/iocsv/export" formmethod="get"
-
-	dl.dl-1
-		dt = L[:encoding]
-		dd
+		p.title = L[:encoding]
+		p.body
 			input type="text" name="encoding" value="#{@encoding}"
+			input.button type="submit" value="#{L[:inport]}" formaction="/admin/iocsv/inport" formmethod="post" formenctype="multipart/form-data"
+			input.button type="submit" value="#{L[:export]}" formaction="/admin/iocsv/export" formmethod="get"
+
+

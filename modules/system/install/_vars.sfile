@@ -1,20 +1,26 @@
 skey=level
 sval=10
+tag=system
 
 skey=lang
 sval=en
+tag=system
 
 skey=encoding
 sval=gb2312
+tag=system
 
 skey=filetype
 sval=image/png,image/jpeg,image/gif
+tag=system
 
 skey=filesize
 sval=300000
+tag=system
 
 skey=module_status
 sval=off,on
+tag=system
 
 skey=uploadfile
 sval=1
