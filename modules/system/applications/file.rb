@@ -71,9 +71,11 @@ helpers do
 		end
 	end
 
-	def _parser_init
+	def _parser_init extension = {}
 		require 'redcarpet'
-		@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+		extensions = {:autolink => true, :space_after_headers => true}
+		extensions.merge! extension
+		@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, extensions)
 	end
 
 	def _m2h str

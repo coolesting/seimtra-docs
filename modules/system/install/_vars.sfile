@@ -29,3 +29,7 @@ tag=level
 skey=administratorlevel
 sval=99
 tag=level
+
+skey=doc_status
+sval=active,closed,cancel
+tag=system
