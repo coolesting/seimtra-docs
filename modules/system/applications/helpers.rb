@@ -12,14 +12,16 @@ helpers do
 	#return path + query_string
 	def _url path, options = {}
 		str = path
-		options.each do | ok, ov |
-			@qs[ok.to_sym] = ov
-		end
-		unless @qs.empty?
-			str += '?'
-			@qs.each do | k, v |
-				str = str + k.to_s + '=' + v.to_s + '&'
-			end
+		if options != nil
+				options.each do | ok, ov |
+					@qs[ok.to_sym] = ov
+				end
+				unless @qs.empty?
+					str += '?'
+					@qs.each do | k, v |
+						str = str + k.to_s + '=' + v.to_s + '&'
+					end
+				end
 		end
 		str
 	end

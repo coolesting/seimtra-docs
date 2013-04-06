@@ -12,10 +12,10 @@ form
 		p.title = L[:execute]
 		p.body
 			input type="file" name="inport"
+			input.button type="submit" value="#{L[:inport]}" formaction="/admin/iocsv/inport" formmethod="post" formenctype="multipart/form-data"
 		p.title = L[:encoding]
 		p.body
 			input type="text" name="encoding" value="#{@encoding}"
-			input.button type="submit" value="#{L[:inport]}" formaction="/admin/iocsv/inport" formmethod="post" formenctype="multipart/form-data"
-			input.button type="submit" value="#{L[:export]}" formaction="/admin/iocsv/export" formmethod="get"
+			input.button.right type="submit" value="#{L[:export]}" formaction="/admin/iocsv/export" formmethod="get"
 
 

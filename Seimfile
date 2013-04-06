@@ -6,6 +6,6 @@ version=0.0.1
 root_privilege=TzQfno320lbw
 default_scaffold=admin
 auto_add_admin_menu=true
-module_focus=work
+module_focus=c
 layout=admin
 lang=cn

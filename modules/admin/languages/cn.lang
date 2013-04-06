@@ -46,3 +46,6 @@ body=正文
 agent=代理
 select=选择
 execute=执行
+done=完成
+create=创建
+add=添加
