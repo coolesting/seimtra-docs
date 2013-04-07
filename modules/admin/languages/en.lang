@@ -50,3 +50,4 @@ execute=execute
 done=done
 create=create
 add=add
+select table=select table

@@ -1,21 +1,25 @@
 form
 	div.box-1
-		p.title = L[:select]
+		p.title = L[:'select table']
 		p.body
 			table 
 				- DB.tables.each do | t |
 					tr
-						td : input id="radio_#{t}" type="radio" name="export" value="#{t}"
+						td : input id="radio_#{t}" type="radio" name="table_name" value="#{t}"
 						td : label for="radio_#{t}" = t
 
 	div.box-1
-		p.title = L[:execute]
+		p.title = L[:inport]
 		p.body
 			input type="file" name="inport"
 			input.button type="submit" value="#{L[:inport]}" formaction="/admin/iocsv/inport" formmethod="post" formenctype="multipart/form-data"
+
 		p.title = L[:encoding]
 		p.body
 			input type="text" name="encoding" value="#{@encoding}"
+
+		p.title = L[:export]
+		p.body
 			input.button.right type="submit" value="#{L[:export]}" formaction="/admin/iocsv/export" formmethod="get"
 
 

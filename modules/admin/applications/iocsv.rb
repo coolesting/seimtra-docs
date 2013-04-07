@@ -3,16 +3,17 @@ get '/admin/iocsv' do
 	_tpl :admin_iocsv
 end
 
-#get db table as csv file output
+#export
 get '/admin/iocsv/export' do
 
 	@encoding = _vars(:encoding) != "" ? _vars(:encoding) : settings.default_encoding
 
-	if params[:export] and (DB.tables.include?(params[:export].to_sym))
+	table_name = params[:table_name] ? params[:table_name].to_sym : ''
+	if DB.tables.include?(table_name)
 		require 'csv'
-		ds = DB[params[:export].to_sym]
+		ds = DB[table_name]
 		csv_file = CSV.generate do | csv |
-			csv << DB[params[:export].to_sym].columns!
+			csv << DB[table_name].columns!
 			csv << []
 			ds.each do | row |
 				csv << row.values
@@ -24,7 +25,7 @@ get '/admin/iocsv/export' do
 			csv_file = Iconv.iconv(params[:encoding], "UTF-8", csv_file)
 		end
 
-   		attachment "#{params[:export]}.csv"
+   		attachment "#{table_name}.csv"
 		csv_file
 	else
 		redirect back
@@ -32,7 +33,7 @@ get '/admin/iocsv/export' do
 
 end
 
-#upload file
+#inport
 post '/admin/iocsv/inport' do
 
 	if params[:inport] and params[:inport][:tempfile] and params[:inport][:filename]
