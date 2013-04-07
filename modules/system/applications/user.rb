@@ -15,7 +15,9 @@ post '/_login' do
 	_user_add params[:name], params[:pawd] if params[:register] == "yes"
 
 	_login params[:name], params[:pawd]
-	redirect settings.home_page
+
+	return_page = request.cookies['ref_url'] ? request.cookies['ref_url'] : settings.home_page
+	redirect return_page
 end
 
 helpers do
@@ -29,6 +31,7 @@ helpers do
 		info = _user
 		
 		if info[:uid] < 1 and request.path != redirect_path
+			response.set_cookie "ref_url", :value => request.path, :path => "/"
 			redirect redirect_path
 		else
 			#update the session time
