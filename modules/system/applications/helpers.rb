@@ -94,13 +94,13 @@ helpers do
 	end
 
 	#load the template, and set the layout automatically
-	def _tpl tpl_name
-		module_name = request.path.split("/")[1]
-		if Slayout.include? module_name
-			slim tpl_name, :layout => "#{module_name}_layout".to_sym
-		else
-			slim tpl_name
+	def _tpl tpl_name, layout = :layout
+		#default layout
+		if layout == :layout
+			module_name = request.path.split("/")[1]
+			layout = "#{module_name}_layout".to_sym if Slayout.include? module_name
 		end
+		slim tpl_name, :layout => layout
 	end
 
 	#return a random string with the size given
