@@ -11,9 +11,15 @@ end
 post '/_login' do
 	_user_valid params[:name], params[:pawd]
 
-	#register user
-	_user_add params[:name], params[:pawd] if params[:register] == "yes"
-
+	#user register 
+	if params[:register] == 'yes'
+		if _vars(:allow_register) == 'yes'
+			_user_add params[:name], params[:pawd] 
+		else
+			_throw L[:'the register is closed.']
+		end
+	end
+	#user login
 	_login params[:name], params[:pawd]
 
 	return_page = request.cookies['ref_url'] ? request.cookies['ref_url'] : settings.home_page

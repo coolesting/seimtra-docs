@@ -33,3 +33,7 @@ tag=level
 skey=doc_status
 sval=active,closed,cancel
 tag=system
+
+skey=allow_register
+sval=yes
+tag=user

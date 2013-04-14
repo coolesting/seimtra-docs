@@ -51,7 +51,7 @@
 #main { padding: 0 10px; }
 
 #description, #opt, #msg { padding: 0 10px; }
-#content { width: 800px; }
+#content { max-width: 800px; }
 
 .ul li {
 	padding-bottom: 5px;
