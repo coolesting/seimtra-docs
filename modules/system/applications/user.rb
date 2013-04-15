@@ -16,7 +16,7 @@ post '/_login' do
 		if _vars(:allow_register) == 'yes'
 			_user_add params[:name], params[:pawd] 
 		else
-			_throw L[:'the register is closed.']
+			_throw L[:'the register is closed']
 		end
 	end
 	#user login
