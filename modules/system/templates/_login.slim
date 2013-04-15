@@ -1,7 +1,7 @@
 #user_login
 	form action="/_login" method="post"
 		ul
-			li : label = L[:username]
+			li : label = L[:account]
 			li : input type="text" name="name" required="required" placeholder="#{L[:username]}"
 
 			li : label = L[:password]
@@ -9,9 +9,11 @@
 
 			li
 				input type="submit" value="#{L[:login]}"
-			li
-				input id="register-id" type="checkbox" name="register" value="yes"
-				label for="register-id" = L[:'register a new account and login']
+
+			- if _vars(:allow_register) == 'yes'
+				li
+					input id="register-id" type="checkbox" name="register" value="yes"
+					label for="register-id" = L[:'register a new account and login']
 
 css:
 
