@@ -51,3 +51,5 @@ done=done
 create=create
 add=add
 select table=select table
+rule=rule
+remove=remove

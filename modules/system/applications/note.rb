@@ -26,7 +26,7 @@ helpers do
 		if ds.get(:to_uid) == uid
 			ds.delete 
 		else
-			_msg "the note is not belong to you."
+			_msg L[:'the note is not belong to you.']
 		end
 	end
 
