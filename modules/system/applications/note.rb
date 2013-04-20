@@ -30,6 +30,11 @@ helpers do
 		end
 	end
 
+	def _note_all type = nil
+		DB[:_note].filter(:to_uid => _user[:uid]).delete
+		_msg L[:'all of notes have been clean']
+	end
+
 	#get note by type, uid
 	def _note type, uid = 0
 		uid = _user[:uid] if uid == 0
