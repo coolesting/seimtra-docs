@@ -49,11 +49,10 @@ configure do
 	set :db_sqlite, 'sqlite://db/data.db'
 
 	#set the db_connect here, which you want
-	set :db_connect, settings.db_sqlite
-
-	DB = Sequel.connect(settings.db_connect)
-
+	DB_connect = settings.db_sqlite
+	DB = Sequel.connect(DB_connect)
 	
+
 	# ================= setting config ================= 
 
 	#set the log for output
