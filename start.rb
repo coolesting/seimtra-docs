@@ -7,7 +7,7 @@ require './environment'
 templates = []
 applications = []
 
-if settings.db_connect == "closed"
+if DB_connect == "closed"
 	puts "The datebase connection is closed."
 	exit
 else
