@@ -1,0 +1,19 @@
+>> Writing PID to tmp/pids/thin.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3001, CTRL+C to stop
+127.0.0.1 - - [26/Apr/2013 01:10:09] "GET /work/task HTTP/1.1" 302 - 0.0029
+127.0.0.1 - - [26/Apr/2013 01:10:09] "GET /work/login HTTP/1.1" 200 1665 0.0405
+127.0.0.1 - - [26/Apr/2013 01:10:10] "GET /work/help HTTP/1.1" 302 - 0.0012
+127.0.0.1 - - [26/Apr/2013 01:10:10] "GET /work/login HTTP/1.1" 200 1665 0.0165
+127.0.0.1 - - [26/Apr/2013 01:10:11] "GET /work/home HTTP/1.1" 302 - 0.0014
+127.0.0.1 - - [26/Apr/2013 01:10:11] "GET /work/login HTTP/1.1" 200 1665 0.0211
+127.0.0.1 - - [26/Apr/2013 01:10:11] "GET /work/task HTTP/1.1" 302 - 0.0012
+127.0.0.1 - - [26/Apr/2013 01:10:11] "GET /work/login HTTP/1.1" 200 1665 0.0499
+127.0.0.1 - - [26/Apr/2013 01:10:13] "POST /_login HTTP/1.1" 303 - 0.0165
+127.0.0.1 - - [26/Apr/2013 01:10:13] "GET /work/task HTTP/1.1" 200 5011 0.0342
+127.0.0.1 - - [26/Apr/2013 01:10:13] "GET /icons/edit.png HTTP/1.1" 200 - 0.0015
+127.0.0.1 - - [26/Apr/2013 01:10:15] "GET /work/home HTTP/1.1" 200 1409 0.0222
+>> Waiting for 1 connection(s) to finish, can take up to 30 sec, CTRL+C to stop now
+>> Exiting!

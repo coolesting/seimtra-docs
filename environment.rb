@@ -36,10 +36,10 @@ configure do
 	#
 	#	yum install postgres*
 	#	gem install pg
-	#	initdb -D db/pg
-	#	postgres -D db/pg
-	#	createdb db/pg
-	set :db_pg, 'postgres://localhost/db/pg'	
+	#	initdb -D db_pg
+	#	postgres -D db_pg
+	#	createdb db_pg
+	set :db_pg, 'postgres://localhost/db_pg'	
 
 	##
 	# sqlite
