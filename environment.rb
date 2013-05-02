@@ -15,7 +15,7 @@ configure do
 	#
 	# create database and user
 	#
-	#	mysql -r root -p
+	#	mysql -u root -p
 	#	create user 'myuser'@'localhost' identified by '123456';
 	#	create database mydb;
 	#	grant all privileges on *.* to 'myuser'@'localhost' with grant option;
