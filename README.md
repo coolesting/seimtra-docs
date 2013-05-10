@@ -5,4 +5,4 @@
 	git clone git://github.com/coolesting/seimtra-docs.git myapp
 	bundle install --gemfile=myapp/modules/system/Gemfile
 
-	tag 0.0.1
+	Add tag 0.0.1
