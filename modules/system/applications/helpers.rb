@@ -9,19 +9,29 @@ helpers do
 		DB[:_urul].filter(:uid => uid, :rid => rid).empty? ? false : true
 	end
 
-	#return path + query_string
+	#return path
 	def _url path, options = {}
 		str = path
-		if options != nil
-				options.each do | ok, ov |
-					@qs[ok.to_sym] = ov
-				end
-				unless @qs.empty?
-					str += '?'
-					@qs.each do | k, v |
-						str = str + k.to_s + '=' + v.to_s + '&'
-					end
-				end
+		unless options.empty?
+			str += '?'
+			options.each do | k, v |
+				str = str + k.to_s + '=' + v.to_s + '&'
+			end
+		end
+		str
+	end
+
+	#return path, with @qs
+	def _url2 path, options = {}
+		str = path
+		qs = {}
+		qs = qs.merge(@qs) unless @qs.empty?
+		qs = qs.merge(options) unless options.empty?
+		unless qs.empty?
+			str += '?'
+			qs.each do | k, v |
+				str = str + k.to_s + '=' + v.to_s + '&'
+			end
 		end
 		str
 	end
