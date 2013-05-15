@@ -2,6 +2,7 @@
 *.gem
 db/*
 tmp/*
+log/*
 modules/*
 !modules/system
 !modules/admin
