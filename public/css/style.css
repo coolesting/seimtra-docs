@@ -4,7 +4,8 @@ ul li {list-style-type: none;}
 .white {color: white;}
 .left {float: left;}
 .right {float: right;}
-.width100 {width: 100%}
+.width100 {width: 100%;}
+.width99 {width: 99%;}
 .hide {display: none;}
 
 .page_bar a {padding: 2px;}

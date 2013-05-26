@@ -37,8 +37,8 @@ end
 post '/admin/iocsv/inport' do
 
 	if params[:inport] and params[:inport][:tempfile] and params[:inport][:filename]
-		table	= params[:inport][:filename].split('.').first
-		@content = []
+		table		= params[:inport][:filename].split('.').first.to_sym
+		contents 	= []
 		require 'csv'
 
 		#encoding
@@ -50,19 +50,24 @@ post '/admin/iocsv/inport' do
 		end
 
 		CSV.parse(file_content) do | row |
-			@content << row
+			contents << row
 		end
 
 		#csv header
-		columns = @content.shift
+		columns = contents.shift
+		columns_real = DB[table].columns
 
 		#csv body
-		@content.shift
+		contents.shift
 
-		@content.each do | row |
+		contents.each do | row |
 			data = {}
-			columns.zip(row) { |a,b| data[a.to_sym] = b }
-			DB[table.to_sym].insert(data)
+			row.each_index do | i |
+				if columns_real.include? columns[i].to_sym
+					data[columns[i].to_sym] = row[i]
+				end
+			end
+			DB[table].insert(data)
 		end
 
 		_msg L[:'upload complete']
