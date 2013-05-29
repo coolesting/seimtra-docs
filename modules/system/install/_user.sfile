@@ -3,7 +3,12 @@ pawd=system
 salt=xcvxc
 level=99
 
-name=test
-pawd=test
+name=tester
+pawd=tester
 salt=ABCde
+level=1
+
+name=debug
+pawd=debug
+salt=h48d3
 level=1
