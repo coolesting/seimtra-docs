@@ -131,15 +131,28 @@ helpers do
 		if ds
 			update_fields = {}
 
-			if fields[:pawd].strip.size > 2
+			#password
+			if fields[:pawd] and fields[:pawd].strip.size > 2
 				update_fields[:pawd] = Digest::SHA1.hexdigest(fields[:pawd] + ds[:salt])
 			end
 
+			#user level
 			update_fields[:level] = fields[:level] if fields[:level] != ds[:level]
+
+			#user name
+			if fields[:name] and _user_name?(fields[:name]) == false
+				update_fields[:name] = fields[:name] 
+			end
 
 			DB[:_user].filter(:uid => uid).update(update_fields)
 		end
 
+	end
+
+	#query the user name whether or not exist in database, if it is existing then return true
+	#otherwise, is false
+	def _user_name? name
+		DB[:_user].filter(:name => name).empty? ? false : true
 	end
 
 	# == _user_add

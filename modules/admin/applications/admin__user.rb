@@ -71,10 +71,8 @@ get '/admin/_user/edit/:uid' do
 end
 
 post '/admin/_user/edit/:uid' do
-
 	_user_edit params
 	redirect "/admin/_user"
-
 end
 
 helpers do
