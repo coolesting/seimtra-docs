@@ -12,7 +12,7 @@ post '/_login' do
 	_user_valid params[:name], params[:pawd]
 
 	#user register 
-	if params[:register] == 'yes'
+	if params[:userstate] == 'new'
 		if _vars(:allow_register) == 'yes'
 			_user_add params[:name], params[:pawd] 
 		else

@@ -8,16 +8,28 @@
 			li : input type="password" name="pawd" required="required" placeholder="#{L[:password]}"
 
 			li
-				input type="submit" value="#{L[:login]}"
+				input.width60 type="submit" value="#{L[:enter]}"
 
 			- if _vars(:allow_register) == 'yes'
-				li
-					input id="register-id" type="checkbox" name="register" value="yes"
-					label for="register-id" = L[:'register new account']
+				li.font13
+					input id="radio-old" checked="checked" type="radio" name="userstate" value="old"
+					label for="radio-old" = L[:'i am old friend']
+				li.font13
+					input id="radio-new" type="radio" name="userstate" value="new"
+					label for="radio-new" = L[:'i am a new one, this is the first time to log']
 
 css:
 
-	#user_login { margin: 0 2px; }
-	#user_login li { margin-bottom: 2px; }
-	.done { width: 60px; }
-	.timeout label { margin: 0 2px 0 7px; }
+	#user_login { 
+		width: 180px;
+		margin: 0 2px; 
+		padding: 8px;
+		border: 1px solid #AC8C80;
+	}
+	#user_login li {
+		margin-bottom: 8px; 
+	}
+	#user_login .font13 {
+		font-size: 13px;
+	}
+	.width60 { width: 60px; }
