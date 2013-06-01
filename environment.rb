@@ -70,14 +70,15 @@ configure do
 
 
 	# ================== file path =====================
-	set :tmp_path, '/var/tmp'
+	set :tmp_path, Dir.pwd + '/tmp'
 
 	#set :upload_path, '/var/upload'
-	set :upload_path, Dir.pwd + '/tmp'
+	set :upload_path, Dir.pwd + '/db/upload'
+	Dir.mkdir settings.upload_path unless File.exist? settings.upload_path
 
 	set :cache_path, '/var/cache/seimtra'
 
-	set :log_path, '/var/log/seimtra'
+	set :log_path, Dir.pwd + '/log'
 
 
 end

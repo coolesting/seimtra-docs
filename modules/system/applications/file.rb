@@ -9,9 +9,9 @@ end
 post '/_file/upload' do
 	if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
 		_file_save params[:upload]
-		'upload complete.'
+		L[:'upload complete']
 	else
-		'the file is null'
+		L[:'the file is null']
 	end
 end
 
@@ -49,23 +49,23 @@ helpers do
 		fields[:uid] 		= _user[:uid]
 		fields[:name] 		= file[:filename].split('.').first
 		fields[:created]	= Time.now
-		fields[:path] 		= "/#{_user[:uid]}-" + fields[:created].strftime("%s") + "-#{file[:filename]}"
 		fields[:type]		= file[:type]
+		fields[:path] 		= "/#{_user[:uid]}-#{fields[:created].to_i}"
 
+		#validate
 		unless _vars(:filetype).include? file[:type]
-			_throw 'the file type is wrong.'
+			_throw L[:'the file type is wrong']
 		end
-
 		file_content = file[:tempfile].read
 		if (fields[:size] = file_content.size) > _vars(:filesize).to_i
-			_throw 'the file size is too big.'
+			_throw L[:'the file size is too big']
 		end
 
-		#insert db
+		#save the info of file
 		table = file[:table] ? file[:table].to_sym : :_file
 		DB[table].insert(fields)
 
-		#move the file
+		#save the body of file
 		File.open(settings.upload_path + fields[:path], 'w+') do | f |
 			f.write file_content
 		end

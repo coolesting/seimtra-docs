@@ -33,53 +33,27 @@ end
 
 #new a record
 get '/admin/_file/new' do
-
 	@title = L[:'create a new one '] + L['file']
 	@rightbar << :save
 	_file_set_fields
 	_tpl :admin__file_form
-
 end
 
 post '/admin/_file/new' do
-
-	_file_set_fields
-	_file_valid_fields
-	@fields[:created] = Time.now
-	
-	
-	DB[:_file].insert(@fields)
+	if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
+		_file_save params[:upload]
+		_msg L[:'upload complete']
+	else
+		_msg L[:'the file is null']
+	end
 	redirect "/admin/_file"
-
 end
 
 #delete the record
 get '/admin/_file/rm/:fid' do
-
 	_msg L[:'delete the record by id '] + params[:fid]
 	DB[:_file].filter(:fid => params[:fid].to_i).delete
 	redirect "/admin/_file"
-
-end
-
-#edit the record
-get '/admin/_file/edit/:fid' do
-
-	@title = L[:'edit the '] + L[:'file']
-	@rightbar << :save
-	@fields = DB[:_file].filter(:fid => params[:fid]).all[0]
- 	_file_set_fields
- 	_tpl :admin__file_form
-
-end
-
-post '/admin/_file/edit/:fid' do
-
-	_file_set_fields
-	_file_valid_fields
-	DB[:_file].filter(:fid => params[:fid]).update(@fields)
-	redirect "/admin/_file"
-
 end
 
 helpers do

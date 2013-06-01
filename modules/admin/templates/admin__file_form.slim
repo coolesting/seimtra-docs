@@ -1,16 +1,6 @@
 form action="#{request.path}" method="post" id="form"
 	ul.ul
 		
-		li : label = L[:uid]
-		li : input type="text" name="uid" required="required" value="#{@fields[:uid]}"
-		
-		li : label = L[:type]
-		li : input type="text" name="type" required="required" value="#{@fields[:type]}"
-		
-		li : label = L[:name]
-		li : input type="text" name="name" required="required" value="#{@fields[:name]}"
-		
-		li : label = L[:path]
-		li : input type="text" name="path" required="required" value="#{@fields[:path]}"
-		
-		
+		li
+			input type="file" name="upload"
+		 	input type="submit" value="upload" formenctype="multipart/form-data"

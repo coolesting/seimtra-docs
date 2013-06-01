@@ -53,3 +53,5 @@ add=add
 select table=select table
 rule=rule
 remove=remove
+file=file
+upload=upload

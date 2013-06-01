@@ -52,3 +52,5 @@ add=添加
 select table=选择表
 rule=角色
 remove=移除
+file=文件
+upload=上传
