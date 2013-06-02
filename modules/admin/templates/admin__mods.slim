@@ -12,7 +12,7 @@ table.table
 		th : a href="#{_url('/admin/_mods', :order => 'dependon')}" = L[:dependon]
 		th : a href="#{_url('/admin/_mods', :order => 'created')}" = L[:created]
 	tbody
-		- status = _vars(:module_status)
+		- status = _vars(:module_status, :system)
 		- tags = _kv(:_tags, :tid, :name)
 		- @_mods.each do | row |
 			tr
@@ -34,4 +34,4 @@ p = L[:'Restart the web server when you have modified']
 	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
-			span : a class="#{page_focus}" href="#{_url('/admin/_mods', :page_curr => i)}" = i
+			span : a class="#{page_focus}" href="#{_url2('/admin/_mods', :page_curr => i)}" = i

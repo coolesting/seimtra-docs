@@ -27,4 +27,4 @@ table.table
 	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
-			span : a class="#{page_focus}" href="#{_url('/<%=@t[:layout]%>/<%=@t[:file_name]%>', :page_curr => i)}" = i
+			span : a class="#{page_focus}" href="#{_url2('/<%=@t[:layout]%>/<%=@t[:file_name]%>', :page_curr => i)}" = i

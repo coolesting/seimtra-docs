@@ -1,13 +1,11 @@
 get '/admin/iocsv' do
-	@encoding = _vars(:encoding) != "" ? _vars(:encoding) : settings.default_encoding
+	@encoding = _var(:encoding) != "" ? _var(:encoding) : settings.default_encoding
 	_tpl :admin_iocsv
 end
 
 #export
 get '/admin/iocsv/export' do
-
-	@encoding = _vars(:encoding) != "" ? _vars(:encoding) : settings.default_encoding
-
+	@encoding = _var(:encoding) != "" ? _var(:encoding) : settings.default_encoding
 	table_name = params[:table_name] ? params[:table_name].to_sym : ''
 	if DB.tables.include?(table_name)
 		require 'csv'
@@ -30,12 +28,10 @@ get '/admin/iocsv/export' do
 	else
 		redirect back
 	end
-
 end
 
 #inport
 post '/admin/iocsv/inport' do
-
 	if params[:inport] and params[:inport][:tempfile] and params[:inport][:filename]
 		table		= params[:inport][:filename].split('.').first.to_sym
 		contents 	= []
@@ -74,5 +70,4 @@ post '/admin/iocsv/inport' do
 	end
 
 	redirect back
-
 end

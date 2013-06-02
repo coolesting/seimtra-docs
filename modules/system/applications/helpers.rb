@@ -121,17 +121,20 @@ helpers do
 
 	#return a string
 	def _var key, tag = nil
-		DB[:_vars].filter(:skey => key.to_s, _tag(tag)).get(:sval)
+		DB[:_vars].filter(:skey => key.to_s, :tid => _tag(tag)).get(:sval)
 	end
 
 	#return an array
-	def _vars key = '', tid = nil
+	def _vars key = '', tag = nil
 		res = []
-		sval = DB[:_vars].filter(:skey => key.to_s, _tag(tag)).get(:sval)
-		if sval.index(',')
-			res = sval.to_s.split(',')
-		else
-			res << sval.to_s
+		ds = DB[:_vars].filter(:skey => key.to_s, :tid => _tag(tag))
+		unless ds.empty?
+			sval = ds.get(:sval)
+			if sval.index(',')
+				res = sval.to_s.split(',')
+			else
+				res << sval.to_s
+			end
 		end
 		res
 	end

@@ -32,6 +32,7 @@ before do
 		response.set_cookie 'msg', :value => '', :path => '/'
 	end
 
-	@_path = request.path.split '/'
+	@_path 	= request.path.split '/'
+	@_tag 	= nil
 
 end

@@ -23,4 +23,4 @@ p = L[:'Restart the web server when you have modified']
 	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
-			span : a class="#{page_focus}" href="#{_url('/admin/_lang', :page_curr => i)}" = i
+			span : a class="#{page_focus}" href="#{_url2('/admin/_lang', :page_curr => i)}" = i

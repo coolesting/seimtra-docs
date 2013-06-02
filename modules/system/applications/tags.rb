@@ -2,13 +2,8 @@ helpers do
 
 	#retunr the tag id by name
 	#if the name is not existing, create it.
-	def _tag name
-		if name == nil
-			name = @_path[1]
-			if name == nil
-				return 1
-			end
-		end
+	def _tag name = nil
+		return 1 if name == nil
 		name = name.to_s
 		ds = DB[:_tags].filter(:name => name)
 		if ds.empty?
