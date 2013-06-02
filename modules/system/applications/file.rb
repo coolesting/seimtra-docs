@@ -15,7 +15,7 @@ post '/_file/upload' do
 	end
 end
 
-#get the specify file
+#get file list by type
 get '/_file/type/:type' do
 	ds = DB[:_file].filter(:uid => _user[:uid])
 	unless ds.empty?
@@ -31,7 +31,7 @@ get '/_file/type/:type' do
 	end
 end
 
-#get the file by file id
+#get the file by id
 get '/_file/get/:fid' do
 	ds = DB[:_file].filter(:fid => params[:fid].split('.').first)
 	send_file settings.upload_path + ds.get(:path), :type => ds.get(:type).split('/').last.to_sym

@@ -15,12 +15,16 @@ end
 
 helpers do
 
-	def _asset path
+	def _public path, domain = nil
 		path
 	end
 
-	def _img path
-		path
+	def _file path, domain = nil
+		"/_file/get/#{path}"
+	end
+
+	def _assets path, domain = nil
+		"/_assets#{path}"
 	end
 
 end
