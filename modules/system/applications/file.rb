@@ -1,7 +1,7 @@
 before '/_file/*' do
 	#set the level
 	if request.path == '/_file/upload'
-		_level _vars(:uploadfile)
+		_level _var(:upload_level, :file)
 	end
 end
 
@@ -53,11 +53,11 @@ helpers do
 		fields[:path] 		= "/#{_user[:uid]}-#{fields[:created].to_i}"
 
 		#validate
-		unless _vars(:filetype).include? file[:type]
+		unless _var(:filetype, :file).include? file[:type]
 			_throw L[:'the file type is wrong']
 		end
 		file_content = file[:tempfile].read
-		if (fields[:size] = file_content.size) > _vars(:filesize).to_i
+		if (fields[:size] = file_content.size) > _var(:filesize, :file).to_i
 			_throw L[:'the file size is too big']
 		end
 

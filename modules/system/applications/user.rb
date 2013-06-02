@@ -13,7 +13,7 @@ post '/_login' do
 
 	#user register 
 	if params[:userstate] == 'new'
-		if _vars(:allow_register) == 'yes'
+		if _var(:allow_register, :user) == 'yes'
 			_user_add params[:name], params[:pawd] 
 		else
 			_throw L[:'the register is closed']

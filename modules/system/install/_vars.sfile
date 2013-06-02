@@ -2,37 +2,37 @@ skey=level
 sval=10
 tag=system
 
+skey=administratorlevel
+sval=99
+tag=system
+
 skey=lang
 sval=en
-tag=system
-
-skey=encoding
-sval=gb2312
-tag=system
-
-skey=filetype
-sval=image/png,image/jpeg,image/gif
-tag=system
-
-skey=filesize
-sval=300000
 tag=system
 
 skey=module_status
 sval=off,on
 tag=system
 
-skey=uploadfile
+skey=upload_level
 sval=1
-tag=level
+tag=file
 
-skey=administratorlevel
-sval=99
-tag=level
+skey=encoding
+sval=gb2312
+tag=file
+
+skey=filetype
+sval=image/png,image/jpeg,image/gif
+tag=file
+
+skey=filesize
+sval=300000
+tag=file
 
 skey=doc_status
 sval=active,closed,cancel
-tag=system
+tag=document
 
 skey=allow_register
 sval=yes

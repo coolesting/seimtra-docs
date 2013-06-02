@@ -13,7 +13,7 @@ helpers do
 		fields[:content] = content
 		fields[:from_uid] = from_uid
 		fields[:to_uid] = to_uid
-		fields[:tid] = _tags(type)
+		fields[:tid] = _tag(type)
 		fields[:created] = Time.now
 		fields[:mark] = mark
 		DB[:_note].insert(fields)
@@ -38,7 +38,7 @@ helpers do
 	#get note by type, uid
 	def _note type, uid = 0
 		uid = _user[:uid] if uid == 0
-		DB[:_note].filter(:to_uid => uid, :tid => _tags(type)).all
+		DB[:_note].filter(:to_uid => uid, :tid => _tag(type)).all
 	end
 
 end

@@ -11,7 +11,7 @@ helpers do
 	# ]
 	def _menu tag
 
-		ds = DB[:_menu].filter(:tid => _tags(tag)).order(:order)
+		ds = DB[:_menu].filter(:tid => _tag(tag)).order(:order)
 
 		arr_by_preid	= {}
 		arr_by_mid		= {}

@@ -119,20 +119,31 @@ helpers do
 		(0...size).map{ charset.to_a[rand(charset.size)]}.join
 	end
 
-	def _vars key = '', val = '', tid = 1
-		#set var
-		if key != '' and val != ''
-			ds = DB[:_vars].filter(:skey => key.to_s)
-			if ds.count == 0
-				DB[:_vars].insert(:skey => key.to_s, :sval => val.to_s, :changed => Time.now, :tid => tid)
-			else
-				ds.update(:sval => val, :changed => Time.now, :tid => tid)
-			end
+	#return a string
+	def _var key, tag = nil
+		DB[:_vars].filter(:skey => key.to_s, _tag(tag)).get(:sval)
+	end
 
-		#get var
+	#return an array
+	def _vars key = '', tid = nil
+		res = []
+		sval = DB[:_vars].filter(:skey => key.to_s, _tag(tag)).get(:sval)
+		if sval.index(',')
+			res = sval.to_s.split(',')
 		else
-			sval = DB[:_vars].filter(:skey => key.to_s).get(:sval)
-			sval = sval.index(',') ? sval.to_s.split(',') : sval.to_s
+			res << sval.to_s
+		end
+		res
+	end
+
+	#save the variable
+	def _var_set key, val, tag = nil
+		ds = DB[:_vars].filter(:skey => key.to_s)
+		if ds.count == 0
+			#insert the variable, if that is not existing
+			DB[:_vars].insert(:skey => key.to_s, :sval => val.to_s, :changed => Time.now, :tid => _tag(tag))
+		else
+			ds.update(:sval => val, :changed => Time.now, :tid => _tag(tag))
 		end
 	end
 
