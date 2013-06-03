@@ -39,12 +39,11 @@ end
 
 helpers do
 	
-	#save file info to db
-	#== required fields
-	#	:filename, tempfile
-	#== options
-	#	:table, store the file info
-	def _file_save file
+	# save file info to db, and move the file content to upload directory
+	# == Arguments
+	#	file, 		filename, tempfile
+	#	returned, 	return file info by the symbol you pass
+	def _file_save file, returned = nil
 		fields = {}
 		fields[:uid] 		= _user[:uid]
 		fields[:name] 		= file[:filename].split('.').first
@@ -52,7 +51,7 @@ helpers do
 		fields[:type]		= file[:type]
 		fields[:path] 		= "/#{_user[:uid]}-#{fields[:created].to_i}"
 
-		#validate
+		#validate file specification
 		unless _var(:filetype, :file).include? file[:type]
 			_throw L[:'the file type is wrong']
 		end
@@ -62,12 +61,36 @@ helpers do
 		end
 
 		#save the info of file
-		table = file[:table] ? file[:table].to_sym : :_file
-		DB[table].insert(fields)
+		#table = file[:table] ? file[:table].to_sym : :_file
+		DB[:_file].insert(fields)
 
 		#save the body of file
 		File.open(settings.upload_path + fields[:path], 'w+') do | f |
 			f.write file_content
+		end
+
+		#return the value
+		unless returned == nil
+			DB[:_file].filter(fields).get(returned)
+		end
+	end
+
+	def _file_rm fid, level = 1
+		ds = DB[:_file].filter(:fid => fid.to_i)
+		unless ds.empty?
+			path 	= ds.get(:path)
+			uid		= ds.get(:uid)
+
+			#validate user
+			unless uid.to_i == _user[:uid]
+				_throw L[:'your level is too low'] if _user[:level] < level
+			end
+
+			#remove record
+			ds.delete
+
+			#remove file
+			File.delete settings.upload_path + path
 		end
 	end
 

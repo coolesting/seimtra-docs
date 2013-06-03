@@ -51,8 +51,7 @@ end
 
 #delete the record
 get '/admin/_file/rm/:fid' do
-	_msg L[:'delete the record by id '] + params[:fid]
-	DB[:_file].filter(:fid => params[:fid].to_i).delete
+	_file_rm params[:fid]
 	redirect "/admin/_file"
 end
 
