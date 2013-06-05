@@ -33,9 +33,10 @@ helpers do
 	#
 	# == Argument
 	# string, the unknown user will be redirect to the path
-	def _login? redirect_path = settings.home_page
+	def _login? redirect_path = nil
 		info = _user
 		
+		redirect_path = @_login_path if redirect_path == nil
 		if info[:uid] < 1 and request.path != redirect_path
 			response.set_cookie "ref_url", :value => request.path, :path => "/"
 			redirect redirect_path
