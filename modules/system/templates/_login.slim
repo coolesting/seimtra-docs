@@ -1,5 +1,5 @@
 #user_login
-	form action="/_login" method="post"
+	form action="#{_url2('/_login')}" method="post"
 		ul
 			li : label = L[:account]
 			li : input type="text" name="name" required="required" placeholder="#{L[:username]}"

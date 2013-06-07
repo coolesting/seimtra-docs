@@ -34,6 +34,8 @@ before do
 
 	@_path			= request.path.split '/'
 	@_tag 			= nil
-	@_login_path 	= settings.home_page
+
+	@_path_of_login	= '/_login'
+	@_path_after_login 	= settings.home_page
 
 end

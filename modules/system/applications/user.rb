@@ -1,11 +1,9 @@
 get '/_logout' do
 	_logout
-	redirect settings.home_page
 end
 
 get '/_login' do
-	redirect settings.home_page if _user[:uid] != 0
-	_tpl :_login
+	_user_login
 end
 
 post '/_login' do
@@ -22,11 +20,21 @@ post '/_login' do
 	#user login
 	_login params[:name], params[:pawd]
 
-	return_page = request.cookies['ref_url'] ? request.cookies['ref_url'] : settings.home_page
+	return_page = @qs.include?(:come_from) ? @qs[:come_from] : @_path_after_login
 	redirect return_page
 end
 
 helpers do
+
+	def _user_login tpl = :_login
+		redirect @_path_after_login if _user[:uid] > 0
+		@qs[:come_from] = request.referer unless @qs.include?(:come_from) 
+		_tpl tpl
+	end
+
+	def _path_of_logout
+		_url('/_logout')
+	end
 
 	# == _login?
 	# check the current user whether it is existing in session
@@ -35,11 +43,11 @@ helpers do
 	# string, the unknown user will be redirect to the path
 	def _login? redirect_path = nil
 		info = _user
-		
-		redirect_path = @_login_path if redirect_path == nil
+		redirect_path = @_path_of_login if redirect_path == nil
 		if info[:uid] < 1 and request.path != redirect_path
-			response.set_cookie "ref_url", :value => request.path, :path => "/"
-			redirect redirect_path
+			#response.set_cookie "ref_url", :value => request.path, :path => "/"
+			@qs[:come_from] = request.path
+			redirect _url2(redirect_path)
 		else
 			#update the session time
 			_session_update info[:sid], info[:uid]
@@ -85,12 +93,13 @@ helpers do
 		infos
 	end
 
-	def _logout
+	def _logout return_url = @_path_after_login
 		sid = request.cookies['sid']
 		#remove from client
 		response.set_cookie "sid", :value => "", :path => "/"
 		#clear from server
 		_session_remove sid
+		redirect return_url
 	end
 
 	def _login name, pawd

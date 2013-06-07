@@ -108,9 +108,9 @@ helpers do
 		#default layout
 		if layout == :layout
 			module_name = request.path.split("/")[1]
-			layout = "#{module_name}_layout".to_sym if Slayout.include? module_name
+			layout = "#{module_name}_layout" if Slayout.include? module_name
 		end
-		slim tpl_name, :layout => layout
+		slim tpl_name, :layout => layout.to_sym
 	end
 
 	#return a random string with the size given
