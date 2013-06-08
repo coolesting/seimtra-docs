@@ -1,7 +1,7 @@
 before '/admin/*' do
 
 	_login?
-	_level _var(:administratorlevel)
+	_level _var(:administratorlevel, :system)
 
 	@title 		= L[:'welcome to administrator page']
 
