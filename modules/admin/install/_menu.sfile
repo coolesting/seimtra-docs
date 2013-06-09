@@ -1,6 +1,7 @@
 name=admin
 type=admin
 link=/admin/
+order=1
 description=a system administrator page.
 
 name=home
@@ -48,6 +49,7 @@ description=background task
 name=user
 type=admin
 link=/admin/_user
+order=1
 description=user list
 
 name=session
