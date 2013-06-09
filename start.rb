@@ -12,7 +12,7 @@ if DB_connect == "closed"
 	exit
 else
 	# load the module info
-	M = DB[:_mods].all
+	M = DB[:_mods].order(:order).all
 end
 
 if M.empty?
