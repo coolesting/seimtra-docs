@@ -1,7 +1,9 @@
 before do
 
 	#the title of head of html markup
-	@title = "Welcome to seimtra!"
+	@title 			= "Welcome to seimtra!"
+	@keywords		= ""
+	@description	= ""
 
 	#the fields for inserting to db
 	@fields	= {}
