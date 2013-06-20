@@ -32,10 +32,6 @@ helpers do
 		_tpl tpl
 	end
 
-	def _path_of_logout
-		_url('/_logout')
-	end
-
 	# == _login?
 	# check the current user whether it is existing in session
 	#
@@ -43,7 +39,7 @@ helpers do
 	# string, the unknown user will be redirect to the path
 	def _login? redirect_path = nil
 		info = _user
-		redirect_path = @_path_of_login if redirect_path == nil
+		redirect_path = @_path[:login] if redirect_path == nil
 		if info[:uid] < 1 and request.path != redirect_path
 			#response.set_cookie "ref_url", :value => request.path, :path => "/"
 			@qs[:come_from] = request.path
