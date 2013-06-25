@@ -57,6 +57,14 @@ helpers do
 		error L[:'your level is too low'] if _user[:level].to_i < level.to_i
 	end
 
+	def _rule name
+		uid = _user[:uid]
+		ds = DB[:_rule].filter(:name => name.to_s)
+		if rid = ds.get(:rid)
+			DB[:_urul].filter(:uid => uid, :rid => rid).empty? ? false : true
+		end
+	end
+
 	# == _user
 	# get the current user infomation by uid,
 	# this method will checks the uid whether it is existing in current session

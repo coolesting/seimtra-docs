@@ -1,14 +1,5 @@
 helpers do
 
-	def _rule name, uid = 0
-		uid = _user[:uid] if uid == 0
-		if DB[:_rule].filter(:name => name).empty?
-			DB[:_rule].insert(:name => name)
-		end
-		rid = DB[:_rule].filter(:name => name).get(:rid)
-		DB[:_urul].filter(:uid => uid, :rid => rid).empty? ? false : true
-	end
-
 	#return path
 	def _url path, options = {}
 		str = path
