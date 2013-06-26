@@ -53,11 +53,11 @@ helpers do
 
 	# == _level
 	# user level, if the user level less than the level given, it will be throw
-	def _level level
+	def _level? level
 		error L[:'your level is too low'] if _user[:level].to_i < level.to_i
 	end
 
-	def _rule name
+	def _rule? name
 		uid = _user[:uid]
 		ds = DB[:_rule].filter(:name => name.to_s)
 		if rid = ds.get(:rid)

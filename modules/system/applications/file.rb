@@ -1,7 +1,7 @@
 before '/_file/*' do
 	#set the level
 	if request.path == '/_file/upload'
-		_level _var(:upload_level, :file)
+		_level? _var(:upload_level, :file)
 	end
 end
 
