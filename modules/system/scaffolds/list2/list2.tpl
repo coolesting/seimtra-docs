@@ -19,4 +19,4 @@
 	p.page_bar
 		- for i in 1..@page_count
 			- page_focus = i == @page_curr ? "page_focus" : ""
-			span : a class="#{page_focus}" href="#{_url2(request.path, :page_curr => i)}" = i
+			span class="#{page_focus}" : a href="#{_url2(request.path, :page_curr => i)}" = i
