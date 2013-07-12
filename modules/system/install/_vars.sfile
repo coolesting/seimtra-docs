@@ -2,6 +2,10 @@ skey=level
 sval=10
 tag=system
 
+skey=home_page
+sval=/_index
+tag=system
+
 skey=administratorlevel
 sval=99
 tag=system

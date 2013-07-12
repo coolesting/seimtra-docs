@@ -7,27 +7,32 @@ get '/_login' do
 end
 
 post '/_login' do
-	_user_valid params[:name], params[:pawd]
+
+	data = _user_data
+	_set_fields [], data, true
+	_user_valid_fields
 
 	#user register 
 	if params[:userstate] == 'new'
 		if _var(:allow_register, :user) == 'yes'
-			_user_add params[:name], params[:pawd] 
+			_user_add @f
 		else
 			_throw L[:'the register is closed']
 		end
 	end
+
 	#user login
 	_login params[:name], params[:pawd]
 
-	return_page = @qs.include?(:come_from) ? @qs[:come_from] : @_path_after_login
+	#return
+	return_page = @qs.include?(:come_from) ? @qs[:come_from] : @_path[:after_login]
 	redirect return_page
 end
 
 helpers do
 
 	def _user_login tpl = :_login
-		redirect @_path_after_login if _user[:uid] > 0
+		redirect @_path[:after_login] if _user[:uid] > 0
 		@qs[:come_from] = request.referer unless @qs.include?(:come_from) 
 		_tpl tpl
 	end
@@ -97,7 +102,7 @@ helpers do
 		infos
 	end
 
-	def _logout return_url = @_path_after_login
+	def _logout return_url = @_path[:after_login]
 		sid = request.cookies['sid']
 		#remove from client
 		response.set_cookie "sid", :value => "", :path => "/"
@@ -107,25 +112,25 @@ helpers do
 	end
 
 	def _login name, pawd
-
-		_throw L[:'the user is not existing'] unless _user_exist? name
 		ds = DB[:_user].filter(:name => name)
-
-		#verity user
-		require "digest/sha1"
-		if ds.get(:pawd) == Digest::SHA1.hexdigest(pawd + ds.get(:salt))
-			#create a sid for current user login
-			sid = Digest::SHA1.hexdigest(name + Time.now.to_s)
-
-			#set sid to client cookie
-			response.set_cookie "sid", :value => sid, :path => "/"
-
-			#set sid at database
-			_session_create sid, ds.get(:uid)
+		if ds.empty?
+			_throw L[:'the user is not existing'] unless _user? name
 		else
-			_throw L[:'the password is wrong']
-		end
+			#verity user
+			require "digest/sha1"
+			if ds.get(:pawd) == Digest::SHA1.hexdigest(pawd + ds.get(:salt))
+				#create a sid for current user login
+				sid = Digest::SHA1.hexdigest(name + Time.now.to_s)
 
+				#set sid to client cookie
+				response.set_cookie "sid", :value => sid, :path => "/"
+
+				#set sid at database
+				_session_create sid, ds.get(:uid)
+			else
+				_throw L[:'the password is wrong']
+			end
+		end
 	end
 
 	def _user_delete uid
@@ -133,77 +138,55 @@ helpers do
 		DB[:_sess].filter(:uid => uid.to_i).delete
 	end
 
-	def _user_edit fields
+	def _user_edit f
 
-		if fields.include? :uid 
-			_throw L[:'no user id'] 
-		else
-			uid = fields[:uid].to_i
-		end
+		_throw L[:'no user id'] unless f.include? :uid
+		uid = f[:uid].to_i
 
-		ds = DB[:_user].filter(:uid => uid).all[0]
-		if ds
+		ds = DB[:_user].filter(:uid => uid)
+		unless ds.empty?
 			update_fields = {}
 
 			#password
-			if fields[:pawd] and fields[:pawd].strip.size > 2
-				update_fields[:pawd] = Digest::SHA1.hexdigest(fields[:pawd] + ds[:salt])
-			end
+			update_fields[:pawd] = Digest::SHA1.hexdigest(f[:pawd] + ds.get(:salt))
 
 			#user level
-			update_fields[:level] = fields[:level] if fields[:level] != ds[:level]
+			update_fields[:level] = f[:level] if f[:level] != ds.get(:level)
 
 			#user name
-			if fields[:name] and _user_name?(fields[:name]) == false
-				update_fields[:name] = fields[:name] 
-			end
+			update_fields[:name] = f[:name] if _user?(f[:name]) == 0
 
 			DB[:_user].filter(:uid => uid).update(update_fields)
 		end
 
 	end
 
-	#query the user name whether or not exist in database, if it is existing then return true
-	#otherwise, is false
-	def _user_name? name
-		DB[:_user].filter(:name => name).empty? ? false : true
+	#check the user by name , if existing, return uid, others is 0
+	def _user? name
+		uid = DB[:_user].filter(:name => name).get(:uid)
+		uid ? true : false
 	end
 
 	# == _user_add
 	# add a new user
 	#
 	# == Arguments
-	# name string
-	# pawd string
+	# an array includes name, pawd, level fields. 
 	#
 	# == Returned
 	# return uid, otherwise is 0
-	def _user_add name, pawd
-
-		fields 				= {}
-		fields[:name] 		= name
-		fields[:salt] 		= _random_string 5
-		fields[:created] 	= Time.now
+	def _user_add f = {}
+		f[:salt] 		= _random_string 5
+		f[:created] 	= Time.now
 
 		require "digest/sha1"
-		fields[:pawd] 		= Digest::SHA1.hexdigest(pawd.to_s + fields[:salt])
+		f[:pawd] 		= Digest::SHA1.hexdigest(f[:pawd] + f[:salt])
 
-		_throw L[:'the user is existing'] if _user_exist? name
+		_throw L[:'the user is existing'] if _user? f[:name]
 
-		DB[:_user].insert(fields)
-		uid = DB[:_user].filter(:name => name).get(:uid)
+		DB[:_user].insert(f)
+		uid = DB[:_user].filter(:name => f[:name]).get(:uid)
 		uid ? uid : 0
-
-	end
-
-	def _user_valid name, pawd
-		_throw L[:'the username need to bigger than two size'] if name.strip.size < 2
-		_throw L[:'the password need to bigger than two size'] if pawd.strip.size < 2
-	end
-
-	def _user_exist? name
-		uid = DB[:_user].filter(:name => name).get(:uid)
-		uid ? true : false
 	end
 
 	# == _session_update

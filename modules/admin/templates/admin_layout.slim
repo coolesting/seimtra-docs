@@ -1,11 +1,14 @@
 doctype html
 html
 	head
-		title = @title
+		title = @t[:title]
+		meta name="keywords" content="#{@t[:keywords]}"
+		meta name="description" content="#{@t[:description]}"
 		meta http-equiv="content-type" content="text/html; charset=UFT-8"
 		script src="#{_public('/js/jquery-172.js')}" type="text/javascript"
+		link rel="shortcut icon" href="#{_file(_var(:shortcut_icon, :system))}"
 		link rel='stylesheet' type='text/css' href='#{_public("/css/style.css")}'
-		link rel='stylesheet' type='text/css' href='#{_assets("/admin/css/admin.css")}'
+		link rel='stylesheet' type='text/css' href='#{_assets("/admin/css/main.css")}'
 		link rel='stylesheet' type='text/css' href='#{_public("/css/table-1.css")}'
 	body
 		#wrap
@@ -31,20 +34,8 @@ html
 
 			#main
 				#content.left == yield
+
 				#opt.right
-					- if @rightbar.include? :new
-						dl.dl-2
-							dt = L[:create]
-							dd
-								a href="#{request.path}/new"
-									button.button = L[:create]
-
-					- if @rightbar.include? :save
-						dl.dl-2
-							dt = L[:save]
-							dd
-								input.button type="submit" name="opt" value="#{L[:save]}" form="form"
-
 					- if @rightbar.include? :search
 						dl.dl-2
 							form action="#{request.path}" method="get"
@@ -54,18 +45,16 @@ html
 								dd
 									- unless @search.empty?
 										select name="sw"
-											- @search.each do | sk, sv |
-												option value="#{sk}" = sv
+											- @search.each do | v |
+												option value="#{v}" = L[v.to_sym]
 									input.button type="submit" value="#{L[:search]}"
 
 				#footer.clear
 
-		== _inc(:_editor)
 		== _inc(:_select)
 
 		javascript:
 
-			$('textarea').linyu_editor();
 			$('select').linyu_select();
 
 			$("#top_menu li").mouseover(function(){

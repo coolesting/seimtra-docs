@@ -1,12 +1,15 @@
 before do
 
-	#the title of head of html markup
-	@title 			= "Welcome to seimtra!"
-	@keywords		= ""
-	@description	= ""
+	#the variable of template
+	@t = {}
+	@t[:title] 			= "Welcome to seimtra!"
+	@t[:keywords]		= ""
+	@t[:description]	= ""
 
-	#the fields for inserting to db
-	@fields	= {}
+	#the fields fills with form value
+	@f	= {}
+	#the fields fills with default value
+	@fd = {}
 
 	#request query_string
 	@qs	= {}

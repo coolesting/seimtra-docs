@@ -1,6 +1,6 @@
 get '/admin/iocsv' do
 	@encoding = _var(:encoding) != "" ? _var(:encoding) : settings.default_encoding
-	_tpl :admin_iocsv
+	_tpl :_iocsv
 end
 
 #export

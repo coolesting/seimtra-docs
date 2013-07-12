@@ -1,12 +1,12 @@
-name=system
-pawd=system
-salt=xcvxc
-level=99
-
 name=tester
 pawd=tester
 salt=ABCde
 level=1
+
+name=system
+pawd=system
+salt=xcvxc
+level=99
 
 name=debug
 pawd=debug

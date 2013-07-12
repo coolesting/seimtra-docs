@@ -1,0 +1,8 @@
+form.form action="#{_url2(request.path)}" method="post" id="form" enctype="multipart/form-data"
+	p
+		input.button.mr10 type="submit" value="#{L[:done]}"
+		a href="#{_url2(request.referer)}"
+			button.button = L[:return]
+	
+	p : input type="file" name="upload"
+ 

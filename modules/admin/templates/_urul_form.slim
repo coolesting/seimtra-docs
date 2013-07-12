@@ -1,0 +1,17 @@
+form.form action="#{_url2(request.path)}" method="post" id="form"
+	p
+		input.button.mr10 type="submit" value="#{L[:done]}"
+		a href="#{_url2(request.referer)}"
+			button.button = L[:return]
+	
+		
+	- if @f.has_key?(:uid)
+		p : label = L[:uid]
+		p : input type="text" name="uid" required="required" value="#{@f[:uid]}"
+		
+	- if @f.has_key?(:rid)
+		p : label = L[:rid]
+		p : input type="text" name="rid" required="required" value="#{@f[:rid]}"
+		
+
+ 

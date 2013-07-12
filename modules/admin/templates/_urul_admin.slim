@@ -1,0 +1,31 @@
+form.form
+	p
+		a href="#{_url(request.path + '/form')}"
+			button.button = L[:create]
+
+table.table
+	thead
+		th : a href="#{_url(request.path, :order => 'urid')}" = L[:urid]
+		th : a href="#{_url(request.path, :order => 'uid')}" = L[:uid]
+		th : a href="#{_url(request.path, :order => 'rid')}" = L[:rid]
+		th
+		th
+	tbody
+		- @_urul.each do | row |
+			tr
+				td = row[:urid]
+				td = row[:uid]
+				td = row[:rid]
+
+				td
+					a href="#{_url(request.path + '/form', :urid => row[:urid])}"
+						img src="#{_public('/icons/edit.png')}"
+				td	
+					a href="#{_url('/admin/_urul/rm', :urid => row[:urid])}"
+						img src="#{_public('/icons/delete.png')}"
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url2(request.path, :page_curr => i)}" = i

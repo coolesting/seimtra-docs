@@ -4,6 +4,7 @@ Sequel.migration do
 			primary_key :vid
 			String :skey
 			String :sval
+			String :description
 			Integer :tid, :default => 1
 			DateTime :changed
 		end

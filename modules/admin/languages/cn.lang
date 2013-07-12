@@ -73,3 +73,5 @@ tag=标签
 session=会话
 user rule=用户角色
 module=模块
+dependency=依赖
+return=返回

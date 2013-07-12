@@ -3,6 +3,6 @@ get '/a' do
 end
 
 get '/admin/' do
-  	_tpl :admin_info
+  	_tpl :_info
 end
 

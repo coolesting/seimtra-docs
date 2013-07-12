@@ -1,5 +1,10 @@
 html, head, body, form, table, thead, tbody, th, tr, td, div, p, a, ul, ol, li, p, h1, h2, h3, h4 {margin: 0;padding: 0;}
 ul li {list-style-type: none;}
+
+#wrap {margin: 20px;}
+#msg {clear: both; width: 100%;}
+#footer {height: 100px; padding: 20px; margin: 20px 0;}
+
 .clear {clear: both; margin-bottom: 10px;}
 .white {color: white;}
 .left {float: left;}
@@ -7,11 +12,21 @@ ul li {list-style-type: none;}
 .width100 {width: 100%;}
 .width99 {width: 99%;}
 .hide {display: none;}
-
-.page_bar a {padding: 2px;}
-.page_focus {background: #000; color: white;}
-#msg {clear: both; width: 100%;}
-#footer {height: 100px; padding: 20px; margin: 20px 0;}
+.button {width: 100px;}
+.page_bar {margin: 10px 0;}
+.page_bar a {padding: 3px; margin-right: 5px; color: black;}
+.page_focus a {background: #E7ECF0; font-weight: 900;}
 .mr10 {margin-right: 10px;}
 .mb10 {margin-bottom: 10px;}
 .mrb10 {margin: 0 10px 10px 0;}
+.text-overflow {
+	display: block;
+	word-break: keep-all;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.form p {margin-bottom: 10px;}
+.form textarea {width: 500px; height: 200px;}
+.form input[type="text"] {width: 400px;}
+

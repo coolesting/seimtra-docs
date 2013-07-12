@@ -7,7 +7,7 @@ description=a system administrator page.
 name=home
 type=admin
 link=/
-order=9
+order=20
 description=a home page
 
 name=module
@@ -93,3 +93,4 @@ menu_name=user
 type=admin
 link=/admin/_urul
 description=user rule
+

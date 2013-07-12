@@ -1,0 +1,40 @@
+form.form
+	p
+		a href="#{_url(request.path + '/form')}"
+			button.button = L[:create]
+
+table.table
+	thead
+		th : a href="#{_url(request.path, :order => 'doid')}" = L[:doid]
+		th : a href="#{_url(request.path, :order => 'uid')}" = L[:uid]
+		th : a href="#{_url(request.path, :order => 'tid')}" = L[:tag]
+		th : a href="#{_url(request.path, :order => 'name')}" = L[:name]
+		th : a href="#{_url(request.path, :order => 'body')}" = L[:body]
+		th : a href="#{_url(request.path, :order => 'created')}" = L[:created]
+		th : a href="#{_url(request.path, :order => 'changed')}" = L[:changed]
+		th
+		th
+	tbody
+		- _tagss = _kv(:_tags, :tid, :name)
+		- @_docs.each do | row |
+			tr
+				td = row[:doid]
+				td = row[:uid]
+				td = _tagss[row[:tid]]
+				td = row[:name]
+				td = row[:body]
+				td = row[:created]
+				td = row[:changed]
+
+				td.edit
+					a href="#{_url(request.path + '/form', :doid => row[:doid])}"
+						img src="#{_public('/icons/edit.png')}"
+				td.delete
+					a href="#{_url('/admin/_docs/rm', :doid => row[:doid])}"
+						img src="#{_public('/icons/delete.png')}"
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span class="#{page_focus}" : a href="#{_url2(request.path, :page_curr => i)}" = i

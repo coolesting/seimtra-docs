@@ -1,0 +1,41 @@
+form.form action="#{_url2(request.path)}" method="post" id="form"
+	p
+		input.button.mr10 type="submit" value="#{L[:done]}"
+		a href="#{_url2(request.referer)}"
+			button.button = L[:return]
+	
+		
+	- if @f.has_key?(:tid)
+		p : label = L[:tag]
+		- _tagss = _kv(:_tags, :tid, :name)
+		p : select name="tid" required="required"
+			- _tagss.each do | k,v |
+				- selected = @f[:tid] == k ? "selected" : ""
+				option selected="#{selected}" value="#{k}" = v
+		
+	- if @f.has_key?(:uid)
+		p : label = L[:uid]
+		p : input type="text" name="uid" required="required" value="#{@f[:uid]}"
+		
+	- if @f.has_key?(:preid)
+		p : label = L[:preid]
+		p : input type="text" name="preid" required="required" value="#{@f[:preid]}"
+		
+	- if @f.has_key?(:order)
+		p : label = L[:order]
+		p : input type="text" name="order" required="required" value="#{@f[:order]}"
+		
+	- if @f.has_key?(:name)
+		p : label = L[:name]
+		p : input type="text" name="name" required="required" value="#{@f[:name]}"
+		
+	- if @f.has_key?(:link)
+		p : label = L[:link]
+		p : input type="text" name="link" required="required" value="#{@f[:link]}"
+		
+	- if @f.has_key?(:description)
+		p : label = L[:description]
+		p : input type="text" name="description" required="required" value="#{@f[:description]}"
+		
+
+ 

@@ -1,0 +1,38 @@
+form.form
+	p
+		a href="#{_url(request.path + '/form')}"
+			button.button = L[:create]
+
+table.table
+	thead
+		th : a href="#{_url(request.path, :order => 'vid')}" = L[:vid]
+		th : a href="#{_url(request.path, :order => 'skey')}" = L[:skey]
+		th : a href="#{_url(request.path, :order => 'sval')}" = L[:sval]
+		th : a href="#{_url(request.path, :order => 'description')}" = L[:description]
+		th : a href="#{_url(request.path, :order => 'tid')}" = L[:tag]
+		th : a href="#{_url(request.path, :order => 'changed')}" = L[:changed]
+		th
+		th
+	tbody
+		- _tagss = _kv(:_tags, :tid, :name)
+		- @_vars.each do | row |
+			tr
+				td = row[:vid]
+				td = row[:skey]
+				td = row[:sval]
+				td = row[:description]
+				td = _tagss[row[:tid]]
+				td = row[:changed]
+
+				td
+					a href="#{_url(request.path + '/form', :vid => row[:vid])}"
+						img src="#{_public('/icons/edit.png')}"
+				td	
+					a href="#{_url('/admin/_vars/rm', :vid => row[:vid])}"
+						img src="#{_public('/icons/delete.png')}"
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url2(request.path, :page_curr => i)}" = i

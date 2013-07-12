@@ -96,12 +96,14 @@ helpers do
 
 	#load the template, and set the layout automatically
 	def _tpl tpl_name, layout = :layout
+		if layout == nil
+			slim tpl_name, :layout => false
 		#default layout
-		if layout == :layout
+		else
 			module_name = request.path.split("/")[1]
-			layout = "#{module_name}_layout" if Slayout.include? module_name
+			layout = "#{module_name}_layout".to_sym if Slayout.include? module_name
+			slim tpl_name, :layout => layout
 		end
-		slim tpl_name, :layout => layout.to_sym
 	end
 
 	#return a random string with the size given
@@ -115,8 +117,8 @@ helpers do
 		DB[:_vars].filter(:skey => key.to_s, :tid => _tag(tag)).get(:sval)
 	end
 
-	#return an array
-	def _vars key = '', tag = nil
+	#return an array, split by ","
+	def _var2 key = '', tag = nil
 		res = []
 		ds = DB[:_vars].filter(:skey => key.to_s, :tid => _tag(tag))
 		unless ds.empty?
@@ -139,6 +141,35 @@ helpers do
 		else
 			ds.update(:sval => val, :changed => Time.now, :tid => _tag(tag))
 		end
+	end
+
+	#set the field values
+	#
+	#== Arguments
+	# fields, which field need to set , null is all
+	# data,   default values of field
+	# full,	  fill the @f with default values
+	def _set_fields fields = [], data = {}, full = false
+		fields 	= data.keys if fields.empty?
+		@f = data if full == true
+
+		fields.each do | k |
+			if params[k]
+				@f[k] = params[k]
+			elsif @qs.include? k
+				@f[k] = @qs[k]
+			else
+				@f[k] = data[k]
+			end
+		end
+	end
+
+	def _valid name = ''
+		V[name].map { |b| instance_eval(&b) } if V[name]
+	end
+
+	def _data name = ''
+		D[name].map { |b| instance_eval(&b) }.inject(:merge) if D[name]
 	end
 
 end

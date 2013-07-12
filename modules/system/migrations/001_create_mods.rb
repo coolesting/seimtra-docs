@@ -10,7 +10,7 @@ Sequel.migration do
 			String :author
 			String :version
 			String :description
-			String :dependon
+			String :dependence
 			DateTime :created
 		end
 	end

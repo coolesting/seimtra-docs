@@ -1,0 +1,29 @@
+form.form
+	p
+		a href="#{_url(request.path + '/form')}"
+			button.button = L[:create]
+
+table.table
+	thead
+		th : a href="#{_url(request.path, :order => 'tid')}" = L[:tid]
+		th : a href="#{_url(request.path, :order => 'name')}" = L[:name]
+		th
+		th
+	tbody
+		- @_tags.each do | row |
+			tr
+				td = row[:tid]
+				td = row[:name]
+
+				td
+					a href="#{_url(request.path + '/form', :tid => row[:tid])}"
+						img src="#{_public('/icons/edit.png')}"
+				td	
+					a href="#{_url('/admin/_tags/rm', :tid => row[:tid])}"
+						img src="#{_public('/icons/delete.png')}"
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url2(request.path, :page_curr => i)}" = i

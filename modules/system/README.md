@@ -11,12 +11,10 @@ Any db tables, methods, templates(except layout.slim) of core module that use th
 	_mods		-- module information, define the module basic content
 	_vars		-- system setting variables
 	_menu		-- basic navigation menu, basically, every page needs it
-	_lang		-- language translation, like i18n
 	_task		-- background task
 
 	_user		-- user basic data
 	_sess		-- user session
-	_tick		-- ticket for logining user
 
 #### Extension data construct
 

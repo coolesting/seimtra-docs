@@ -1,0 +1,38 @@
+form.form
+	p
+
+table.table
+	thead
+		th : a href="#{_url(request.path, :order => 'mid')}" = L[:mid]
+		th : a href="#{_url(request.path, :order => 'order')}" = L[:order]
+		th : a href="#{_url(request.path, :order => 'status')}" = L[:status]
+		th : a href="#{_url(request.path, :order => 'tid')}" = L[:tag]
+		th : a href="#{_url(request.path, :order => 'name')}" = L[:name]
+		th : a href="#{_url(request.path, :order => 'email')}" = L[:email]
+		th : a href="#{_url(request.path, :order => 'author')}" = L[:author]
+		th : a href="#{_url(request.path, :order => 'version')}" = L[:version]
+		th : a href="#{_url(request.path, :order => 'description')}" = L[:description]
+		th : a href="#{_url(request.path, :order => 'dependence')}" = L[:dependence]
+		th : a href="#{_url(request.path, :order => 'created')}" = L[:created]
+	tbody
+		- _tagss = _kv(:_tags, :tid, :name)
+		- @_mods.each do | row |
+			tr
+				td = row[:mid]
+				td = row[:order]
+				td = row[:status]
+				td = _tagss[row[:tid]]
+				td = row[:name]
+				td = row[:email]
+				td = row[:author]
+				td = row[:version]
+				td = row[:description]
+				td = row[:dependence]
+				td = row[:created]
+
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span : a class="#{page_focus}" href="#{_url2(request.path, :page_curr => i)}" = i

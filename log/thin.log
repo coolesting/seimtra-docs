@@ -17,3 +17,1041 @@
 127.0.0.1 - - [26/Apr/2013 01:10:15] "GET /work/home HTTP/1.1" 200 1409 0.0222
 >> Waiting for 1 connection(s) to finish, can take up to 30 sec, CTRL+C to stop now
 >> Exiting!
+>> Writing PID to tmp/pids/thin.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3000, CTRL+C to stop
+127.0.0.1 - - [26/Jun/2013 20:31:17] "GET /admin/_docs?opt=new& HTTP/1.1" 200 23926 0.1044
+127.0.0.1 - - [26/Jun/2013 20:31:17] "GET /css/style.css HTTP/1.1" 304 - 0.0013
+127.0.0.1 - - [26/Jun/2013 20:31:17] "GET /_assets/admin/css/admin.css HTTP/1.1" 304 - 0.0141
+127.0.0.1 - - [26/Jun/2013 20:31:17] "GET /css/table-1.css HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:17] "GET /js/jquery-172.js HTTP/1.1" 304 - 0.0124
+127.0.0.1 - - [26/Jun/2013 20:31:20] "GET /admin/_docs?opt=new& HTTP/1.1" 200 23926 0.0715
+127.0.0.1 - - [26/Jun/2013 20:31:26] "GET /admin/_docs?opt=new& HTTP/1.1" 200 23926 0.0831
+127.0.0.1 - - [26/Jun/2013 20:31:55] "GET /admin/_docs?opt=new& HTTP/1.1" 200 23927 0.0777
+127.0.0.1 - - [26/Jun/2013 20:31:55] "GET /css/style.css HTTP/1.1" 304 - 0.0005
+127.0.0.1 - - [26/Jun/2013 20:31:55] "GET /_assets/admin/css/admin.css HTTP/1.1" 304 - 0.0005
+127.0.0.1 - - [26/Jun/2013 20:31:55] "GET /css/table-1.css HTTP/1.1" 304 - 0.0004
+127.0.0.1 - - [26/Jun/2013 20:31:55] "GET /js/jquery-172.js HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /admin/_docs?opt=form& HTTP/1.1" 200 23506 0.0712
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /_file/type/picture HTTP/1.1" 200 208 0.1747
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/h3.png HTTP/1.1" 304 - 0.0115
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/italic.png HTTP/1.1" 304 - 0.0024
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/h1.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/h2.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/separator.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/bold.png HTTP/1.1" 304 - 0.0009
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/ol.png HTTP/1.1" 304 - 0.0004
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/quotes.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/code.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/ul.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /_file/get/2 HTTP/1.1" 304 - 0.0418
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /_file/get/3 HTTP/1.1" 304 - 0.0011
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /_file/get/1 HTTP/1.1" 304 - 0.0008
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/picture.png HTTP/1.1" 304 - 0.0004
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/link.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:31:57] "GET /icons/folder.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:32:25] "POST /admin/_docs HTTP/1.1" 303 - 0.0283
+127.0.0.1 - - [26/Jun/2013 20:32:25] "GET /admin/_docs HTTP/1.1" 200 23927 0.0797
+127.0.0.1 - - [26/Jun/2013 20:32:29] "GET /admin/_docs HTTP/1.1" 200 23927 0.0775
+127.0.0.1 - - [26/Jun/2013 20:33:06] "GET /admin/_docs?opt=form& HTTP/1.1" 200 23506 0.0683
+127.0.0.1 - - [26/Jun/2013 20:33:06] "GET /_file/type/picture HTTP/1.1" 200 208 0.0026
+>> Exiting!
+>> Writing PID to tmp/pids/thin.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3000, CTRL+C to stop
+127.0.0.1 - - [26/Jun/2013 20:36:48] "GET /admin/_docs HTTP/1.1" 200 23927 0.0871
+127.0.0.1 - - [26/Jun/2013 20:36:49] "GET /admin/_docs?opt=form& HTTP/1.1" 200 23541 0.0813
+127.0.0.1 - - [26/Jun/2013 20:36:49] "GET /_file/type/picture HTTP/1.1" 200 208 0.0174
+127.0.0.1 - - [26/Jun/2013 20:37:01] "POST /admin/_docs HTTP/1.1" 303 - 0.0409
+127.0.0.1 - - [26/Jun/2013 20:37:01] "GET /admin/_docs HTTP/1.1" 200 24255 0.0725
+127.0.0.1 - - [26/Jun/2013 20:37:10] "GET /admin/_docs?opt=form& HTTP/1.1" 200 23541 0.0681
+127.0.0.1 - - [26/Jun/2013 20:37:10] "GET /_file/type/picture HTTP/1.1" 200 208 0.0040
+127.0.0.1 - - [26/Jun/2013 20:37:28] "POST /admin/_docs HTTP/1.1" 303 - 0.0180
+127.0.0.1 - - [26/Jun/2013 20:37:28] "GET /admin/_docs HTTP/1.1" 200 24595 0.0922
+>> Exiting!
+>> Writing PID to tmp/pids/thin.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3000, CTRL+C to stop
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /admin/_docs HTTP/1.1" 200 24595 0.0996
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /css/style.css HTTP/1.1" 304 - 0.0014
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /_assets/admin/css/admin.css HTTP/1.1" 304 - 0.0006
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /css/table-1.css HTTP/1.1" 304 - 0.0004
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /js/jquery-172.js HTTP/1.1" 304 - 0.0004
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /icons/edit.png HTTP/1.1" 304 - 0.0006
+127.0.0.1 - - [26/Jun/2013 20:47:01] "GET /icons/delete.png HTTP/1.1" 304 - 0.0003
+127.0.0.1 - - [26/Jun/2013 20:47:03] "GET /admin/_docs?order=body& HTTP/1.1" 200 24595 0.0709
+127.0.0.1 - - [26/Jun/2013 20:47:05] "GET /admin/_docs?order=body& HTTP/1.1" 200 24595 0.0784
+127.0.0.1 - - [26/Jun/2013 20:47:06] "GET /admin/_docs?order=name& HTTP/1.1" 200 24595 0.0731
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/interpolation.rb:29: [BUG] rb_gc_mark(): unknown data type 0x1f(0xa2f8c80) non object
+ruby 2.0.0p0 (2013-02-24 revision 39474) [i686-linux]
+
+-- Control frame information -----------------------------------------------
+c:0109 p:0146 s:0535 e:000534 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/interpolation.rb:29
+c:0108 p:0182 s:0528 e:000527 METHOD (eval):7
+c:0107 p:0009 s:0524 e:000523 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49
+c:0106 p:0011 s:0520 e:000518 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7 [FINISH]
+c:0105 p:---- s:0516 e:000515 CFUNC  :each
+c:0104 p:0014 s:0513 e:000512 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7
+c:0103 p:0469 s:0508 e:000507 METHOD (eval):47
+c:0102 p:0009 s:0504 e:000503 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49
+c:0101 p:0013 s:0500 e:000497 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/dispatcher.rb:22
+c:0100 p:0371 s:0494 e:000493 METHOD (eval):30
+c:0099 p:0009 s:0490 e:000489 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49
+c:0098 p:0037 s:0486 e:000484 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/dispatcher.rb:27
+c:0097 p:0385 s:0478 e:000477 METHOD (eval):32
+c:0096 p:0009 s:0474 e:000473 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49
+c:0095 p:0011 s:0470 e:000468 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7 [FINISH]
+c:0094 p:---- s:0466 e:000465 CFUNC  :each
+c:0093 p:0014 s:0463 e:000462 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7
+c:0092 p:0469 s:0458 e:000457 METHOD (eval):47
+c:0091 p:0009 s:0454 e:000453 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49
+c:0090 p:0009 s:0450 e:000449 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:45
+c:0089 p:0010 s:0446 e:000445 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb:50 [FINISH]
+c:0088 p:---- s:0442 e:000441 IFUNC 
+c:0087 p:---- s:0440 e:000439 CFUNC  :each
+c:0086 p:---- s:0438 e:000437 CFUNC  :inject
+c:0085 p:0011 s:0434 e:000433 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb:50
+c:0084 p:0036 s:0430 e:000429 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/template.rb:10
+c:0083 p:0063 s:0424 e:000423 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/templates/tilt.rb:28
+c:0082 p:0148 s:0420 E:000154 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:70 [FINISH]
+c:0081 p:---- s:0413 e:000412 CFUNC  :new
+c:0080 p:0217 s:0407 E:0026a8 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:834
+c:0079 p:0020 s:0400 e:000396 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt.rb:127
+c:0078 p:0027 s:0393 E:001580 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:813
+c:0077 p:0328 s:0385 e:000384 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:794
+c:0076 p:0025 s:0366 e:000365 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:727
+c:0075 p:0015 s:0359 e:000358 METHOD /home/zcdny/repo/info/modules/system/applications/helpers.rb:88
+c:0074 p:0625 s:0355 e:000352 BLOCK  /home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:64 [FINISH]
+c:0073 p:---- s:0350 e:000349 CFUNC  :instance_eval
+c:0072 p:0030 s:0347 e:000346 CLASS  /home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:131070
+c:0071 p:0031 s:0343 e:000342 METHOD /home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:131068 [FINISH]
+c:0070 p:---- s:0339 e:000338 CFUNC  :call
+c:0069 p:0027 s:0335 e:000334 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:144
+c:0068 p:0034 s:0328 e:000327 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:77
+c:0067 p:0342 s:0322 e:000321 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:795
+c:0066 p:0015 s:0303 E:0007a4 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:804 [FINISH]
+c:0065 p:---- s:0301 e:000300 CFUNC  :catch
+c:0064 p:0399 s:0297 E:00241c METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:804
+c:0063 p:0025 s:0278 e:000277 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:727
+c:0062 p:0071 s:0271 e:000270 METHOD /home/zcdny/repo/info/modules/system/applications/helpers.rb:104
+c:0061 p:0211 s:0265 e:000264 METHOD /home/zcdny/repo/info/modules/admin/applications/admin__docs.rb:87
+c:0060 p:0098 s:0261 e:000260 LAMBDA /home/zcdny/repo/info/modules/admin/applications/admin__docs.rb:12 [FINISH]
+c:0059 p:---- s:0258 e:000257 CFUNC  :call
+c:0058 p:0012 s:0255 e:000254 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1538 [FINISH]
+c:0057 p:---- s:0251 e:000250 CFUNC  :[]
+c:0056 p:0011 s:0246 e:000245 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:947
+c:0055 p:0009 s:0244 e:000241 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:963
+c:0054 p:0023 s:0239 e:000238 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:947
+c:0053 p:0029 s:0236 e:000235 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:984 [FINISH]
+c:0052 p:---- s:0234 e:000233 CFUNC  :catch
+c:0051 p:0134 s:0230 e:000229 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:982
+c:0050 p:0013 s:0219 e:000218 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:945 [FINISH]
+c:0049 p:---- s:0213 e:000212 CFUNC  :each
+c:0048 p:0034 s:0210 e:000209 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:944
+c:0047 p:0042 s:0204 e:000203 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1056
+c:0046 p:0006 s:0202 e:000201 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038 [FINISH]
+c:0045 p:---- s:0200 e:000199 CFUNC  :catch
+c:0044 p:0009 s:0196 e:000195 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038
+c:0043 p:0007 s:0192 e:000191 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1053
+c:0042 p:0007 s:0188 e:000187 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:879
+c:0041 p:0006 s:0186 e:000185 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038 [FINISH]
+c:0040 p:---- s:0184 e:000183 CFUNC  :catch
+c:0039 p:0009 s:0180 e:000179 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038
+c:0038 p:0092 s:0176 e:000175 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:879
+c:0037 p:0011 s:0172 e:000171 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:867
+c:0036 p:0011 s:0168 e:000167 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/xss_header.rb:18
+c:0035 p:0047 s:0161 e:000160 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/path_traversal.rb:16
+c:0034 p:0026 s:0156 e:000155 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/json_csrf.rb:18
+c:0033 p:0051 s:0148 e:000147 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/base.rb:49
+c:0032 p:0051 s:0143 e:000142 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/base.rb:49
+c:0031 p:0011 s:0138 e:000137 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/frame_options.rb:31
+c:0030 p:0054 s:0131 e:000130 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/logger.rb:15
+c:0029 p:0024 s:0126 e:000125 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/commonlogger.rb:33
+c:0028 p:0020 s:0118 e:000117 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:209
+c:0027 p:0029 s:0114 e:000113 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:202
+c:0026 p:0011 s:0110 e:000109 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/head.rb:11
+c:0025 p:0075 s:0103 e:000102 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21
+c:0024 p:0011 s:0098 e:000097 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/showexceptions.rb:21
+c:0023 p:0011 s:0090 e:000089 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:172
+c:0022 p:0011 s:0084 e:000083 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1946
+c:0021 p:0011 s:0080 e:000079 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1446
+c:0020 p:0023 s:0078 e:000077 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1723
+c:0019 p:0007 s:0074 E:0000b8 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1446
+c:0018 p:0014 s:0070 e:000069 BLOCK  /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:81 [FINISH]
+c:0017 p:---- s:0068 e:000067 CFUNC  :catch
+c:0016 p:0091 s:0064 e:000063 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:79
+c:0015 p:0060 s:0059 e:000057 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:54
+c:0014 p:0031 s:0055 e:000054 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:39 [FINISH]
+c:0013 p:---- s:0050 e:000049 CFUNC  :run_machine
+c:0012 p:0267 s:0047 e:000046 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/eventmachine.rb:187
+c:0011 p:0050 s:0040 E:001808 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/backends/base.rb:63
+c:0010 p:0111 s:0036 e:000035 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/server.rb:159
+c:0009 p:0429 s:0033 E:0011a8 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:86
+c:0008 p:0238 s:0029 e:000028 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/runner.rb:187
+c:0007 p:0021 s:0024 e:000023 METHOD /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/runner.rb:152
+c:0006 p:0030 s:0021 e:000020 TOP    /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/bin/thin:6 [FINISH]
+c:0005 p:---- s:0019 e:000018 CFUNC  :load
+c:0004 p:0118 s:0015 E:00255c EVAL   /home/zcdny/.rvm/gems/ruby-2.0.0-p0/bin/thin:23 [FINISH]
+c:0003 p:---- s:0011 e:000010 CFUNC  :eval
+c:0002 p:0072 s:0005 E:001e30 EVAL   /home/zcdny/.rvm/gems/ruby-2.0.0-p0/bin/ruby_noexec_wrapper:14 [FINISH]
+c:0001 p:0000 s:0002 E:002334 TOP    [FINISH]
+
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/bin/ruby_noexec_wrapper:14:in `<main>'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/bin/ruby_noexec_wrapper:14:in `eval'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/bin/thin:23:in `<main>'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/bin/thin:23:in `load'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:86:in `start'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/server.rb:159:in `start'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/backends/base.rb:63:in `start'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/eventmachine.rb:187:in `run'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/eventmachine.rb:187:in `run_machine'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:39:in `receive_data'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:54:in `process'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:79:in `pre_process'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:79:in `catch'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb:81:in `block in pre_process'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1446:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1723:in `synchronize'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1446:in `block in call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1946:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:172:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/showexceptions.rb:21:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:202:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:209:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/commonlogger.rb:33:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/logger.rb:15:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/frame_options.rb:31:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/base.rb:49:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/base.rb:49:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/json_csrf.rb:18:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/path_traversal.rb:16:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/xss_header.rb:18:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:867:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:879:in `call!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038:in `invoke'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038:in `catch'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038:in `block in invoke'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:879:in `block in call!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1053:in `dispatch!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038:in `invoke'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038:in `catch'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1038:in `block in invoke'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1056:in `block in dispatch!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:944:in `route!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:944:in `each'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:945:in `block in route!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:982:in `process_route'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:982:in `catch'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:984:in `block in process_route'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:947:in `block (2 levels) in route!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:963:in `route_eval'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:947:in `block (3 levels) in route!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:947:in `[]'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1538:in `block in compile!'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:1538:in `call'
+/home/zcdny/repo/info/modules/admin/applications/admin__docs.rb:12:in `block in <top (required)>'
+/home/zcdny/repo/info/modules/admin/applications/admin__docs.rb:87:in `_docs_view'
+/home/zcdny/repo/info/modules/system/applications/helpers.rb:104:in `_tpl'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:727:in `slim'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:804:in `render'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:804:in `catch'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:804:in `block in render'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:795:in `render'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:77:in `render'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:144:in `evaluate'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:144:in `call'
+/home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:131068:in `__tilt_76148550'
+/home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:131070:in `singleton class'
+/home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:131070:in `instance_eval'
+/home/zcdny/repo/info/modules/admin/templates/admin_layout.slim:64:in `block in singleton class'
+/home/zcdny/repo/info/modules/system/applications/helpers.rb:88:in `_inc'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:727:in `slim'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:794:in `render'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:813:in `compile_template'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt.rb:127:in `fetch'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:834:in `block in compile_template'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb:834:in `new'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb:70:in `initialize'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/templates/tilt.rb:28:in `prepare'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/template.rb:10:in `compile'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb:50:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb:50:in `inject'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb:50:in `each'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb:50:in `block in call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:45:in `call'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49:in `compile'
+(eval):47:in `dispatcher'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7:in `on_multi'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7:in `each'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7:in `block in on_multi'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49:in `compile'
+(eval):32:in `dispatcher'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/dispatcher.rb:27:in `on_html_tag'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49:in `compile'
+(eval):30:in `dispatcher'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/dispatcher.rb:22:in `on_html_js'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49:in `compile'
+(eval):47:in `dispatcher'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7:in `on_multi'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7:in `each'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:7:in `block in on_multi'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb:49:in `compile'
+(eval):7:in `dispatcher'
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/interpolation.rb:29:in `on_slim_interpolate'
+
+-- C level backtrace information -------------------------------------------
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19f512) [0x78c512] vm_dump.c:647
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x5a45f) [0x64745f] error.c:283
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_bug+0x49) [0x6476a9] error.c:302
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x7540c) [0x66240c] gc.c:2890
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x75b70) [0x662b70] gc.c:2904
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x773fa) [0x6643fa] gc.c:2069
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_newobj_of+0x29) [0x664699] gc.c:686
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x12f9d2) [0x71c9d2] string.c:376
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_str_subseq+0x65) [0x725545] string.c:1659
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_reg_match_post+0x59) [0x6e3339] re.c:1540
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1906b8) [0x77d6b8] vm_insnhelper.c:254
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_yield+0x73) [0x788873] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_ary_each+0x55) [0x60d8b5] array.c:1678
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d1f) [0x76fd1f] vm_insnhelper.c:1300
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_yield+0x73) [0x788873] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_ary_each+0x55) [0x60d8b5] array.c:1678
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d1f) [0x76fd1f] vm_insnhelper.c:1300
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_yield_values+0xa4) [0x788764] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x502f7) [0x63d2f7] enum.c:521
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x188b8a) [0x775b8a] vm_insnhelper.c:2026
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_yield+0x73) [0x788873] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_ary_each+0x55) [0x60d8b5] array.c:1678
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d1f) [0x76fd1f] vm_insnhelper.c:1300
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x193ed9) [0x780ed9] vm_eval.c:117
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x195563) [0x782563] vm_eval.c:49
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_iterate+0xcd) [0x77288d] vm_eval.c:1038
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_block_call+0x4d) [0x772acd] vm_eval.c:1120
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x50efd) [0x63defd] enum.c:614
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x193c37) [0x780c37] vm_eval.c:170
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_funcall2+0x99) [0x782869] vm_eval.c:49
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_obj_call_init+0x58) [0x6496c8] eval.c:1230
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_class_new_instance+0x3a) [0x6a0aba] object.c:1747
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18c86d) [0x77986d] insns.def:1017
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19c920) [0x789920] vm.c:648
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19ca3e) [0x789a3e] vm_eval.c:1527
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x193c37) [0x780c37] vm_eval.c:170
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1941ec) [0x7811ec] vm_eval.c:49
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_method_call+0x165) [0x650ca5] proc.c:1548
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19b5b7) [0x7885b7] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_catch_obj+0xaf) [0x771bff] vm_eval.c:1804
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x185c26) [0x772c26] vm_eval.c:1780
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1939c5) [0x7809c5] vm.c:648
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x193cd8) [0x780cd8] vm_insnhelper.c:1560
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1941ec) [0x7811ec] vm_eval.c:49
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_method_call+0x165) [0x650ca5] proc.c:1548
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18c86d) [0x77986d] insns.def:1017
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1939c5) [0x7809c5] vm.c:648
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x66a6d) [0x653a6d] proc.c:578
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19b5b7) [0x7885b7] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_catch_obj+0xaf) [0x771bff] vm_eval.c:1804
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x185c26) [0x772c26] vm_eval.c:1780
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_yield+0x73) [0x788873] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_ary_each+0x55) [0x60d8b5] array.c:1678
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d1f) [0x76fd1f] vm_insnhelper.c:1300
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19b5b7) [0x7885b7] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_catch_obj+0xaf) [0x771bff] vm_eval.c:1804
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x185c26) [0x772c26] vm_eval.c:1780
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19b5b7) [0x7885b7] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_catch_obj+0xaf) [0x771bff] vm_eval.c:1804
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x185c26) [0x772c26] vm_eval.c:1780
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19b5b7) [0x7885b7] vm.c:679
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_catch_obj+0xaf) [0x771bff] vm_eval.c:1804
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x185c26) [0x772c26] vm_eval.c:1780
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18cd16) [0x779d16] insns.def:1002
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x193c37) [0x780c37] vm_eval.c:170
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_funcall+0xd2) [0x781bc2] vm_eval.c:49
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(+0x1b408) [0x21f408] rubymain.cpp:94
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(+0x1b723) [0x21f723] rubymain.cpp:196
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(_ZN19EventableDescriptor23_GenericInboundDispatchEPKci+0x11e) [0x20fede] ed.cpp:312
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(_ZN20ConnectionDescriptor20_DispatchInboundDataEPKci+0xe8) [0x213438] ed.cpp:846
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(_ZN20ConnectionDescriptor4ReadEv+0xa4) [0x2134f4] ed.cpp:781
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(_ZN14EventMachine_t13_RunEpollOnceEv+0x1a0) [0x216ba0] em.cpp:561
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(_ZN14EventMachine_t8_RunOnceEv+0x68) [0x2177c8] em.cpp:499
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(_ZN14EventMachine_t3RunEv+0x50) [0x21a710] em.cpp:485
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(evma_run_machine+0x2e) [0x21e3de] cmain.cpp:88
+/home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so(+0x1b147) [0x21f147] rubymain.cpp:223
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d1f) [0x76fd1f] vm_insnhelper.c:1300
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18c86d) [0x77986d] insns.def:1017
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_iseq_eval+0x107) [0x77fab7] vm.c:1410
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x6022f) [0x64d22f] load.c:557
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x60386) [0x64d386] load.c:638
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18c86d) [0x77986d] insns.def:1017
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x193168) [0x780168] vm_eval.c:1229
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1935fc) [0x7805fc] vm_eval.c:1270
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x182d0d) [0x76fd0d] vm_insnhelper.c:1294
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x1888da) [0x7758da] vm_insnhelper.c:1438
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x19d33d) [0x78a33d] vm_insnhelper.c:1528
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x18c86d) [0x77986d] insns.def:1017
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x192445) [0x77f445] vm.c:1175
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(rb_iseq_eval_main+0x140) [0x77f830] vm.c:1423
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(+0x5d2ba) [0x64a2ba] eval.c:250
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(ruby_exec_node+0x25) [0x64a2f5] eval.c:315
+/home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0(ruby_run_node+0x35) [0x64ba45] eval.c:307
+thin server (0.0.0.0:3000)() [0x8048738]
+/lib/libc.so.6(__libc_start_main+0xe6) [0x886cc6]
+thin server (0.0.0.0:3000)() [0x8048631]
+
+-- Other runtime information -----------------------------------------------
+
+* Loaded script: thin server (0.0.0.0:3000)
+
+* Loaded features:
+
+    0 enumerator.so
+    1 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/encdb.so
+    2 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/trans/transdb.so
+    3 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/rbconfig.rb
+    4 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/compatibility.rb
+    5 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/defaults.rb
+    6 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/deprecate.rb
+    7 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/errors.rb
+    8 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/version.rb
+    9 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/requirement.rb
+   10 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/platform.rb
+   11 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/specification.rb
+   12 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/exceptions.rb
+   13 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_gem.rb
+   14 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb
+   15 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems.rb
+   16 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/path_support.rb
+   17 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/dependency.rb
+   18 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/syntax_error.rb
+   19 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/psych.so
+   20 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/stringio.so
+   21 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/node.rb
+   22 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/stream.rb
+   23 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/document.rb
+   24 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/sequence.rb
+   25 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/scalar.rb
+   26 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/mapping.rb
+   27 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes/alias.rb
+   28 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/nodes.rb
+   29 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/streaming.rb
+   30 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors/visitor.rb
+   31 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/strscan.so
+   32 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/scalar_scanner.rb
+   33 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors/to_ruby.rb
+   34 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors/emitter.rb
+   35 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors/yaml_tree.rb
+   36 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/json/ruby_events.rb
+   37 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors/json_tree.rb
+   38 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors/depth_first.rb
+   39 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/visitors.rb
+   40 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/handler.rb
+   41 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/tree_builder.rb
+   42 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/parser.rb
+   43 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/omap.rb
+   44 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/set.rb
+   45 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/coder.rb
+   46 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/core_ext.rb
+   47 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/date_core.so
+   48 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/date/format.rb
+   49 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/date.rb
+   50 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/deprecated.rb
+   51 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/stream.rb
+   52 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/json/yaml_events.rb
+   53 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/json/tree_builder.rb
+   54 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/json/stream.rb
+   55 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych/handlers/document_stream.rb
+   56 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/psych.rb
+   57 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/yaml.rb
+   58 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/etc.so
+   59 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/fileutils.rb
+   60 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/pathname.so
+   61 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/pathname.rb
+   62 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler/gem_path_manipulation.rb
+   63 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler/gem_helpers.rb
+   64 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler/match_platform.rb
+   65 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler/rubygems_ext.rb
+   66 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/user_interaction.rb
+   67 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/site_ruby/2.0.0/rubygems/config_file.rb
+   68 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler/rubygems_integration.rb
+   69 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler/version.rb
+   70 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/bundler-1.3.5/lib/bundler.rb
+   71 /home/zcdny/.rvm/gems/ruby-2.0.0-p0@global/gems/rubygems-bundler-1.1.1/lib/rubygems-bundler/noexec.rb
+   72 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/timeout.rb
+   73 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/time.rb
+   74 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/forwardable.rb
+   75 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/digest.so
+   76 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/digest.rb
+   77 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/openssl.so
+   78 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/bn.rb
+   79 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/cipher.rb
+   80 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/config.rb
+   81 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/digest.rb
+   82 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/x509.rb
+   83 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/buffering.rb
+   84 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/fcntl.so
+   85 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl/ssl.rb
+   86 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/openssl.rb
+   87 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so
+   88 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/version.rb
+   89 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/pool.rb
+   90 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/deferrable.rb
+   91 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/future.rb
+   92 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/streamer.rb
+   93 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/spawnable.rb
+   94 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/processes.rb
+   95 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/iterator.rb
+   96 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/buftok.rb
+   97 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/timers.rb
+   98 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/protocols.rb
+   99 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/connection.rb
+  100 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/callback.rb
+  101 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/queue.rb
+  102 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/channel.rb
+  103 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/file_watch.rb
+  104 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/process_watch.rb
+  105 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/tick_loop.rb
+  106 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/resolver.rb
+  107 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/completion.rb
+  108 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/em/threaded_resource.rb
+  109 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/shellwords.rb
+  110 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/thread.rb
+  111 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/socket.so
+  112 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/socket.rb
+  113 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/securerandom.rb
+  114 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/resolv.rb
+  115 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/eventmachine.rb
+  116 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/set.rb
+  117 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/delegate.rb
+  118 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/tmpdir.rb
+  119 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/tempfile.rb
+  120 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/multipart.rb
+  121 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/common.rb
+  122 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/utils.rb
+  123 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack.rb
+  124 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/version.rb
+  125 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/statuses.rb
+  126 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/rack/adapter/loader.rb
+  127 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin_parser.so
+  128 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin.rb
+  129 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/optparse.rb
+  130 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/runner.rb
+  131 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/logging.rb
+  132 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/optparse/time.rb
+  133 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/pid.rb
+  134 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/pidfile.rb
+  135 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/cmdline.rb
+  136 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/exceptions.rb
+  137 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/daemonize.rb
+  138 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/monitor.rb
+  139 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/pidmem.rb
+  140 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/etc_extension.rb
+  141 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/change_privilege.rb
+  142 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/application.rb
+  143 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/application_group.rb
+  144 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons/controller.rb
+  145 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/daemons-1.1.9/lib/daemons.rb
+  146 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/daemonizing.rb
+  147 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/server.rb
+  148 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/controllers/controller.rb
+  149 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/controllers/cluster.rb
+  150 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/open3.rb
+  151 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/command.rb
+  152 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/backends/base.rb
+  153 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/backends/tcp_server.rb
+  154 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/builder.rb
+  155 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/seimtra-0.0.1/lib/seimtra/sbase.rb
+  156 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/template.rb
+  157 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/string.rb
+  158 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/erb.rb
+  159 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/etanni.rb
+  160 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/haml.rb
+  161 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/css.rb
+  162 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/csv.rb
+  163 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/coffee.rb
+  164 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/nokogiri.rb
+  165 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/builder.rb
+  166 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/markaby.rb
+  167 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/liquid.rb
+  168 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/radius.rb
+  169 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/markdown.rb
+  170 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/textile.rb
+  171 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/rdoc.rb
+  172 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/wiki.rb
+  173 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/yajl.rb
+  174 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/asciidoc.rb
+  175 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt/plain.rb
+  176 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/tilt-1.3.7/lib/tilt.rb
+  177 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/version.rb
+  178 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection.rb
+  179 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/generic.rb
+  180 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/ftp.rb
+  181 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/http.rb
+  182 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/https.rb
+  183 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/ldap.rb
+  184 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/ldaps.rb
+  185 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri/mailto.rb
+  186 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/uri.rb
+  187 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/ostruct.rb
+  188 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/cgi/util.rb
+  189 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/erb.rb
+  190 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/request.rb
+  191 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/showexceptions.rb
+  192 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/showexceptions.rb
+  193 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/version.rb
+  194 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/response.rb
+  195 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/body_proxy.rb
+  196 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/commonlogger.rb
+  197 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/base.rb
+  198 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra/main.rb
+  199 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sinatra-1.4.2/lib/sinatra.rb
+  200 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/bigdecimal.so
+  201 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/sql.rb
+  202 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/connection_pool.rb
+  203 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/exceptions.rb
+  204 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/query.rb
+  205 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/actions.rb
+  206 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/features.rb
+  207 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/graph.rb
+  208 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/prepared_statements.rb
+  209 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/misc.rb
+  210 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/mutation.rb
+  211 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset/sql.rb
+  212 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/dataset.rb
+  213 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/connecting.rb
+  214 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/dataset.rb
+  215 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/dataset_defaults.rb
+  216 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/logging.rb
+  217 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/features.rb
+  218 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/misc.rb
+  219 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/query.rb
+  220 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/transactions.rb
+  221 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/schema_generator.rb
+  222 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database/schema_methods.rb
+  223 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/database.rb
+  224 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/timezones.rb
+  225 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/ast_transformer.rb
+  226 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/version.rb
+  227 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/extensions/core_extensions.rb
+  228 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/core.rb
+  229 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/default_inflections.rb
+  230 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/inflections.rb
+  231 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/plugins.rb
+  232 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/dataset_module.rb
+  233 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/base.rb
+  234 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/exceptions.rb
+  235 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/errors.rb
+  236 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model/associations.rb
+  237 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/model.rb
+  238 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel.rb
+  239 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/version.rb
+  240 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple.rb
+  241 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/utils.rb
+  242 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/options.rb
+  243 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/parser.rb
+  244 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/hash.rb
+  245 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/parser.rb
+  246 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/dispatcher.rb
+  247 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/filter.rb
+  248 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/dispatcher.rb
+  249 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/filter.rb
+  250 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/filter.rb
+  251 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/end_inserter.rb
+  252 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/embedded.rb
+  253 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/interpolation.rb
+  254 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/controls.rb
+  255 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/splat_attributes.rb
+  256 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/code_attributes.rb
+  257 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/exceptions.rb
+  258 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/generators.rb
+  259 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/engine_dsl.rb
+  260 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/engine.rb
+  261 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/attribute_sorter.rb
+  262 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/attribute_merger.rb
+  263 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/fast.rb
+  264 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/pretty.rb
+  265 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/filters/escapable.rb
+  266 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/filters/control_flow.rb
+  267 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/filters/multi_flattener.rb
+  268 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/engine.rb
+  269 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/templates.rb
+  270 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/mixins/template.rb
+  271 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/templates/tilt.rb
+  272 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/template.rb
+  273 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim/version.rb
+  274 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/slim-1.3.8/lib/slim.rb
+  275 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/sqlite3_native.so
+  276 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/constants.rb
+  277 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/errors.rb
+  278 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/pragmas.rb
+  279 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/resultset.rb
+  280 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/statement.rb
+  281 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/translator.rb
+  282 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/value.rb
+  283 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/database.rb
+  284 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/version.rb
+  285 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3.rb
+  286 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/adapters/shared/sqlite.rb
+  287 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/adapters/sqlite.rb
+  288 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/connection_pool/threaded.rb
+  289 /home/zcdny/repo/info/environment.rb
+  290 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/utf_16le.so
+  291 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/utf_16be.so
+  292 /home/zcdny/repo/info/modules/system/applications/user.rb
+  293 /home/zcdny/repo/info/modules/system/applications/tags.rb
+  294 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/root.rb
+  295 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/util/subset_map.rb
+  296 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/util/multibyte_string_scanner.rb
+  297 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/util.rb
+  298 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/version.rb
+  299 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/logger/log_level.rb
+  300 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/logger/base.rb
+  301 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/logger.rb
+  302 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/digest/sha1.so
+  303 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/cache_stores/base.rb
+  304 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/cache_stores/filesystem.rb
+  305 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/cache_stores/memory.rb
+  306 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/cache_stores/chain.rb
+  307 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/cache_stores.rb
+  308 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/node.rb
+  309 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/root_node.rb
+  310 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/rule_node.rb
+  311 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/comment_node.rb
+  312 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/prop_node.rb
+  313 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/directive_node.rb
+  314 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/media_node.rb
+  315 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/supports_node.rb
+  316 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/css_import_node.rb
+  317 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/variable_node.rb
+  318 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/mixin_def_node.rb
+  319 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/mixin_node.rb
+  320 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/trace_node.rb
+  321 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/content_node.rb
+  322 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/function_node.rb
+  323 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/return_node.rb
+  324 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/extend_node.rb
+  325 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/if_node.rb
+  326 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/while_node.rb
+  327 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/for_node.rb
+  328 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/each_node.rb
+  329 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/debug_node.rb
+  330 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/warn_node.rb
+  331 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/import_node.rb
+  332 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/charset_node.rb
+  333 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb
+  334 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb
+  335 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/cssize.rb
+  336 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/extend.rb
+  337 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/convert.rb
+  338 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/to_css.rb
+  339 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/deep_copy.rb
+  340 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/set_options.rb
+  341 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/check_nesting.rb
+  342 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/selector/simple.rb
+  343 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/selector/abstract_sequence.rb
+  344 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/selector/comma_sequence.rb
+  345 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/selector/sequence.rb
+  346 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/selector/simple_sequence.rb
+  347 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/selector.rb
+  348 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/environment.rb
+  349 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/node.rb
+  350 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/variable.rb
+  351 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/functions.rb
+  352 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/funcall.rb
+  353 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/number.rb
+  354 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/color.rb
+  355 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/bool.rb
+  356 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/null.rb
+  357 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/list.rb
+  358 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/arg_list.rb
+  359 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/literal.rb
+  360 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/string.rb
+  361 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/unary_operation.rb
+  362 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/interpolation.rb
+  363 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/string_interpolation.rb
+  364 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/operation.rb
+  365 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss/rx.rb
+  366 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/lexer.rb
+  367 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/parser.rb
+  368 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script.rb
+  369 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss/script_lexer.rb
+  370 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss/script_parser.rb
+  371 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss/parser.rb
+  372 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/css_lexer.rb
+  373 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/css_parser.rb
+  374 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss/static_parser.rb
+  375 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss/css_parser.rb
+  376 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/scss.rb
+  377 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/error.rb
+  378 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/importers/base.rb
+  379 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/importers/filesystem.rb
+  380 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/importers.rb
+  381 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/shared.rb
+  382 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/media.rb
+  383 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/supports.rb
+  384 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/engine.rb
+  385 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/railtie.rb
+  386 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass.rb
+  387 /home/zcdny/repo/info/modules/system/applications/assets.rb
+  388 /home/zcdny/repo/info/modules/system/applications/before.rb
+  389 /home/zcdny/repo/info/modules/system/applications/helpers.rb
+  390 /home/zcdny/repo/info/modules/system/applications/note.rb
+  391 /home/zcdny/repo/info/modules/system/applications/docs.rb
+  392 /home/zcdny/repo/info/modules/system/applications/menu.rb
+  393 /home/zcdny/repo/info/modules/system/applications/file.rb
+  394 /home/zcdny/repo/info/modules/admin/applications/admin__docs.rb
+  395 /home/zcdny/repo/info/modules/admin/applications/admin__menu.rb
+  396 /home/zcdny/repo/info/modules/admin/applications/before.rb
+  397 /home/zcdny/repo/info/modules/admin/applications/admin__urul.rb
+  398 /home/zcdny/repo/info/modules/admin/applications/admin__sess.rb
+  399 /home/zcdny/repo/info/modules/admin/applications/admin__rule.rb
+  400 /home/zcdny/repo/info/modules/admin/applications/admin__file.rb
+  401 /home/zcdny/repo/info/modules/admin/applications/helpers.rb
+  402 /home/zcdny/repo/info/modules/admin/applications/admin__vars.rb
+  403 /home/zcdny/repo/info/modules/admin/applications/admin__user.rb
+  404 /home/zcdny/repo/info/modules/admin/applications/admin__task.rb
+  405 /home/zcdny/repo/info/modules/admin/applications/iocsv.rb
+  406 /home/zcdny/repo/info/modules/admin/applications/admin__lang.rb
+  407 /home/zcdny/repo/info/modules/admin/applications/admin__mods.rb
+  408 /home/zcdny/repo/info/modules/admin/applications/admin__note.rb
+  409 /home/zcdny/repo/info/modules/admin/applications/routes.rb
+  410 /home/zcdny/repo/info/modules/admin/applications/admin__tags.rb
+  411 /home/zcdny/repo/info/modules/info/applications/product.rb
+  412 /home/zcdny/repo/info/modules/info/applications/admin_info_type.rb
+  413 /home/zcdny/repo/info/modules/info/applications/before.rb
+  414 /home/zcdny/repo/info/modules/info/applications/admin_info_product.rb
+  415 /home/zcdny/repo/info/modules/info/applications/forum.rb
+  416 /home/zcdny/repo/info/modules/info/applications/box.rb
+  417 /home/zcdny/repo/info/modules/info/applications/routes.rb
+  418 /home/zcdny/repo/info/modules/info/applications/admin_info_box.rb
+  419 /home/zcdny/repo/info/modules/cms/applications/admin_cms_type.rb
+  420 /home/zcdny/repo/info/modules/cms/applications/admin_cms_postmeta.rb
+  421 /home/zcdny/repo/info/modules/cms/applications/admin_cms_comment.rb
+  422 /home/zcdny/repo/info/modules/cms/applications/admin_cms_post.rb
+  423 /home/zcdny/repo/info/modules/cms/applications/helpers.rb
+  424 /home/zcdny/repo/info/modules/cms/applications/routes.rb
+  425 /home/zcdny/repo/info/start.rb
+  426 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/connection.rb
+  427 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/request.rb
+  428 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/response.rb
+  429 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin/headers.rb
+  430 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/methodoverride.rb
+  431 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/head.rb
+  432 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/monitor.rb
+  433 /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/logger.rb
+  434 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/logger.rb
+  435 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/base.rb
+  436 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/frame_options.rb
+  437 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/http_origin.rb
+  438 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/ip_spoofing.rb
+  439 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/json_csrf.rb
+  440 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/path_traversal.rb
+  441 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-protection-1.5.0/lib/rack/protection/xss_header.rb
+  442 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sequel-3.46.0/lib/sequel/extensions/pagination.rb
+  443 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/html/attribute_remover.rb
+  444 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/temple-0.6.4/lib/temple/filters/dynamic_inliner.rb
+  445 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/mime.rb
+  446 /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/rack-1.5.2/lib/rack/file.rb
+
+* Process memory map:
+
+00110000-00155000 r-xp 00000000 08:02 186683     /lib/libfreebl3.so
+00155000-00156000 rw-p 00045000 08:02 186683     /lib/libfreebl3.so
+00156000-0015a000 rw-p 00000000 00:00 0 
+0015a000-00160000 r-xp 00000000 08:05 2105819    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/stringio.so
+00160000-00161000 rw-p 00006000 08:05 2105819    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/stringio.so
+00161000-00164000 r-xp 00000000 08:02 186699     /lib/libcom_err.so.2.1
+00164000-00165000 rw-p 00002000 08:02 186699     /lib/libcom_err.so.2.1
+00165000-0016e000 r-xp 00000000 08:02 186697     /lib/libkrb5support.so.0.1
+0016e000-0016f000 rw-p 00008000 08:02 186697     /lib/libkrb5support.so.0.1
+0016f000-00171000 r-xp 00000000 08:02 186696     /lib/libkeyutils.so.1.3
+00171000-00172000 rw-p 00001000 08:02 186696     /lib/libkeyutils.so.1.3
+00173000-001b2000 r-xp 00000000 08:05 2105809    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/openssl.so
+001b2000-001b4000 rw-p 0003e000 08:05 2105809    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/openssl.so
+001b4000-001c6000 r-xp 00000000 08:02 186635     /lib/libz.so.1.2.3
+001c6000-001c7000 rw-p 00011000 08:02 186635     /lib/libz.so.1.2.3
+001c7000-001fd000 r-xp 00000000 08:02 186701     /lib/libgssapi_krb5.so.2.2
+001fd000-001fe000 rw-p 00036000 08:02 186701     /lib/libgssapi_krb5.so.2.2
+001fe000-00201000 r-xp 00000000 08:05 2105805    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/digest.so
+00201000-00202000 rw-p 00002000 08:05 2105805    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/digest.so
+00202000-00203000 r-xp 00000000 08:05 2105814    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/fcntl.so
+00203000-00204000 rw-p 00000000 08:05 2105814    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/fcntl.so
+00204000-0022c000 r-xp 00000000 08:05 664618     /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so
+0022c000-0022e000 rw-p 00028000 08:05 664618     /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/eventmachine-1.0.3/lib/rubyeventmachine.so
+0022e000-0024b000 r-xp 00000000 08:02 186669     /lib/libgcc_s-4.4.4-20100726.so.1
+0024b000-0024c000 rw-p 0001d000 08:02 186669     /lib/libgcc_s-4.4.4-20100726.so.1
+0024c000-00253000 r-xp 00000000 08:05 787633     /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/sqlite3_native.so
+00253000-00254000 rw-p 00006000 08:05 787633     /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/sqlite3-1.3.7/lib/sqlite3/sqlite3_native.so
+00254000-00255000 r-xp 00000000 08:05 2761932    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/digest/sha1.so
+00255000-00256000 rw-p 00000000 08:05 2761932    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/digest/sha1.so
+0025c000-0025d000 r-xp 00000000 08:05 2629923    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/utf_16le.so
+0025d000-0025e000 rw-p 00000000 08:05 2629923    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/utf_16le.so
+002e4000-00302000 r-xp 00000000 08:02 206874     /usr/lib/libyaml-0.so.2.0.1
+00302000-00303000 rw-p 0001d000 08:02 206874     /usr/lib/libyaml-0.so.2.0.1
+00319000-0031f000 r-xp 00000000 08:05 2105804    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/pathname.so
+0031f000-00320000 rw-p 00006000 08:05 2105804    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/pathname.so
+00342000-00344000 r-xp 00000000 08:05 2105821    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/etc.so
+00344000-00345000 rw-p 00001000 08:05 2105821    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/etc.so
+00437000-00459000 r-xp 00000000 08:05 2105817    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/socket.so
+00459000-0045a000 rw-p 00021000 08:05 2105817    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/socket.so
+00475000-0047a000 r-xp 00000000 08:05 2105811    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/psych.so
+0047a000-0047b000 rw-p 00005000 08:05 2105811    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/psych.so
+00540000-00552000 r-xp 00000000 08:05 2105826    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/bigdecimal.so
+00552000-00553000 rw-p 00011000 08:05 2105826    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/bigdecimal.so
+005d2000-005d3000 r-xp 00000000 08:05 2629918    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/utf_16be.so
+005d3000-005d4000 rw-p 00000000 08:05 2629918    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/utf_16be.so
+005ed000-00810000 r-xp 00000000 08:05 2105308    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0.0
+00810000-00814000 rw-p 00223000 08:05 2105308    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/libruby.so.2.0.0
+00814000-00826000 rw-p 00000000 00:00 0 
+0084a000-00868000 r-xp 00000000 08:02 143802     /lib/ld-2.12.so
+00868000-00869000 r--p 0001d000 08:02 143802     /lib/ld-2.12.so
+00869000-0086a000 rw-p 0001e000 08:02 143802     /lib/ld-2.12.so
+00870000-009f5000 r-xp 00000000 08:02 143804     /lib/libc-2.12.so
+009f5000-009f7000 r--p 00185000 08:02 143804     /lib/libc-2.12.so
+009f7000-009f8000 rw-p 00187000 08:02 143804     /lib/libc-2.12.so
+009f8000-009fb000 rw-p 00000000 00:00 0 
+009fd000-00a00000 r-xp 00000000 08:02 186627     /lib/libdl-2.12.so
+00a00000-00a01000 r--p 00002000 08:02 186627     /lib/libdl-2.12.so
+00a01000-00a02000 rw-p 00003000 08:02 186627     /lib/libdl-2.12.so
+00a04000-00a1b000 r-xp 00000000 08:02 186617     /lib/libpthread-2.12.so
+00a1b000-00a1c000 r--p 00016000 08:02 186617     /lib/libpthread-2.12.so
+00a1c000-00a1d000 rw-p 00017000 08:02 186617     /lib/libpthread-2.12.so
+00a1d000-00a1f000 rw-p 00000000 00:00 0 
+00a21000-00a28000 r-xp 00000000 08:02 186618     /lib/librt-2.12.so
+00a28000-00a29000 r--p 00006000 08:02 186618     /lib/librt-2.12.so
+00a29000-00a2a000 rw-p 00007000 08:02 186618     /lib/librt-2.12.so
+00a2c000-00a54000 r-xp 00000000 08:02 186630     /lib/libm-2.12.so
+00a54000-00a55000 r--p 00027000 08:02 186630     /lib/libm-2.12.so
+00a55000-00a56000 rw-p 00028000 08:02 186630     /lib/libm-2.12.so
+00b43000-00b60000 r-xp 00000000 08:02 186655     /lib/libselinux.so.1
+00b60000-00b61000 r--p 0001c000 08:02 186655     /lib/libselinux.so.1
+00b61000-00b62000 rw-p 0001d000 08:02 186655     /lib/libselinux.so.1
+00b75000-00b76000 r-xp 00000000 00:00 0          [vdso]
+00c08000-00c1d000 r-xp 00000000 08:02 186654     /lib/libresolv-2.12.so
+00c1d000-00c1e000 r--p 00014000 08:02 186654     /lib/libresolv-2.12.so
+00c1e000-00c1f000 rw-p 00015000 08:02 186654     /lib/libresolv-2.12.so
+00c1f000-00c21000 rw-p 00000000 00:00 0 
+00c7d000-00c82000 r-xp 00000000 08:05 2105802    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/strscan.so
+00c82000-00c83000 rw-p 00004000 08:05 2105802    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/strscan.so
+00ce9000-00d1b000 r-xp 00000000 08:05 2105824    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/date_core.so
+00d1b000-00d1c000 rw-p 00032000 08:05 2105824    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/date_core.so
+00d1c000-00d1d000 rw-p 00000000 00:00 0 
+00e95000-00e97000 r-xp 00000000 08:05 2629898    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/trans/transdb.so
+00e97000-00e98000 rw-p 00001000 08:05 2629898    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/trans/transdb.so
+00f16000-00f18000 r-xp 00000000 08:05 2629885    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/encdb.so
+00f18000-00f19000 rw-p 00001000 08:05 2629885    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/i686-linux/enc/encdb.so
+00f8b000-00f90000 r-xp 00000000 08:05 664741     /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin_parser.so
+00f90000-00f91000 rw-p 00004000 08:05 664741     /home/zcdny/.rvm/gems/ruby-2.0.0-p0/gems/thin-1.5.1/lib/thin_parser.so
+04d89000-04efb000 r-xp 00000000 08:02 186702     /usr/lib/libcrypto.so.1.0.0
+04efb000-04f0f000 rw-p 00172000 08:02 186702     /usr/lib/libcrypto.so.1.0.0
+04f0f000-04f12000 rw-p 00000000 00:00 0 
+04f14000-04ff5000 r-xp 00000000 08:02 186670     /usr/lib/libstdc++.so.6.0.13
+04ff5000-04ff9000 r--p 000e0000 08:02 186670     /usr/lib/libstdc++.so.6.0.13
+04ff9000-04ffb000 rw-p 000e4000 08:02 186670     /usr/lib/libstdc++.so.6.0.13
+04ffb000-05001000 rw-p 00000000 00:00 0 
+05003000-050ce000 r-xp 00000000 08:02 186700     /lib/libkrb5.so.3.3
+050ce000-050d4000 rw-p 000ca000 08:02 186700     /lib/libkrb5.so.3.3
+050d6000-050dd000 r-xp 00000000 08:02 186684     /lib/libcrypt-2.12.so
+050dd000-050de000 r--p 00007000 08:02 186684     /lib/libcrypt-2.12.so
+050de000-050df000 rw-p 00008000 08:02 186684     /lib/libcrypt-2.12.so
+050df000-05106000 rw-p 00000000 00:00 0 
+05108000-0512e000 r-xp 00000000 08:02 186698     /lib/libk5crypto.so.3.1
+0512e000-0512f000 rw-p 00026000 08:02 186698     /lib/libk5crypto.so.3.1
+05131000-05184000 r-xp 00000000 08:02 186703     /usr/lib/libssl.so.1.0.0
+05184000-05188000 rw-p 00052000 08:02 186703     /usr/lib/libssl.so.1.0.0
+0534d000-053db000 r-xp 00000000 08:02 186722     /usr/lib/libsqlite3.so.0.8.6
+053db000-053dd000 rw-p 0008d000 08:02 186722     /usr/lib/libsqlite3.so.0.8.6
+08048000-08049000 r-xp 00000000 08:05 2105306    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/bin/ruby
+08049000-0804a000 rw-p 00000000 08:05 2105306    /home/zcdny/.rvm/rubies/ruby-2.0.0-p0/bin/ruby
+09112000-0a578000 rw-p 00000000 00:00 0          [heap]
+b75df000-b75e0000 ---p 00000000 00:00 0 
+b75e0000-b7664000 rw-p 00000000 00:00 0 
+b7664000-b7864000 r--p 00000000 08:02 137464     /usr/lib/locale/locale-archive
+b7864000-b7867000 rw-p 00000000 00:00 0 
+b786c000-b786d000 rw-p 00000000 00:00 0 
+b786d000-b7874000 r--s 00000000 08:02 137784     /usr/lib/gconv/gconv-modules.cache
+b7874000-b7876000 rw-p 00000000 00:00 0 
+bfea2000-bfeb7000 rw-p 00000000 00:00 0          [stack]
+
+
+[NOTE]
+You may have encountered a bug in the Ruby interpreter or extension libraries.
+Bug reports are welcome.
+For details: http://www.ruby-lang.org/bugreport.html
+

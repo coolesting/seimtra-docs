@@ -40,7 +40,24 @@ helpers do
 	end
 end
 
-#load the template language
+V = {}
+D = {}
+module Sinatra
+	class Application < Base
+		def self.data name = '', &block
+			(D[name] ||= []) << block
+		end
+		def self.valid name = '', &block
+			(V[name] ||= []) << block
+		end
+	end
+
+	module Delegator
+		delegate :data, :valid
+	end
+end
+
+#loads language statement of template
 class L
 	@@options = {}
 	class << self
@@ -53,16 +70,12 @@ class L
 		end
 	end
 end
-DB[:_lang].all.each do | row |
+DB[:_lang].each do | row |
 	L[row[:label]] = row[:content]
 end
 
+#loads the files of application
 applications.each do | route |
 	require route
 end
 
-#set the default page
-get '/' do
-#  	pass if request.path_info == '/'
-	status, headers, body = call! env.merge("PATH_INFO" => settings.home_page)
-end
