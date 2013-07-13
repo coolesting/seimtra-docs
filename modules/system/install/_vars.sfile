@@ -26,6 +26,10 @@ skey=upload_level
 sval=1
 tag=file
 
+skey=default_file
+sval=1
+tag=file
+
 skey=encoding
 sval=gb2312
 tag=file

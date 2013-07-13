@@ -33,7 +33,8 @@ end
 
 #get the file by id
 get '/_file/get/:fid' do
-	ds = DB[:_file].filter(:fid => params[:fid].to_i)
+	fid = params[:fid].to_i == 0 ? _var(:default_file, :file) : params[:fid].to_i
+	ds = DB[:_file].filter(:fid => fid)
 	unless ds.empty?
 		send_file settings.upload_path + ds.get(:path).to_s, :type => ds.get(:type).split('/').last.to_sym
 	else
