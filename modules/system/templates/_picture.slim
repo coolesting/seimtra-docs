@@ -11,6 +11,7 @@ javascript:
 						icon_path : '/icons/picture.png',
 						file_path : '/_file/get/',
 						picture_path : '/_file/type/picture',
+						view_width : '393px',
 						img_width : '50px',
 						img_height : '50px',
 						img_pad : '3px',
@@ -28,13 +29,13 @@ javascript:
 					var load_picture = false;
 					var tp = $(this).parent();
 
-					$(this).after('<img class="ly_select_picture" src="' + options.icon_path + '" /><div class="ly_picture_view" style="position:absolute;width:400px;" />');
+					$(this).after('<img class="ly_select_picture" src="' + options.icon_path + '" /><div class="ly_picture_view" style="background:white;position:absolute;width:' + options.view_width + ';" />');
 					$('.ly_picture_view').hide();
 
 					//add event
 					tp.find('.ly_select_picture').mouseenter(function(){
 						if (load_picture == false) {
-							$(this).ly_picture('picture_view', options);
+							$(this).ly_picture('picture_view', options, $(this), '');
 							load_picture = true;
 						}
 						tp.find('.ly_picture_view').css('top', $(this).offset().top);
@@ -47,30 +48,50 @@ javascript:
 
 					//flash the picture view
 					tp.find('.ly_select_picture').click(function(){
-						$(this).ly_picture('picture_view', options);
+						$(this).ly_picture('picture_view', options, $(this), '');
 					});
 
 				});
 			},
 
-			picture_view : function(options) {
+			picture_view : function(options, $this, url) {
 				return $(this).each(function(){
 
-					$.getJSON(options.picture_path, function(data){
+					if (url == '') {
+						url = options.picture_path
+					}
+					$.getJSON(url, function(data){
 						if (data != undefined) {
-							var datas = [];
-							$.each(data, function(index, item){
-								var type = item.type.split('/')
-								datas.push('<img style="padding:' + options.img_pad + ';float:left;width:' + options.img_width + ';height:' + options.img_height + ';" src="' + options.file_path + item.fid + '" fid="' + item.fid + '" title="' + item.name + '"  />');
-							});
-							$('.ly_picture_view').html(datas.join(''));
 
+							var datas = [];
+							var page_bar = '';
+							$.each(data, function(index, item){
+								if (index == 0) {
+									page_bar = '<div class="clear right"><a class="ly_picture_view_flash" href="' + options.picture_path + '?page_curr=' + item.prev + '"><img src="/icons/prev.png" /></a><a class="ly_picture_view_flash" href="' + options.picture_path + '?page_curr=' + item.next + '" ><img src="/icons/next.png" /></a> ' + item.curr + ' / ' + item.size + '</div>';
+								}
+								else {
+									//var type = item.type.split('/')
+									datas.push('<img style="padding:' + options.img_pad + ';float:left;width:' + options.img_width + ';height:' + options.img_height + ';" src="' + options.file_path + item.fid + '" fid="' + item.fid + '" title="' + item.name + '"  />');
+								}
+							});
+
+							//generate the html of picture view
+							$('.ly_picture_view').html(datas.join('') + page_bar);
+
+							//add event
 							//insert fid to picture text
 							$('.ly_picture_view img').click(function(){
 								var fid = $(this).attr("fid");
 								$(this).parent().prev().prev().val(fid);
-								//console.log($(this).parent().prev().prev());
 							});
+
+							//add event
+							//flash picture view
+							$('.ly_picture_view_flash').click(function(){
+								$this.ly_picture('picture_view', options, $this, $(this).attr('href'));
+								return false;
+							});
+
 						} else {
 							$('.ly_picture_view').html('<p>No data found</p>');
 						}

@@ -18,15 +18,28 @@ end
 #get file list by type
 get '/_file/type/:type' do
 	ds = DB[:_file].filter(:uid => _user[:uid])
-	limit = 20
+	page_size = 20
+	page_curr = (@qs.include?(:page_curr) and @qs[:page_curr].to_i > 0) ? @qs[:page_curr].to_i : 1
+
 	unless ds.empty?
-		require 'json'
 		if params[:type] == 'all'
-			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(limit).all
+			ds = ds.select(:fid, :name, :type).reverse_order(:fid)
 		elsif params[:type] == 'picture'
-			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(limit).all
+			ds = ds.select(:fid, :name, :type).reverse_order(:fid)
 		end
-		JSON.pretty_generate result
+
+		Sequel.extension :pagination
+		result = ds.paginate(page_curr, page_size, ds.count)
+		page_count = result.page_count
+
+		page_prev = (page_curr > 1 and page_curr <= page_count) ? (page_curr - 1) : 0
+		page_next = (page_curr > 0 and page_curr < page_count) ? (page_curr + 1) : 0
+
+		res = result.all
+		res.unshift({:prev => page_prev, :next => page_next, :size => page_count, :curr => page_curr})
+
+		require 'json'
+		JSON.pretty_generate res
 	else
 		nil
 	end
