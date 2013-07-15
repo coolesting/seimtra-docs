@@ -18,12 +18,13 @@ end
 #get file list by type
 get '/_file/type/:type' do
 	ds = DB[:_file].filter(:uid => _user[:uid])
+	limit = 20
 	unless ds.empty?
 		require 'json'
 		if params[:type] == 'all'
-			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
+			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(limit).all
 		elsif params[:type] == 'picture'
-			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(9).all
+			result = ds.select(:fid, :name, :type).reverse_order(:fid).limit(limit).all
 		end
 		JSON.pretty_generate result
 	else
@@ -33,8 +34,7 @@ end
 
 #get the file by id
 get '/_file/get/:fid' do
-	fid = params[:fid].to_i == 0 ? _var(:default_file, :file) : params[:fid].to_i
-	ds = DB[:_file].filter(:fid => fid)
+	ds = DB[:_file].filter(:fid => params[:fid].to_i)
 	unless ds.empty?
 		send_file settings.upload_path + ds.get(:path).to_s, :type => ds.get(:type).split('/').last.to_sym
 	else

@@ -56,8 +56,10 @@ helpers do
 
 	#submit the data
 	def _file_submit
-		if params[:upload] and params[:upload][:tempfile] and params[:upload][:filename]
-			_file_save params[:upload]
+		if params[:upload]
+			params[:upload].each do | p |
+				_file_save p
+			end
 			_msg L[:'upload complete']
 		else
 			_msg L[:'the file is null']

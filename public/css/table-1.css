@@ -24,3 +24,7 @@
 .table td:hover {
 	background-color: #fff;
 }
+.table .img {
+	width: 32px;
+	height: 32px;
+}

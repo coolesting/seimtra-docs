@@ -75,3 +75,4 @@ user rule=用户角色
 module=模块
 dependency=依赖
 return=返回
+descpt=描述
