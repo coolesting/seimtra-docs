@@ -3,11 +3,20 @@ get '/_logout' do
 end
 
 get '/_login' do
-	_user_login
+	redirect _var(:after_login, :page) if _user[:uid] > 0
+	@qs[:come_from] = request.referer unless @qs.include?(:come_from) 
+	_tpl :_login
+end
+
+get '/_register' do
+	if _var(:allow_register, :user) == 'yes'
+		_tpl :_register
+	else
+		redirect _var(:login, :page)
+	end
 end
 
 post '/_login' do
-
 	data = _user_data
 	_set_fields [], data, true
 	_user_valid_fields
@@ -25,30 +34,24 @@ post '/_login' do
 	_login params[:name], params[:pawd]
 
 	#return
-	return_page = @qs.include?(:come_from) ? @qs[:come_from] : @_path[:after_login]
+	return_page = @qs.include?(:come_from) ? @qs[:come_from] : _var(:after_login, :page)
 	redirect return_page
 end
 
 helpers do
-
-	def _user_login tpl = :_login
-		redirect @_path[:after_login] if _user[:uid] > 0
-		@qs[:come_from] = request.referer unless @qs.include?(:come_from) 
-		_tpl tpl
-	end
 
 	# == _login?
 	# check the current user whether it is existing in session
 	#
 	# == Argument
 	# string, the unknown user will be redirect to the path
-	def _login? redirect_path = nil
+	def _login? redirect_url = nil
 		info = _user
-		redirect_path = @_path[:login] if redirect_path == nil
-		if info[:uid] < 1 and request.path != redirect_path
+		redirect_url ||= _var(:login, :page)
+		if info[:uid] < 1 and request.path != redirect_url
 			#response.set_cookie "ref_url", :value => request.path, :path => "/"
 			@qs[:come_from] = request.path
-			redirect _url2(redirect_path)
+			redirect _url2(redirect_url)
 		else
 			#update the session time
 			_session_update info[:sid], info[:uid]
@@ -102,7 +105,8 @@ helpers do
 		infos
 	end
 
-	def _logout return_url = @_path[:after_login]
+	def _logout return_url = nil
+		return_url ||= _var(:after_login, :page)
 		sid = request.cookies['sid']
 		#remove from client
 		response.set_cookie "sid", :value => "", :path => "/"
@@ -123,7 +127,13 @@ helpers do
 				sid = Digest::SHA1.hexdigest(name + Time.now.to_s)
 
 				#set sid to client cookie
-				response.set_cookie "sid", :value => sid, :path => "/"
+				if params[:rememberme] == 'yes'
+					expires = Time.now + 3600*24*_var(:timeout_of_login, :system).to_i
+					response.set_cookie "sid", :value => sid, :path => "/", :expires => expires
+				else
+					response.set_cookie "sid", :value => sid, :path => "/"
+				end
+
 
 				#set sid at database
 				_session_create sid, ds.get(:uid)
@@ -139,7 +149,6 @@ helpers do
 	end
 
 	def _user_edit f
-
 		_throw L[:'no user id'] unless f.include? :uid
 		uid = f[:uid].to_i
 
@@ -158,7 +167,6 @@ helpers do
 
 			DB[:_user].filter(:uid => uid).update(update_fields)
 		end
-
 	end
 
 	#check the user by name , if existing, return uid, others is 0

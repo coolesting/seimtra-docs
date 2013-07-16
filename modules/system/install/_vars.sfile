@@ -2,8 +2,9 @@ skey=level
 sval=10
 tag=system
 
-skey=home_page
-sval=/_index
+skey=timeout_of_login
+sval=7
+description=default is 7 days
 tag=system
 
 skey=administratorlevel
@@ -49,3 +50,19 @@ tag=document
 skey=allow_register
 sval=yes
 tag=user
+
+skey=home
+sval=/_index
+tag=page
+
+skey=login
+sval=/_login
+tag=page
+
+skey=after_login
+sval=/
+tag=page
+
+skey=register
+sval=/_register
+tag=page

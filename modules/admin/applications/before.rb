@@ -1,6 +1,6 @@
 before '/admin/*' do
 
-	_login? settings.home_page
+	_login? _var(:home, :page)
 	_level? _var(:administratorlevel, :system)
 
 	@t[:title] 	= L[:'welcome to administrator page']

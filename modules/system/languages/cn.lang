@@ -1,4 +1,5 @@
 login=登录
+register=注册
 logout=退出
 salt=密号
 pawd=密码
@@ -22,5 +23,5 @@ the register is closed=注册已关闭
 account=帐号
 level=等级
 enter=进入
-i am old friend=我是老用户
-i am a new one, this is the first time to log=我是新用户， 这是我第一次登录
+rememberme=记住我的登录状态
+submit=提交

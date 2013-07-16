@@ -37,11 +37,4 @@ before do
 		response.set_cookie 'msg', :value => '', :path => '/'
 	end
 
-	@_tag 					= nil
-	@_path					= {}
-
-	@_path[:item]			= request.path.split '/'
-	@_path[:login]			= '/_login'
-	@_path[:after_login] 	= settings.home_page
-
 end

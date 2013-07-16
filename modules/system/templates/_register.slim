@@ -1,20 +1,17 @@
 #user_login
 	form action="#{_url2('/_login')}" method="post"
-		p : h2 = L[:login]
+		p : h2 = L[:register]
 		p : label = L[:account]
 		p : input type="text" name="name" required="required" placeholder="#{L[:username]}"
 
 		p : label = L[:password]
 		p : input type="password" name="pawd" required="required" placeholder="#{L[:password]}"
 
-		p : input.button type="submit" value="#{L[:login]}"
+		p : input.button type="submit" value="#{L[:submit]}"
 		p
 			input type="checkbox" name="rememberme" id="rememberme" value="yes"
 			label.font13 for="rememberme" = L[:rememberme]
-
-		- if _var(:allow_register, :user) == 'yes'
-			p.font13
-				a href="#{_url(_var(:register, :page))}" = L[:register]
+			input type="hidden" name="userstate" value="new"
 
 css:
 
