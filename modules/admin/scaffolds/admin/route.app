@@ -89,7 +89,6 @@ helpers do
 		redirect back
 	end
 
-
 end
 
 data :<%=@t[:file_name]%> do<%

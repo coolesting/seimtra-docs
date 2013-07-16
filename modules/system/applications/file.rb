@@ -17,17 +17,18 @@ end
 
 #get file list by type
 get '/_file/type/:type' do
-	ds = DB[:_file].filter(:uid => _user[:uid])
 	page_size = 20
 	page_curr = (@qs.include?(:page_curr) and @qs[:page_curr].to_i > 0) ? @qs[:page_curr].to_i : 1
 
-	unless ds.empty?
-		if params[:type] == 'all'
-			ds = ds.select(:fid, :name, :type).reverse_order(:fid)
-		elsif params[:type] == 'picture'
-			ds = ds.select(:fid, :name, :type).reverse_order(:fid)
-		end
+	#search condition
+	ds = DB[:_file].filter(:uid => _user[:uid])
+	if params[:type] == 'all'
+	elsif params[:type] == 'image'
+		ds = ds.where(Sequel.like(:type, "#{params[:type]}/%"))
+	end
 
+	unless ds.empty?
+		ds = ds.select(:fid, :name, :type).reverse_order(:fid)
 		Sequel.extension :pagination
 		result = ds.paginate(page_curr, page_size, ds.count)
 		page_count = result.page_count
