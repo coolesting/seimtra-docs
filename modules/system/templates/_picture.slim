@@ -67,10 +67,11 @@ javascript:
 							var page_bar = '';
 							$.each(data, function(index, item){
 								if (index == 0) {
-									page_bar = '<div class="clear right"><a class="ly_picture_view_flash" href="' + options.picture_path + '?page_curr=' + item.prev + '"><img src="/icons/prev.png" /></a><a class="ly_picture_view_flash" href="' + options.picture_path + '?page_curr=' + item.next + '" ><img src="/icons/next.png" /></a> ' + item.curr + ' / ' + item.size + '</div>';
+									//page bar
+									page_bar = '<div class="clear"><a class="ly_picture_view_flash" href="' + options.picture_path + '?page_curr=' + item.prev + '"><img src="/icons/prev.png" /></a><a class="ly_picture_view_flash" href="' + options.picture_path + '?page_curr=' + item.next + '" ><img src="/icons/next.png" /></a> ' + item.curr + ' / ' + item.size + '</div>';
 								}
 								else {
-									//var type = item.type.split('/')
+									//picture
 									datas.push('<img style="padding:' + options.img_pad + ';float:left;width:' + options.img_width + ';height:' + options.img_height + ';" src="' + options.file_path + item.fid + '" fid="' + item.fid + '" title="' + item.name + '"  />');
 								}
 							});

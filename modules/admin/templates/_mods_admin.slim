@@ -12,7 +12,7 @@ table.table
 		th : a href="#{_url(request.path, :order => 'author')}" = L[:author]
 		th : a href="#{_url(request.path, :order => 'version')}" = L[:version]
 		th : a href="#{_url(request.path, :order => 'description')}" = L[:description]
-		th : a href="#{_url(request.path, :order => 'dependence')}" = L[:dependence]
+		th : a href="#{_url(request.path, :order => 'dependon')}" = L[:dependon]
 		th : a href="#{_url(request.path, :order => 'created')}" = L[:created]
 	tbody
 		- _tagss = _kv(:_tags, :tid, :name)
@@ -27,7 +27,7 @@ table.table
 				td = row[:author]
 				td = row[:version]
 				td = row[:description]
-				td = row[:dependence]
+				td = row[:dependon]
 				td = row[:created]
 
 

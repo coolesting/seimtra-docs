@@ -97,9 +97,9 @@ helpers do
 			:name		=> '',
 			:email		=> '',
 			:author		=> '',
-			:version		=> '',
-			:description		=> '',
-			:dependence		=> '',
+			:version	=> '',
+			:description=> '',
+			:dependon	=> '',
 		}
 	end
 
@@ -137,10 +137,6 @@ helpers do
 
 		if fields.include?(:description)
 			_throw(L[:'the field cannot be empty '] + L[:'description']) if @f[:description].strip.size < 1
-		end
-
-		if fields.include?(:dependence)
-			_throw(L[:'the field cannot be empty '] + L[:'dependence']) if @f[:dependence].strip.size < 1
 		end
 
 	end
