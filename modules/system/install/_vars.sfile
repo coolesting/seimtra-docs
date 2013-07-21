@@ -59,6 +59,10 @@ skey=login
 sval=/_login
 tag=page
 
+skey=logout
+sval=/_logout
+tag=page
+
 skey=after_login
 sval=/
 tag=page
