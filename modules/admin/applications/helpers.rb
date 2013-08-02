@@ -22,7 +22,7 @@ helpers do
 	end
 
 	def _valid name = ''
-		Seimtra_vaild[name].map { |b| instance_eval(&b) } if Seimtra_vaild[name]
+		Svaild[name].map { |b| instance_eval(&b) } if Svaild[name]
 	end
 
 	#return the data by name
@@ -32,8 +32,8 @@ helpers do
 	#reval, returned value, include :normal
 	def _data name = '', reval = :normal
 		res = {}
-		if Seimtra_data[name]
-			res2 = Seimtra_data[name].map { |b| instance_eval(&b) }.inject(:merge)
+		if Sdata[name]
+			res2 = Sdata[name].map { |b| instance_eval(&b) }.inject(:merge)
 			unless res2.empty?
  				res2.each do | k, v |
 

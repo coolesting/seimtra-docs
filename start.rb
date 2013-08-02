@@ -1,11 +1,15 @@
 # please don't modify the file unless you know what are you doing.
 require 'seimtra/sbase'
 include Seimtra
-
+require 'seimtra/sfile'
 require './environment'
 
-templates = []
+Sconfig 	= Sfile.read 'Seimfile'
+templates 	= []
 applications = []
+Slayout 	= []
+Svalid 		= {}
+Sdata 		= {}
 
 if DB_connect == "closed"
 	puts "The datebase connection is closed."
@@ -20,7 +24,6 @@ if M.empty?
 	exit
 end
 
-Slayout = []
 M.each do | row |
 	if row[:status] == 1
 		#preprocess the templates loaded item
@@ -28,6 +31,12 @@ M.each do | row |
 
 		#preprocess the applications loaded routors
 		applications += Dir[settings.root + "/modules/#{row[:name]}/#{Sbase::Folders[:app]}/*.rb"]
+		if Sconfig[:status] == 'test' or Sconfig[:status] == 'development'
+			path = settings.root + "/modules/#{row[:name]}/#{Sconfig[:status]}"
+			if File.exist? path
+				applications += Dir["#{path}/*.rb"]
+			end
+		end
 
 		Slayout << row[:name] if File.exist? "#{settings.root}/modules/#{row[:name]}/#{Sbase::Folders[:tpl]}/#{row[:name]}_layout.slim"
 	end
@@ -40,15 +49,13 @@ helpers do
 	end
 end
 
-Seimtra_valid = {}
-Seimtra_data = {}
 module Sinatra
 	class Application < Base
 		def self.data name = '', &block
-			(Seimtra_data[name] ||= []) << block
+			(Sdata[name] ||= []) << block
 		end
 		def self.valid name = '', &block
-			(Seimtra_valid[name] ||= []) << block
+			(Svalid[name] ||= []) << block
 		end
 	end
 
