@@ -1,29 +1,35 @@
 form.form
 	p
-		a href="#{_url(request.path, :opt => 'form')}"
-			button.button = L[:create]
+		- if @t[:btnadd] == :enable
+			a href="#{_url(request.path, :opt => 'form')}"
+				button.button = L[:create]
 
 table.table
-	thead<% @t[:fields].each do | field | %><% origin = field; field = @t[:assoc][field][2] if @t[:assoc].has_key?(field) %>
-		th : a href="#{_url(request.path, :order => '<%=origin%>')}" = L[:<%=field%>]<% end %>
+	thead
+		- @t[:fields].each do | a |
+			th : a href="#{_url(request.path, :order => a)}" = L[a]
 		th
 		th
 	tbody<% unless @t[:assoc].empty?
 			@t[:assoc].each do | field, data | %>
-		- <%=data[0]%>s = _kv(:<%=data[0]%>, :<%=data[1]%>, :<%=data[2]%>)<% end %><% end %>
+		- if @t[:fields].include?(:<%=data[1]%>)
+			- <%=data[0]%>s = _kv(:<%=data[0]%>, :<%=data[1]%>, :<%=data[2]%>)<% end %><% end %>
 		- @<%=@t[:file_name]%>.each do | row |
 			tr<% @t[:fields].each do | field | 
 					if @t[:assoc].has_key? field
 						if @t[:htmls][field] == "checkbox"%>
-				td
-					- row[:<%=@t[:assoc][field][1]%>].split(".").each do | item |
-						label = <%=@t[:assoc][field][0]%>s[item.to_i]
-						label &nbsp;<% 
+				- if @t[:fields].include?(:<%=field%>)
+					td
+						- row[:<%=@t[:assoc][field][1]%>].split(".").each do | item |
+							label = <%=@t[:assoc][field][0]%>s[item.to_i]
+							label &nbsp;<% 
+							else %>
+				- if @t[:fields].include?(:<%=field%>)
+					td = <%=@t[:assoc][field][0]%>s[row[:<%=field%>]]<%
+							end
 						else %>
-				td = <%=@t[:assoc][field][0]%>s[row[:<%=field%>]]<%
-						end
-					else %>
-				td = row[:<%=field%>]<% end %><% end %>
+				- if @t[:fields].include?(:<%=field%>)
+					td = row[:<%=field%>]<% end %><% end %>
 				td
 					a href="#{_url(request.path, :opt => 'form', :<%=@t[:key_id]%> => row[:<%=@t[:key_id]%>])}"
 						img src="#{_public('/icons/edit.png')}"

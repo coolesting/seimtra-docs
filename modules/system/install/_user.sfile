@@ -1,5 +1,5 @@
-name=tester
-pawd=tester
+name=guest
+pawd=guest
 salt=ABCde
 level=1
 
@@ -11,4 +11,4 @@ level=99
 name=debug
 pawd=debug
 salt=h48d3
-level=1
+level=2

@@ -46,16 +46,12 @@ html
 									- unless @search.empty?
 										select name="sw"
 											- @search.each do | v |
-												option value="#{v}" = L[v.to_sym]
+												option value="#{v}" = L[v]
 									input.button type="submit" value="#{L[:search]}"
 
 				#footer.clear
 
-		== _inc(:_select)
-
 		javascript:
-
-			$('select').linyu_select();
 
 			$("#top_menu li").mouseover(function(){
 				$(".sub_menu").hide()

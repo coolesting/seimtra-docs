@@ -10,7 +10,7 @@ end
 
 helpers do
 
-	#get the form
+	#form view
 	def <%=@t[:file_name]%>_form fields = [], tpl = :<%=@t[:file_name]%>_form, layout = :layout
 		@t[:title] 	= L[:'edit the '] + L[:'<%=@t[:file_name]%>']
 		id 			= @qs.include?(:<%=@t[:key_id]%>) ? @qs[:<%=@t[:key_id]%>].to_i : 0
@@ -23,7 +23,7 @@ helpers do
 		_tpl tpl, layout
 	end
 
-	#get the view of admin
+	#admin view
 	def <%=@t[:file_name]%>_admin fields = [], tpl = :<%=@t[:file_name]%>_admin, layout = :layout
 		#edit content
 		if @qs[:opt] == 'form'
@@ -35,6 +35,7 @@ helpers do
 
 		#display view
 		else
+			@t[:fields] = fields.empty? ? _data(:<%=@t[:file_name]%>).keys : fields
 			ds = DB[:<%=@t[:table_name]%>]
 
 			#search content
@@ -54,7 +55,7 @@ helpers do
 		end
 	end
 
-	#submit the data
+	#submit data
 	def <%=@t[:file_name]%>_submit fields = [], redirect_path = request.path
 		id 	= @qs.include?(:<%=@t[:key_id]%>) ? @qs[:<%=@t[:key_id]%>].to_i : 0
 		if id == 0
@@ -77,7 +78,7 @@ helpers do
 		redirect redirect_path unless redirect_path == nil
 	end
 
-	#remove the record
+	#remove record
 	def <%=@t[:file_name]%>_rm id = 0
 		if id == 0 and @qs.include?(:<%=@t[:key_id]%>)
 			id = @qs[:<%=@t[:key_id]%>].to_i

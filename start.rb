@@ -40,15 +40,15 @@ helpers do
 	end
 end
 
-V = {}
-D = {}
+Seimtra_valid = {}
+Seimtra_data = {}
 module Sinatra
 	class Application < Base
 		def self.data name = '', &block
-			(D[name] ||= []) << block
+			(Seimtra_data[name] ||= []) << block
 		end
 		def self.valid name = '', &block
-			(V[name] ||= []) << block
+			(Seimtra_valid[name] ||= []) << block
 		end
 	end
 
