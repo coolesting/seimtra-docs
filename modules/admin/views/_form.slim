@@ -1,0 +1,53 @@
+form.form action="#{_url2(request.path)}" method="post" id="editform"
+	p
+		input.button.mr10 type="submit" value="#{L[:save]}"
+		- if @t[:btnback] == :enable
+			a href="#{_url(request.path)}"
+				button.button = L[:return]
+
+	- load_ly_picture = false
+	- load_ly_editor = false
+	- @t[:fields].each do | k |
+		- fieldclass = @data[k][:class] if @data[k].has_key?(:class)
+		- unless @data[k][:form] == :hide
+			- if @data[k].has_key?(:display_name)
+				p : label = L[@data[k][:display_name]]
+			- else
+				p : label = L[k]
+		- if @data[k][:form] == :select
+			- assoc_data = _kv(@data[k][:assoc_table], @data[k][:assoc_field], @data[k][:assoc_name])
+			p : select name="#{k}" 
+				- assoc_data.each do | ak,av |
+					- if @f[k] == ak
+						option selected="selected" value="#{ak}" = av
+					- else
+						option value="#{ak}" = av
+		- elsif @data[k][:form] == :radio
+			- assoc_data = _kv(@data[k][:assoc_table], @data[k][:assoc_field], @data[k][:assoc_name])
+			p
+				- assoc_data.each do | ak,av |
+					- if @f[k] == ak
+						input id="radio_#{ak}" type="radio" name="#{k}" value="#{ak}" checked='checked'
+						label.mr10.pointer for="radio_#{ak}" = av
+					- else
+						input id="radio_#{ak}" type="radio" name="#{k}" value="#{ak}"
+						label.mr10.pointer for="radio_#{ak}" = av
+		- elsif @data[k][:form] == :checkbox
+		- elsif @data[k][:form] == :img
+			- load_ly_picture = true
+			p : input class="#{fieldclass} ly_picture" type="number" name="#{k}" value="#{@f[k]}"
+		- elsif @data[k][:form] == :number
+			p : input class="#{fieldclass}" type="number" name="#{k}" value="#{@f[k]}"
+		- elsif @data[k][:form] == :hide
+			p : input class="#{fieldclass}" type="hidden" name="#{k}" value="#{@f[k]}"
+		- elsif @data[k][:form] == :textarea
+			p : textarea class="#{fieldclass}" name="#{k}" required="required" = @f[k]
+		- else
+			p : input class="#{fieldclass}" type="text" name="#{k}" required="required" value="#{@f[k]}"
+
+	- unless @t[:formcss] == ''
+		link rel='stylesheet' type='text/css' href='#{@t[:formcss]}'
+
+	- if load_ly_picture == true
+		== _inc(:_picture)
+

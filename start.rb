@@ -20,17 +20,25 @@ else
 end
 
 if M.empty?
-	puts "The loading module cannot be empty."
+	puts "All modules is closed."
 	exit
 end
 
+#marks the file path that would be loaded soon
 M.each do | row |
+	#status 1 is opend
 	if row[:status] == 1
-		#preprocess the templates loaded item
+		#view file
 		templates << settings.root + "/modules/#{row[:name]}/#{Sbase::Folders[:tpl]}"
 
-		#preprocess the applications loaded routors
+		#logic file
 		applications += Dir[settings.root + "/modules/#{row[:name]}/#{Sbase::Folders[:app]}/*.rb"]
+
+		#data file
+		path = settings.root + "/modules/#{row[:name]}/#{Sbase::Folders[:store]}/data.rb"
+		applications << path if File.exist? path
+
+		#test file
 		if Sconfig[:status] == 'test' or Sconfig[:status] == 'development'
 			path = settings.root + "/modules/#{row[:name]}/#{Sconfig[:status]}"
 			if File.exist? path
@@ -38,10 +46,12 @@ M.each do | row |
 			end
 		end
 
+		#layout file
 		Slayout << row[:name] if File.exist? "#{settings.root}/modules/#{row[:name]}/#{Sbase::Folders[:tpl]}/#{row[:name]}_layout.slim"
 	end
 end
 
+#set the custom template
 set :views, templates
 helpers do
 	def find_template(views, name, engine, &block)
@@ -49,6 +59,7 @@ helpers do
 	end
 end
 
+#store block of data and valid
 module Sinatra
 	class Application < Base
 		def self.data name = '', &block
@@ -64,7 +75,7 @@ module Sinatra
 	end
 end
 
-#loads language statement of template
+#caches language statement
 class L
 	@@options = {}
 	class << self
@@ -81,8 +92,11 @@ DB[:_lang].each do | row |
 	L[row[:label]] = row[:content]
 end
 
-#loads the files of application
+#loads the files that would be run
 applications.each do | route |
 	require route
 end
 
+helpers do
+	include Helpers
+end

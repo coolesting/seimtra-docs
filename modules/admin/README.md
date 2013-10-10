@@ -1,3 +1,4 @@
 ## INTRODUCTION
 
-A background administration module that has a scaffold to create some administrator files for database table
+A background administration module that provides a view interface and some helpers to admin the web application.
+

@@ -12,6 +12,7 @@ ul li {list-style-type: none;}
 .width100 {width: 100%;}
 .width99 {width: 99%;}
 .hide {display: none;}
+.pointer {cursor:pointer;}
 .button {width: 100px;}
 .page_bar {margin: 10px 0;}
 .page_bar a {padding: 3px; margin-right: 5px; color: black;}
@@ -28,5 +29,5 @@ ul li {list-style-type: none;}
 }
 .form p {margin-bottom: 10px;}
 .form textarea {width: 500px; height: 200px;}
-.form input[type="text"] {width: 400px;}
+.form input[type="text"] {width: 500px;}
 

@@ -1,0 +1,48 @@
+form.form action="#{request.path}" method="get" id='adminform'
+	p
+		- if @t.include?(:search)
+			input.mr10 type="search" name="sc" placeholder="#{L[:keywords]}" value="#{@qs[:sc]}"
+			select.mr10 name="sw"
+				option value='' -- #{L[:default]} --
+				- @t[:search].each do | k |
+					- if @data[k].has_key?(:display_name)
+						- if @qs[:sw] == k.to_s
+							option selected="selected" value="#{k}" = L[@data[k][:display_name]]
+						- else
+							option value="#{k}" = L[@data[k][:display_name]]
+					- else
+						- if @qs[:sw] == k.to_s
+							option selected="selected" value="#{k}" = L[k]
+						- else
+							option value="#{k}" = L[k]
+			input.button.mr10 type="submit" value="#{L[:display]}"
+
+table.table
+	thead
+		- @t[:fields].each do | k |
+			th
+				- if @data[k].has_key?(:display_name)
+					a href="#{_url(request.path, :order => k)}" = L[@data[k][:display_name]]
+				- else
+					a href="#{_url(request.path, :order => k)}" = L[k]
+	tbody
+		- @ds.each do | row |
+			tr
+				- row.each do | k,v |
+					- if @t[:fields].include?(k)
+						- if @data[k][:form] == :img
+							td : img.img src="#{_file(v)}"
+						- elsif @data[k].has_key?(:assoc_table)
+							- assoc_data = _kv(@data[k][:assoc_table], @data[k][:assoc_field], @data[k][:assoc_name])
+							td = assoc_data[v]
+						- else
+							td = v
+
+	- unless @t[:viewcss] == ''
+		link rel='stylesheet' type='text/css' href='#{@t[:viewcss]}'
+
+- if @page_count > 1
+	p.page_bar
+		- for i in 1..@page_count
+			- page_focus = i == @page_curr ? "page_focus" : ""
+			span class="#{page_focus}" : a href="#{_url2(request.path, :page_curr => i)}" = i
